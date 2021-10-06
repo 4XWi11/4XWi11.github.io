@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>latex</title>
+    <url>/2021/10/05/latex/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>$$<br>c\equiv m^e\ mod\ n<br>$$</p>
+<p>$m\equiv c^d\ mod\ n$</p>
+]]></content>
+      <categories>
+        <category>关于操作的一些问题</category>
+      </categories>
+      <tags>
+        <tag>hexo支持latex</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>WP</title>
     <url>/2021/10/06/WP/</url>
     <content><![CDATA[<h1 id="人在寝室坐题从天上来"><a href="#人在寝室坐题从天上来" class="headerlink" title="人在寝室坐题从天上来"></a>人在寝室坐题从天上来</h1><p>今天东北的师傅给了他们那边比赛的三密码道题，期间看了第一道，求出n之后就没思路了；还有两道赛后复现的，都是AES.CBC，第二道从尚师傅那里获得提示，跳开了CBC模式本身，攻击点在pad；第三道pad可以利用的点被抹除了，并给了一个看似需要攻击的地方，但攻击点却在CBC模式本身</p>
 <p>好了，我宣布尚师傅最强，实验室密码顶梁柱，我就是尚师傅的WP手，专门记录尚师傅出过的题目</p>
 <p>以及被IO支配的恐惧</p>
-<p>[toc]</p>
+<span id="more"></span>
+
+<!-- toc -->
+
 <h2 id="Yusa的日常生活—美国大选（recuring）"><a href="#Yusa的日常生活—美国大选（recuring）" class="headerlink" title="Yusa的日常生活—美国大选（recuring）"></a>Yusa的日常生活—美国大选（recuring）</h2><p>一开始只给了个nc，在Your vote后面输入一个十进制的数字，尝试复制上面的send过去，得到如下</p>
 <p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210908123225549.png" alt="image-20210908123225549"></p>
 <p>可以通过尝试看出e=3（依次send<code>1</code>,<code>2</code>,<code>3</code>这样一些比较小的数，得到的是各自立方转字节后的结果），猜测底层和RSA有关</p>
@@ -111,23 +129,12 @@
       </tags>
   </entry>
   <entry>
-    <title>latex</title>
-    <url>/2021/10/05/latex/</url>
-    <content><![CDATA[<p>$$<br>c\equiv m^e\ mod\ n<br>$$</p>
-<p>$m\equiv c^d\ mod\ n$</p>
-]]></content>
-      <categories>
-        <category>关于操作的一些问题</category>
-      </categories>
-      <tags>
-        <tag>hexo支持latex</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>test.md</title>
     <url>/2021/10/05/test-md/</url>
     <content><![CDATA[<h1 id="如何用hexo搭建博客"><a href="#如何用hexo搭建博客" class="headerlink" title="如何用hexo搭建博客"></a>如何用hexo搭建博客</h1><p>马上就能拥有自己的博客了，开不开心，激不激动；我用的是ubuntu18，处于windows的子系统</p>
 <p>更多信息可以在<a href="https://hexo.io/zh-cn/docs/">官网文档</a>查询，此外还看了<a href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">b站up主的超级良心视频</a></p>
+<span id="more"></span>
+
 <ul>
 <li><a href="#%E5%A6%82%E4%BD%95%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2">如何用hexo搭建博客</a><ul>
 <li><a href="#%E5%AE%89%E8%A3%85%E5%87%86%E5%A4%87">安装准备</a><ul>
