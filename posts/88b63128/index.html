@@ -44,7 +44,7 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-b88cacaf.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-d388a46f.png">
 <meta property="article:published_time" content="2021-10-07T16:40:17.000Z">
-<meta property="article:modified_time" content="2021-10-07T16:45:20.993Z">
+<meta property="article:modified_time" content="2021-10-07T16:51:41.524Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="斐波那契数列和RSA">
 <meta name="twitter:card" content="summary">
@@ -279,7 +279,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-10-08 00:40:17 / 修改时间：00:45:20" itemprop="dateCreated datePublished" datetime="2021-10-08T00:40:17+08:00">2021-10-08</time>
+      <time title="创建时间：2021-10-08 00:40:17 / 修改时间：00:51:41" itemprop="dateCreated datePublished" datetime="2021-10-08T00:40:17+08:00">2021-10-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -369,7 +369,7 @@
 <img alt="20210529 DASCTFXBUUOJ五月大联动-083610fe.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-083610fe.png" width="" height="" >
 
 <p>简单的推理如下，</p>
-<p>已知（注意这里的$F(q_i)并不是完全分解$）<br>$$<br>\begin{cases}<br>  c_1=\ m^e\ mod\ (F(p_1)\times F(q_1))\\<br>  c_2=\ m^e\ mod\ (F(p_2)\times F(q_2))\\<br>  c_3=\ m^e\ mod\ (F(p_3)\times F(q_3))<br>\end{cases}<br>$$<br>由同余的性质可知，在模$F(p_i)$的情况下也是成立的（吼吼吼，这可是对一个密码学菜鸡（wǒ）很重要的数论性质，在文末强调一下吧，<a href="#%E4%B8%80%E4%B8%AA%E5%BE%88%E9%87%8D%E8%A6%81%E7%9A%84%E6%80%A7%E8%B4%A8%E4%BB%A5%E5%8F%8A%E7%AE%80%E6%98%93%E8%AF%81%E6%98%8E">传送门</a>）<br>$$<br>\begin{cases}<br>  c_1=\ m^e\ mod\ F(p_1)\\<br>  c_2=\ m^e\ mod\ F(p_2)\\<br>  c_3=\ m^e\ mod\ F(p_3)<br>\end{cases}<br>$$<br>这时的解密就是，为了避免混淆，我这里完全分成三个加密了，它们都是类似的，举第一个为例<br>$$<br>m_1=\ c_1^{d_1}\ mod\ F(p_1)<br>$$<br>而$m_1$都满足<br>$$<br>m\equiv\ m_1\ mod\ F(p_1)<br>$$<br>但是因为$m_1$求出来太小啦（毕竟是在模$F(p_1)$下，原来可是在模$F(p_1)\times F(q_1)$下的），如果m比任意的$F(p_i)$都大，那么求出来的$m_i$都只不过是m在模各自$F(p_i)$的一个剩余类罢了，这样解出来的$m_i$就是不对的</p>
+<p>已知（注意这里的$F(q_i)$并不是完全分解）<br>$$<br>\begin{cases}<br>  c_1=\ m^e\ mod\ F(p_1)\times F(q_1)\\<br>  c_2=\ m^e\ mod\ F(p_2)\times F(q_2)\\<br>  c_3=\ m^e\ mod\ F(p_3)\times F(q_3)<br>\end{cases}<br>$$<br>由同余的性质可知，在模$F(p_i)$的情况下也是成立的（吼吼吼，这可是对一个密码学菜鸡（wǒ）很重要的数论性质，在文末强调一下吧，<a href="#%E4%B8%80%E4%B8%AA%E5%BE%88%E9%87%8D%E8%A6%81%E7%9A%84%E6%80%A7%E8%B4%A8%E4%BB%A5%E5%8F%8A%E7%AE%80%E6%98%93%E8%AF%81%E6%98%8E">传送门</a>）<br>$$<br>\begin{cases}<br>  c_1=\ m^e\ mod\ F(p_1)\\<br>  c_2=\ m^e\ mod\ F(p_2)\\<br>  c_3=\ m^e\ mod\ F(p_3)<br>\end{cases}<br>$$<br>这时的解密就是，为了避免混淆，我这里完全分成三个加密了，它们都是类似的，举第一个为例<br>$$<br>m_1=\ c_1^{d_1}\ mod\ F(p_1)<br>$$<br>而$m_1$都满足<br>$$<br>m\equiv\ m_1\ mod\ F(p_1)<br>$$<br>但是因为$m_1$求出来太小啦（毕竟是在模$F(p_1)$下，原来可是在模$F(p_1)\times F(q_1)$下的），如果m比任意的$F(p_i)$都大，那么求出来的$m_i$都只不过是m在模各自$F(p_i)$的一个剩余类罢了，这样解出来的$m_i$就是不对的</p>
 <p>那应该怎么办呢？</p>
 <h4 id="中国剩余定理yyds"><a href="#中国剩余定理yyds" class="headerlink" title="中国剩余定理yyds"></a>中国剩余定理yyds</h4><p>这就要引入中国剩余定理CRT这个概念了，它的原本是用来解同余方程的，但是求出来的解是在模所有模数之积的情况下的，所以假设所有模数之积为N，只要明文m是在$\mathbb{Z_N}$中的，就可以做到——完全求解；但是如果不成立只能求出一个与m在模N同余的剩余类，并不是真的解</p>
 <p>这就是我们的思路，因为我们手头上就只有三组解，可能将模数给扩大到$F(p_1)\times F(p_2)\times F(p_3)$，如果凑巧，m比这个乘积要小，就能求出来了，如果还不行，说明题目给的m比较大，也就是flag比较长，只能继续分解$F(N_i)$，构造更多同余方程，直到模数之积大于flag转变成的m</p>
@@ -507,7 +507,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">224k</span>
+    <span title="站点总字数">225k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
