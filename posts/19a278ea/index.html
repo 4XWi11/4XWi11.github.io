@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/title.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="前景提要  在签到2021TCTF时看到一篇WP，是标题所述比赛的easy_RSA，本来只是用一下 1python2 -m primefac -vs -m&#x3D;p+1 XXXXX  尝试分解那个迷之模数，当然以失败告终，但是在尚师傅的指导下，sage和ubuntu子系统觉醒出了更强大的组合 然后从这篇WP出发，尝试和组里的师傅们复现下这场比赛的Crypto部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20200219 V&amp;N2020公开赛Crypto方向复现">
+<meta property="og:url" content="https://4xwi11.github.io/posts/19a278ea/index.html">
+<meta property="og:site_name" content="4XWi11的博客">
+<meta property="og:description" content="前景提要  在签到2021TCTF时看到一篇WP，是标题所述比赛的easy_RSA，本来只是用一下 1python2 -m primefac -vs -m&#x3D;p+1 XXXXX  尝试分解那个迷之模数，当然以失败告终，但是在尚师傅的指导下，sage和ubuntu子系统觉醒出了更强大的组合 然后从这篇WP出发，尝试和组里的师傅们复现下这场比赛的Crypto部分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210705194105634.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210705200158602.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706144819994.png">
+<meta property="og:image" content="https://i.imgur.com/KftFFd3.gif">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706161649767.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706162410515.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706162852340.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706221554229.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706221821180.png">
+<meta property="article:published_time" content="2021-10-07T07:57:18.000Z">
+<meta property="article:modified_time" content="2021-10-07T09:00:08.562Z">
+<meta property="article:author" content="4XWi11">
+<meta property="article:tag" content="光滑数">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210705194105634.png">
+
+
+<link rel="canonical" href="https://4xwi11.github.io/posts/19a278ea/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/19a278ea/","path":"posts/19a278ea/","title":"20200219 V&N2020公开赛Crypto方向复现"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20200219 V&N2020公开赛Crypto方向复现 | 4XWi11的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">4XWi11的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#20200219-V-amp-N2020%E5%85%AC%E5%BC%80%E8%B5%9BCrypto%E6%96%B9%E5%90%91%E5%A4%8D%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">20200219 V&amp;N2020公开赛Crypto方向复现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CRT"><span class="nav-number">1.0.1.</span> <span class="nav-text">CRT</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fast"><span class="nav-number">1.0.2.</span> <span class="nav-text">Fast</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A0%E5%AF%86%E8%A7%A3%E5%AF%86%E5%8E%9F%E7%90%86"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">加密解密原理</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#easy-RSA"><span class="nav-number">1.0.3.</span> <span class="nav-text">easy_RSA</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%89%E6%BB%91%E6%95%B0"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">光滑数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Backtrace"><span class="nav-number">1.0.4.</span> <span class="nav-text">Backtrace</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="4XWi11"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">4XWi11</p>
+  <div class="site-description" itemprop="description">CTF菜鸡自进阶</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://lazzzaro.github.io/categories/" title="https:&#x2F;&#x2F;lazzzaro.github.io&#x2F;categories&#x2F;" rel="noopener" target="_blank">Lazzaro</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/4XWi11" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/19a278ea/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20200219 V&N2020公开赛Crypto方向复现
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-07 15:57:18 / 修改时间：17:00:08" itemprop="dateCreated datePublished" datetime="2021-10-07T15:57:18+08:00">2021-10-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>23k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>21 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <blockquote>
+<p>前景提要</p>
+</blockquote>
+<p>在签到2021TCTF时看到一篇WP，是标题所述比赛的easy_RSA，本来只是用一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 -m primefac -vs -m=p+<span class="number">1</span> XXXXX</span><br></pre></td></tr></table></figure>
+
+<p>尝试分解那个迷之模数，当然以失败告终，但是在尚师傅的指导下，sage和ubuntu子系统觉醒出了更强大的组合</p>
+<p>然后从这篇WP出发，尝试和组里的师傅们复现下这场比赛的Crypto部分</p>
+<span id="more"></span>
+
+<h1 id="20200219-V-amp-N2020公开赛Crypto方向复现"><a href="#20200219-V-amp-N2020公开赛Crypto方向复现" class="headerlink" title="20200219 V&amp;N2020公开赛Crypto方向复现"></a>20200219 V&amp;N2020公开赛Crypto方向复现</h1><h3 id="CRT"><a href="#CRT" class="headerlink" title="CRT"></a>CRT</h3><blockquote>
+<p>题目描述</p>
+</blockquote>
+<p>Do you know the Chinese Remainder Theorem sometimes may not only have one solution?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">ms = [getRandomNBitInteger(<span class="number">128</span>) <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">8</span>)]</span><br><span class="line">p = reduce(<span class="keyword">lambda</span> x, y: x*y, ms)</span><br><span class="line">x = getRandomRange(<span class="number">1</span>, p)</span><br><span class="line">cs = [x % m <span class="keyword">for</span> m <span class="keyword">in</span> ms]</span><br><span class="line"></span><br><span class="line">flag = <span class="string">&quot;flag&#123;&quot;</span> + hashlib.sha256(<span class="built_in">str</span>(x).encode()).hexdigest() + <span class="string">&quot;&#125;&quot;</span></span><br><span class="line"><span class="keyword">assert</span>(<span class="string">&quot;4b93deeb&quot;</span> <span class="keyword">in</span> flag)</span><br><span class="line"></span><br><span class="line"><span class="comment"># ms = [284461942441737992421992210219060544764, 218436209063777179204189567410606431578, 288673438109933649911276214358963643204, 239232622368515797881077917549177081575, 206264514127207567149705234795160750411, 338915547568169045185589241329271490503, 246545359356590592172327146579550739141, 219686182542160835171493232381209438048]</span></span><br><span class="line"><span class="comment"># cs = [273520784183505348818648859874365852523, 128223029008039086716133583343107528289, 5111091025406771271167772696866083419, 33462335595116820423587878784664448439, 145377705960376589843356778052388633917, 128158421725856807614557926615949143594, 230664008267846531848877293149791626711, 94549019966480959688919233343793910003]</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解题思路</p>
+</blockquote>
+<p>题目很简单，但是自己饶了好多弯</p>
+<p>首先，一看，这不就是构造了8个同余式吗，直接CRT一把梭；结果不对</p>
+<p>然后我瞟了一眼网上的WP，看到不互素后就匆匆折返。确实忘了，中国剩余定理使用的条件是模数不互素，显然ms里的数肯定存在着相同的公因子；于是我在sage中分解了这8个数（这里写脚本我是用网上找来的CRT函数的，它会检查模数是否是互质，但其实sage里帮你自动处理了）</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210705194105634.png" alt="image-20210705194105634"></p>
+<p>然后在保证模数尽可能大的原则下，写完了脚本。但结果依旧不对，并且出来的x是1006位，由题目可知x是属于$[1, 2^{1024}]$的，所以显然x是落在了$[2^{1007},2^{1024}]$这段区间。总之模数不够</p>
+<p>不过，这也不是最困扰我的地方，与题目提示不同，我第一个想到的是，扩大模数，构造如下的同余方程<br>$$<br>\begin{cases}<br>x\equiv cs_1\ (mod\ ms_1)\\<br>x\equiv cs_2\ (mod\ ms_2)\\<br>\vdots\qquad \vdots \qquad\qquad \vdots\\<br>x\equiv cs_8\ (mod\ ms_8)\\<br>x\equiv cs_9\ (mod\ ms_9)<br>\end{cases}<br>$$<br>其中ms9是一个随机20位的素数，因为1007+20差不多就可以达到1024的大小</p>
+<blockquote>
+<p>编写脚本</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">ms = [<span class="number">284461942441737992421992210219060544764</span>, <span class="number">218436209063777179204189567410606431578</span>, <span class="number">288673438109933649911276214358963643204</span>, <span class="number">239232622368515797881077917549177081575</span>, <span class="number">206264514127207567149705234795160750411</span>, <span class="number">338915547568169045185589241329271490503</span>, <span class="number">246545359356590592172327146579550739141</span>, <span class="number">219686182542160835171493232381209438048</span>]</span><br><span class="line">cs = [<span class="number">273520784183505348818648859874365852523</span>, <span class="number">128223029008039086716133583343107528289</span>, <span class="number">5111091025406771271167772696866083419</span>, <span class="number">33462335595116820423587878784664448439</span>, <span class="number">145377705960376589843356778052388633917</span>, <span class="number">128158421725856807614557926615949143594</span>, <span class="number">230664008267846531848877293149791626711</span>, <span class="number">94549019966480959688919233343793910003</span>]</span><br><span class="line"></span><br><span class="line">new_ms = copy.deepcopy(ms)</span><br><span class="line">my_ms = getPrime(<span class="number">20</span>)</span><br><span class="line">new_ms.append(my_ms)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(my_ms):</span><br><span class="line">    new_cs = copy.deepcopy(cs)</span><br><span class="line">    new_cs.append(i)</span><br><span class="line">    x = crt(new_cs, new_ms)</span><br><span class="line">    flag = <span class="string">&quot;flag&#123;&quot;</span> + hashlib.sha256(<span class="built_in">str</span>(x).encode()).hexdigest() + <span class="string">&quot;&#125;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;4b93deeb&#x27;</span> <span class="keyword">in</span> flag:</span><br><span class="line">        <span class="built_in">print</span>(flag)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p>再在该文件位置打开cmd，进入子系统，打开sage，输入</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">load(&quot;脚本文件名&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210705200158602.png" alt="image-20210705200158602"></p>
+<p>就直接出来了，省去了粘贴换行的一些琐碎</p>
+<p><strong>还有一点需要注意，在做这道题时最困扰我的是：浅拷贝。显然上面的脚本中，你可以看到我用了深拷贝的库，因为如果换成=赋值语句，你会印象深刻；除了debug意识淡薄了，也一度怀疑是不是自己对CRT还有理解偏差的地方</strong></p>
+<blockquote>
+<p>其他师傅的思路</p>
+</blockquote>
+<p>虽然这样做也无可厚非，但是还是没有能精确get到出题人的意思；什么时候才能像尚师傅一样做出题人肚子里的小蛔虫啊（茶）</p>
+<p>最直接的思路应该是，CRT解出来的其实蕴含了一系列的解，其通式可以写成<br>$$<br>{kM+\sum_{i=1}^na_it_iM_i;\ k\in\mathbb{Z} }<br>$$<br>所以只要用CRT解出来x，然后爆破k就好，因为确实比较接近，上下两种方法的复杂度是同一级别的</p>
+<p>当然上述通式的M是不互素的模数的积，贴一下脚本，不愧是尚师傅</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"></span><br><span class="line">ms = [<span class="number">284461942441737992421992210219060544764</span>, <span class="number">218436209063777179204189567410606431578</span>, <span class="number">288673438109933649911276214358963643204</span>, <span class="number">239232622368515797881077917549177081575</span>, <span class="number">206264514127207567149705234795160750411</span>, <span class="number">338915547568169045185589241329271490503</span>, <span class="number">246545359356590592172327146579550739141</span>, <span class="number">219686182542160835171493232381209438048</span>]</span><br><span class="line">cs = [<span class="number">273520784183505348818648859874365852523</span>, <span class="number">128223029008039086716133583343107528289</span>, <span class="number">5111091025406771271167772696866083419</span>, <span class="number">33462335595116820423587878784664448439</span>, <span class="number">145377705960376589843356778052388633917</span>, <span class="number">128158421725856807614557926615949143594</span>, <span class="number">230664008267846531848877293149791626711</span>, <span class="number">94549019966480959688919233343793910003</span>]</span><br><span class="line">p = reduce(<span class="keyword">lambda</span> xx, yy: lcm(xx, yy), ms)</span><br><span class="line"></span><br><span class="line">x = crt(cs, ms)</span><br><span class="line">k = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    xx = k*p + x</span><br><span class="line">    k += <span class="number">1</span></span><br><span class="line">    flag = <span class="string">&quot;flag&#123;&quot;</span> + hashlib.sha256(<span class="built_in">str</span>(xx).encode()).hexdigest() + <span class="string">&quot;&#125;&quot;</span></span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;4b93deeb&quot;</span> <span class="keyword">in</span> flag:</span><br><span class="line">        <span class="built_in">print</span>(flag)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Fast"><a href="#Fast" class="headerlink" title="Fast"></a>Fast</h3><blockquote>
+<p>题目描述</p>
+</blockquote>
+<p>This is a modified RSA scheme that once proposed at a cryptography conference to achieve faster decryption. But, there seems something wrong with it.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">1024</span>)</span><br><span class="line">q = getPrime(<span class="number">1024</span>)</span><br><span class="line">N = p * q</span><br><span class="line"></span><br><span class="line">g, r1, r2 = [getRandomRange(<span class="number">1</span>, N) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>)]</span><br><span class="line">g1 = <span class="built_in">pow</span>(g, r1 * (p-<span class="number">1</span>), N)</span><br><span class="line">g2 = <span class="built_in">pow</span>(g, r2 * (q-<span class="number">1</span>), N)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span>(<span class="params">m</span>):</span></span><br><span class="line">    s1, s2 = [getRandomRange(<span class="number">1</span>, N) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>)]</span><br><span class="line">    c1 = (m * <span class="built_in">pow</span>(g1, s1, N)) % N</span><br><span class="line">    c2 = (m * <span class="built_in">pow</span>(g2, s2, N)) % N</span><br><span class="line">    <span class="keyword">return</span> (c1, c2)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span>(<span class="params">c1, c2</span>):</span></span><br><span class="line">    xp = c1 % p</span><br><span class="line">    xq = c2 % q</span><br><span class="line">    <span class="comment"># Chinese Remainder Theorem</span></span><br><span class="line">    m = (xp*inverse(q, p)*q + xq*inverse(p, q)*p) % N</span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">c = encrypt(bytes_to_long(flag))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># N = 18680643069610062851842282268594530254220611012409807422663284548187050713427682950720783343430650669361838067625768840896513125210105582070603021732086193955893838077699465426052925750736212977005683541174195320832791835197114668838654054444342903298662698415765898335350206380896849522280206304272801325820946987172164086644949521111058774180676742851681476123338557138770304164634321305204827406522957769478330124484710532963132900017800651579612646041955628867746525508376194147796920773364680264059390497210260540079810501777507814448518995581208169818764701641258963569599247156932381367802991222265241699715283</span></span><br><span class="line"><span class="comment"># g1 = 9143176283300810019842153344177123108612540016879643936458724056602746667157014763960725115919119704406826965726023263657276550779443988565368344040505696950820899770544814163379169539926317676679421275092688200844094929042154854719312788471536324082041360841253720783220459009201882865091829118575721525038404689868986360373373122049951274015083845966946475469982961355934516388706446794517870569063777231434618411404965077775991870069073539415961610645268985004687402050059891500490949250730689691141954694508001895390336750734542724392709744200091587065816283592253967715080611459937165344139809223328071517060208</span></span><br><span class="line"><span class="comment"># g2 = 14068322834597276347776814624877614869834816383564391664570268934537693322688875343215293618493363798985047779057952636529313879548457643220996398640913517182122425631198219387988691569709691279442005545716133131472147592456812502863851227108284027033557263611949365667779259585770738623603814004666845554284808166195201470503432803440754207350347128045893594280079379926676477680556845095378093693409219131090910168117334308781843178748431526974047817218228075136005979538773141427004682344298827618677773735288946271346252828348742296301538573408254015281232250841148556304927266143397565889649305095857756884049430</span></span><br><span class="line"><span class="comment"># c1, c2 = (3976514029543484086411168675941075541422870678409709261442618832911574665848843566949154289825219682094719766762966082440586568781997199077781276145091509192208487682443007457513002005089654365915817414921574344557570444253187757317116858499013550050579856269915915792827620535138057468531410166908365364129001407147467636145589396570815405571923148902993581000542566387654639930651683044853608873583911638108204074537952317056718986683846742909366072461130053275195290631718363272923316002049685111871888148244026652658482359335651889139243735138819453744763293112267738369048641158946411500606588429007794613880534, 18524535479582837341745231233387403662294605513261199630593257391163433751052467785080620993007681605662927226603747560698627838567782891522546977611597418150309028806158429831471152782211111046118637630899456903846057977815397285171313888516791822545633820066408276065732715348834255021260666966934592884548856831383262013360819013814149529393178712576141627031723067564594282618223686778534522328204603249125537258294561872667849498796757523663858312311082034700705599706428944071848443463999351872482644584735305157234751806369172212650596041534643187402820399145288902719434158798638116870325144146218568810928344)</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解题思路</p>
+</blockquote>
+<p>这是什么神仙题，n可以被分解，解密函数也是现成的，而且是正确的</p>
+<p>应该是出题人有意为之吧</p>
+<blockquote>
+<p>编写脚本</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span>(<span class="params">c1, c2</span>):</span></span><br><span class="line">    xp = c1 % p</span><br><span class="line">    xq = c2 % q</span><br><span class="line">    <span class="comment"># Chinese Remainder Theorem</span></span><br><span class="line">    m = (xp*inverse(q, p)*q + xq*inverse(p, q)*p) % N</span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">N = <span class="number">18680643069610062851842282268594530254220611012409807422663284548187050713427682950720783343430650669361838067625768840896513125210105582070603021732086193955893838077699465426052925750736212977005683541174195320832791835197114668838654054444342903298662698415765898335350206380896849522280206304272801325820946987172164086644949521111058774180676742851681476123338557138770304164634321305204827406522957769478330124484710532963132900017800651579612646041955628867746525508376194147796920773364680264059390497210260540079810501777507814448518995581208169818764701641258963569599247156932381367802991222265241699715283</span></span><br><span class="line">p = <span class="number">106417460801952098564106499070151038873024911455536068339939244771790540941720274028587207976808157868694798197258813111268537142798255715538795631061310640662123200632946626357221258957037900275496387833531601196435353735799649271157394995634449593246448856875377066127076028119584523015225013672972959211463</span></span><br><span class="line">q = <span class="number">175541146432497750706994831036579922743699110188170130349078711914372625934257198871368005366941949929286673808928975466227805723983786985788458460399280363091838402146937391317438052439989533790389951909401937742849194965413829547962616241584178560041639076246949503118700746929605640733813016659832730773141</span></span><br><span class="line">g1 = <span class="number">9143176283300810019842153344177123108612540016879643936458724056602746667157014763960725115919119704406826965726023263657276550779443988565368344040505696950820899770544814163379169539926317676679421275092688200844094929042154854719312788471536324082041360841253720783220459009201882865091829118575721525038404689868986360373373122049951274015083845966946475469982961355934516388706446794517870569063777231434618411404965077775991870069073539415961610645268985004687402050059891500490949250730689691141954694508001895390336750734542724392709744200091587065816283592253967715080611459937165344139809223328071517060208</span></span><br><span class="line">g2 = <span class="number">14068322834597276347776814624877614869834816383564391664570268934537693322688875343215293618493363798985047779057952636529313879548457643220996398640913517182122425631198219387988691569709691279442005545716133131472147592456812502863851227108284027033557263611949365667779259585770738623603814004666845554284808166195201470503432803440754207350347128045893594280079379926676477680556845095378093693409219131090910168117334308781843178748431526974047817218228075136005979538773141427004682344298827618677773735288946271346252828348742296301538573408254015281232250841148556304927266143397565889649305095857756884049430</span></span><br><span class="line">c1, c2 = (<span class="number">11823197525493679922462229312577565795790231943088967365041996969833687685138684663425736403362435947961162359880274061507909130337620672558788978473833973219147915805313662825413066312702383051828013250123487196306204170199886569869489424725349908927607008718147223533469811907589117819645863932215575433971043477313368023151369535540404625770972404614353104003800218866798610393931587791320241316614291168862653357565646094135540152539864650862797163818826669760914933822102864027625653527726320652797672561838261305835579141720874114224470663547248330428718333156518891792470511397032487663666074601934673538205109</span>, <span class="number">2779880537115408257595446644781256096238766529002829447374722026519904649762403856519534823378460053135911559335526959970225428282722454848749344880298922526768059646336181280198446021828944801139755808467391788638452557321859820238241700901109441893986616102072462317079424252804407738823379369895077334731847147033163210247117705503923134257895313179139530926252976334117657503240153146324063219900284664702824599298036943536916560758754916817002800088718757733395590409870811657828057225054151582638807129324477142895521653053887499550733193273834240174306480447726764751838123539992748222035712739618864572963930</span>)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(decrypt(c1, c2)))</span><br></pre></td></tr></table></figure>
+
+<p>应该是出题人有意为之的，但何必呢</p>
+<h4 id="加密解密原理"><a href="#加密解密原理" class="headerlink" title="加密解密原理"></a>加密解密原理</h4><p>在做的过程中，有一点令我感到疑惑，一开始看到解密函数时，我认为这并不是针对加密函数的；也就是说，我以为的考点是让我们自己实现解密函数的</p>
+<blockquote>
+<p>生成随机数</p>
+</blockquote>
+<p>生成p，q，g1，g2，（g，r1，r2$\in$[1, N]）<br>$$<br>\begin{align}<br>g_1=g^{r_1\times(p-1)}\ mod\ N\\<br>g_2=g^{r_2\times(q-1)}\ mod\ N<br>\end{align}<br>$$</p>
+<blockquote>
+<p>加密</p>
+</blockquote>
+<p>加密后的结果是c1，c2，（s1，s2$\in$[1, N]）<br>$$<br>\begin{align}<br>c_1=m\times g_1^{s_1}\ mod\ N\\<br>c_2=m\times g_2^{s_2}\ mod\ N<br>\end{align}<br>$$</p>
+<blockquote>
+<p>解密</p>
+</blockquote>
+<p>看他的样子是解以下这个同余方程组<br>$$<br>\begin{align}<br>m\equiv c_1\ (mod\ p)\\<br>m\equiv c_2\ (mod\ q)<br>\end{align}<br>$$<br>顺便再来回顾以下CRT的通式，直接抄维基百科上的了</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706144819994.png" alt="image-20210706144819994"></p>
+<p>但问题是m和c满足这个同余方程组吗？就像是ElGamal一样，他乘了一个数，不应该乘以其的逆元吗？</p>
+<p>然后尚师傅点醒我了，由$g_1=g^{r_1\times(p-1)}\ mod\ N$可知，<br>$$<br>g_1\equiv g^{r_1\times (p-1)}\equiv 1\ (mod\ p)<br>$$<br>这就是欧拉定理</p>
+<p><img src="https://i.imgur.com/KftFFd3.gif" alt="欧拉"></p>
+<p>所以在模p和模q时，那个加密时多乘的数就变成1了</p>
+<p><strong>总之，回到题目，说是一种修改过的RSA加密模式；当然在课上也学过用CRT加速RSA的解密，前提是要知道p和q，和这个异曲同工吧。或者应该说，这种方法有点借鉴了ElGamal加密算法的思想</strong></p>
+<h3 id="easy-RSA"><a href="#easy-RSA" class="headerlink" title="easy_RSA"></a>easy_RSA</h3><blockquote>
+<p>题目描述</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getprime</span>(<span class="params">bits</span>):</span></span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        n = <span class="number">1</span></span><br><span class="line">        <span class="keyword">while</span> n.bit_length() &lt; bits:</span><br><span class="line">            n *= next_prime(randint(<span class="number">1</span>,<span class="number">1000</span>))</span><br><span class="line">        <span class="keyword">if</span> isPrime(n - <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">return</span> n - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">m = bytes_to_long(<span class="string">b&#x27;flag&#123;************************************&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">p = getprime(<span class="number">505</span>)</span><br><span class="line">q = getPrime(<span class="number">512</span>)</span><br><span class="line">r = getPrime(<span class="number">512</span>)</span><br><span class="line"><span class="keyword">assert</span> m &lt; q</span><br><span class="line"></span><br><span class="line">n = p * q * r</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">d = invert(q ** <span class="number">2</span>, p ** <span class="number">2</span>)</span><br><span class="line">c = <span class="built_in">pow</span>(m, <span class="number">2</span>, r)</span><br><span class="line">cipher = <span class="built_in">pow</span>(c, e, n)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"><span class="built_in">print</span>(cipher)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">7941371739956577280160664419383740967516918938781306610817149744988379280561359039016508679365806108722198157199058807892703837558280678711420411242914059658055366348123106473335186505617418956630780649894945233345985279471106888635177256011468979083320605103256178446993230320443790240285158260236926519042413378204298514714890725325831769281505530787739922007367026883959544239568886349070557272869042275528961483412544495589811933856131557221673534170105409</span></span><br><span class="line"><span class="string">7515987842794170949444517202158067021118454558360145030399453487603693522695746732547224100845570119375977629070702308991221388721952258969752305904378724402002545947182529859604584400048983091861594720299791743887521228492714135449584003054386457751933095902983841246048952155097668245322664318518861440</span></span><br><span class="line"><span class="string">1618155233923718966393124032999431934705026408748451436388483012584983753140040289666712916510617403356206112730613485227084128314043665913357106301736817062412927135716281544348612150328867226515184078966397180771624148797528036548243343316501503364783092550480439749404301122277056732857399413805293899249313045684662146333448668209567898831091274930053147799756622844119463942087160062353526056879436998061803187343431081504474584816590199768034450005448200</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解题思路</p>
+</blockquote>
+<p>终于来了</p>
+<p>先看三个素数，这里出题人狡诈，p是用题目中的getprime函数得出来的，q和r则是用Crypto库中的getPrime得到的</p>
+<p>所以看函数就知道，p+1可以很好地得到分解</p>
+<p>我们求解的步奏一步步反推回去应该是这样</p>
+<img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706161649767.png" alt="image-20210706161649767" style="zoom: 67%;" />
+
+<p>必须知道p和q，然后求出r</p>
+<p>好吧，不会了，用之前看到的分解去试试</p>
+<p>竟然！被同样的招式打败了。应该也是出题人使然</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706162410515.png" alt="image-20210706162410515"></p>
+<p>但p确实满足上述性质</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706162852340.png" alt="image-20210706162852340"></p>
+<p>那就先按照上面的流程写脚本吧</p>
+<p>在最后一个箭头处，由于算来的c是512位的，所以不能对c进行直接开方；那么rabin攻击呢，模数是一个质数；终于，被老师催更无数，<strong>平方根算法</strong>登场，网上看到的一些jo本大多都是基于这个算法的实现的</p>
+<blockquote>
+<p>脚本编写</p>
+</blockquote>
+<p>emmmmm时间来不及了，先用下库函数了，后续再补充，老师等我</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sympy.ntheory.residue_ntheory <span class="keyword">import</span> nthroot_mod</span><br><span class="line"></span><br><span class="line">n = <span class="number">7941371739956577280160664419383740967516918938781306610817149744988379280561359039016508679365806108722198157199058807892703837558280678711420411242914059658055366348123106473335186505617418956630780649894945233345985279471106888635177256011468979083320605103256178446993230320443790240285158260236926519042413378204298514714890725325831769281505530787739922007367026883959544239568886349070557272869042275528961483412544495589811933856131557221673534170105409</span></span><br><span class="line">d = <span class="number">7515987842794170949444517202158067021118454558360145030399453487603693522695746732547224100845570119375977629070702308991221388721952258969752305904378724402002545947182529859604584400048983091861594720299791743887521228492714135449584003054386457751933095902983841246048952155097668245322664318518861440</span></span><br><span class="line">cipher = <span class="number">1618155233923718966393124032999431934705026408748451436388483012584983753140040289666712916510617403356206112730613485227084128314043665913357106301736817062412927135716281544348612150328867226515184078966397180771624148797528036548243343316501503364783092550480439749404301122277056732857399413805293899249313045684662146333448668209567898831091274930053147799756622844119463942087160062353526056879436998061803187343431081504474584816590199768034450005448200</span></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">p = <span class="number">102634610559478918970860957918259981057327949366949344137104804864768237961662136189827166317524151288799657758536256924609797810164397005081733039415393</span></span><br><span class="line">q = <span class="number">7534810196420932552168708937019691994681052660068275906973480617604535381306041583841106383688654426129050931519275383386503174076258645141589911492908993</span></span><br><span class="line">r = <span class="number">10269028767754306217563721664976261924407940883784193817786660413744866184645984238866463711873380072803747092361041245422348883639933712733051005791543841</span></span><br><span class="line"><span class="keyword">assert</span> d == invert(q**<span class="number">2</span>, p**<span class="number">2</span>)</span><br><span class="line">phi = (p-<span class="number">1</span>)*(q-<span class="number">1</span>)*(r-<span class="number">1</span>)</span><br><span class="line">d = invert(e, phi)</span><br><span class="line">c = <span class="built_in">pow</span>(cipher, d, n)</span><br><span class="line"><span class="comment"># print(c.bit_length())</span></span><br><span class="line"><span class="comment"># 512</span></span><br><span class="line"><span class="comment"># print(c)</span></span><br><span class="line"><span class="comment"># c = 8081092455112516397361105816900490085355315574087538340788309885334106796325593823678787887569920404814986643819898763828872716522338864714182757065213683</span></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(nthroot_mod(c, <span class="number">2</span>, r)))</span><br></pre></td></tr></table></figure>
+
+<h4 id="光滑数"><a href="#光滑数" class="headerlink" title="光滑数"></a>光滑数</h4><p>之前就想整理Crypto中关于光滑数的考点</p>
+<p>所谓光滑数就是：<strong>是一个可以因数分解为小素数乘积的正整数</strong></p>
+<p>然后有两个算法可以分解，一是这道题讲的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Williams'_p_%2B_1_algorithm">Williams’p+1 algorithm</a>，还有一种是解减一是光滑数的<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pollard%27s_p_%E2%88%92_1_algorithm">Pollard’s p−1 algorithm</a>，可以使用这个python的包来解</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m primefac -vs -m=p-1 XXXXX</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m primefac -vs -m=+1 XXXXXX</span><br></pre></td></tr></table></figure>
+
+<p>来道题</p>
+<blockquote>
+<p>题目描述</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> isPrime, sieve_base <span class="keyword">as</span> primes</span><br><span class="line"><span class="keyword">from</span> flag <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myPrime</span>(<span class="params">bits</span>):</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        n = <span class="number">2</span></span><br><span class="line">        <span class="keyword">while</span> n.bit_length() &lt; bits:</span><br><span class="line">            n *= choice(primes)</span><br><span class="line">        <span class="keyword">if</span> isPrime(n + <span class="number">1</span>):</span><br><span class="line">            <span class="keyword">return</span> n + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">m = <span class="built_in">int</span>.from_bytes(flag.encode(), <span class="string">&#x27;big&#x27;</span>)</span><br><span class="line">p = myPrime(<span class="number">2048</span>)</span><br><span class="line">q = getPrime(<span class="number">2048</span>)</span><br><span class="line">n = p * q</span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"></span><br><span class="line"><span class="comment"># n = 1224542620373200232525165378018470774334801515191193204875465445916504222883935188890019876845076388385357911730689547124547346252951158814249284724565588433721828377715469374541007756509231399263095022024229078845538543233785364809917406108015271780070196140628158427541531563472532516237632553353655535922926443707617182025475004547531104052989085765070550150028833424395972178427807901747932614235844448614858629761183210600428438018388051958214596857405813088470933109693499438012040822262549119751099008671892966082341548512112435591881692782766559736840448702039918465573051130405935280702181505538733234675792472428666968900055706926735800561218167237812066851519973807203332801575980055838563085817664973968944323258406789203078387708964307931318918136664885818917720073433998810127482159223895026085726623747340692196977140382318293090736558135980651252533606603312148824142669800602887109353065489282386215179238458743567166284295855288783740314247952124965482197632971993708775190564519250754150756867653033527903848903210074426177258586450311109023467944412194124015505951966140443860862968311560843608415723549525497729679097936310538451467530605937684408079363677707513923579164067808729408365886209340192468399685190639</span></span><br><span class="line"><span class="comment"># c = 145742860621666495489510776707734134231023214235535481878205099324276369445463746101469487674333600296204530932386373415987357363515200117271393133347844479863240936801112306080456942844796779477817786176831015954410967693647534326733641573842953783193563678040093734579772976410574013857063137696465850300484753282472377882118892522844694078667622111244886303620349388556315704648609353412177123230438077637042880490566244740468503369707900343076369151796123461132932226563486870411965536062339169788331659119981901553536009275158600580698576110294775989992794065611215170351808698605911258789407992833170968332058255364527244293283228694886707241979238145252395651417561576433516407782575454294499521347378058366557950770592472271985004818847838711060048422015207674862177145761946560579360220239667890707135827136815780729363013864130107808776517514214310689477005999830284272130148939734935547341627208913181919190392205389452185597444280635342938046191904062547803917870268485346888653569349729643793041018550170090471310374856687407102762116819004790791936814214507908374380597027347007448114684844276041116955473180015221164545212550832233007714133699817366745648092776901013502840540012912660742166994968977400188176557657864</span></span><br></pre></td></tr></table></figure>
+
+<p>显然p是n-1类型的光滑数，但是直接食用工具，效果不佳；再次确认，前面的两题是出题人有意为之</p>
+<p>所以跟着CSDN大佬来看下Pollard’s p−1算法的食用方法</p>
+<blockquote>
+<p>推导步奏</p>
+</blockquote>
+<p>目标很明确，通过p分解n</p>
+<p>所谓的Pollard’s p−1算法就是<br>如果p-1是光滑数，那么n!就能被p-1整除，即n!=t(p-1)<br>对于n=2,3,4,…，只要<br>$$<br>gcd(2^{n!}-1, N)\neq 1和N<br>$$<br>就成功分解N了<br>以上算法适用于p是N的因数，且p-1是光滑数</p>
+<p>当然求n的阶乘是个耗费资源的事情，所以我们对递归式子精心简化，这样就不用重复计算了<br>$$<br>2^{n!}\ mod\ N=(2^{(n-1)!}\ mod\ N)^{n}\ mod\ N<br>$$</p>
+<p>而由我们熟悉的费马定理可以推出<br>$$<br>2^{t(p-1)}\equiv 1\ mod\ p<br>$$<br>改写成等式<br>$$<br>2^{t(p-1)}-1=kp<br>$$<br>所以$2^{t(p-1)}-1$是p的倍数，结合前面推出的，我们得到的结论是<br>$$<br>2^{n!}-1=kp<br>$$<br><strong>通过枚举n求kp，求kp和N的公因子就是p</strong></p>
+<p>也没看得特别懂，最后得到的递推式子是<br>$$<br>2^{n!}\ mod\ N=<br>\begin{cases}<br>2^2\ mod\ N&amp; {n=2}\\<br>(2^{(n-1)!}\ mod\ N)^n\ mod\ N&amp; {n \geq 3}<br>\end{cases}<br>$$</p>
+<p>抄了别人这么多了，自己实现一下代码</p>
+<p>感觉被套路了，还是自己算法到代码的能力太差；最后写出来的脚本是这样的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pollard_p_1</span>(<span class="params">n</span>):</span></span><br><span class="line">    a = <span class="number">2</span></span><br><span class="line">    i = <span class="number">2</span></span><br><span class="line">    <span class="keyword">while</span> gcd(a-<span class="number">1</span>, n) == <span class="number">1</span> <span class="keyword">or</span> gcd(a-<span class="number">1</span>, n) == n:</span><br><span class="line">        a = <span class="built_in">pow</span>(a, i, n)</span><br><span class="line">        i += <span class="number">1</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line">    <span class="keyword">return</span> gcd(a-<span class="number">1</span>, n)</span><br></pre></td></tr></table></figure>
+
+<p>要跑挺久的，虽然也才十几万次</p>
+<p>最后得到的flag</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;Pollard_s_p-1_&amp;_William_s_p+1&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Backtrace"><a href="#Backtrace" class="headerlink" title="Backtrace"></a>Backtrace</h3><blockquote>
+<p> 题目描述</p>
+</blockquote>
+<p>Can you trace back to the past?</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># !/usr/bin/env/python3</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag = <span class="string">&quot;flag&#123;&quot;</span> + <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">str</span>(random.getrandbits(<span class="number">32</span>)) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)) + <span class="string">&quot;&#125;&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;output.txt&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">        f.write(<span class="built_in">str</span>(random.getrandbits(<span class="number">32</span>)) + <span class="string">&quot;\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>解题思路</p>
+</blockquote>
+<p>题目名为回溯</p>
+<p>妥妥的MT19937，好在之前做过；它有一千个随机数，需要找到这一千个随机数的前面一个</p>
+<p>问题来了，之前GKCTF做到的，以及之前类似的题目都是预测之后的随机数，那么要反过来，预测之前的那应该怎么做呢？</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706221554229.png" alt="image-20210706221554229"></p>
+<p>别急，大佬还是有解法，贴下连接这里直接抄脚本了，后续研究</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> Random</span><br><span class="line"><span class="comment"># right shift inverse</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inverse_right</span>(<span class="params">res,shift,bits=<span class="number">32</span></span>):</span></span><br><span class="line">    tmp = res</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(bits//shift):</span><br><span class="line">        tmp = res ^ tmp &gt;&gt; shift</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line"><span class="comment"># right shift with mask inverse</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inverse_right_values</span>(<span class="params">res,shift,mask,bits=<span class="number">32</span></span>):</span></span><br><span class="line">    tmp = res</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(bits//shift):</span><br><span class="line">        tmp = res ^ tmp&gt;&gt;shift &amp; mask</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line"><span class="comment"># left shift inverse</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inverse_left</span>(<span class="params">res,shift,bits=<span class="number">32</span></span>):</span></span><br><span class="line">    tmp = res</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(bits//shift):</span><br><span class="line">        tmp = res ^ tmp &lt;&lt; shift</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line"><span class="comment"># left shift with mask inverse</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inverse_left_values</span>(<span class="params">res,shift,mask,bits=<span class="number">32</span></span>):</span></span><br><span class="line">    tmp = res</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(bits//shift):</span><br><span class="line">        tmp = res ^ tmp &lt;&lt; shift &amp; mask</span><br><span class="line">    <span class="keyword">return</span> tmp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backtrace</span>(<span class="params">cur</span>):</span></span><br><span class="line">    high = <span class="number">0x80000000</span></span><br><span class="line">    low = <span class="number">0x7fffffff</span></span><br><span class="line">    mask = <span class="number">0x9908b0df</span></span><br><span class="line">    state = cur</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>,-<span class="number">1</span>,-<span class="number">1</span>):</span><br><span class="line">        tmp = state[i+<span class="number">624</span>]^state[i+<span class="number">397</span>]</span><br><span class="line">        <span class="comment"># recover Y,tmp = Y</span></span><br><span class="line">        <span class="keyword">if</span> tmp &amp; high == high:</span><br><span class="line">            tmp ^= mask</span><br><span class="line">            tmp &lt;&lt;= <span class="number">1</span></span><br><span class="line">            tmp |= <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tmp &lt;&lt;=<span class="number">1</span></span><br><span class="line">        <span class="comment"># recover highest bit</span></span><br><span class="line">        res = tmp&amp;high</span><br><span class="line">        <span class="comment"># recover other 31 bits,when i =0,it just use the method again it so beautiful!!!!</span></span><br><span class="line">        tmp = state[i-<span class="number">1</span>+<span class="number">624</span>]^state[i+<span class="number">396</span>]</span><br><span class="line">        <span class="comment"># recover Y,tmp = Y</span></span><br><span class="line">        <span class="keyword">if</span> tmp &amp; high == high:</span><br><span class="line">            tmp ^= mask</span><br><span class="line">            tmp &lt;&lt;= <span class="number">1</span></span><br><span class="line">            tmp |= <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            tmp &lt;&lt;=<span class="number">1</span></span><br><span class="line">        res |= (tmp)&amp;low</span><br><span class="line">        state[i] = res</span><br><span class="line">    <span class="keyword">return</span> state</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">recover_state</span>(<span class="params">out</span>):</span></span><br><span class="line">    state = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> out:</span><br><span class="line">        i = inverse_right(i,<span class="number">18</span>)</span><br><span class="line">        i = inverse_left_values(i,<span class="number">15</span>,<span class="number">0xefc60000</span>)</span><br><span class="line">        i = inverse_left_values(i,<span class="number">7</span>,<span class="number">0x9d2c5680</span>)</span><br><span class="line">        i = inverse_right(i,<span class="number">11</span>)</span><br><span class="line">        state.append(i)</span><br><span class="line">    <span class="keyword">return</span> state</span><br><span class="line"></span><br><span class="line">f = <span class="built_in">open</span>(<span class="string">&quot;../output.txt&quot;</span>,<span class="string">&quot;r&quot;</span>).readlines()</span><br><span class="line">c = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">    c.append(<span class="built_in">int</span>(f[i].strip()))</span><br><span class="line"></span><br><span class="line">partS = recover_state(c)</span><br><span class="line">state = backtrace([<span class="number">0</span>]*<span class="number">4</span>+partS)[:<span class="number">624</span>]</span><br><span class="line"><span class="comment"># print(state)</span></span><br><span class="line">prng = Random()</span><br><span class="line">prng.setstate((<span class="number">3</span>,<span class="built_in">tuple</span>(state+[<span class="number">0</span>]),<span class="literal">None</span>))</span><br><span class="line">flag = <span class="string">&quot;flag&#123;&quot;</span> + <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">str</span>(prng.getrandbits(<span class="number">32</span>)) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>)) + <span class="string">&quot;&#125;&quot;</span></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210706221821180.png" alt="image-20210706221821180"></p>
+<p>你说说你还有什么用，只会抄WP</p>
+<p>花了两天，算是过了一遍，但是越到后面，研究的劲头就越低，很多资料还是要消化成自己的东西</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>4XWi11
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://4xwi11.github.io/posts/19a278ea/" title="20200219 V&amp;N2020公开赛Crypto方向复现">https://4xwi11.github.io/posts/19a278ea/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/%E5%85%89%E6%BB%91%E6%95%B0/" rel="tag"># 光滑数</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/3a78d3e0/" rel="prev" title="20210617 记国赛线下AWD选拔赛">
+                  <i class="fa fa-chevron-left"></i> 20210617 记国赛线下AWD选拔赛
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/e881af84/" rel="next" title="20210509 RedhatCrypto方向WP">
+                  20210509 RedhatCrypto方向WP <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-user-secret"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4XWi11</span>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("10/6/2021 14:38:00");//此处修改你的建站时间或者网站上线时间 
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+  setInterval("createtime()",250);
+  </script>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">69k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:03</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"4XWi11/comments","issue_term":"pathname","theme":"github-light","cdn":"https://utteranc.es/client.js"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>
