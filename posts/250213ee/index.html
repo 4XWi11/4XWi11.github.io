@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/title.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="&amp;nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20210529 春秋杯网络安全联赛春季赛Crypto方向部分WP">
+<meta property="og:url" content="https://4xwi11.github.io/posts/250213ee/index.html">
+<meta property="og:site_name" content="4XWi11的博客">
+<meta property="og:description" content="&amp;nbsp;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-10-07T16:39:59.000Z">
+<meta property="article:modified_time" content="2021-10-07T16:44:37.098Z">
+<meta property="article:author" content="4XWi11">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://4xwi11.github.io/posts/250213ee/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/250213ee/","path":"posts/250213ee/","title":"20210529 春秋杯网络安全联赛春季赛Crypto方向部分WP"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20210529 春秋杯网络安全联赛春季赛Crypto方向部分WP | 4XWi11的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">4XWi11的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2021%E5%B9%B4%E6%98%A5%E7%A7%8B%E6%9D%AF%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%81%94%E8%B5%9B%E6%98%A5%E5%AD%A3%E8%B5%9B"><span class="nav-number">1.</span> <span class="nav-text">2021年春秋杯网络安全联赛春季赛</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#time"><span class="nav-number">1.1.</span> <span class="nav-text">time</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">题目解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E8%84%9A%E6%9C%AC"><span class="nav-number">1.1.3.</span> <span class="nav-text">解题脚本</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="4XWi11"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">4XWi11</p>
+  <div class="site-description" itemprop="description">CTF菜鸡自进阶</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://lazzzaro.github.io/categories/" title="https:&#x2F;&#x2F;lazzzaro.github.io&#x2F;categories&#x2F;" rel="noopener" target="_blank">Lazzaro</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/4XWi11" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/250213ee/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20210529 春秋杯网络安全联赛春季赛Crypto方向部分WP
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 00:39:59 / 修改时间：00:44:37" itemprop="dateCreated datePublished" datetime="2021-10-08T00:39:59+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>10k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>&nbsp;</p>
+<span id="more"></span>
+
+<h1 id="2021年春秋杯网络安全联赛春季赛"><a href="#2021年春秋杯网络安全联赛春季赛" class="headerlink" title="2021年春秋杯网络安全联赛春季赛"></a>2021年春秋杯网络安全联赛春季赛</h1><h2 id="time"><a href="#time" class="headerlink" title="time"></a>time</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>只有代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_prime</span>(<span class="params">bits</span>):</span></span><br><span class="line">    x = <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> gmpy2.is_prime(x) == <span class="literal">False</span>:</span><br><span class="line">        random.seed(<span class="built_in">round</span>(time.time(),<span class="number">5</span>))</span><br><span class="line">        x = random.getrandbits(bits)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line">hint = <span class="string">&quot;&quot;</span></span><br><span class="line">a1 = time.time()</span><br><span class="line">flag = <span class="string">&quot;flag&#123;***************&#125;&quot;</span></span><br><span class="line">p = get_prime(<span class="number">2048</span>)</span><br><span class="line">q = get_prime(<span class="number">2048</span>)</span><br><span class="line">n = p * q</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">m = bytes_to_long(flag.encode())</span><br><span class="line"><span class="keyword">assert</span> n &gt; m</span><br><span class="line">c = <span class="built_in">pow</span>(m,e,n)</span><br><span class="line"><span class="built_in">print</span>(n)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line">hint+=<span class="built_in">str</span>(time.localtime())</span><br><span class="line">hint+=<span class="built_in">str</span>(time.time()-a1)   <span class="comment"># 告诉我们上面这段程序运行的时间</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">m2 = bytes_to_long(hint.encode())</span><br><span class="line">e2 = <span class="number">196611</span></span><br><span class="line">p2 = getPrime(<span class="number">1024</span>)</span><br><span class="line">q2 = gmpy2.next_prime(p2)</span><br><span class="line">n2 = p2*q2</span><br><span class="line"><span class="keyword">assert</span> n2 &gt; m2</span><br><span class="line">c2 = <span class="built_in">pow</span>(m2,e2,n2)</span><br><span class="line"><span class="built_in">print</span>(n2)</span><br><span class="line"><span class="built_in">print</span>(c2)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#n1=449389319572014470973230701130712522617269811294117721031111991008431585050360094769229957883125144692171901233101564003762866045169460601700254891441878998743810037070537170855056466702105713343963726437141651081516150688905082129849562489646846756872586122801890652177495174154676725874072596207108180178755008058522945203093993733331873167443162263746938403044201113440457668163574342481361454421154163291201432319013385234751292922268166299917246608164679144459355173725895117315662317330324505156929077922670671914823996700321766811999551043586214703010131467697982137884162143358399786007967117340789211505834848813471803797101083738140019127129356248286854522464787917597152171952002118368747491099723673529923018951195522714900400225757160886780159504182902140132857743474716967975019342128486236748643365288547828026395873270777532526144687248477070253203339428149026199554962987646174586568177797380361174318868448467648171416588868990979461995030684403161898497550408697577695094783000808003197203603068043364687265824456069673330314452567416143754983137647607219859034406220590219587869898727679465514015732749105798134650890143215022311113143974714405713221391896497966231925409438383535066648782822255201778169275281703</span></span><br><span class="line"><span class="comment">#c1=401489532945377793610793684722119773544780301600066410745513430092738470870254235710677331662917458735216486816223654944666672512914069274195244871184555059503843032370247894353363929996813688885280857203101709839776411016868985545599944237897372546401710041402579657231598311853522596463296090177664832759103736040102780428858301594805054838853076238331373482465072766841859415172741329175814259920949065993852870119473982972519779774470087935094963692097673607052443800723940091927016071427616754775915389245004208964143538205414854133746775614714447645057516665851780628694481268861808310238416724971673673850671343955386054575121362377868533055225219936712709474708031320743579595394353267596208729974198335174409673325772679039734706841988107519076516144633301371408301344929883397145523702189363308278963683356102257750758738297143036846718834812930796483716912661191147997005333798193659914573185697664706530774799114804036170190966523509331071964600280701252628276934131586398546602582672541075820188456265586487083315680880306767899236884202195162421559689536613740573005749847000477194096162091015847386298782974979446476432285118251267512895876728805199744415821498028998351171848530921695254428997423725875714923331577073</span></span><br><span class="line"><span class="comment">#n2=15155267112260254814859334094046172735826002259080171081726998162357946701645037659523881592272031544049749021927125983252197909993392636398184049160807707719999605547760868696059871234441249045293267592302009677249269002811886149589869652213333369608947939768457152200437978105250737118847430275142343554191304134468404921824671763164876924921101985937224297479095246132228051655664880892772136476378294042631659251586654877292836243536438334288184387617801131434535466414123998495813296765847561162680781100446656391077184870802746066619879552452560641945080540683058930700833439189784657690146144976738557801495769</span></span><br><span class="line"><span class="comment">#c2=2468578221703379861458008098241051507850837382948845085288946175636556753744182763176189585173648323464054032011039944322939163396161712722541432975739789351064988098201326803586126788175259878398963744821667593495161587855894677387881240566285601934559118064797092685909593247713834262369686831071897653756217369182373679039639016628932948775518889507209432291038498366540263588850133348471811624348709494110881127292350302658720685976197632586315945770832849119141593343924518836983738868912332048462058640564551286493338707636203013048694776131295632886983835291684044170004544049944003732133038154121113518892438</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h3><p>有意思的题目，ilike</p>
+<p>主要是利用了伪随机的特性，只要找到种子seed，伪随机就能找到规律</p>
+<p>不难，保留了五位小数，直接爆破，我愿称Brute-force为最强</p>
+<p>还有就是时间戳之间的转换，csdn上找到有博主这样转，贴个链接<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/google19890102/article/details/51355282">https://blog.csdn.net/google19890102/article/details/51355282</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#coding:UTF-8</span></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">dt = <span class="string">&quot;2016-05-05 20:28:54&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#转换成时间数组</span></span><br><span class="line">timeArray = time.strptime(dt, <span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line"><span class="comment">#转换成时间戳</span></span><br><span class="line">timestamp = time.mktime(timeArray)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> timestamp</span><br></pre></td></tr></table></figure>
+
+<h3 id="解题脚本"><a href="#解题脚本" class="headerlink" title="解题脚本"></a>解题脚本</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line"><span class="comment"># 先求解hint</span></span><br><span class="line">n1 = <span class="number">449389319572014470973230701130712522617269811294117721031111991008431585050360094769229957883125144692171901233101564003762866045169460601700254891441878998743810037070537170855056466702105713343963726437141651081516150688905082129849562489646846756872586122801890652177495174154676725874072596207108180178755008058522945203093993733331873167443162263746938403044201113440457668163574342481361454421154163291201432319013385234751292922268166299917246608164679144459355173725895117315662317330324505156929077922670671914823996700321766811999551043586214703010131467697982137884162143358399786007967117340789211505834848813471803797101083738140019127129356248286854522464787917597152171952002118368747491099723673529923018951195522714900400225757160886780159504182902140132857743474716967975019342128486236748643365288547828026395873270777532526144687248477070253203339428149026199554962987646174586568177797380361174318868448467648171416588868990979461995030684403161898497550408697577695094783000808003197203603068043364687265824456069673330314452567416143754983137647607219859034406220590219587869898727679465514015732749105798134650890143215022311113143974714405713221391896497966231925409438383535066648782822255201778169275281703</span></span><br><span class="line">c1 = <span class="number">401489532945377793610793684722119773544780301600066410745513430092738470870254235710677331662917458735216486816223654944666672512914069274195244871184555059503843032370247894353363929996813688885280857203101709839776411016868985545599944237897372546401710041402579657231598311853522596463296090177664832759103736040102780428858301594805054838853076238331373482465072766841859415172741329175814259920949065993852870119473982972519779774470087935094963692097673607052443800723940091927016071427616754775915389245004208964143538205414854133746775614714447645057516665851780628694481268861808310238416724971673673850671343955386054575121362377868533055225219936712709474708031320743579595394353267596208729974198335174409673325772679039734706841988107519076516144633301371408301344929883397145523702189363308278963683356102257750758738297143036846718834812930796483716912661191147997005333798193659914573185697664706530774799114804036170190966523509331071964600280701252628276934131586398546602582672541075820188456265586487083315680880306767899236884202195162421559689536613740573005749847000477194096162091015847386298782974979446476432285118251267512895876728805199744415821498028998351171848530921695254428997423725875714923331577073</span></span><br><span class="line">n2 = <span class="number">15155267112260254814859334094046172735826002259080171081726998162357946701645037659523881592272031544049749021927125983252197909993392636398184049160807707719999605547760868696059871234441249045293267592302009677249269002811886149589869652213333369608947939768457152200437978105250737118847430275142343554191304134468404921824671763164876924921101985937224297479095246132228051655664880892772136476378294042631659251586654877292836243536438334288184387617801131434535466414123998495813296765847561162680781100446656391077184870802746066619879552452560641945080540683058930700833439189784657690146144976738557801495769</span></span><br><span class="line">c2 = <span class="number">2468578221703379861458008098241051507850837382948845085288946175636556753744182763176189585173648323464054032011039944322939163396161712722541432975739789351064988098201326803586126788175259878398963744821667593495161587855894677387881240566285601934559118064797092685909593247713834262369686831071897653756217369182373679039639016628932948775518889507209432291038498366540263588850133348471811624348709494110881127292350302658720685976197632586315945770832849119141593343924518836983738868912332048462058640564551286493338707636203013048694776131295632886983835291684044170004544049944003732133038154121113518892438</span></span><br><span class="line"></span><br><span class="line">e2 = <span class="number">196611</span></span><br><span class="line">p2 = <span class="number">123106730572541218855605566021385436071765753262738029208958530903965781875227909642974714736010685670143580347743415357832685249865725150245921795069888441073829479429807586105897472912969591388975228566729202050232896382465835682108694199213251295570982696527682862415340158808173324606996424204650675862831</span></span><br><span class="line">q2 = <span class="number">123106730572541218855605566021385436071765753262738029208958530903965781875227909642974714736010685670143580347743415357832685249865725150245921795069888441073829479429807586105897472912969591388975228566729202050232896382465835682108694199213251295570982696527682862415340158808173324606996424204650675860599</span></span><br><span class="line"><span class="comment"># hint = long_to_bytes(pow(c2, invert(e2, (p2-1)*(q2-1)), n2))</span></span><br><span class="line"><span class="comment"># print(hint)</span></span><br><span class="line"><span class="comment"># hint = &#x27;time.struct_time(tm_year=2021, tm_mon=4, tm_mday=28, tm_hour=20, tm_min=42, tm_sec=6, tm_wday=2, tm_yday=118, tm_isdst=0)3.1603143215179443&#x27;</span></span><br><span class="line"></span><br><span class="line">e1 = <span class="number">65537</span></span><br><span class="line"></span><br><span class="line">local_time = <span class="string">&#x27;time.struct_time(tm_year=2021, tm_mon=4, tm_mday=28, tm_hour=20, tm_min=42, tm_sec=6, tm_wday=2, tm_yday=118, tm_isdst=0)&#x27;</span></span><br><span class="line">dt = <span class="string">&quot;2021-04-28 20:42:06&quot;</span></span><br><span class="line"><span class="comment">#转换成时间数组</span></span><br><span class="line">timeArray = time.strptime(dt, <span class="string">&quot;%Y-%m-%d %H:%M:%S&quot;</span>)</span><br><span class="line"><span class="comment">#转换成时间戳</span></span><br><span class="line">timestamp = time.mktime(timeArray)</span><br><span class="line"><span class="comment"># print(timestamp)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_prime</span>(<span class="params">bits, new_p</span>):</span></span><br><span class="line">    x = <span class="number">1</span></span><br><span class="line">    random.seed(<span class="built_in">round</span>(new_p, <span class="number">5</span>))</span><br><span class="line">    x = random.getrandbits(bits)</span><br><span class="line">    <span class="keyword">return</span> x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">t = timestamp</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    t -= <span class="number">0.00001</span></span><br><span class="line">    <span class="built_in">print</span>(t)</span><br><span class="line">    hint = <span class="string">&quot;&quot;</span></span><br><span class="line">    a1 = time.time()</span><br><span class="line">    p = get_prime(<span class="number">2048</span>, t)</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> is_prime(p):</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">if</span> n1 % p != <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    q = n1 // p</span><br><span class="line">    d = invert(e1, (p-<span class="number">1</span>)*(q-<span class="number">1</span>))</span><br><span class="line">    m = <span class="built_in">pow</span>(c1, d, n1)</span><br><span class="line">    tmp_flag = long_to_bytes(m)</span><br><span class="line">    <span class="keyword">if</span> tmp_flag.startswith(<span class="string">b&#x27;flag&#x27;</span>):</span><br><span class="line">        <span class="built_in">print</span>(tmp_flag)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p>flag呢？没有flag，寄几跑</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>4XWi11
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://4xwi11.github.io/posts/250213ee/" title="20210529 春秋杯网络安全联赛春季赛Crypto方向部分WP">https://4xwi11.github.io/posts/250213ee/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/a428a61f/" rel="prev" title="20210523 宁波市第四届网络安全大赛Crypto方向WP">
+                  <i class="fa fa-chevron-left"></i> 20210523 宁波市第四届网络安全大赛Crypto方向WP
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/88b63128/" rel="next" title="20210529 DASCTFXBUUOJ五月大联动Crypto方向部分WP">
+                  20210529 DASCTFXBUUOJ五月大联动Crypto方向部分WP <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-user-secret"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4XWi11</span>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("10/6/2021 14:38:00");//此处修改你的建站时间或者网站上线时间 
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+  setInterval("createtime()",250);
+  </script>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">224k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">3:24</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"4XWi11/comments","issue_term":"pathname","theme":"github-light","cdn":"https://utteranc.es/client.js"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>
