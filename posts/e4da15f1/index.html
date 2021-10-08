@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/title.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="好耶，妈妈以后再也不用担心，服务被关掉了 emmmmm没有源码，呜，苦露西">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20210911 CSAWCTFCrypto方向部分WP">
+<meta property="og:url" content="https://4xwi11.github.io/posts/e4da15f1/index.html">
+<meta property="og:site_name" content="4XWi11的博客">
+<meta property="og:description" content="好耶，妈妈以后再也不用担心，服务被关掉了 emmmmm没有源码，呜，苦露西">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210922205145757.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210924083850936.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210924152637456.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210922223905766.png">
+<meta property="article:published_time" content="2021-10-08T05:53:51.000Z">
+<meta property="article:modified_time" content="2021-10-08T06:10:12.584Z">
+<meta property="article:author" content="4XWi11">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210922205145757.png">
+
+
+<link rel="canonical" href="https://4xwi11.github.io/posts/e4da15f1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/e4da15f1/","path":"posts/e4da15f1/","title":"20210911 CSAWCTFCrypto方向部分WP"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20210911 CSAWCTFCrypto方向部分WP | 4XWi11的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">4XWi11的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CSAWCTF"><span class="nav-number">1.</span> <span class="nav-text">CSAWCTF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gotta-Decrypt-Them-All"><span class="nav-number">1.1.</span> <span class="nav-text">Gotta Decrypt Them All</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Forgery%EF%BC%88recuring%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">Forgery（recuring）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA-Pop-Quiz%EF%BC%88unsolved%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">RSA Pop Quiz（unsolved）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Least-Significant-Bit-Oracle-Attack-%EF%BC%88LSB-Oracle-Attack-Parity-Oracle%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">Least Significant Bit Oracle Attack （LSB Oracle Attack &#x2F; Parity Oracle）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bits%EF%BC%88unsolved%EF%BC%89"><span class="nav-number">1.4.</span> <span class="nav-text">Bits（unsolved）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="4XWi11"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">4XWi11</p>
+  <div class="site-description" itemprop="description">CTF菜鸡自进阶</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://lazzzaro.github.io/categories/" title="https:&#x2F;&#x2F;lazzzaro.github.io&#x2F;categories&#x2F;" rel="noopener" target="_blank">Lazzaro</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/4XWi11" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/e4da15f1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20210911 CSAWCTFCrypto方向部分WP
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 13:53:51 / 修改时间：14:10:12" itemprop="dateCreated datePublished" datetime="2021-10-08T13:53:51+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrytpo/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crytpo</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>好耶，妈妈以后再也不用担心，服务被关掉了</p>
+<p>emmmmm没有源码，呜，苦露西</p>
+<span id="more"></span>
+
+<h1 id="CSAWCTF"><a href="#CSAWCTF" class="headerlink" title="CSAWCTF"></a>CSAWCTF</h1><h2 id="Gotta-Decrypt-Them-All"><a href="#Gotta-Decrypt-Them-All" class="headerlink" title="Gotta Decrypt Them All"></a>Gotta Decrypt Them All</h2><blockquote>
+<p>nc crypto.chal.csaw.io 5001</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Morse <span class="keyword">import</span> morse</span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> b64decode</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> iroot</span><br><span class="line"><span class="keyword">import</span> codecs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">sh = remote(<span class="string">&#x27;crypto.chal.csaw.io&#x27;</span>, <span class="number">5001</span>)</span><br><span class="line"></span><br><span class="line">letmesee = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        sh.recvuntil(<span class="string">b&#x27;What does this mean?\r\n&#x27;</span>)</span><br><span class="line">        c1 = sh.recvline().decode().strip()</span><br><span class="line">        c1 = c1.split(<span class="string">&#x27;/&#x27;</span>)</span><br><span class="line">        plaintext = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> c1:</span><br><span class="line">            plaintext += <span class="built_in">chr</span>(<span class="built_in">int</span>(morse(i.strip(), <span class="string">&#x27; &#x27;</span>)))</span><br><span class="line">        plaintext = b64decode(plaintext).decode()</span><br><span class="line">        plaintext = plaintext.split(<span class="string">&#x27;\n&#x27;</span>)</span><br><span class="line">        c = <span class="built_in">int</span>(plaintext[<span class="number">2</span>][<span class="number">4</span>:])</span><br><span class="line">        plaintext = iroot(c, <span class="number">3</span>)[<span class="number">0</span>]</span><br><span class="line">        plaintext = long_to_bytes(plaintext).decode()</span><br><span class="line">        plaintext = codecs.encode(plaintext, <span class="string">&#x27;rot13&#x27;</span>)</span><br><span class="line">        letmesee += plaintext</span><br><span class="line">        letmesee += <span class="string">&#x27; &#x27;</span></span><br><span class="line">        sh.recvuntil(<span class="string">b&#x27;&gt;&gt; &#x27;</span>)</span><br><span class="line">        sh.sendline(plaintext)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"><span class="built_in">print</span>(letmesee)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>Pokemon Names Wormadam Stonjourner Cloyster Jynx Zorua</p>
+</blockquote>
+<h2 id="Forgery（recuring）"><a href="#Forgery（recuring）" class="headerlink" title="Forgery（recuring）"></a>Forgery（recuring）</h2><blockquote>
+<p>nc crypto.chal.csaw.io 5006</p>
+</blockquote>
+<blockquote>
+<p>Felicity and Cisco would like to hire you as an intern for a new security company that they are forming. They have given you a black box signature verification system to test out and see if you can forge a signature. Forge it and you will get a passphrase to be hired!</p>
+</blockquote>
+<p>又是这个Forgery，伪造文书，先做RSA</p>
+<hr>
+<p>emmmmm</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">verify</span>(<span class="params">answer: <span class="built_in">str</span>, r: <span class="built_in">int</span>, s: <span class="built_in">int</span>, y: <span class="built_in">int</span></span>):</span></span><br><span class="line">    m = <span class="built_in">int</span>(answer, <span class="number">16</span>) &amp; MASK</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">any</span>([x &lt;= <span class="number">0</span> <span class="keyword">or</span> x &gt;= p - <span class="number">1</span> <span class="keyword">for</span> x <span class="keyword">in</span> [m, r, s]]):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">pow</span>(g, m, p) == (<span class="built_in">pow</span>(y, r, p) * <span class="built_in">pow</span>(r, s, p)) % p</span><br></pre></td></tr></table></figure>
+
+<p>emmmmm</p>
+<p>不愧是春哥师傅，复现的时候竟然发现了是这道原题，<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_49109277/article/details/120402679">贴我自己的链接好了（doge）</a>，第一种方法不是没看懂嘛，看看TIME上的能不能看懂（我擦127解，自己还是太菜了）</p>
+<p>比赛结束了，那就自己挂自己打</p>
+<p>这里g=3，嗯？老DC了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> re <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">MASK = <span class="number">2</span> ** <span class="number">1024</span> - <span class="number">1</span></span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    u = <span class="string">b&#x27;Felicity Cisco&#x27;</span>.<span class="built_in">hex</span>()</span><br><span class="line">    sh = remote(<span class="string">&#x27;47.96.253.167&#x27;</span>, <span class="number">10001</span>)</span><br><span class="line">    content = sh.recvuntil(<span class="string">b&#x27;Answer:&#x27;</span>).decode()</span><br><span class="line">    p, g, y = findall(<span class="string">r&quot;\d+&quot;</span>, content)</span><br><span class="line">    p, y = <span class="built_in">int</span>(p), <span class="built_in">int</span>(y)</span><br><span class="line">    u, r, s = u + <span class="built_in">hex</span>((p - <span class="number">1</span>) // <span class="number">2</span>)[<span class="number">2</span>:].rjust(<span class="number">1024</span>, <span class="string">&#x27;0&#x27;</span>), (p - <span class="number">1</span>) // <span class="number">2</span>, (p - <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">    sh.sendline(u)</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;r:&#x27;</span>)</span><br><span class="line">    sh.sendline(<span class="built_in">str</span>(r))</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;s:&#x27;</span>)</span><br><span class="line">    sh.sendline(<span class="built_in">str</span>(s))</span><br><span class="line">    flag = sh.recvall()</span><br><span class="line">    <span class="keyword">if</span> <span class="string">b&#x27;flag&#x27;</span> <span class="keyword">in</span> flag:</span><br><span class="line">        <span class="built_in">print</span>(flag)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210922205145757.png" alt="image-20210922205145757"></p>
+<p>观赏性</p>
+<p>另外一种解法，参考这篇<a target="_blank" rel="noopener" href="https://core.ac.uk/download/pdf/48535618.pdf">论文</a>，后面有证明，里面先假设我们已经有一个对$(r,\ s)$符合等式，其他的证明直接参考论文吧，目前对证明没什么感觉（emmmmm所以没有必要复现这种方法，直接抄论文）</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210924083850936.png" alt="image-20210924083850936"></p>
+<p>为了使得<br>$$<br>g^u\equiv_py^rr^s<br>$$</p>
+<p>直接抄论文里的结论</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210924152637456.png" alt="image-20210924152637456"></p>
+<p>令（感觉论文有点小错，抄春哥师傅的，下面这样设置参数没问题）<br>$$<br>r\equiv_pg^By^C<br>$$<br>$$<br>s\equiv_{p-1}-rC^{-1}<br>$$<br>$$<br>u\equiv_{p-1}-rC^{-1}B<br>$$<br>随机选取$B, C\in[2, p-2]$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> re <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> gcd, invert</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">MASK = <span class="number">2</span> ** <span class="number">1024</span> - <span class="number">1</span></span><br><span class="line">g = <span class="number">3</span></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    u = <span class="string">b&#x27;Felicity Cisco&#x27;</span>.<span class="built_in">hex</span>()</span><br><span class="line">    sh = process([<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;./forgery.py&quot;</span>])</span><br><span class="line">    content = sh.recvuntil(<span class="string">b&#x27;Answer:&#x27;</span>).decode()</span><br><span class="line">    p, _, y = findall(<span class="string">r&quot;\d+&quot;</span>, content)</span><br><span class="line">    p, y = <span class="built_in">int</span>(p), <span class="built_in">int</span>(y)</span><br><span class="line">    B, C = randint(<span class="number">2</span>, p - <span class="number">2</span>), randint(<span class="number">2</span>, p - <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">if</span> gcd(C, p - <span class="number">1</span>) != <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    r = <span class="built_in">pow</span>(g, B, p) * <span class="built_in">pow</span>(y, C, p) % p</span><br><span class="line">    s = -r * invert(C, p - <span class="number">1</span>) % (p - <span class="number">1</span>)</span><br><span class="line">    u = u + <span class="built_in">hex</span>(-r * invert(C, p - <span class="number">1</span>) * B % (p - <span class="number">1</span>))[<span class="number">2</span>:].rjust(<span class="number">1024</span>, <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">    sh.sendline(u)</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;r:&#x27;</span>)</span><br><span class="line">    sh.sendline(<span class="built_in">str</span>(r))</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;s:&#x27;</span>)</span><br><span class="line">    sh.sendline(<span class="built_in">str</span>(s))</span><br><span class="line">    flag = sh.recvall()</span><br><span class="line">    <span class="keyword">if</span> <span class="string">b&#x27;flag&#x27;</span> <span class="keyword">in</span> flag:</span><br><span class="line">        <span class="built_in">print</span>(flag)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="RSA-Pop-Quiz（unsolved）"><a href="#RSA-Pop-Quiz（unsolved）" class="headerlink" title="RSA Pop Quiz（unsolved）"></a>RSA Pop Quiz（unsolved）</h2><blockquote>
+<p>nc crypto.chal.csaw.io 5008</p>
+</blockquote>
+<blockquote>
+<p>Wiener wiener chicken dinner</p>
+</blockquote>
+<blockquote>
+<p>Who came up with this math term anyway?</p>
+</blockquote>
+<p>来，学习一下<strong>Least Significant Bit Oracle Attack</strong></p>
+<p>可惜已经第二天醒来，比赛已经结束了，服务也关了，苦露西，苦露西</p>
+<p>来，学习一下<strong>Least Significant Bit Oracle Attack</strong></p>
+<p>比赛要结束关我菜鸡什么事</p>
+<hr>
+<h3 id="Least-Significant-Bit-Oracle-Attack-（LSB-Oracle-Attack-Parity-Oracle）"><a href="#Least-Significant-Bit-Oracle-Attack-（LSB-Oracle-Attack-Parity-Oracle）" class="headerlink" title="Least Significant Bit Oracle Attack （LSB Oracle Attack / Parity Oracle）"></a>Least Significant Bit Oracle Attack （LSB Oracle Attack / Parity Oracle）</h3><p>该攻击使用的条件很简单，我们可以进行解密，并且会有oracle告诉我们明文的奇偶性，时间复杂度是$O(logN)$</p>
+<p>假设已知的为enc，我们构造密文C<br>$$<br>C=(2^e\cdot c)\ mod\ n=(2^e\cdot m^e)\ mod\ n=(2\cdot m)^e\ mod\ n<br>$$<br>我们将这个密文send过去，那么显然对应的明文就是$M=(2\cdot m)\ mod\ n$</p>
+<p>oracle会告诉我们M的奇偶性，也就是最低位<code>lsb</code>是0还是1</p>
+<p>由此我们可以进行推导，得出的结论如下</p>
+<ul>
+<li>如果<code>lsb</code>是0，说明$m&lt;\frac{n}{2}$</li>
+<li>如果<code>lsb</code>是1，说明$m\geq \frac{n}{2}$；如果2m大于n，但注意m是不会超过n的，所以2m就不会超过2n，则$2m\ mod\ n=2m - n$，n是奇数，2m偶数，那么M是奇数，lsb是1</li>
+</ul>
+<p>这样一次就可以将m限定在$\frac{n}{2}$的左边后者是右边，之后就是不断地二分，知道找到真正的m。因为运用二分的思想，所以时间复杂度才会是$log$</p>
+<p>接下来就是继续构造<br>$$<br>C=(2^e\cdot C)\ mod\ n=(2^e\cdot (2\cdot M)^e)\ mod\ n=(4\cdot m)^e\ mod\ n<br>$$<br>将C给send过去就可以在，获得oracle，就可以将C限定在$\frac{n}{4}$的空间里</p>
+<hr>
+<p>可惜坏境关了。。。</p>
+<p>！！！环境关了就自己创造环境（感谢web服务端老师第一节课就要求我们买服务器，虽然刀了我九十九大洋，但不仅让我可以水一篇<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_49109277/article/details/120402420">Crypto出题的博客</a>，以后还可和web和pwn一样复现环境）</p>
+<p>诶呀，这题没有源码，woc，苦露西</p>
+<p>自己写一个吧</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> getPrime, long_to_bytes, bytes_to_long</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> invert</span><br><span class="line"><span class="keyword">from</span> uuid <span class="keyword">import</span> uuid4</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_letters, digits</span><br><span class="line"></span><br><span class="line">space = ascii_letters + digits</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">proof_of_work</span>():</span></span><br><span class="line">    pt = <span class="string">&quot;&quot;</span>.join([space[random.randint(<span class="number">0</span>, <span class="built_in">len</span>(space) - <span class="number">1</span>)] <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>)])</span><br><span class="line">    ct = hashlib.sha256(pt.encode()).hexdigest()</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;SHA-256(XXXX+&#123;&#125;) == &#123;&#125;&quot;</span>.<span class="built_in">format</span>(pt[<span class="number">4</span>:], ct))</span><br><span class="line">    guess = <span class="built_in">str</span>(<span class="built_in">input</span>(<span class="string">&quot;please give me XXXX: &quot;</span>))</span><br><span class="line">    <span class="keyword">if</span> hashlib.sha256((guess + pt[<span class="number">4</span>:]).encode()).hexdigest() != ct:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;sorry, it seems you are not qualified&quot;</span>)</span><br><span class="line">        sys.exit(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">banner = <span class="string">&#x27;&#x27;&#x27; ██       ██          ██                                          ██              ██        ████████ ██████</span></span><br><span class="line"><span class="string">░██      ░██         ░██                                         ░██             ░██       ██░░░░░░ ░█░░░░██</span></span><br><span class="line"><span class="string">░██   █  ░██  █████  ░██  █████   ██████  ██████████   █████    ██████  ██████   ░██      ░██       ░█   ░██</span></span><br><span class="line"><span class="string">░██  ███ ░██ ██░░░██ ░██ ██░░░██ ██░░░░██░░██░░██░░██ ██░░░██  ░░░██░  ██░░░░██  ░██      ░█████████░██████</span></span><br><span class="line"><span class="string">░██ ██░██░██░███████ ░██░██  ░░ ░██   ░██ ░██ ░██ ░██░███████    ░██  ░██   ░██  ░██      ░░░░░░░░██░█░░░░ ██</span></span><br><span class="line"><span class="string">░████ ░░████░██░░░░  ░██░██   ██░██   ░██ ░██ ░██ ░██░██░░░░     ░██  ░██   ░██  ░██             ░██░█    ░██</span></span><br><span class="line"><span class="string">░██░   ░░░██░░██████ ███░░█████ ░░██████  ███ ░██ ░██░░██████    ░░██ ░░██████   ░████████ ████████ ░███████</span></span><br><span class="line"><span class="string">░░       ░░  ░░░░░░ ░░░  ░░░░░   ░░░░░░  ░░░  ░░  ░░  ░░░░░░      ░░   ░░░░░░    ░░░░░░░░ ░░░░░░░░  ░░░░░░░&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">proof_of_work()</span><br><span class="line">flag = <span class="string">&#x27;flag&#123;&#x27;</span> + <span class="built_in">str</span>(uuid4()) + <span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line">m = bytes_to_long(flag.encode())</span><br><span class="line">p = getPrime(<span class="number">512</span>)</span><br><span class="line">q = getPrime(<span class="number">512</span>)</span><br><span class="line">n = p * q</span><br><span class="line">phi = (p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">d = invert(e, phi)</span><br><span class="line">c = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"><span class="built_in">print</span>(banner)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;n =&#x27;</span>, n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;e =&#x27;</span>, e)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;c =&#x27;</span>, c)</span><br><span class="line">choices = [<span class="string">&#x27;yes&#x27;</span>, <span class="string">&#x27;no&#x27;</span>]</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    choice = <span class="built_in">input</span>(<span class="string">&#x27;do you wanna decrypt? (yes / no): &#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> choice <span class="keyword">not</span> <span class="keyword">in</span> choices:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;sorry! i can&#x27;t do this way &quot;</span>)</span><br><span class="line">        sys.exit(<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">elif</span> choice == choices[<span class="number">0</span>]:</span><br><span class="line">        cx = <span class="built_in">eval</span>(<span class="built_in">input</span>(<span class="string">&#x27;please give me your ciphertext: &#x27;</span>))</span><br><span class="line">        mx = <span class="built_in">pow</span>(cx, d, n)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;this is what you want:&#x27;</span>, mx % <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        tempt = <span class="built_in">input</span>(<span class="string">&#x27;tell me your plaintext: &#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> tempt == bytes_to_long(flag.encode()):</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;congratulation! you are right: &#x27;</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&#x27;sorry! bye! &#x27;</span>)</span><br><span class="line">            sys.exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p>exp差不多这样吧，有点奇怪，后面收尾的时候不太对</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_letters, digits</span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> re <span class="keyword">import</span> findall</span><br><span class="line"></span><br><span class="line">space = ascii_letters + digits</span><br><span class="line"></span><br><span class="line"><span class="comment"># context.log_level = &#x27;debug&#x27;</span></span><br><span class="line">sh = remote(<span class="string">&#x27;47.96.253.167&#x27;</span>, <span class="number">10001</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">proof_of_work1</span>():</span></span><br><span class="line">    <span class="comment"># SHA-256(XXXX+8OeVCGS9zB8w) == c35d202a83694cfcace7a0cca784594ba3e984e3ced62714d08189d8bb03f6f0</span></span><br><span class="line">    proof = sh.recvuntil(<span class="string">b&#x27;please give me XXXX:&#x27;</span>)</span><br><span class="line">    tail = proof[<span class="number">13</span>:<span class="number">25</span>].decode()</span><br><span class="line">    HASH = proof[<span class="number">30</span>:<span class="number">94</span>].decode()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> product(space, repeat=<span class="number">4</span>):</span><br><span class="line">        head = <span class="string">&#x27;&#x27;</span>.join(i)</span><br><span class="line">        t = hashlib.sha256((head+tail).encode()).hexdigest()</span><br><span class="line">        <span class="keyword">if</span> t == HASH:</span><br><span class="line">            sh.sendline(head.encode())</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">proof_of_work2</span>():</span></span><br><span class="line">    <span class="comment"># SHA-256(XXXX+8OeVCGS9zB8w) == c35d202a83694cfcace7a0cca784594ba3e984e3ced62714d08189d8bb03f6f0</span></span><br><span class="line">    proof = sh.recvline()</span><br><span class="line">    tail = <span class="string">&#x27;35ec0130a578&#x27;</span></span><br><span class="line">    HASH = <span class="string">&#x27;25da550b7b027fb3b802bf1c0234c30b59f17ff3a2a7f6f33e3428e6c0d162df&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> product(space, repeat=<span class="number">4</span>):</span><br><span class="line">        head = <span class="string">&#x27;&#x27;</span>.join(i)</span><br><span class="line">        t = hashlib.sha256((head+tail).encode()).hexdigest()</span><br><span class="line">        <span class="keyword">if</span> t == HASH:</span><br><span class="line">            <span class="built_in">print</span>(head)</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">proof_of_work1()</span><br><span class="line">content = sh.recvuntil(<span class="string">b&#x27;do you wanna decrypt? (yes / no):&#x27;</span>).decode()</span><br><span class="line">n, e, c = [<span class="built_in">int</span>(_) <span class="keyword">for</span> _ <span class="keyword">in</span> findall(<span class="string">r&#x27;\d+&#x27;</span>, content)]</span><br><span class="line">C = c</span><br><span class="line">i = <span class="number">0</span></span><br><span class="line">j = n - <span class="number">1</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    m = (i + j) // <span class="number">2</span></span><br><span class="line">    <span class="keyword">if</span> i &gt;= j:</span><br><span class="line">        sh.recvuntil(<span class="string">b&#x27;please give me your ciphertext:&#x27;</span>)</span><br><span class="line">        sh.sendline(<span class="built_in">str</span>(c))</span><br><span class="line">        sh.recvuntil(<span class="string">b&#x27;this is what you want:&#x27;</span>)</span><br><span class="line">        ans = sh.recvline()</span><br><span class="line">        <span class="keyword">if</span> <span class="string">b&#x27;1&#x27;</span> <span class="keyword">in</span> ans:</span><br><span class="line">        	<span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(long_to_bytes(<span class="number">2</span>*(m//<span class="number">2</span>)))</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    sh.sendline(<span class="string">b&#x27;yes&#x27;</span>)</span><br><span class="line">    C = <span class="number">2</span> ** e * C % n</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;please give me your ciphertext:&#x27;</span>)</span><br><span class="line">    sh.sendline(<span class="built_in">str</span>(C))</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;this is what you want:&#x27;</span>)</span><br><span class="line">    ans = sh.recvline()</span><br><span class="line">    <span class="keyword">if</span> <span class="string">b&#x27;0&#x27;</span> <span class="keyword">in</span> ans:</span><br><span class="line">        j = m</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">b&#x27;1&#x27;</span> <span class="keyword">in</span> ans:</span><br><span class="line">        i = m</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210922223905766.png" alt="image-20210922223905766"></p>
+<p>最后一位显然不对，应该是左花括号，不知道为什么</p>
+<p>应该是少了一个直接加密c的结果，看了别的师傅的博客，最后要加一下，不过试过了不太行</p>
+<p>最后一层套娃是泄漏d低位，也是可以解的，具体参考la佬的博客</p>
+<h2 id="Bits（unsolved）"><a href="#Bits（unsolved）" class="headerlink" title="Bits（unsolved）"></a>Bits（unsolved）</h2><blockquote>
+<p>I wrote this oracle in rust so that it can’t sue companies over java stuff.</p>
+<p>Author: CryptoHack (<code>Robin_Jadoul</code> and <code>jack</code>)</p>
+</blockquote>
+<p>emmmm竟然是rust语言写的，有空学一下</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上午羊城杯结束，去看RCTF的密码，看的有点懵，看懂了代码之后就无从下手，两道密码，出的师傅还是大有人在的</p>
+<p>然后下午看了hub上，发现错过了一些比赛的报名，就国外的CSAW开赛后还可以报，就在打了；做出一道签到，感觉有点打不动，倒不是题目难，感觉有点饱和，果然不能一天到晚坐在屏幕前面，多出去走走，运动运动，谈谈恋爱多好</p>
+<p>菜归菜，还是要注意劳逸结合</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>4XWi11
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://4xwi11.github.io/posts/e4da15f1/" title="20210911 CSAWCTFCrypto方向部分WP">https://4xwi11.github.io/posts/e4da15f1/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/e245e3dc/" rel="prev" title="20210908 人在寝室坐题从天上来疑似江西吉林省赛Crypto方向部分WP">
+                  <i class="fa fa-chevron-left"></i> 20210908 人在寝室坐题从天上来疑似江西吉林省赛Crypto方向部分WP
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/b13b0850/" rel="next" title="20210911 GWHTCrypto方向部分WP">
+                  20210911 GWHTCrypto方向部分WP <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-user-secret"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4XWi11</span>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("10/6/2021 14:38:00");//此处修改你的建站时间或者网站上线时间 
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+  setInterval("createtime()",250);
+  </script>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">748k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">11:20</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"4XWi11/comments","issue_term":"pathname","theme":"github-light","cdn":"https://utteranc.es/client.js"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>

@@ -160,18 +160,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">25</span>
+          <span class="site-state-item-count">42</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">19</span>
+        <span class="site-state-item-count">24</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -234,7 +234,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/898249b7/">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/fadeeed/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -247,7 +247,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/898249b7/" class="post-title-link" itemprop="url">DH协议及ElGamal加密方案的实现</a>
+          <a href="/posts/fadeeed/" class="post-title-link" itemprop="url">20210731 DAS 极客巅峰 UIUCTF2021 cryptoctfCrypto方向部分WP</a>
         </h2>
 
         <div class="post-meta-container">
@@ -259,7 +259,491 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-10-07 22:07:35 / 修改时间：23:26:59" itemprop="dateCreated datePublished" datetime="2021-10-07T22:07:35+08:00">2021-10-07</time>
+      <time title="创建时间：2021-10-08 10:30:20 / 修改时间：12:23:49" itemprop="dateCreated datePublished" datetime="2021-10-08T10:30:20+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>40k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>36 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>前两周去北方支教，回来了又去了红帽杯，哈哈跑了半个中国，收获还挺大的。但红帽杯零贡献，再次让我知道了学pwn的必要。回归开始集训，可以安分点了</p>
+<p>七月的尾巴赛题，没有当场做出来的看师傅博客复现了</p>
+<p>长文废话警告</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/fadeeed/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/e1a0b897/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/e1a0b897/" class="post-title-link" itemprop="url">20210713 redpwnCrypto方向部分WP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 10:21:24 / 修改时间：12:14:44" itemprop="dateCreated datePublished" datetime="2021-10-08T10:21:24+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>12k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>国外的比赛，赛后当赛时打，也不知道什么时候靶机会关掉</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/e1a0b897/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/78d3fdb3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/78d3fdb3/" class="post-title-link" itemprop="url">20210710 CTFSHOW CJBCrypto方向部分WP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 09:47:38 / 修改时间：12:14:44" itemprop="dateCreated datePublished" datetime="2021-10-08T09:47:38+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>24k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>22 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>&nbsp;</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/78d3fdb3/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/798f5cbc/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/798f5cbc/" class="post-title-link" itemprop="url">20210706【胖哈勃的七月公开赛】</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 09:44:44 / 修改时间：12:27:21" itemprop="dateCreated datePublished" datetime="2021-10-08T09:44:44+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>尚师傅推荐的题目，着实没有想到被他反将了一军</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/798f5cbc/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/df43d8e4/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/df43d8e4/" class="post-title-link" itemprop="url">20210704 TCTFCrypto方向部分WP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 09:30:20 / 修改时间：12:29:23" itemprop="dateCreated datePublished" datetime="2021-10-08T09:30:20+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>0ops战队举办的比赛，题目也是很有水准的，看解出来的人数就知道</p>
+<p>就出了一题，唔</p>
+<p>见证sage的奇妙</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/df43d8e4/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/d563b987/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/d563b987/" class="post-title-link" itemprop="url">不正宗的MT19937</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 08:45:10 / 修改时间：08:45:52" itemprop="dateCreated datePublished" datetime="2021-10-08T08:45:10+08:00">2021-10-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -271,7 +755,400 @@
         </span>
           ，
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%86%9B%E7%81%AB%E5%BA%93/%E5%9F%BA%E5%B1%82%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">基层知识学习</span></a>
+          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%86%9B%E7%81%AB%E5%BA%93/CTF-Crypto%E9%9B%B6%E6%98%9F%E8%80%83%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto零星考点</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%86%9B%E7%81%AB%E5%BA%93/CTF-Crypto%E9%9B%B6%E6%98%9F%E8%80%83%E7%82%B9/%E5%85%B6%E4%BB%96/" itemprop="url" rel="index"><span itemprop="name">其他</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>5 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>位运算的题目老不会了</p>
+<img alt="[SUCTF2019]MT 我也很异或呢-bdf4ba97.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-bdf4ba97.png" width="" height="">
+
+<p>其实这篇MT19937，我的解法不是很正规，可以看我MT19937标签下的另外一篇</p>
+<p>MT19937是伪随机数的生成算法，下面通过一道题目来了解什么是MT19937，以及它如何被预测</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/d563b987/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/2d82e8aa/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/2d82e8aa/" class="post-title-link" itemprop="url">20210626 GKCTFCrypto方向部分复现</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 08:28:54 / 修改时间：08:37:27" itemprop="dateCreated datePublished" datetime="2021-10-08T08:28:54+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>19k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>17 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>26号，那天考操作系统，没有参加；27下午考完计网，想要复现一下</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/2d82e8aa/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/d7d40428/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/d7d40428/" class="post-title-link" itemprop="url">20210607 NUCTF中北大学校赛Nova底登陆WP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 08:21:48 / 修改时间：08:36:52" itemprop="dateCreated datePublished" datetime="2021-10-08T08:21:48+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>9.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>9 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>被姜少带飞的一天，4道Web，1道Misc，1道Crypto</p>
+<p>好菜啊，这可如何是好，理论知识这块差太多了，题目都挺有意思的，一句话形容小而精</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/d7d40428/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/72f0c58/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/72f0c58/" class="post-title-link" itemprop="url">20210601 NEWSCTFNova底登陆WP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 08:12:45 / 修改时间：08:36:52" itemprop="dateCreated datePublished" datetime="2021-10-08T08:12:45+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>19k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>17 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>考试月前的比赛，儿童节快乐哦</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/posts/72f0c58/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/67700515/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/67700515/" class="post-title-link" itemprop="url">20210529 2021DozerCTFCrypto方向部分WP</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-08 08:03:21 / 修改时间：08:36:52" itemprop="dateCreated datePublished" datetime="2021-10-08T08:03:21+08:00">2021-10-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
         </span>
     </span>
 
@@ -300,10 +1177,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>这次做到离散对数的密码，虽然原理跟着老师走了一遍，但是没有什么实战经历没有什么感觉，这里用一道题入手吧</p>
+          <p>就做出一题。。。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/898249b7/#more" rel="contents">
+              <a class="btn" href="/posts/67700515/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -334,7 +1211,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/59b3d960/">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/88b63128/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -347,7 +1224,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/59b3d960/" class="post-title-link" itemprop="url">快速幂算法详解</a>
+          <a href="/posts/88b63128/" class="post-title-link" itemprop="url">20210529 DASCTFXBUUOJ五月大联动Crypto方向部分WP</a>
         </h2>
 
         <div class="post-meta-container">
@@ -359,203 +1236,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-10-07 22:01:49 / 修改时间：23:31:47" itemprop="dateCreated datePublished" datetime="2021-10-07T22:01:49+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%86%9B%E7%81%AB%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">密码学军火库</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%86%9B%E7%81%AB%E5%BA%93/%E5%9F%BA%E5%B1%82%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">基层知识学习</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.7k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>快速幂，懂了我就屁哦大不溜</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/59b3d960/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/d77a51b9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF菜鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/d77a51b9/" class="post-title-link" itemprop="url">一些RSA文件操作的摘记</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-10-07 21:31:22 / 修改时间：22:38:52" itemprop="dateCreated datePublished" datetime="2021-10-07T21:31:22+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">关于操作的一些问题</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>在打CTF密码学方向的过程中，会遇到一些使用私钥公钥的形式题目，除了使用在线的网站，也可以用OpenSSL工具</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/d77a51b9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/e881af84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF菜鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/e881af84/" class="post-title-link" itemprop="url">20210509 RedhatCrypto方向WP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-10-07 20:20:36 / 修改时间：23:40:10" itemprop="dateCreated datePublished" datetime="2021-10-07T20:20:36+08:00">2021-10-07</time>
+      <time title="创建时间：2021-10-08 00:40:17 / 修改时间：00:51:41" itemprop="dateCreated datePublished" datetime="2021-10-08T00:40:17+08:00">2021-10-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -574,14 +1255,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>11k</span>
+      <span>25k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>10 分钟</span>
+      <span>22 分钟</span>
     </span>
 </div>
 
@@ -592,10 +1273,13 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>emmmmm发现都是原题，当时还不善用搜索引擎，打得不怎么样</p>
+          <p>不是部分啦，就一道呜呜呜，但是草鸡详细哦</p>
+<p>xs，我tm根本登不进去，报名时出了点问题</p>
+<p>最后直接看别人发在群里的题目了</p>
+<p>总共有三题，一道完全不懂，一道好像是椭圆曲线的RelatedMessage，反正就这道题有点思路，因为找到一篇关于斐波那契是RSA模数的论文，打算借此机会研究一下</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/e881af84/#more" rel="contents">
+              <a class="btn" href="/posts/88b63128/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -626,7 +1310,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/19a278ea/">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/250213ee/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -639,7 +1323,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/19a278ea/" class="post-title-link" itemprop="url">20200219 V&N2020公开赛Crypto方向复现</a>
+          <a href="/posts/250213ee/" class="post-title-link" itemprop="url">20210529 春秋杯网络安全联赛春季赛Crypto方向部分WP</a>
         </h2>
 
         <div class="post-meta-container">
@@ -651,7 +1335,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-10-07 15:57:18 / 修改时间：23:40:50" itemprop="dateCreated datePublished" datetime="2021-10-07T15:57:18+08:00">2021-10-07</time>
+      <time title="创建时间：2021-10-08 00:39:59 / 修改时间：00:45:48" itemprop="dateCreated datePublished" datetime="2021-10-08T00:39:59+08:00">2021-10-08</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -670,315 +1354,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>23k</span>
+      <span>10k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>21 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>前景提要</p>
-</blockquote>
-<p>在签到2021TCTF时看到一篇WP，是标题所述比赛的easy_RSA，本来只是用一下</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python2 -m primefac -vs -m=p+<span class="number">1</span> XXXXX</span><br></pre></td></tr></table></figure>
-
-<p>尝试分解那个迷之模数，当然以失败告终，但是在尚师傅的指导下，sage和ubuntu子系统觉醒出了更强大的组合</p>
-<p>然后从这篇WP出发，尝试和组里的师傅们复现下这场比赛的Crypto部分</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/19a278ea/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/3a78d3e0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF菜鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/3a78d3e0/" class="post-title-link" itemprop="url">20210617 记国赛线下AWD选拔赛</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-10-07 15:36:53 / 修改时间：23:48:04" itemprop="dateCreated datePublished" datetime="2021-10-07T15:36:53+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>我是一块砖，需要就往哪里搬。震惊，密码师傅零基硬刚PWN，结果被凑得鼻青脸肿</p>
-<img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/记国赛线下AWD选拔赛-11a8defc.png" alt="昂？"/>
-
-<p>三个月后回头看，发现自己真的是太菜了，别的密码师傅都可以国赛中打得很自在，自己却被一天罚站。学习的面可以广啊。做这一行，<strong>只能有长板和无数个中板</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/3a78d3e0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/43deb916/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF菜鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/43deb916/" class="post-title-link" itemprop="url">20210527 MTCTF2021Crypto方向部分复现</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-10-07 15:27:11 / 修改时间：23:49:23" itemprop="dateCreated datePublished" datetime="2021-10-07T15:27:11+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <img alt="easy_RSA-37a4a203.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/easy_RSA-37a4a203.png" width="" height="" >
-
-<p>看了下日期，又不能快乐地刷题了</p>
-<p>那天竟然被宁波的比赛耽误，SSGYZTL，错过了美团，赛后复现一下</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/43deb916/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/766eb6e4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF菜鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/766eb6e4/" class="post-title-link" itemprop="url">20210516 国赛Crypto方向部分WP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-10-07 15:20:41 / 修改时间：15:49:30" itemprop="dateCreated datePublished" datetime="2021-10-07T15:20:41+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>15k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>14 分钟</span>
+      <span>9 分钟</span>
     </span>
 </div>
 
@@ -992,419 +1375,7 @@
           <p>&nbsp;</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/posts/766eb6e4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/bbcb3fe9/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF菜鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/bbcb3fe9/" class="post-title-link" itemprop="url">Socat</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-10-07 15:14:08 / 修改时间：15:38:26" itemprop="dateCreated datePublished" datetime="2021-10-07T15:14:08+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">关于操作的一些问题</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.9k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Socat是Netcat的升级版，所做的工作就是在2个address指定的描述符间建立一个pipe用于发送和接收数据</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/bbcb3fe9/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/50009ff3/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF菜鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/50009ff3/" class="post-title-link" itemprop="url">Netcat</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-10-07 14:15:10 / 修改时间：15:49:14" itemprop="dateCreated datePublished" datetime="2021-10-07T14:15:10+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">关于操作的一些问题</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.5k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>&nbsp;</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/50009ff3/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/921543e1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF菜鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/921543e1/" class="post-title-link" itemprop="url">CTF密码题是怎么炼成的</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2021-10-07 14:12:51 / 修改时间：15:49:22" itemprop="dateCreated datePublished" datetime="2021-10-07T14:12:51+08:00">2021-10-07</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">关于操作的一些问题</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4.4k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>&nbsp;</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/921543e1/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/ed1adb0c/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF菜鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/ed1adb0c/" class="post-title-link" itemprop="url">如何用hexo搭建博客</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-10-07 14:02:45" itemprop="dateCreated datePublished" datetime="2021-10-07T14:02:45+08:00">2021-10-07</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-08 08:56:27" itemprop="dateModified" datetime="2021-10-08T08:56:27+08:00">2021-10-08</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">关于操作的一些问题</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%85%B3%E4%BA%8E%E6%93%8D%E4%BD%9C%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/hexo/" itemprop="url" rel="index"><span itemprop="name">hexo</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>马上就能拥有自己的博客了，开不开心，激不激动；我用的是</p>
-<ul>
-<li>ubuntu18，处于windows的子系统</li>
-<li>hexo是5.4.0</li>
-<li>因为NexT主题比较成熟，所以先拿这个练练手，是8.8.0版本的</li>
-</ul>
-<p>更多信息可以在<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官网文档</a>查询，此外还看了<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yb411a7ty/?spm_id_from=333.788.recommend_more_video.0">b站up主的超级良心视频</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/ed1adb0c/#more" rel="contents">
+              <a class="btn" href="/posts/250213ee/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1428,7 +1399,7 @@
 
 
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 </div>
@@ -1468,13 +1439,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">280k</span>
+    <span title="站点总字数">748k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">4:14</span>
+    <span title="站点阅读时长">11:20</span>
   </span>
 </div>
 <div class="busuanzi-count">
