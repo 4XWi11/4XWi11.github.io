@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="ctf入门必备，你需要熟稔的那些编码。寒假跟着nep的师傅，讲得很好，对于当时的我来说。之前都觉得挺乱的，听了之后有种豁然开朗的感觉，偷了，以便后面忘了时回忆">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据编码">
@@ -330,7 +330,7 @@
 <p>这里有必要提醒一下，简单来说PIL库是针对python2的，python3的话用pillow库代替了，但是导入库的代码都是一样，很神奇，正如上述脚本所示。安装库可能会遇到些问题，建议面向百度，我遇到的问题是师傅给的脚本名字就是”PIL”，然后又是在pycharm同一个项目中，所以导入的时候报错了。</p>
 <h3 id="二进制转图片（hex）"><a href="#二进制转图片（hex）" class="headerlink" title="二进制转图片（hex）"></a>二进制转图片（hex）</h3><p>先转十六进制，再在010editor里保存，更改为相应的文件。<br>注意编码方式是”十六进制（H）”，选择编辑，粘贴自，粘贴自十六进制文本。</p>
 <h1 id="常见编码"><a href="#常见编码" class="headerlink" title="常见编码"></a>常见编码</h1><h2 id="ASCII码"><a href="#ASCII码" class="headerlink" title="ASCII码"></a>ASCII码</h2><p>这个图整理得海星，有三种进制对应的ascii码</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210207200756460.png" alt="Ascii码对照表"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210207200756460.png" alt="Ascii码对照表"></p>
 <h2 id="Base家族"><a href="#Base家族" class="headerlink" title="Base家族"></a>Base家族</h2><p>庞大的Base家族，这一块十分的重要</p>
 <h3 id="Base64"><a href="#Base64" class="headerlink" title="Base64"></a>Base64</h3><p>编码原理：（把3个8位字节转化为4个6位的字节，之后在6位的前面补两个0，形成8位一个字节的形式），转化可以分为六步</p>
 <blockquote>
@@ -341,7 +341,7 @@
 <p>a）二个字节的情况：将这二个字节的一共16个二进制位，按照上面的规则，转成三组，最后一组除了前面加两个0以外，后面也要加两个0。这样得到一个三位的Base64编码，再在末尾补上一个”=”号。<br>比如，“Ma”这个字符串是两个字节，可以转化成三组00010011、00010110、00010000以后，对应Base64值分别为T、W、E，再补上一个”=“号，因此”Ma”的Base64编码就是TWE=。<br>b）一个字节的情况：将这一个字节的8个二进制位，按照上面的规则转成二组，最后一组除了前面加二个0以外，后面再加4个0。这样得到一个二位的Base64编码，再在末尾补上两个”=”号。<br>比如，“M”这个字母是一个字节，可以转化为二组00010011、00010000，对应的Base64值分别为T、Q，再补上二个”=”号，因此”M”的Base64编码就是TQ==。</p>
 </blockquote>
 <p>6位2进制能表示的最大数是2的6次方是64，所以base64就是64个字符(A-Z，a-z，0-9，+，/这64个编码字符，注意=不属于编码字符，而是填充字符)，下面是张转换后数值的对应字符表</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210207201509345.png" alt="Base64对照表格"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210207201509345.png" alt="Base64对照表格"></p>
 <h3 id="Base32"><a href="#Base32" class="headerlink" title="Base32"></a>Base32</h3><p>Base32编码是使用32个可打印字符（字母A-Z和数字2-7）对任意字节数据进行编码的方案，编码后的字符串不用区分大小写并排除了容易混淆的字符，可以方便地由人类使用并由计算机处理<br>tips：末尾最多有6个=</p>
 <h3 id="Base16"><a href="#Base16" class="headerlink" title="Base16"></a>Base16</h3><p>Base16使用数字0-9和字母A-F共计16个ASCII可打印字符对任意字节数据进行编码<br>tips：不会出现=</p>
 <h3 id="Base36"><a href="#Base36" class="headerlink" title="Base36"></a>Base36</h3><p>Base36包含0~9的数字，加上所有26个字母，不区分大小写，不包含任何标点，所有的字母要不全大写，要不全小写。所以加起来就是 “0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ”,或者“0123456789abcdefghijklmnopqrstuvwxyz”<br>tips：编码仅支持整数数字，解密仅支持字符串，不支持中文<br>所以Base64，Base32，Base16都是支持对中文编码的</p>
@@ -352,13 +352,13 @@
 <h3 id="Base92"><a href="#Base92" class="headerlink" title="Base92"></a>Base92</h3><p>比Base91 多一个字符 〜<br>支持中文。<br>最后这里附上一个脚本，用来解决base套娃，之前的题目也遇到过，不过好像base64库里只有16，32，64和85</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># @Time : 2021/1/27 10:39</span></span><br><span class="line"><span class="comment"># @Author : Will</span></span><br><span class="line"><span class="comment"># @File : basefamily(script).py</span></span><br><span class="line"><span class="comment"># @Software: PyCharm</span></span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">base</span>(<span class="params">s</span>):</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        s = base64.b64decode(s)</span><br><span class="line">        s = base(s)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            s = base64.b32decode(s)</span><br><span class="line">            s = base(s)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                s = base64.b16decode(s)</span><br><span class="line">                s = base(s)</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    s = base64.b85decode(s)</span><br><span class="line">                    s = base(s)</span><br><span class="line">                <span class="keyword">except</span>:</span><br><span class="line">                    <span class="keyword">return</span> s</span><br><span class="line">    <span class="keyword">return</span> s</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;base.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    text = f.read()</span><br><span class="line">    a = base(text)</span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># @Author : JJ</span></span><br><span class="line"><span class="comment"># from base64 import *</span></span><br><span class="line"><span class="comment">#</span></span><br><span class="line"><span class="comment"># def decode(string):</span></span><br><span class="line"><span class="comment">#     while 1:</span></span><br><span class="line"><span class="comment">#         try:</span></span><br><span class="line"><span class="comment">#             str= b64decode(string).decode()</span></span><br><span class="line"><span class="comment">#             print(&quot;b64decode&#x27;s result is :&quot;, str)</span></span><br><span class="line"><span class="comment">#             str = b85decode(string).decode()</span></span><br><span class="line"><span class="comment">#             print(&quot;b85decode&#x27;s result is :&quot;, str)</span></span><br><span class="line"><span class="comment">#             str = (b16decode(string)).decode()</span></span><br><span class="line"><span class="comment">#             print(&quot;b16decode&#x27;s result is :&quot;, str)</span></span><br><span class="line"><span class="comment">#             str = b32decode(string).decode()</span></span><br><span class="line"><span class="comment">#             print(&quot;b32decode&#x27;s result is :&quot;, str)</span></span><br><span class="line"><span class="comment">#         except:</span></span><br><span class="line"><span class="comment">#             pass</span></span><br><span class="line"><span class="comment">#         finally:</span></span><br><span class="line"><span class="comment">#             print(&quot;decoding end&quot;)</span></span><br><span class="line"><span class="comment"># with open(&#x27;base.txt&#x27;, &#x27;r&#x27;) as f:</span></span><br><span class="line"><span class="comment">#    string = f.read()</span></span><br><span class="line"><span class="comment"># # decode(f,string)</span></span><br><span class="line"><span class="comment"># while 1:</span></span><br><span class="line"><span class="comment">#     decode(string)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="Morse码"><a href="#Morse码" class="headerlink" title="Morse码"></a>Morse码</h2><p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208103335656.png" alt="Morse"></p>
+<h2 id="Morse码"><a href="#Morse码" class="headerlink" title="Morse码"></a>Morse码</h2><p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208103335656.png" alt="Morse"></p>
 <h2 id="Shellcode"><a href="#Shellcode" class="headerlink" title="Shellcode"></a>Shellcode</h2><p>Shellcode为16进制的机器码，一串\x加一个十六进制数字组成，解密的方式就是用十六进制数字去查ascii码表，实现编码解码的脚本也简单的，有工具偷懒了</p>
 <h2 id="Urlencode"><a href="#Urlencode" class="headerlink" title="Urlencode"></a>Urlencode</h2><p>url编码又叫百分号编码，是统一资源定位(URL)编码方式。<br>URL地址（常说网址）规定了常用的数字，字母可以直接使用，另外一批作为特殊用户字符也可以直接用（/,:@等），剩下的其它所有字符必须通过%xx编码处理。<br>编码方法很简单，在该字节ascii码的16进制字符前面加%<br>如空格字符，ascii码是32，对应16进制是’20’，那么urlencode编码结果是：%20</p>
 <h2 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h2><p>Unicode，中文又称万国码、国际码、统一码、单一码，是计算机科学领域的业界标准。它整理、编码了世界上大部分的文字系统，使得电脑可以用更为简单的方式来呈现和处理文字。 Unicode伴随着通用字符集的标准而发展，同时也以书本的形式对外发表。Unicode至今仍在不断增修，每个新版本都加入更多新的字符。<br>主要有两格式（其实不止），不要不认识了</p>
 <ol>
 <li>\u4e39\u4e39\u5b66\u59d0\u4e07\u5c81\uff01</li>
-<li>第二种形式有点不友好？<img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208121609199.png" alt="明明就">本地、在线的工具都不是很兼容，随便信息搜索一个网站就可以用<br><a target="_blank" rel="noopener" href="http://tool.chinaz.com/Tools/unicode.aspx">站长</a></li>
+<li>第二种形式有点不友好？<img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208121609199.png" alt="明明就">本地、在线的工具都不是很兼容，随便信息搜索一个网站就可以用<br><a target="_blank" rel="noopener" href="http://tool.chinaz.com/Tools/unicode.aspx">站长</a></li>
 </ol>
 <h2 id="aaencode、jjencode、uuencode"><a href="#aaencode、jjencode、uuencode" class="headerlink" title="aaencode、jjencode、uuencode"></a>aaencode、jjencode、uuencode</h2><h3 id="aaencode"><a href="#aaencode" class="headerlink" title="aaencode"></a>aaencode</h3><p>人家是不过是可爱的颜文字，可以在console中直接执行</p>
 <h3 id="jjencode"><a href="#jjencode" class="headerlink" title="jjencode"></a>jjencode</h3><p>也可以在console中直接执行，特点是有()[]{}!+,&#39;‘$.:;_~=，好像还有什么全局变量</p>
@@ -380,11 +380,11 @@
 </blockquote>
 <p>在线网站解君愁<a target="_blank" rel="noopener" href="https://www.splitbrain.org/services/ook">Brainfuck之Ook!</a></p>
 <h2 id="敲击码"><a href="#敲击码" class="headerlink" title="敲击码"></a>敲击码</h2><p>敲击码（Tap code）是一种以非常简单的方式对文本信息进行编码的方法。<br>因该编码对信息通过使用一系列的点击声音来编码而命名，敲击码是基于 5 ×5 方格波利比奥斯方阵来实现的，不同点是是用 K 字母被整合到 C 中。</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208135632771.png" alt="Tap Code"></p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/2021020813580737.png" alt="栗子"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208135632771.png" alt="Tap Code"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/2021020813580737.png" alt="栗子"></p>
 <p>可以使用离线的工具，在线的感觉有bug</p>
 <h2 id="二维码"><a href="#二维码" class="headerlink" title="二维码"></a>二维码</h2><p>二维码是一大个大类</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208142655971.png" alt="在这里插入图片描述"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208142655971.png" alt="在这里插入图片描述"></p>
 <ul>
 <li>堆叠式 / 行排式二维码又称堆积式二维条码或层排式二维条码，其编码原理是建立在一维条码基础之上，按需要堆积成二行或多行。 Code 16 k、Code 49、PDF417</li>
 <li>矩阵式二维码：QR CODE</li>
@@ -401,12 +401,12 @@
 <li><p>QR码还可以支持所有类型的数据（如：数字、英文字母、日文字母、汉字、符号、二进制、控制码等）。一个QR码最多可以处理7089字(仅用数字时)的巨大信息量。</p>
 </li>
 <li><p>在小空间内打印：QR码使用纵向和横向两个方向处理数据，如果是相同的信息量，QR码所占空间为条形码的十分之一左右。(还支持Micro QR码，可以在更小空间内处理数据。)</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208143030240.png" alt="还能更省"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208143030240.png" alt="还能更省"></p>
 </li>
 </ol>
 <ul>
 <li><p>QR码的基本结构</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208143204928.png" alt="QR码"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210208143204928.png" alt="QR码"></p>
 <p>格式信息：纠错等级<br>版本信息：即二维码的规格，QR码符号共有40种规格的矩阵</p>
 </li>
 </ul>
@@ -537,6 +537,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
@@ -549,7 +550,8 @@
   <script src="/js/third-party/pace.js"></script>
 
   
-  z<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script async src="busuanzi.pure.mini.js"></script>
 
 
 

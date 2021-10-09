@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="0ops战队举办的比赛，题目也是很有水准的，看解出来的人数就知道 就出了一题，唔 见证sage的奇妙">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20210704 TCTFCrypto方向部分WP">
@@ -320,9 +320,9 @@
 <span id="more"></span>
 
 <h1 id="TCTF"><a href="#TCTF" class="headerlink" title="TCTF"></a>TCTF</h1><h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="checkin"><a href="#checkin" class="headerlink" title="checkin"></a>checkin</h3><p>在尚师傅手把手的悉心指导下，我艰难地完成了签到，不得不说尚师傅yyds</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704145347960.png" alt="image-20210704145347960"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704145347960.png" alt="image-20210704145347960"></p>
 <p>看题目提示，只有一个nc链接和提示；没有附件，我们直接连上试试</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704145514705.png" alt="image-20210704145514705"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704145514705.png" alt="image-20210704145514705"></p>
 <p>返回一个代数式，要我们给出结果，稍微想一下就知道括号里2的10842207次方结果太大，虽然确实可以算出来，但是倒数第二行也说了，要在10秒之内算出来，而且超时真的会发生；硬算是万万不行的</p>
 <p>先搞一组数据下来</p>
 <blockquote>
@@ -334,13 +334,13 @@
 
 <p>其中用到了正则表达式，从网上现学现卖来的，然后这里先暂时直接将计算的结果返回了，没有经过数学上的简化</p>
 <p>之后的我查了一些资料，也问了老师，但都失败告终，其中尝试过用自己写的数域筛法分解模数，但想必这种算法，yafu和在线网站应该都包含了，搭建了分解光滑数的工具也还是不行</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704160916416.png" alt="image-20210704160916416"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704160916416.png" alt="image-20210704160916416"></p>
 <p>不买关子了，最后尚师傅坐我边上轻蔑地笑了我一句，说放到sage里试试；为了sage用pwn库，我还在linux子系统里装了sgae。然后代码粘贴进去也遇到点问题，主要是缩进的问题吧，写在函数会里方便一点</p>
 <p>看效果</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704161339872.png" alt="image-20210704161339872"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704161339872.png" alt="image-20210704161339872"></p>
 <p>amazing！竟然出来了，原来对于一般语言计算较慢的大指数，sage可以很快出来；其实细想也是，别的语言并不是慢，而是并不支持存放如此庞大的数，而如果只是一个循环来计算八位数的幂的话，时间复杂度还是允许的。所以总之，<strong>sage暂时滴神，尚师傅永远滴神。</strong></p>
 <p>在win下的sage里，验证一下</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704161735313.png" alt="image-20210704161735313"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704161735313.png" alt="image-20210704161735313"></p>
 <p>看来还有上限的。回过来看看flag里面似乎给了一些信息</p>
 <blockquote>
 <p>flag{h0w_m4ny_squar3s_can_u_d0_in_10_sec0nds?}</p>
@@ -470,6 +470,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
@@ -482,7 +483,8 @@
   <script src="/js/third-party/pace.js"></script>
 
   
-  z<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script async src="busuanzi.pure.mini.js"></script>
 
 
 

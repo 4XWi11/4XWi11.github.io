@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="位运算的题目老不会了   其实这篇MT19937，我的解法不是很正规，可以看我MT19937标签下的另外一篇 MT19937是伪随机数的生成算法，下面通过一道题目来了解什么是MT19937，以及它如何被预测">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【SUCTF2019 MT】看MT19937">
@@ -328,7 +328,7 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>位运算的题目老不会了</p>
-<img alt="[SUCTF2019]MT 我也很异或呢-bdf4ba97.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-bdf4ba97.png" width="" height="">
+<img alt="[SUCTF2019]MT 我也很异或呢-bdf4ba97.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-bdf4ba97.png" width="" height="">
 
 <p>其实这篇MT19937，我的解法不是很正规，可以看我MT19937标签下的另外一篇</p>
 <p>MT19937是伪随机数的生成算法，下面通过一道题目来了解什么是MT19937，以及它如何被预测</p>
@@ -340,7 +340,7 @@
 <h2 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h2><p>最关键的就是convert这个加密流程了，写了点注释，但怎么感觉像是把明文破坏了</p>
 <h3 id="第一四组位运算"><a href="#第一四组位运算" class="headerlink" title="第一四组位运算"></a>第一四组位运算</h3><p>所以，我决定自己试一遍，试了第一组</p>
 <p>一试不得了，我发现了，有被修复的可行性的，算法看下图</p>
-<img alt="[SUCTF2019]MT 我也很异或呢-f4ee9bb3.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-f4ee9bb3.png" width="" height="">
+<img alt="[SUCTF2019]MT 我也很异或呢-f4ee9bb3.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-f4ee9bb3.png" width="" height="">
 
 <p>我另外随便（后来发现不能太随便）搞了长度为4的字符来模拟一下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">first_cal_re</span>(<span class="params">c, x</span>):</span></span><br><span class="line">    y = <span class="built_in">len</span>(<span class="built_in">bin</span>(c)[<span class="number">2</span>:])-<span class="number">2</span>*x</span><br><span class="line">    <span class="keyword">assert</span> y &gt; <span class="number">0</span></span><br><span class="line">    c = <span class="built_in">bin</span>(c)[<span class="number">2</span>:]</span><br><span class="line">    high13 = c[<span class="number">0</span>:x]</span><br><span class="line">    mid5 = <span class="built_in">bin</span>(<span class="built_in">int</span>(c[x:x+y], <span class="number">2</span>) ^ <span class="built_in">int</span>(high13[:y], <span class="number">2</span>))[<span class="number">2</span>:]</span><br><span class="line">    low13 = <span class="built_in">bin</span>(<span class="built_in">int</span>(c[x+y:], <span class="number">2</span>) ^ <span class="built_in">int</span>((high13+mid5)[y:], <span class="number">2</span>))[<span class="number">2</span>:].zfill(x)   <span class="comment"># 注意填充</span></span><br><span class="line">    output = <span class="built_in">int</span>(high13+mid5+low13, <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span></span><br><span class="line">    flag = <span class="string">b&#x27;abcd&#x27;</span></span><br><span class="line">    m = bytes_to_long(flag)</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">bin</span>(m)[<span class="number">2</span>:])</span><br><span class="line">    <span class="comment"># m = m ^ m &gt;&gt; 13</span></span><br><span class="line">    output = second_cal_re(m)</span><br><span class="line">    <span class="keyword">assert</span> long_to_bytes(output) == flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
@@ -353,7 +353,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">first_cal_re</span>(<span class="params">c, x</span>):</span></span><br><span class="line">    y = <span class="built_in">len</span>(<span class="built_in">bin</span>(c)[<span class="number">2</span>:].zfill(<span class="number">31</span>))-<span class="number">2</span>*x</span><br><span class="line">    <span class="keyword">if</span> y &lt;= <span class="number">0</span>:</span><br><span class="line">        y = <span class="built_in">len</span>(<span class="built_in">bin</span>(c)[<span class="number">2</span>:].zfill(<span class="number">31</span>)) - x</span><br><span class="line">        c = <span class="built_in">bin</span>(c)[<span class="number">2</span>:].zfill(<span class="number">31</span>)</span><br><span class="line">        <span class="comment"># 高x位完全相同</span></span><br><span class="line">        part1 = c[<span class="number">0</span>:x].zfill(x)</span><br><span class="line">        part2 = <span class="built_in">bin</span>(<span class="built_in">int</span>(c[x:], <span class="number">2</span>) ^ <span class="built_in">int</span>(c[:y], <span class="number">2</span>))[<span class="number">2</span>:].zfill(y)</span><br><span class="line">        output = <span class="built_in">int</span>(part1 + part2, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line">    c = <span class="built_in">bin</span>(c)[<span class="number">2</span>:].zfill(<span class="number">31</span>)</span><br><span class="line">    <span class="comment"># 高x位完全相同</span></span><br><span class="line">    high13 = c[<span class="number">0</span>:x].zfill(x)</span><br><span class="line">    <span class="comment"># 中间的几位</span></span><br><span class="line">    mid5 = <span class="built_in">bin</span>(<span class="built_in">int</span>(c[x:x+y], <span class="number">2</span>) ^ <span class="built_in">int</span>(high13[:y], <span class="number">2</span>))[<span class="number">2</span>:].zfill(y)</span><br><span class="line">    low13 = <span class="built_in">bin</span>(<span class="built_in">int</span>(c[x+y:], <span class="number">2</span>) ^ <span class="built_in">int</span>((high13+mid5)[y:], <span class="number">2</span>))[<span class="number">2</span>:].zfill(x)   <span class="comment"># 注意填充</span></span><br><span class="line">    output = <span class="built_in">int</span>(high13+mid5+low13, <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
 
 <h3 id="第二三组位运算"><a href="#第二三组位运算" class="headerlink" title="第二三组位运算"></a>第二三组位运算</h3><p>然后我们再看第二和第三个位运算变化，如法炮制，大致算法参照如下</p>
-<img alt="[SUCTF2019]MT 我也很异或呢-86361ff5.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-86361ff5.png" width="" height="" >
+<img alt="[SUCTF2019]MT 我也很异或呢-86361ff5.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-86361ff5.png" width="" height="" >
 
 <p>大致的思路就是，最开始低9位是保持不变的，我们可以用第九位反推出13到21位，知道了13到21位，又可以推出9到12位，依次类推，整个过程是可逆的</p>
 <p>实现</p>
@@ -367,9 +367,9 @@
 
 <h2 id="另一位师傅的思路"><a href="#另一位师傅的思路" class="headerlink" title="另一位师傅的思路"></a>另一位师傅的思路</h2><p>对，又是尚师傅，在我迷茫的时候又给我指点迷津，他一下就看出，这是一个可以循环回来的位运算，所以直接写了循环就跑出来了</p>
 <p>一哩窝里GIAO</p>
-<img alt="[SUCTF2019]MT 我也很异或呢-ce3e9430.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-ce3e9430.png" width="" height="">
+<img alt="[SUCTF2019]MT 我也很异或呢-ce3e9430.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-ce3e9430.png" width="" height="">
 
-<img alt="[SUCTF2019]MT 我也很异或呢-30b8ac87.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-30b8ac87.png" width="" height="" >
+<img alt="[SUCTF2019]MT 我也很异或呢-30b8ac87.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-30b8ac87.png" width="" height="" >
 
 <p>牛啊，人上人</p>
 <h2 id="题目总结"><a href="#题目总结" class="headerlink" title="题目总结"></a>题目总结</h2><p>虽然也不是什么动脑子的题目，重复一遍过程，然后扣细节。但还是很兴奋，第一次自己做出这种题目（主要是师傅们的wp看不懂哇），对于之前一直没有攻克的线性移位寄存器也有一定思路了</p>
@@ -377,19 +377,19 @@
 <h2 id="关于MT"><a href="#关于MT" class="headerlink" title="关于MT"></a>关于MT</h2><p>哈哈哈哈哈，重要的话放在最后说</p>
 <p>所以像我这样这么愚蠢地去分析这个具体的流程是很低效的，浪费时间，做这种题目的思路应该是找出其中的<strong>规律</strong>，现成的也好，但毕竟头几次接触，这样也无可厚非，人都是会慢慢成长起来的</p>
 <p>去看了之前没有看懂的wp，有些人qs采用的就是尚师傅这个思路</p>
-<img alt="[SUCTF2019]MT 我也很异或呢-40747019.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-40747019.png" width="" height="" >
+<img alt="[SUCTF2019]MT 我也很异或呢-40747019.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-40747019.png" width="" height="" >
 
 <p>但很多是py</p>
 <p>看到安全客的人上人wp</p>
-<img alt="[SUCTF2019]MT 我也很异或呢-d514d3be.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-d514d3be.png" width="" height="">
+<img alt="[SUCTF2019]MT 我也很异或呢-d514d3be.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-d514d3be.png" width="" height="">
 
 <p>知音啊，就是比我精简了好多</p>
 <p>至于为什么可以逆回来呢？官方wp才是yyds</p>
-<p>先看看出题人的出题思路<br><img alt="[SUCTF2019]MT 我也很异或呢-01fc37a9.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-01fc37a9.png" width="" height=""></p>
+<p>先看看出题人的出题思路<br><img alt="[SUCTF2019]MT 我也很异或呢-01fc37a9.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-01fc37a9.png" width="" height=""></p>
 <p>所以我的思路没错，就是逆，我逆的是具体每一步，而没有发现更大的规律</p>
 <p><strong>只存在左移和右移的区别</strong></p>
 <p>看官方的代码觉得好简单，但还是不知道</p>
-<img alt="[SUCTF2019]MT 我也很异或呢-58e3c5e7.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-58e3c5e7.png" width="" height="">
+<img alt="[SUCTF2019]MT 我也很异或呢-58e3c5e7.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-58e3c5e7.png" width="" height="">
 
 <p>在此也暂时不往下研究了，总之是有规律的，在这道题花了太多时间，虽然我觉得值，但价值快被榨干了，应该赋予弄懂的希望在之后同类型的题目</p>
 <hr>
@@ -520,6 +520,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
@@ -532,7 +533,8 @@
   <script src="/js/third-party/pace.js"></script>
 
   
-  z<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script async src="busuanzi.pure.mini.js"></script>
 
 
 

@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="rsa的rabin攻击是个基本的考点，其背后还是涉及到一些原理 师从这位师傅的博客https:&#x2F;&#x2F;blog.csdn.net&#x2F;jcbx_&#x2F;article&#x2F;details&#x2F;101066670以及大牛Rabin的Square roots modulo a prime论文，从头到尾推导一遍">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rabin攻击">
@@ -339,7 +339,7 @@
 <p>然后直接开方，得<br>$$<br>m_1\equiv c^\frac{p+1}{4}\ (mod\ p)<br>$$<br>$$<br>m_2\equiv (p-c^\frac{p+1}{4})\ mod\ p<br>$$</p>
 <hr>
 <p>这个开方怎么来的呢，聂嘿，之前看过求<strong>平方根论文</strong>的时候也看到过</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901103319470.png" alt="image-20210901103319470"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901103319470.png" alt="image-20210901103319470"></p>
 <p>反正就是条结论，开方在模运算下也是成立的，我们这里不过是利用模的性质，加了一个模数依旧是成立的</p>
 <hr>
 <p>同理，在$c\equiv m^2(mod\ q)$下有<br>$$<br>m_3\equiv c^\frac{p+1}{4}\ (mod\ q)<br>$$<br>$$<br>m_4\equiv (q-c^\frac{p+1}{4})\ mod\ q<br>$$<br>综上，<br>$$<br>\begin{cases}<br>m_1\equiv c^\frac{p+1}{4}\ (mod\ p) &amp; \\<br>m_2\equiv (p-c^\frac{p+1}{4})\ mod\ p &amp; \\<br>m_3\equiv c^\frac{p+1}{4}\ (mod\ q) &amp; \\<br>m_4\equiv (q-c^\frac{p+1}{4})\ mod\ q<br>\end{cases}<br>$$<br><em>显然，因为开根之后又转成正数，这里就假设$c^\frac{p+1}{4}$要么等于它本身，要么等于$(q-c^\frac{p+1}{4})$吧，其中的一些细节暂时没有完全悟。反正一般运算意义下，开出来就两种结果嘛</em></p>
@@ -354,7 +354,7 @@
 <h2 id="Rabin攻击脚本范例"><a href="#Rabin攻击脚本范例" class="headerlink" title="Rabin攻击脚本范例"></a>Rabin攻击脚本范例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> invert</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes, bytes_to_long, getPrime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">1024</span>)</span><br><span class="line">q = getPrime(<span class="number">1024</span>)</span><br><span class="line"><span class="keyword">while</span> p % <span class="number">4</span> != <span class="number">3</span> <span class="keyword">and</span> q % <span class="number">4</span> != <span class="number">3</span>:</span><br><span class="line">    p = getPrime(<span class="number">1024</span>)</span><br><span class="line">    q = getPrime(<span class="number">1024</span>)</span><br><span class="line"></span><br><span class="line">n = p * q</span><br><span class="line">m = bytes_to_long(<span class="string">b&#x27;flag&#123;Rabin_is_awersome&#125;&#x27;</span>)</span><br><span class="line">c = <span class="built_in">pow</span>(m, <span class="number">2</span>, n)</span><br><span class="line"></span><br><span class="line">inv_p = invert(p, q)</span><br><span class="line">inv_q = invert(q, p)</span><br><span class="line">mp = <span class="built_in">pow</span>(c, (p+<span class="number">1</span>)//<span class="number">4</span>, p)</span><br><span class="line">mq = <span class="built_in">pow</span>(c, (q+<span class="number">1</span>)//<span class="number">4</span>, q)</span><br><span class="line"></span><br><span class="line">a = (inv_p*p*mq+inv_q*q*mp) % n</span><br><span class="line">b = n-a</span><br><span class="line">c = (inv_p*p*mq-inv_q*q*mp) % n</span><br><span class="line">d = n-c</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(a))</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(b))</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(c))</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(d))</span><br></pre></td></tr></table></figure>
 
 <h2 id="Square-roots-modulo-a-prime"><a href="#Square-roots-modulo-a-prime" class="headerlink" title="Square roots modulo a prime"></a>Square roots modulo a prime</h2><p>那么问题来了，为什么一定要满足$p\equiv q\equiv 3(mod\ 4)$呢？</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901113636410.png" alt="image-20210901113636410"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901113636410.png" alt="image-20210901113636410"></p>
 <p>可以看到主要是这个$u_0$在作祟，最后一句没有看懂</p>
 <p>那我们应该怎么办呢？</p>
 <p>论文还是看不懂啊，勉强看到三分之一，还是最简单的部分，梁子先结下了，后续补充</p>
@@ -482,6 +482,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
@@ -494,7 +495,8 @@
   <script src="/js/third-party/pace.js"></script>
 
   
-  z<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script async src="busuanzi.pure.mini.js"></script>
 
 
 

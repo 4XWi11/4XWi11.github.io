@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="广外女生战队出的题，没什么大战队，都在RCTF那边 密码怎么说，换成OSINT更好？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20210911 GWHTCrypto方向部分WP">
@@ -320,7 +320,7 @@
 <p>密码怎么说，换成OSINT更好？</p>
 <span id="more"></span>
 
-<h1 id="羊城杯"><a href="#羊城杯" class="headerlink" title="羊城杯"></a>羊城杯</h1><h2 id="RingRingRing"><a href="#RingRingRing" class="headerlink" title="RingRingRing"></a>RingRingRing</h2><p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210911162154426.png" alt="image-20210911162154426"></p>
+<h1 id="羊城杯"><a href="#羊城杯" class="headerlink" title="羊城杯"></a>羊城杯</h1><h2 id="RingRingRing"><a href="#RingRingRing" class="headerlink" title="RingRingRing"></a>RingRingRing</h2><p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210911162154426.png" alt="image-20210911162154426"></p>
 <p>题目意思很简单，要找出100组$a^4+b^4+c^4+d^4=e^2$的解，并且有一定的限制，比如不能有0，完全相同的解不能重复，但是允许交换顺序</p>
 <p>但条件相对虎符的那一道题已经相当宽泛了，有空去研究下那道<a target="_blank" rel="noopener" href="https://lazzzaro.github.io/2021/04/03/match-2021%E6%95%B0%E5%AD%97%E4%B8%AD%E5%9B%BD%E5%88%9B%E6%96%B0%E5%A4%A7%E8%B5%9B%E8%99%8E%E7%AC%A6%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E8%B5%9B%E9%81%93/index.html">cubic</a></p>
 <p>此外，这个等式的解也并不是像<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/33853851">史上最贱的数学题</a>那样难找，还是挺多的，稍微控制了下循环的参数，再加上可以排列组合，直接brute-force了</p>
@@ -509,6 +509,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
@@ -521,7 +522,8 @@
   <script src="/js/third-party/pace.js"></script>
 
   
-  z<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script async src="busuanzi.pure.mini.js"></script>
 
 
 

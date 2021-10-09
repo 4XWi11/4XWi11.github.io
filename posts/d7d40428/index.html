@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="被姜少带飞的一天，4道Web，1道Misc，1道Crypto 好菜啊，这可如何是好，理论知识这块差太多了，题目都挺有意思的，一句话形容小而精">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20210607 NUCTF中北大学校赛Nova底登陆WP">
@@ -340,14 +340,14 @@
 <p>1.php 是上传的木马，这里需要用绝对路径。</p>
 <p>如果PHAR协议也可以用，5.0.24 存在反序列化写shell的链子，可以尝试触发。</p>
 <h2 id="Misc"><a href="#Misc" class="headerlink" title="Misc"></a>Misc</h2><p>下载拿到一个wav文件，010打开发现奇怪的全部是FF和00</p>
-<p><img src="https://scr1pt-1302658871.cos.ap-chengdu.myqcloud.com/imgimage-20210609161219231.png" alt="image-20210609161219231"></p>
+<p><img data-src="https://scr1pt-1302658871.cos.ap-chengdu.myqcloud.com/imgimage-20210609161219231.png" alt="image-20210609161219231"></p>
 <p>FF 转换为1,00转换为0。用010Editor或者notepad都可以替换。notepad快一点。</p>
 <p>如以下格式</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">0101001001100001</span><br><span class="line">0111001000100001</span><br><span class="line">0001101000000111</span><br><span class="line">0000000100000000</span><br><span class="line">1110100111101001</span><br><span class="line">0111101000001010</span><br><span class="line">0000110000000001</span><br><span class="line">0000010100001000</span><br><span class="line">0000000000000111</span><br><span class="line">0000000100000001</span><br><span class="line">1111111011101101</span><br></pre></td></tr></table></figure>
 
 <p>然后猜测为二进制代码，复制为010里的二进制发现是Rar文件。</p>
-<p><img src="https://scr1pt-1302658871.cos.ap-chengdu.myqcloud.com/imgimage-20210609161538055.png" alt="image-20210609161538055"></p>
-<p><img src="https://scr1pt-1302658871.cos.ap-chengdu.myqcloud.com/imgimage-20210609161718346.png" alt="image-20210609161718346"></p>
+<p><img data-src="https://scr1pt-1302658871.cos.ap-chengdu.myqcloud.com/imgimage-20210609161538055.png" alt="image-20210609161538055"></p>
+<p><img data-src="https://scr1pt-1302658871.cos.ap-chengdu.myqcloud.com/imgimage-20210609161718346.png" alt="image-20210609161718346"></p>
 <p>提取出来后拿到hint.txt,零宽隐写。</p>
 <p><a target="_blank" rel="noopener" href="http://330k.github.io/misc_tools/unicode_steganography.html">http://330k.github.io/misc_tools/unicode_steganography.html</a></p>
 <p>解密后</p>
@@ -370,7 +370,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">e1 = <span class="number">1376213</span></span><br><span class="line">e2 = <span class="number">11932523</span></span><br><span class="line">e3 = <span class="number">663164990242540553660820123984958362292767589050706562525585149518469420039430050814053460276242420171688628686731721858712475428243746423919061950258579075115696969767529903377571203001499079349600716341343846020128095111908915240158242174010840342112170003771807591457926458807775028482732501</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">0x5bf7c98078ceec04b8c414c65731926712d48f6852c4d7a5dfeac5344d3f02d42dc8e387eb7e731c7efb233464279811228fb4bf96dbefe753c7b5a1850cbaa4d7f1048b5d3a2a7a0d3092fd8e4be0f8e298dfc57a38604c225760446816174be08ba1bcb7eaf594126961d5feab6de678a67e1100734d2edd76d6e3778c21e7</span></span><br><span class="line">c = <span class="number">0xcfd6983f1856b0fb6dc851d56ddcbfe66e03acb5ff568f6cd2c07f08448e09b5c513f76e939f4cf3d6f8b0950027c1a31ab6ae27d52ce0bb4b2c3d6502a8bd0e167471b1ee03e645b0aca8e2a93f4b1a8a9e3e493fc811e4104160a11494c548f21508559b508a6ef9a20df7e418fae6f33d14899419330ab29fed26712623b</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># boneh_durfee</span></span><br><span class="line">d3 = <span class="number">4756493741905107016896119044691618473046048544786109</span></span><br><span class="line"><span class="comment"># c2 = pow(c, d3, n)</span></span><br><span class="line"><span class="comment"># print(c2)</span></span><br><span class="line"></span><br><span class="line">c2 = <span class="number">24365558073161106092835300734885784405644211668755395505407014873155490196950555802065799192523919326230891152125642692705560739026854981011343527853677799526009984453218908420224058084389551891310598951492041406656693159899669754537362598790730095352567799368412800492746291016852848356250820274189236494939</span></span><br><span class="line"></span><br><span class="line">e = e1*e2*e3</span><br><span class="line"><span class="built_in">print</span>(e)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">pow</span>(c, <span class="number">289646972582949907450120854337965355291</span>, n))</span><br><span class="line">m = <span class="number">218774971804085528558360699464475824982562321865118031830066995217884121485326574353743748741215026</span></span><br></pre></td></tr></table></figure>
 
 <p>然后可以求出m，但是注意这里多了一步</p>
-<img alt="20210607 NUCTF中北大学校赛-b2e587b7.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210607 NUCTF中北大学校赛-b2e587b7.png" width="" height="" >
+<img alt="20210607 NUCTF中北大学校赛-b2e587b7.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210607 NUCTF中北大学校赛-b2e587b7.png" width="" height="" >
 
 <p>flag先是hex加密了，然后转成十进制了，在线的解法可以是先转十六进制，然后hex一下</p>
 <p>手写的话就是直接long_to_bytes好了，这个记一下</p>
@@ -507,6 +507,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
@@ -519,7 +520,8 @@
   <script src="/js/third-party/pace.js"></script>
 
   
-  z<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script async src="busuanzi.pure.mini.js"></script>
 
 
 

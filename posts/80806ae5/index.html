@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="这两个系列有针对RSA密码中，$gcd(e, phi)\neq 1$的，之前Striving师傅也说，这是一个考的大类，特地来重新整理和记录一下，主要是翻译一下la佬的博客">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CTFSHOW funnyrsa&amp;unusualrsa系列">
@@ -353,7 +353,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">e1 = <span class="number">2</span> * <span class="number">7</span> * <span class="number">1043309573127959</span></span><br><span class="line">e2 = <span class="number">2</span> * <span class="number">7</span> * <span class="number">986669223518417</span></span><br></pre></td></tr></table></figure>
 
 <p>我直接用下有限域开方（这个后面unusualrsa5也会提到一些），直接出来</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210709101537063.png" alt="image-20210709101537063"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210709101537063.png" alt="image-20210709101537063"></p>
 <p>然后记得将中间那个奇怪的东西转换成φ</p>
 <p>第一次遇到这道题，主要参考一篇CSDN上的推导，主要是当时e=14试过小指数枚举k，也开不出来就没啥思路了</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/chenzzhenguo/article/details/94339659">https://blog.csdn.net/chenzzhenguo/article/details/94339659</a></p>
@@ -412,7 +412,7 @@
 <p>而CopperSmith已知明文高位攻击的模式就是，</p>
 <p>当$|x|\leq N^{\frac{1}{e}}$，其中$m=mbar+x$时，下列关于x的方程<br>$$<br>c=m^e\ mod\ n=(mbar+x)^e\ mod\ n，其中mbar=(m&gt;&gt;kbits)&lt;&lt;kbits<br>$$<br>有解</p>
 <p>首先我们验证下，条件是否满足；x是315位的，$N^\frac{1}{e}$约有683，条件成立</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708112626326.png" alt="image-20210708112626326"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708112626326.png" alt="image-20210708112626326"></p>
 <p>所以显然对于已知明文高位的攻击，还需要e比较小这个条件，不然e=65537明显解不出来</p>
 <p>然后看代码理解；主要的是用到了格，求小根这一类的东西。先构造好上面的方程</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f = (mbar + x) ^ e - c</span><br></pre></td></tr></table></figure>
@@ -428,7 +428,7 @@
 </blockquote>
 <p>今年过年的时候做的，当时也写了WP。主要分两步吧，先求出x和y</p>
 <p>当时有师傅在我博客下面评论，说x和y不一定是只有两个元素，问我为什么这样还可以做；当时我也只给了个肌无力的回答</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708115429140.png" alt="image-20210708115429140"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708115429140.png" alt="image-20210708115429140"></p>
 <p>现在，我已不再是曾经那个菜鸡，而是弱鸡</p>
 <p>我们再来分析一下，assert就是条件。首先lambda匿名函数里的x和y并非题目里的x和y，参数罢了；其次这个列表中的元素是True和False，对于secret中的x，只有所有的元素都满足(i-5)*i+6==0这个等式，列表中的所有元素才都是Ture，也只有这样用reduce不断迭代套用x&amp;y最后的返回值才会是True，整个assert才不会报错。y同理</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">assert</span>(reduce(<span class="keyword">lambda</span> x,y:x&amp;y,[(i-<span class="number">5</span>)*i+<span class="number">6</span>==<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> x]))</span><br><span class="line"><span class="keyword">assert</span>(reduce(<span class="keyword">lambda</span> x,y:x&amp;y,[(j-<span class="number">15</span>)*j+<span class="number">44</span>==<span class="number">0</span> <span class="keyword">for</span> j <span class="keyword">in</span> y]))</span><br></pre></td></tr></table></figure>
@@ -489,8 +489,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ********************</span></span><br><span class="line"><span class="comment"># @Author: Lazzaro</span></span><br><span class="line"><span class="comment"># ********************</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> getPrime,bytes_to_long</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> invert</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">p = getPrime(<span class="number">1024</span>)</span><br><span class="line">q = getPrime(<span class="number">1024</span>)</span><br><span class="line">n = p*q</span><br><span class="line"><span class="built_in">print</span>(invert(q,p))</span><br><span class="line"></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">d = invert(e,(p-<span class="number">1</span>)*(q-<span class="number">1</span>))</span><br><span class="line"><span class="built_in">print</span>(d)</span><br><span class="line"></span><br><span class="line">c = <span class="built_in">pow</span>(m,e,n)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">q_1 = <span class="number">113350138578125471637271827037682321496361317426731366252238155037440385105997423113671392038498349668206564266165641194668802966439465128197299073392773586475372002967691512324151673246253769186679521811837698540632534357656221715752733588763108463093085549826122278822507051740839450621887847679420115044512</span></span><br><span class="line">d = <span class="number">27451162557471435115589774083548548295656504741540442329428952622804866596982747294930359990602468139076296433114830591568558281638895221175730257057177963017177029796952153436494826699802526267315286199047856818119832831065330607262567182123834935483241720327760312585050990828017966534872294866865933062292893033455722786996125448961180665396831710915882697366767203858387536850040283296013681157070419459208544201363726008380145444214578735817521392863391376821427153094146080055636026442795625833039248405951946367504865008639190248509000950429593990524808051779361516918410348680313371657111798761410501793645137</span></span><br><span class="line">c = <span class="number">619543409290228183446186073184791934402487500047968659800765382797769750763696880547221266055431306972840980865602729031475343233357485820872268765911041297456664938715949124290204230537793877747551374176167292845717246943780371146830637073310108630812389581197831196039107931968703635129091224513813241403591357678410312272233389708366642638825455844282490676862737715585788829936919637988039113463707959069907015464745700766013573282604376277598510224455044288896809217461295080140187509519005245601483583507547733673523120385089098002298314719617693895392148294399937798485146568296114338393548124451378170302291</span></span><br></pre></td></tr></table></figure>
 
 <p>两条hint</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708160443773.png" alt="unusualrsa4hint1"></p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708160508649.png" alt="unusualrsa4hint2"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708160443773.png" alt="unusualrsa4hint1"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708160508649.png" alt="unusualrsa4hint2"></p>
 <blockquote>
 <p>解题思路</p>
 </blockquote>
@@ -513,7 +513,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ********************</span></span><br><span class="line"><span class="comment"># @Author: Lazzaro</span></span><br><span class="line"><span class="comment"># ********************</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line">e = <span class="number">0x14</span></span><br><span class="line">p = <span class="number">733089589724903586073820965792963746076789390539824437962807679954808310072656817423828613938510684864567664345751164944269489647964227519307980688068059059377123391499328155025962198363435968318689113750910755244276996554328840879221120846257832190569086861774466785101694608744384540722995426474322431441</span></span><br><span class="line">q = <span class="number">771182695213910447650732428220054698293987458796864628535794956332865106301119308051373568460701145677164052375651484670636989109023957702790185901445649197004100341656188532246838220216919835415376078688888076677350412398198442910825884505318258393640994788407100699355386681624118606588957344077387058721</span></span><br><span class="line">n = p*q</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c = <span class="built_in">pow</span>(m,e,n)</span><br><span class="line"><span class="built_in">print</span>(c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#406314720119562590605554101860453913891646775958515375190169046313074168423687276987576196367702523895650602252851191274766072774312855212771035294337840170341052016067631007495713764510925931612800335613551752201920460877432379214684677593342046715833439574705829048358675771542989832566579493199671622475225225451781214904100440695928239014046619329247750637911015313431804069312072581674845078940868349474663382442540424342613429896445329365750444298236684237769335405534090013035238333534521759502103604033307768304224154383880727399879024077733935062478113298538634071453067782212909271392163928445051705642</span></span><br></pre></td></tr></table></figure>
 
 <p>放了一个hint</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708175122579.png" alt="unusualrsa5hint"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708175122579.png" alt="unusualrsa5hint"></p>
 <blockquote>
 <p>解题思路</p>
 </blockquote>
@@ -540,7 +540,7 @@
 <p>求出来的解（可能有多个，因为多项式的解嘛），然后继续开，可能一次开的次数不能太大，不然时间会很慢，然后用中国剩余定理，因为求出来的解都是在模各自模数下的</p>
 <p>至于里面什么原理，达斯给碟</p>
 <p>la佬yyds，看着la佬的博客长大</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708203043872.png" alt="image-20210708203043872"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210708203043872.png" alt="image-20210708203043872"></p>
 <p>看看la佬推荐的两道题目</p>
 <h3 id="De1CTF2019-Baby-RSA"><a href="#De1CTF2019-Baby-RSA" class="headerlink" title="De1CTF2019-Baby RSA"></a>De1CTF2019-Baby RSA</h3><blockquote>
 <p>题目描述</p>
@@ -579,7 +579,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">de1ctf&#123;9b10a98b-71bb-4bdf-a6ff-f319943de21f&#125;</span><br></pre></td></tr></table></figure>
 
 <p>最后我检查了下别的师傅的WP，发现e1这么做确实有问题，la佬也说了共模攻击，e之间要互素的</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210709095550289.png" alt="De1CTF2019-BabyRSA共模攻击"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210709095550289.png" alt="De1CTF2019-BabyRSA共模攻击"></p>
 <p>正确的做法，我没想到竟然可以iroot，运用小指数的攻击，很快就可以出来</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e1 = <span class="number">15218928658178</span></span><br></pre></td></tr></table></figure>
 
@@ -618,7 +618,7 @@
 <h2 id="妈呀，完了"><a href="#妈呀，完了" class="headerlink" title="妈呀，完了"></a>妈呀，完了</h2><p>有一串01串和一张图片</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">01000100 01010011 01111001 00110011 01001010 01111001 01001011 01110110 01010000 01000011 01010000 01101101 01001000 00110100 01010111 01000011 01111010 00101011 01010100 01101000 01010111 01101001 00110010 01000110 01100111 01001011 01101111 00111001 01100101 01010011 01010000 01010101 00110100 01100101 00110101 01100111 00101011 01101010 01011010 01010101 00110011 01000110 01110010 01010111 01001110 01110110 01001100 01001101 00110101 00110101 01101011 01000101 01100110 00110001 01101000 01000101 01101101 01001110 01110010 01110101 00101011 01001110 01000101 00110011</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/hint.png" alt="hint"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/hint.png" alt="hint"></p>
 <p>还给了hint</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">图文无关，和妈呀有关</span><br></pre></td></tr></table></figure>
 
@@ -634,7 +634,7 @@
 <p>出题人想要我们通过妈呀、图片信息等推出密钥是20121221，也就是世界末日</p>
 <p>然后知道密钥后，可以想到AES的ECB模式，因为这个模式不需要偏移量iv，然后在线往网站进行破解</p>
 <p>其参数设置如下</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210707210440790.png" alt="image-20210707210440790"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210707210440790.png" alt="image-20210707210440790"></p>
 <p>出来的flag是</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flag&#123;第13个伯克盾将会结束&#125;</span><br></pre></td></tr></table></figure>
 
@@ -766,6 +766,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
@@ -778,7 +779,8 @@
   <script src="/js/third-party/pace.js"></script>
 
   
-  z<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script async src="busuanzi.pure.mini.js"></script>
 
 
 

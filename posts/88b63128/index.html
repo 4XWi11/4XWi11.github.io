@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="不是部分啦，就一道呜呜呜，但是草鸡详细哦 xs，我tm根本登不进去，报名时出了点问题 最后直接看别人发在群里的题目了 总共有三题，一道完全不懂，一道好像是椭圆曲线的RelatedMessage，反正就这道题有点思路，因为找到一篇关于斐波那契是RSA模数的论文，打算借此机会研究一下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20210529 DASCTFXBUUOJ五月大联动Crypto方向部分WP">
@@ -333,40 +333,40 @@
 
 <p>有意识去查论文，没能力去读论文</p>
 <h3 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h3><h4 id="漫漫求学路"><a href="#漫漫求学路" class="headerlink" title="漫漫求学路"></a>漫漫求学路</h4><p>看了题目，发现是将Fibonacci数列中的三个数作为模数了，第一时间想到的就是典型论文题，于是我直接baidu，发现了题目的出处</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-1fcd93e4.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-1fcd93e4.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-1fcd93e4.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-1fcd93e4.png" width="" height="" >
 
 <p>摘要里说，这样子RSA加密是很容易被攻击的，所以再次坚信我找对了</p>
 <p>但是这篇论文要收费，屑</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-cc50866c.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-cc50866c.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-cc50866c.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-cc50866c.png" width="" height="" >
 
 <p>但是没有困难的狗狗，只有勇敢的问题，我们去找了老师，毕竟是研究RSA的，必定听过这类的攻击，或者说有相应的文献</p>
 <p>果不其然，入场券到手</p>
 <h4 id="漫漫求学路2"><a href="#漫漫求学路2" class="headerlink" title="漫漫求学路2"></a>漫漫求学路2</h4><p>论文并不长</p>
 <p>第一点是说，如果用来作为模数n的斐波那契数在斐波那契序列中是排偶数位，那么这个n就可以分解成一个斐波那契数和一个卢卡斯数</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-07048377.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-07048377.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-07048377.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-07048377.png" width="" height="" >
 
 <p>但这不是我们所需要的，因为题目里的n都是奇数</p>
 <p>唯一找到有用一点的信息就是，</p>
 <p>第$r$位置的斐波那契数$U_r$和第$s$位置的斐波那契数$U_s$，如果$r$整除$s$，则$U_r$整除$U_s$</p>
 <p>题目所给的数据也确实能$P_i$被整除，但若是要完全分解，木大木大</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-95dc5fb2.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-95dc5fb2.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-95dc5fb2.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-95dc5fb2.png" width="" height="" >
 
 <p>这里还说上面那个是充要条件</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-103c3baf.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-103c3baf.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-103c3baf.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-103c3baf.png" width="" height="" >
 
-<img alt="20210529 DASCTFXBUUOJ五月大联动-4e045ef8.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-4e045ef8.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-4e045ef8.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-4e045ef8.png" width="" height="" >
 
 <hr>
 <p>麻了，看个der论文，网上找了（算法没学好，拼不过acm的）一个脚本，算出了第13000斐波那契数，都已经是小三千位的了，而我们题目给的数据才一千位都不到。吼吼吼吼，这题别（jiù）有（shì）洞（tào）天（lù）</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-f5e65eda.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-f5e65eda.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-f5e65eda.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-f5e65eda.png" width="" height="" >
 
-<h4 id="我要这题何用"><a href="#我要这题何用" class="headerlink" title="我要这题何用"></a>我要这题何用</h4><img alt="20210529 DASCTFXBUUOJ五月大联动-f4679c38.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-f4679c38.png" width="" height="" >
+<h4 id="我要这题何用"><a href="#我要这题何用" class="headerlink" title="我要这题何用"></a>我要这题何用</h4><img alt="20210529 DASCTFXBUUOJ五月大联动-f4679c38.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-f4679c38.png" width="" height="" >
 
 <p>经过验证，这三个数根本不是斐波那契数，屑，出题人使诈</p>
 <p>……</p>
 <p>拖拖拖，拖到比赛结束又过去了一个白天，半夜看到别人队伍的wp了，师傅们TQL___Orz，都给A穿了</p>
 <p>但其实我们已经出来了，害，<strong>意识</strong>不够，看到给了三组没有想到什么</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-083610fe.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-083610fe.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-083610fe.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-083610fe.png" width="" height="" >
 
 <p>简单的推理如下，</p>
 <p>已知（注意这里的$F(q_i)$并不是完全分解）<br>$$<br>\begin{cases}<br>  c_1=\ m^e\ mod\ F(p_1)\times F(q_1)\\<br>  c_2=\ m^e\ mod\ F(p_2)\times F(q_2)\\<br>  c_3=\ m^e\ mod\ F(p_3)\times F(q_3)<br>\end{cases}<br>$$<br>由同余的性质可知，在模$F(p_i)$的情况下也是成立的（吼吼吼，这可是对一个密码学菜鸡（wǒ）很重要的数论性质，在文末强调一下吧，<a href="#%E4%B8%80%E4%B8%AA%E5%BE%88%E9%87%8D%E8%A6%81%E7%9A%84%E6%80%A7%E8%B4%A8%E4%BB%A5%E5%8F%8A%E7%AE%80%E6%98%93%E8%AF%81%E6%98%8E">传送门</a>）<br>$$<br>\begin{cases}<br>  c_1=\ m^e\ mod\ F(p_1)\\<br>  c_2=\ m^e\ mod\ F(p_2)\\<br>  c_3=\ m^e\ mod\ F(p_3)<br>\end{cases}<br>$$<br>这时的解密就是，为了避免混淆，我这里完全分成三个加密了，它们都是类似的，举第一个为例<br>$$<br>m_1=\ c_1^{d_1}\ mod\ F(p_1)<br>$$<br>而$m_1$都满足<br>$$<br>m\equiv\ m_1\ mod\ F(p_1)<br>$$<br>但是因为$m_1$求出来太小啦（毕竟是在模$F(p_1)$下，原来可是在模$F(p_1)\times F(q_1)$下的），如果m比任意的$F(p_i)$都大，那么求出来的$m_i$都只不过是m在模各自$F(p_i)$的一个剩余类罢了，这样解出来的$m_i$就是不对的</p>
@@ -393,10 +393,10 @@
 <p>这里还用到了同余关系的等价表达式，望周之</p>
 <h3 id="举一反三"><a href="#举一反三" class="headerlink" title="举一反三"></a>举一反三</h3><p>在彻底弄懂这道题时，我发现其实不需要三组，两组也行，不过必须是$F(p_i)$想乘大于m的情况，因为中国剩余定理的一种用法，我的理解是扩大模数，只能求出$m\ mod\ F(p_1)F(p_2)F(p_3)$是吧，但如果m本身就比$F(p_1)F(p_2)$小，当然可以只用CRT求解前面两个组成的同余方程；这就和模数不够再分解构造反过来了</p>
 <p>据结果返回，我们发现，</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-e580ce12.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-e580ce12.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-e580ce12.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-e580ce12.png" width="" height="" >
 
 <p>直接开冲</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-cce1f4d0.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-cce1f4d0.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-cce1f4d0.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-cce1f4d0.png" width="" height="" >
 
 <p>Capture The Flag</p>
 <h2 id="还有一个小插曲"><a href="#还有一个小插曲" class="headerlink" title="还有一个小插曲"></a>还有一个小插曲</h2><p>彭总给的一道misc，最后一步是rsa</p>
@@ -407,17 +407,17 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">19298383934402303776125763032487034395837290787269136241860929371666322803767005809256376467251747337544207987651243732876788723589391443122139006291670739679671881793995062117862054219773720641070620393257280059636631655606299095240092759065646066472874883103079707806412908225076882298697592818427957280248310545565886424283345305315588905456274845835539850117078894827271423187201674309901517200507605514506810554986443591457553871395991374493663775609810305552059745143075621932565847065010052223136631616841830344641425039696588885154977303322142305642341212151656150304867047412766712682132001889777020524791973</span></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">d = <span class="number">3137235186797109181543919913150081090883783146124561354971792140710331616511797608859383781407450999194287072957815443643580070206469268276290781894677206166703148277053014202720636062948704086393432559771778716684753248681348101998686974611065401104750125952976352395891223648167738895743231363772089916593108326960368256904683762740112717950191378373879647606045501882017215733660352686694405659463412799487222511524326086693134712754258387193963090680988416969472940644308784344753494344590799813350562816191244386991480741139476116903925249873160845868063446516486452687657008647635622012862948358441702637219329</span></span><br><span class="line">p = <span class="number">139731890355244444444481193351254240382046157745753107784168081259905132570466329632284952677745944718796408024129423905064872080575084258263419439079106234950631002219878620094334031716695105950708580750238041143435139361782342237330225211801270672585910851695391826655791509425136418067722676156822188664897</span></span><br><span class="line">q = <span class="number">138110089868099985112598225976416346201381948401336998275010504058986842232246648573037043751233266052881639193423727942204630085471488139402695765255520423890781964577838337616082316055958265340997629227918247719815192989410797326080614722191761865261768884814085886604594016717232369095342986175683061540709</span></span><br></pre></td></tr></table></figure>
 
 <p>然后猜测data就是密文，然后常规解密只出来一半，另一半应该是与sign有关</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-faa58622.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-faa58622.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-faa58622.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-faa58622.png" width="" height="" >
 
 <p>看了套神的博客</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-b88cacaf.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-b88cacaf.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-b88cacaf.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-b88cacaf.png" width="" height="" >
 
 <p><strong>公钥认证，私钥加密</strong>，这句话很重要</p>
 <p>虽然数字签名还没有上到，但思路也是一种加密手段，用来证明这是某人发送的消息，所以对其进行解密，也能获取某种东西从而进行验证，现在只会网上的一些工具，rsa的签名过程后续会补上</p>
 <p>巧了，第二天就上到了，你说妙不妙，用理论知识武装头脑.jpg</p>
 <p>没想到很简单，所谓用公钥签名就是：$用d给m加密即，m这里指的是像现实中合同一样的信息$</p>
 <p>用代数符号也就是<br>$$<br>sign=m^d\ mod\ n<br>$$<br>那么解密也就很简单啦<br>$$<br>m=sign^e\ mod\ n<br>$$<br>代码实现想必不需要赘述了吧</p>
-<img alt="20210529 DASCTFXBUUOJ五月大联动-d388a46f.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-d388a46f.png" width="" height="" >
+<img alt="20210529 DASCTFXBUUOJ五月大联动-d388a46f.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20210529 DASCTFXBUUOJ五月大联动-d388a46f.png" width="" height="" >
 
 <p>你说气不气，就差亿点点点就可以助攻彭总了</p>
 
@@ -544,6 +544,7 @@
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
 
   
@@ -556,7 +557,8 @@
   <script src="/js/third-party/pace.js"></script>
 
   
-  z<script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+  <script async src="busuanzi.pure.mini.js"></script>
 
 
 
