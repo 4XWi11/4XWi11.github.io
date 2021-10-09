@@ -22,31 +22,33 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="rsa的rabin攻击是个基本的考点，其背后还是涉及到一些原理 师从这位师傅的博客https:&#x2F;&#x2F;blog.csdn.net&#x2F;jcbx_&#x2F;article&#x2F;details&#x2F;101066670以及大牛Rabin的Square roots modulo a prime论文，从头到尾推导一遍">
+<meta name="description" content="这是我写过最短的WP了吧 这至少flag改下吧，一点都不走心">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Rabin攻击">
-<meta property="og:url" content="https://4xwi11.github.io/posts/ba78595a/index.html">
+<meta property="og:title" content="20211008 鹤城杯Crypto方向WP">
+<meta property="og:url" content="https://4xwi11.github.io/posts/4ed7c718/index.html">
 <meta property="og:site_name" content="4XWi11的博客">
-<meta property="og:description" content="rsa的rabin攻击是个基本的考点，其背后还是涉及到一些原理 师从这位师傅的博客https:&#x2F;&#x2F;blog.csdn.net&#x2F;jcbx_&#x2F;article&#x2F;details&#x2F;101066670以及大牛Rabin的Square roots modulo a prime论文，从头到尾推导一遍">
+<meta property="og:description" content="这是我写过最短的WP了吧 这至少flag改下吧，一点都不走心">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901103319470.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901113636410.png">
-<meta property="article:published_time" content="2021-10-09T04:19:31.000Z">
-<meta property="article:modified_time" content="2021-10-09T05:17:23.774Z">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009143059578.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009152100154.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009152240651.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009175518651.png">
+<meta property="article:published_time" content="2021-10-09T05:33:44.000Z">
+<meta property="article:modified_time" content="2021-10-09T09:58:20.383Z">
 <meta property="article:author" content="4XWi11">
-<meta property="article:tag" content="Rabin攻击">
+<meta property="article:tag" content="CopperSmith">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901103319470.png">
+<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009143059578.png">
 
 
-<link rel="canonical" href="https://4xwi11.github.io/posts/ba78595a/">
+<link rel="canonical" href="https://4xwi11.github.io/posts/4ed7c718/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/ba78595a/","path":"posts/ba78595a/","title":"Rabin攻击"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/4ed7c718/","path":"posts/4ed7c718/","title":"20211008 鹤城杯Crypto方向WP"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Rabin攻击 | 4XWi11的博客</title>
+<title>20211008 鹤城杯Crypto方向WP | 4XWi11的博客</title>
   
 
 
@@ -152,7 +154,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Rabin%E6%94%BB%E5%87%BB%E5%92%8CSquare-roots-modulo-a-prime%E5%8E%9F%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">Rabin攻击和Square roots modulo a prime原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E6%AC%A1%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">二次剩余定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9B%85%E5%8F%AF%E6%AF%94%E7%AC%A6%E5%8F%B7"><span class="nav-number">1.1.1.</span> <span class="nav-text">雅可比符号</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%AC%A7%E6%8B%89%E5%87%86%E5%88%99"><span class="nav-number">1.2.</span> <span class="nav-text">欧拉准则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rabin%E6%94%BB%E5%87%BB"><span class="nav-number">1.3.</span> <span class="nav-text">Rabin攻击</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Rabin%E6%94%BB%E5%87%BB%E8%84%9A%E6%9C%AC%E8%8C%83%E4%BE%8B"><span class="nav-number">1.4.</span> <span class="nav-text">Rabin攻击脚本范例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Square-roots-modulo-a-prime"><span class="nav-number">1.5.</span> <span class="nav-text">Square roots modulo a prime</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%B9%A4%E5%9F%8E%E6%9D%AF"><span class="nav-number">1.</span> <span class="nav-text">鹤城杯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#easy-crypto"><span class="nav-number">1.1.</span> <span class="nav-text">easy_crypto</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#a-crypto"><span class="nav-number">1.2.</span> <span class="nav-text">a_crypto</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#babyrsa"><span class="nav-number">1.3.</span> <span class="nav-text">babyrsa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crazy-Rsa-Tech"><span class="nav-number">1.4.</span> <span class="nav-text">Crazy_Rsa_Tech</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -242,7 +244,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/ba78595a/">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/4ed7c718/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -255,7 +257,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Rabin攻击
+          20211008 鹤城杯Crypto方向WP
         </h1>
 
         <div class="post-meta-container">
@@ -267,7 +269,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-10-09 12:19:31 / 修改时间：13:17:23" itemprop="dateCreated datePublished" datetime="2021-10-09T12:19:31+08:00">2021-10-09</time>
+      <time title="创建时间：2021-10-09 13:33:44 / 修改时间：17:58:20" itemprop="dateCreated datePublished" datetime="2021-10-09T13:33:44+08:00">2021-10-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -275,15 +277,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%86%9B%E7%81%AB%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">密码学军火库</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%86%9B%E7%81%AB%E5%BA%93/CTF-Crypto%E9%9B%B6%E6%98%9F%E8%80%83%E7%82%B9/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto零星考点</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6%E5%86%9B%E7%81%AB%E5%BA%93/CTF-Crypto%E9%9B%B6%E6%98%9F%E8%80%83%E7%82%B9/RSA/" itemprop="url" rel="index"><span itemprop="name">RSA</span></a>
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
         </span>
     </span>
 
@@ -301,7 +295,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
+      <span>3.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -319,45 +313,43 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>rsa的rabin攻击是个基本的考点，其背后还是涉及到一些原理</p>
-<p>师从这位师傅的博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/jcbx_/article/details/101066670">https://blog.csdn.net/jcbx_/article/details/101066670</a>以及大牛Rabin的Square roots modulo a prime论文，从头到尾推导一遍</p>
+        <p>这是我写过最短的WP了吧</p>
+<p>这至少flag改下吧，一点都不走心</p>
 <span id="more"></span>
 
-<h1 id="Rabin攻击和Square-roots-modulo-a-prime原理"><a href="#Rabin攻击和Square-roots-modulo-a-prime原理" class="headerlink" title="Rabin攻击和Square roots modulo a prime原理"></a>Rabin攻击和Square roots modulo a prime原理</h1><p>需要知道二次剩余，雅可比符号还有欧拉准则</p>
-<h2 id="二次剩余定理"><a href="#二次剩余定理" class="headerlink" title="二次剩余定理"></a>二次剩余定理</h2><p>在题目中学习过</p>
-<ul>
-<li>当存在某个X，$X^2\equiv a\ (mod\ p)$成立，称a是模p的二次剩余，记作$a\in QR$</li>
-<li>当对任意的X，$X^2\equiv a\ (mod\ p)$不成立，称a是模p的二次非剩余，记作$a\in NR$</li>
-</ul>
-<h3 id="雅可比符号"><a href="#雅可比符号" class="headerlink" title="雅可比符号"></a>雅可比符号</h3><p>注意，p是奇质数<br>$$<br>(\frac{a}{p})=\begin{cases}<br> 1 ,&amp;a\in QR \\<br> -1 &amp;a\in NR<br> \end{cases}<br>$$<br>有性质：<br>$$<br>(\frac{a}{p})\cdot(\frac{b}{p})=(\frac{ab}{p})<br>$$</p>
-<h2 id="欧拉准则"><a href="#欧拉准则" class="headerlink" title="欧拉准则"></a>欧拉准则</h2><p>$$<br>a^{\frac{p-1}{2}}\equiv (\frac{a}{p})\ mod\ p<br>$$</p>
-<p>师傅的博客上有证明，我就不抄了</p>
-<p>下面开始推导Rabin</p>
-<h2 id="Rabin攻击"><a href="#Rabin攻击" class="headerlink" title="Rabin攻击"></a>Rabin攻击</h2><p>在RSA中已知（p,q,n,c,e=2），且$p\equiv q\equiv 3(mod\ 4)$（后面这个条件必须满足，不然就是另外一种做法了）</p>
-<p>由之前写过无数的性质可知，要求$c\equiv m^2(mod\ n)$，相当于求$c\equiv m^2(mod\ p)$</p>
-<p>则c是模p的二次剩余，得<br>$$<br>c^{\frac{p-1}{2}}\equiv (\frac{c}{p})\ mod\ p<br>$$<br>又$(\frac{c}{p})=1$，得<br>$$<br>c^{\frac{p-1}{2}}\equiv 1\ (mod\ p)<br>$$<br>代入得$c\equiv m^2(mod\ p)$，得<br>$$<br>m^2\equiv c\cdot c^\frac{p-1}{2}\equiv c^\frac{p+1}{2}(mod\ p)<br>$$</p>
-<p>然后直接开方，得<br>$$<br>m_1\equiv c^\frac{p+1}{4}\ (mod\ p)<br>$$<br>$$<br>m_2\equiv (p-c^\frac{p+1}{4})\ mod\ p<br>$$</p>
+<h1 id="鹤城杯"><a href="#鹤城杯" class="headerlink" title="鹤城杯"></a>鹤城杯</h1><h2 id="easy-crypto"><a href="#easy-crypto" class="headerlink" title="easy_crypto"></a>easy_crypto</h2><p>社会主义好，社会主义好</p>
+<h2 id="a-crypto"><a href="#a-crypto" class="headerlink" title="a_crypto"></a>a_crypto</h2><p>lj<a target="_blank" rel="noopener" href="http://www.3fwork.com/kaifa200/004475MYM012472/">原题</a></p>
+<p>下班</p>
 <hr>
-<p>这个开方怎么来的呢，聂嘿，之前看过求<strong>平方根论文</strong>的时候也看到过</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901103319470.png" alt="image-20210901103319470"></p>
-<p>反正就是条结论，开方在模运算下也是成立的，我们这里不过是利用模的性质，加了一个模数依旧是成立的</p>
+<p>上班</p>
+<h2 id="babyrsa"><a href="#babyrsa" class="headerlink" title="babyrsa"></a>babyrsa</h2><p><a target="_blank" rel="noopener" href="http://www.zbc53.top/archives/148/">Striving师傅博客</a>里有，不愧是他</p>
+<p>用q的低位得到p的低位，和Yusa美国大选那题类似，然后用CopperSmith解方程，这样范围应该可以</p>
+<p>稍微写一下吧</p>
 <hr>
-<p>同理，在$c\equiv m^2(mod\ q)$下有<br>$$<br>m_3\equiv c^\frac{p+1}{4}\ (mod\ q)<br>$$<br>$$<br>m_4\equiv (q-c^\frac{p+1}{4})\ mod\ q<br>$$<br>综上，<br>$$<br>\begin{cases}<br>m_1\equiv c^\frac{p+1}{4}\ (mod\ p) &amp; \\<br>m_2\equiv (p-c^\frac{p+1}{4})\ mod\ p &amp; \\<br>m_3\equiv c^\frac{p+1}{4}\ (mod\ q) &amp; \\<br>m_4\equiv (q-c^\frac{p+1}{4})\ mod\ q<br>\end{cases}<br>$$<br><em>显然，因为开根之后又转成正数，这里就假设$c^\frac{p+1}{4}$要么等于它本身，要么等于$(q-c^\frac{p+1}{4})$吧，其中的一些细节暂时没有完全悟。反正一般运算意义下，开出来就两种结果嘛</em></p>
-<p>这个时候是要解4个同余方程组，用到我们的老朋友中国剩余定理，分别是<br>$$<br>\begin{align}<br>\begin{cases}<br>m_1\equiv c^\frac{p+1}{4}\ (mod\ p)\\<br>m_3\equiv c^\frac{p+1}{4}\ (mod\ q)<br>\end{cases}<br>\qquad<br>\begin{cases}<br>m_1\equiv c^\frac{p+1}{4}\ (mod\ p)\\<br>m_4\equiv (q-c^\frac{p+1}{4})\ mod\ q<br>\end{cases}<br>\\<br>\begin{cases}<br>m_2\equiv (p-c^\frac{p+1}{4})\ mod\ p\\<br>m_3\equiv c^\frac{p+1}{4}\ (mod\ q)<br>\end{cases}<br>\begin{cases}<br>m_2\equiv (p-c^\frac{p+1}{4})\ mod\ p\\<br>m_4\equiv (q-c^\frac{p+1}{4})\ mod\ q<br>\end{cases}<br>\end{align}<br>$$</p>
-<hr>
-<p>求解的过程就不再赘述，这里直接记公式</p>
-<p>对于同余方程组$\begin{cases}<br>x\equiv a_1\ (mod\ m_1)\\<br>x\equiv a_2\ (mod\ m_2)\\<br>\quad \vdots\\<br>x\equiv a_n\ (mod\ m_n)<br>\end{cases}$</p>
-<p>$$<br>x=\sum\limits_{i=1}^na_i\frac{M}{m_i}[(\frac{M}{m_i})^{-1}]_{m_i}\ mod\ M<br>$$</p>
-<p>其中$M=\prod\limits_{i=1}^{n}m_i$</p>
-<hr>
-<p>所以我们看了和la佬博客上那样的脚本，懒狗不想复现</p>
-<h2 id="Rabin攻击脚本范例"><a href="#Rabin攻击脚本范例" class="headerlink" title="Rabin攻击脚本范例"></a>Rabin攻击脚本范例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> invert</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes, bytes_to_long, getPrime</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">1024</span>)</span><br><span class="line">q = getPrime(<span class="number">1024</span>)</span><br><span class="line"><span class="keyword">while</span> p % <span class="number">4</span> != <span class="number">3</span> <span class="keyword">and</span> q % <span class="number">4</span> != <span class="number">3</span>:</span><br><span class="line">    p = getPrime(<span class="number">1024</span>)</span><br><span class="line">    q = getPrime(<span class="number">1024</span>)</span><br><span class="line"></span><br><span class="line">n = p * q</span><br><span class="line">m = bytes_to_long(<span class="string">b&#x27;flag&#123;Rabin_is_awersome&#125;&#x27;</span>)</span><br><span class="line">c = <span class="built_in">pow</span>(m, <span class="number">2</span>, n)</span><br><span class="line"></span><br><span class="line">inv_p = invert(p, q)</span><br><span class="line">inv_q = invert(q, p)</span><br><span class="line">mp = <span class="built_in">pow</span>(c, (p+<span class="number">1</span>)//<span class="number">4</span>, p)</span><br><span class="line">mq = <span class="built_in">pow</span>(c, (q+<span class="number">1</span>)//<span class="number">4</span>, q)</span><br><span class="line"></span><br><span class="line">a = (inv_p*p*mq+inv_q*q*mp) % n</span><br><span class="line">b = n-a</span><br><span class="line">c = (inv_p*p*mq-inv_q*q*mp) % n</span><br><span class="line">d = n-c</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(a))</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(b))</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(c))</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(d))</span><br></pre></td></tr></table></figure>
+<p>首先我们简单试验下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">p = getPrime(<span class="number">128</span>)</span><br><span class="line">q = getPrime(<span class="number">128</span>)</span><br><span class="line">n = p * q</span><br><span class="line">p1 = p % (<span class="number">2</span> ** <span class="number">50</span>)</span><br><span class="line">q1 = q % (<span class="number">2</span> ** <span class="number">50</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bin</span>(p1 * q1)[<span class="number">2</span>:][-<span class="number">50</span>:])</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bin</span>(n)[<span class="number">2</span>:][-<span class="number">50</span>:])</span><br></pre></td></tr></table></figure>
 
-<h2 id="Square-roots-modulo-a-prime"><a href="#Square-roots-modulo-a-prime" class="headerlink" title="Square roots modulo a prime"></a>Square roots modulo a prime</h2><p>那么问题来了，为什么一定要满足$p\equiv q\equiv 3(mod\ 4)$呢？</p>
-<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901113636410.png" alt="image-20210901113636410"></p>
-<p>可以看到主要是这个$u_0$在作祟，最后一句没有看懂</p>
-<p>那我们应该怎么办呢？</p>
-<p>论文还是看不懂啊，勉强看到三分之一，还是最简单的部分，梁子先结下了，后续补充</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">11111010001010111111110101111111001001100100000111</span><br><span class="line">11111010001010111111110101111111001001100100000111</span><br></pre></td></tr></table></figure>
+
+<p>得到的结果显示知道n和q的低位，求出p的低位显然不在话下，这个就很想<a href="https://4xwi11.github.io/posts/ea88a88e/#classical%EF%BC%88recuring%EF%BC%89">中国海洋大学的那道题</a>的简化版</p>
+<hr>
+<p>有师傅说（没有师傅说）这不就是已知p的高位吗，直接用CopperSmith行不行</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009143059578.png" alt="image-20211009143059578"></p>
+<p>la佬的博客上也说了，起码知道约$\frac{1}{2}$位数才行，而且就算是像<a href="https://4xwi11.github.io/posts/493b5ffc/#Crypto-babyrsa">corCTF babyrsa</a>可以爆破，但题目是1024左移724位，最多爆破几位也远远不够</p>
+<p>所以必须先用q的低位，得到p的低265位，这样相当于知道p的565位了，这样才有一半</p>
+<p>其次根据n和p的高300位和低265位求p中间的459位，可以列一式子<br>$$<br>p_0&lt;&lt;724+p1&lt;&lt;265+p_2=n<br>$$<br>位运算不好看就<br>$$<br>p_0\times 2^{724}+p_1\times 2^{265}+p_2=n<br>$$<br>$p_1$不知道，设为$x$<br>$$<br>p_0\times 2^{724}+x\times 2^{265}+p_2=n<br>$$<br>这不就是CopperSmith解一元吗，想了解更多的师傅可以看<a href="https://4xwi11.github.io/posts/493b5ffc/#Crypto-babyrand%EF%BC%88recuring%EF%BC%89">corCTF babyrand</a></p>
+<p>emmmmmm本来以为差不多，但是没有出来，解出来是空的，也就是范围太大，CopperSmith还是解不了</p>
+<p>看了Striving师傅的博客</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009152100154.png" alt="image-20211009152100154"></p>
+<p>原来还有这种讲究，我还以为已经一半多了</p>
+<p>哦，我记起来了，在corCTF也不是没遇到过，所以多爆几位吧</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009152240651.png" alt="image-20211009152240651"></p>
+<p>完整的exp，这个自己想不容易被带偏，当然Striving师傅的博客里有直接推导出p低位的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">p0 = <span class="number">1514296530850131082973956029074258536069144071110652176122006763622293335057110441067910479</span></span><br><span class="line">q2 = <span class="number">40812438243894343296354573724131194431453023461572200856406939246297219541329623</span></span><br><span class="line">n = <span class="number">21815431662065695412834116602474344081782093119269423403335882867255834302242945742413692949886248581138784199165404321893594820375775454774521554409598568793217997859258282700084148322905405227238617443766062207618899209593375881728671746850745598576485323702483634599597393910908142659231071532803602701147251570567032402848145462183405098097523810358199597631612616833723150146418889589492395974359466777040500971885443881359700735149623177757865032984744576285054725506299888069904106805731600019058631951255795316571242969336763938805465676269140733371287244624066632153110685509892188900004952700111937292221969</span></span><br><span class="line">c = <span class="number">19073695285772829730103928222962723784199491145730661021332365516942301513989932980896145664842527253998170902799883262567366661277268801440634319694884564820420852947935710798269700777126717746701065483129644585829522353341718916661536894041337878440111845645200627940640539279744348235772441988748977191513786620459922039153862250137904894008551515928486867493608757307981955335488977402307933930592035163126858060189156114410872337004784951228340994743202032248681976932591575016798640429231399974090325134545852080425047146251781339862753527319093938929691759486362536986249207187765947926921267520150073408188188</span></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># q2 -&gt; p2</span></span><br><span class="line">known_low_bits = <span class="number">265</span></span><br><span class="line">n2 = <span class="built_in">bin</span>(n)[<span class="number">2</span>:][-known_low_bits:]</span><br><span class="line">p2 = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(known_low_bits):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">bin</span>(<span class="built_in">int</span>(<span class="string">&#x27;1&#x27;</span> + p2, <span class="number">2</span>) * q2)[<span class="number">2</span>:].endswith(n2[-(i+<span class="number">1</span>):]):</span><br><span class="line">        p2 = <span class="string">&#x27;1&#x27;</span> + p2</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        p2 = <span class="string">&#x27;0&#x27;</span> + p2</span><br><span class="line">p2 = <span class="built_in">int</span>(p2, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># print(bin(p2 * q2)[2:][-known_low_bit:])</span></span><br><span class="line"><span class="comment"># print(n2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># p2, p0 -&gt; p</span></span><br><span class="line">p0 = p0 &lt;&lt; <span class="number">724</span></span><br><span class="line">unknown_bits = <span class="number">459</span></span><br><span class="line">PR.&lt;x&gt; = PolynomialRing(Zmod(n))</span><br><span class="line"><span class="keyword">for</span> bit <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    fx = p0 + x * <span class="number">2</span> ^ (<span class="number">265</span> + bit) + p2</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(<span class="number">2</span>**bit)):</span><br><span class="line">        f = fx + i * <span class="number">2</span> ^ <span class="number">265</span></span><br><span class="line">        f = f.monic()</span><br><span class="line">        kbits = unknown_bits - bit</span><br><span class="line">        p1 = f.small_roots(X=<span class="number">2</span> ^ kbits, beta=<span class="number">0.4</span>)</span><br><span class="line">        <span class="keyword">if</span> p1:</span><br><span class="line">            p = p0 + <span class="built_in">int</span>(p1[<span class="number">0</span>]) * <span class="number">2</span> ^ (<span class="number">265</span> + bit) + p2 + i * <span class="number">2</span> ^ <span class="number">265</span></span><br><span class="line">            <span class="keyword">assert</span> n % p == <span class="number">0</span></span><br><span class="line">            q = n // p</span><br><span class="line">            <span class="built_in">print</span>(long_to_bytes(<span class="built_in">pow</span>(c, invert(e, n-p-q+<span class="number">1</span>), n)))</span><br><span class="line">            sys.exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009175518651.png" alt="image-20211009175518651"></p>
+<h2 id="Crazy-Rsa-Tech"><a href="#Crazy-Rsa-Tech" class="headerlink" title="Crazy_Rsa_Tech"></a>Crazy_Rsa_Tech</h2><p>广播，sage里crt一把搜就出来了</p>
+<p>下班</p>
 
     </div>
 
@@ -375,7 +367,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/ba78595a/" title="Rabin攻击">https://4xwi11.github.io/posts/ba78595a/</a>
+      <a href="https://4xwi11.github.io/posts/4ed7c718/" title="20211008 鹤城杯Crypto方向WP">https://4xwi11.github.io/posts/4ed7c718/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -384,21 +376,18 @@
 </div>
 
           <div class="post-tags">
-              <a href="/tags/Rabin%E6%94%BB%E5%87%BB/" rel="tag"># Rabin攻击</a>
+              <a href="/tags/CopperSmith/" rel="tag"># CopperSmith</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/57d3f300/" rel="prev" title="如果早知道p也会被q侵">
-                  <i class="fa fa-chevron-left"></i> 如果早知道p也会被q侵
+                <a href="/posts/6f8a7505/" rel="prev" title="dp泄漏攻击">
+                  <i class="fa fa-chevron-left"></i> dp泄漏攻击
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/6f8a7505/" rel="next" title="dp泄漏攻击">
-                  dp泄漏攻击 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
