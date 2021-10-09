@@ -42,7 +42,7 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211008011640711.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211008011916547.png">
 <meta property="article:published_time" content="2021-10-07T06:02:45.000Z">
-<meta property="article:modified_time" content="2021-10-09T11:20:18.496Z">
+<meta property="article:modified_time" content="2021-10-09T14:06:43.222Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="Hexo">
 <meta property="article:tag" content="从这里开始的">
@@ -178,13 +178,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -217,6 +217,9 @@
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://mooc.hznu.edu.cn/#/mooc/CLang" title="https:&#x2F;&#x2F;mooc.hznu.edu.cn&#x2F;#&#x2F;mooc&#x2F;CLang" rel="noopener" target="_blank">慢清尘</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt</a>
         </li>
     </ul>
   </div>
@@ -287,7 +290,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-09 19:20:18" itemprop="dateModified" datetime="2021-10-09T19:20:18+08:00">2021-10-09</time>
+        <time title="修改时间：2021-10-09 22:06:43" itemprop="dateModified" datetime="2021-10-09T22:06:43+08:00">2021-10-09</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -317,7 +320,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.8k</span>
+      <span>2.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -459,19 +462,20 @@
 <p>参考<a target="_blank" rel="noopener" href="https://github.com/D0n9X1n/hexo-blog-encrypt/blob/master/ReadMe.zh.md">hexo-blog-encrypt</a></p>
 <h3 id="博客不分页"><a href="#博客不分页" class="headerlink" title="博客不分页"></a>博客不分页</h3><p>习惯博客不分页，这样<code>ctrl + f</code>好搜索</p>
 <p>只要将根目录下的_config.yml中的per_page的值改成0就好了，当然如果想设置一页几篇，改成对应的数字就好了</p>
-<p>但是首页加载很慢，不太行，但是只要是方便自己看吧，等就等一下吧</p>
-<p>归档里不会改，作为查看最近发了几篇文章也可；分类也不会改，因为我不会改</p>
-<h3 id="阅读量统计"><a href="#阅读量统计" class="headerlink" title="阅读量统计"></a>阅读量统计</h3><p>呜呜呜，我遇到大坑了，本来用来valine的，但感觉不准确，于是用来更方便的不蒜子，直接改一个true就能用，感觉还行</p>
+<p>但是首页加载很慢，不太行，所以设置首页的 <code>index_generator</code> 的属性 <code>per_page</code> 为7，也就是一页显示7篇，无所谓反正不能显示完全，一周七篇吧（doge）</p>
+<p>但归档和分类里是不分页的，方便查看，只要将 <code>Pagination</code> 的 <code>per_page</code> 修改成0就好了</p>
+<p>好</p>
+<h3 id="阅读量统计"><a href="#阅读量统计" class="headerlink" title="阅读量统计"></a>阅读量统计</h3><p>呜呜呜，我遇到大坑了，本来用来valine的，但感觉不准确，于是用了更方便的不蒜子，直接改一个true就能用，感觉还行</p>
 <p>但是自从我开启看板狗就不能显示了，网上也有很多解释，<a target="_blank" rel="noopener" href="https://iamshen.github.io/posts/89986481/">这篇</a>的帮助很大</p>
 <p>但是不行呜呜呜，我放在同一目录下，但是不行，暂时还没找到怎么搞</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- <span class="keyword">if</span> theme.busuanzi_count.enable %&#125;</span><br><span class="line">  &#123;# &lt;script&#123;&#123; pjax &#125;&#125; <span class="keyword">async</span> src=<span class="string">&quot;https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;</span>&gt;&lt;/script&gt; #&#125;</span><br><span class="line">  &lt;script&#123;&#123; pjax &#125;&#125; <span class="keyword">async</span> src=<span class="string">&quot;busuanzi.pure.mini.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
 
 <p>所以我忍痛把狗去了</p>
-<p>不，狗狗那么可耐，阅读量也不是不能看，查看源码也能看到，csdn<del>骗</del>流量吧，因为还没有做hexo的SEO，以后再说吧</p>
+<p>不，狗狗那么可耐，阅读量也不是不能看，查看源码也能看到，后台一直开着想看的时候都可以看，还是csdn<del>骗</del>流量吧，反正也还没有做hexo的SEO，以后再说吧</p>
 <p>看来学前端还是有一些用的</p>
 <hr>
 <p>行吧，就这样吧，能用就行</p>
-<p>花了几天时间搞花头，都是平面化学习，以后更应该专注于博客质量了</p>
+<p>花了几天时间搞花头，平面化得学习了一些大博客的技巧，以后更应该专注于博文章的质量了</p>
 
     </div>
 
@@ -569,7 +573,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">16:16</span>
+    <span title="站点阅读时长">16:17</span>
   </span>
 </div>
 <div class="busuanzi-count">

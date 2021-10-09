@@ -34,7 +34,7 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009152240651.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009175518651.png">
 <meta property="article:published_time" content="2021-10-09T05:33:44.000Z">
-<meta property="article:modified_time" content="2021-10-09T09:58:20.383Z">
+<meta property="article:modified_time" content="2021-10-09T11:41:29.692Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="CopperSmith">
 <meta name="twitter:card" content="summary">
@@ -169,13 +169,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-count">54</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-count">13</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -208,6 +208,9 @@
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://mooc.hznu.edu.cn/#/mooc/CLang" title="https:&#x2F;&#x2F;mooc.hznu.edu.cn&#x2F;#&#x2F;mooc&#x2F;CLang" rel="noopener" target="_blank">慢清尘</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt</a>
         </li>
     </ul>
   </div>
@@ -272,7 +275,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-10-09 13:33:44 / 修改时间：17:58:20" itemprop="dateCreated datePublished" datetime="2021-10-09T13:33:44+08:00">2021-10-09</time>
+      <time title="创建时间：2021-10-09 13:33:44 / 修改时间：19:41:29" itemprop="dateCreated datePublished" datetime="2021-10-09T13:33:44+08:00">2021-10-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -351,7 +354,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">p0 = <span class="number">1514296530850131082973956029074258536069144071110652176122006763622293335057110441067910479</span></span><br><span class="line">q2 = <span class="number">40812438243894343296354573724131194431453023461572200856406939246297219541329623</span></span><br><span class="line">n = <span class="number">21815431662065695412834116602474344081782093119269423403335882867255834302242945742413692949886248581138784199165404321893594820375775454774521554409598568793217997859258282700084148322905405227238617443766062207618899209593375881728671746850745598576485323702483634599597393910908142659231071532803602701147251570567032402848145462183405098097523810358199597631612616833723150146418889589492395974359466777040500971885443881359700735149623177757865032984744576285054725506299888069904106805731600019058631951255795316571242969336763938805465676269140733371287244624066632153110685509892188900004952700111937292221969</span></span><br><span class="line">c = <span class="number">19073695285772829730103928222962723784199491145730661021332365516942301513989932980896145664842527253998170902799883262567366661277268801440634319694884564820420852947935710798269700777126717746701065483129644585829522353341718916661536894041337878440111845645200627940640539279744348235772441988748977191513786620459922039153862250137904894008551515928486867493608757307981955335488977402307933930592035163126858060189156114410872337004784951228340994743202032248681976932591575016798640429231399974090325134545852080425047146251781339862753527319093938929691759486362536986249207187765947926921267520150073408188188</span></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># q2 -&gt; p2</span></span><br><span class="line">known_low_bits = <span class="number">265</span></span><br><span class="line">n2 = <span class="built_in">bin</span>(n)[<span class="number">2</span>:][-known_low_bits:]</span><br><span class="line">p2 = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(known_low_bits):</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">bin</span>(<span class="built_in">int</span>(<span class="string">&#x27;1&#x27;</span> + p2, <span class="number">2</span>) * q2)[<span class="number">2</span>:].endswith(n2[-(i+<span class="number">1</span>):]):</span><br><span class="line">        p2 = <span class="string">&#x27;1&#x27;</span> + p2</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        p2 = <span class="string">&#x27;0&#x27;</span> + p2</span><br><span class="line">p2 = <span class="built_in">int</span>(p2, <span class="number">2</span>)</span><br><span class="line"><span class="comment"># print(bin(p2 * q2)[2:][-known_low_bit:])</span></span><br><span class="line"><span class="comment"># print(n2)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># p2, p0 -&gt; p</span></span><br><span class="line">p0 = p0 &lt;&lt; <span class="number">724</span></span><br><span class="line">unknown_bits = <span class="number">459</span></span><br><span class="line">PR.&lt;x&gt; = PolynomialRing(Zmod(n))</span><br><span class="line"><span class="keyword">for</span> bit <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10</span>):</span><br><span class="line">    fx = p0 + x * <span class="number">2</span> ^ (<span class="number">265</span> + bit) + p2</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(<span class="number">2</span>**bit)):</span><br><span class="line">        f = fx + i * <span class="number">2</span> ^ <span class="number">265</span></span><br><span class="line">        f = f.monic()</span><br><span class="line">        kbits = unknown_bits - bit</span><br><span class="line">        p1 = f.small_roots(X=<span class="number">2</span> ^ kbits, beta=<span class="number">0.4</span>)</span><br><span class="line">        <span class="keyword">if</span> p1:</span><br><span class="line">            p = p0 + <span class="built_in">int</span>(p1[<span class="number">0</span>]) * <span class="number">2</span> ^ (<span class="number">265</span> + bit) + p2 + i * <span class="number">2</span> ^ <span class="number">265</span></span><br><span class="line">            <span class="keyword">assert</span> n % p == <span class="number">0</span></span><br><span class="line">            q = n // p</span><br><span class="line">            <span class="built_in">print</span>(long_to_bytes(<span class="built_in">pow</span>(c, invert(e, n-p-q+<span class="number">1</span>), n)))</span><br><span class="line">            sys.exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009175518651.png" alt="image-20211009175518651"></p>
-<h2 id="Crazy-Rsa-Tech"><a href="#Crazy-Rsa-Tech" class="headerlink" title="Crazy_Rsa_Tech"></a>Crazy_Rsa_Tech</h2><p>广播，sage里crt一把搜就出来了</p>
+<h2 id="Crazy-Rsa-Tech"><a href="#Crazy-Rsa-Tech" class="headerlink" title="Crazy_Rsa_Tech"></a>Crazy_Rsa_Tech</h2><p>广播，sage里crt一把梭就出来了</p>
 <p>下班</p>
 
     </div>
@@ -391,6 +394,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/1727f95e/" rel="next" title="Install Software">
+                  Install Software <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -446,7 +452,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">16:16</span>
+    <span title="站点阅读时长">16:17</span>
   </span>
 </div>
 <div class="busuanzi-count">
