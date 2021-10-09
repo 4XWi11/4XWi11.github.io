@@ -24,8 +24,8 @@
 <script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="位运算的题目老不会了   其实这篇MT19937，我的解法不是很正规，可以看我MT19937标签下的另外一篇 MT19937是伪随机数的生成算法，下面通过一道题目来了解什么是MT19937，以及它如何被预测">
 <meta property="og:type" content="article">
-<meta property="og:title" content="不正宗的MT19937">
-<meta property="og:url" content="https://4xwi11.github.io/posts/d563b987/index.html">
+<meta property="og:title" content="【SUCTF2019 MT】看MT19937">
+<meta property="og:url" content="https://4xwi11.github.io/posts/ca3b3eaf/index.html">
 <meta property="og:site_name" content="4XWi11的博客">
 <meta property="og:description" content="位运算的题目老不会了   其实这篇MT19937，我的解法不是很正规，可以看我MT19937标签下的另外一篇 MT19937是伪随机数的生成算法，下面通过一道题目来了解什么是MT19937，以及它如何被预测">
 <meta property="og:locale" content="zh_CN">
@@ -38,8 +38,8 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-d514d3be.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-01fc37a9.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-58e3c5e7.png">
-<meta property="article:published_time" content="2021-10-08T00:45:10.000Z">
-<meta property="article:modified_time" content="2021-10-08T00:45:52.618Z">
+<meta property="article:published_time" content="2021-10-09T03:55:18.000Z">
+<meta property="article:modified_time" content="2021-10-09T05:12:15.452Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="MT19937">
 <meta property="article:tag" content="伪随机数">
@@ -47,14 +47,14 @@
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-bdf4ba97.png">
 
 
-<link rel="canonical" href="https://4xwi11.github.io/posts/d563b987/">
+<link rel="canonical" href="https://4xwi11.github.io/posts/ca3b3eaf/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/d563b987/","path":"posts/d563b987/","title":"不正宗的MT19937"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/ca3b3eaf/","path":"posts/ca3b3eaf/","title":"【SUCTF2019 MT】看MT19937"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>不正宗的MT19937 | 4XWi11的博客</title>
+<title>【SUCTF2019 MT】看MT19937 | 4XWi11的博客</title>
   
 
 
@@ -160,7 +160,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SUCTF2019-MT"><span class="nav-number">1.</span> <span class="nav-text">[SUCTF2019]MT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">一、题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">二、题目解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%9B%9B%E7%BB%84%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.1.</span> <span class="nav-text">第一四组位运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E4%B8%89%E7%BB%84%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.2.</span> <span class="nav-text">第二三组位运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%8C%E6%95%B4%E8%84%9A%E6%9C%AC"><span class="nav-number">1.3.</span> <span class="nav-text">三、完整脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E5%8F%A6%E4%B8%80%E4%BD%8D%E5%B8%88%E5%82%85%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="nav-number">1.4.</span> <span class="nav-text">四、另一位师傅的思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">五、题目总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E5%85%B3%E4%BA%8EMT"><span class="nav-number">1.6.</span> <span class="nav-text">六、关于MT</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SUCTF2019-MT"><span class="nav-number">1.</span> <span class="nav-text">[SUCTF2019] MT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="nav-number">1.2.</span> <span class="nav-text">题目解析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E5%9B%9B%E7%BB%84%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.1.</span> <span class="nav-text">第一四组位运算</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E4%B8%89%E7%BB%84%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="nav-number">1.2.2.</span> <span class="nav-text">第二三组位运算</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8C%E6%95%B4%E8%84%9A%E6%9C%AC"><span class="nav-number">1.3.</span> <span class="nav-text">完整脚本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%A6%E4%B8%80%E4%BD%8D%E5%B8%88%E5%82%85%E7%9A%84%E6%80%9D%E8%B7%AF"><span class="nav-number">1.4.</span> <span class="nav-text">另一位师傅的思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%80%BB%E7%BB%93"><span class="nav-number">1.5.</span> <span class="nav-text">题目总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EMT"><span class="nav-number">1.6.</span> <span class="nav-text">关于MT</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -175,7 +175,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">42</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -186,7 +186,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">24</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -250,7 +250,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/d563b987/">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/ca3b3eaf/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
@@ -263,7 +263,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          不正宗的MT19937
+          【SUCTF2019 MT】看MT19937
         </h1>
 
         <div class="post-meta-container">
@@ -275,7 +275,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-10-08 08:45:10 / 修改时间：08:45:52" itemprop="dateCreated datePublished" datetime="2021-10-08T08:45:10+08:00">2021-10-08</time>
+      <time title="创建时间：2021-10-09 11:55:18 / 修改时间：13:12:15" itemprop="dateCreated datePublished" datetime="2021-10-09T11:55:18+08:00">2021-10-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -309,7 +309,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.6k</span>
+      <span>5.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -334,10 +334,10 @@
 <p>MT19937是伪随机数的生成算法，下面通过一道题目来了解什么是MT19937，以及它如何被预测</p>
 <span id="more"></span>
 
-<h1 id="SUCTF2019-MT"><a href="#SUCTF2019-MT" class="headerlink" title="[SUCTF2019]MT"></a>[SUCTF2019]MT</h1><h2 id="一、题目描述"><a href="#一、题目描述" class="headerlink" title="一、题目描述"></a>一、题目描述</h2><p>源码稍有改变，代码正规范点</p>
+<h1 id="SUCTF2019-MT"><a href="#SUCTF2019-MT" class="headerlink" title="[SUCTF2019] MT"></a>[SUCTF2019] MT</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>源码稍有改变，代码正规范点</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Random <span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> Crypto.Util <span class="keyword">import</span> number</span><br><span class="line"><span class="keyword">from</span> flag <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert</span>(<span class="params">m</span>):</span></span><br><span class="line">    m = m ^ m &gt;&gt; <span class="number">13</span>     <span class="comment"># 高13位不变</span></span><br><span class="line">    m = m ^ m &lt;&lt; <span class="number">9</span> &amp; <span class="number">2029229568</span>     <span class="comment"># 低9位不变</span></span><br><span class="line">    m = m ^ m &lt;&lt; <span class="number">17</span> &amp; <span class="number">2245263360</span>    <span class="comment"># 低17位不变</span></span><br><span class="line">    m = m ^ m &gt;&gt; <span class="number">19</span>     <span class="comment"># 高19位不变</span></span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transform</span>(<span class="params">message</span>):</span></span><br><span class="line">    <span class="keyword">assert</span> <span class="built_in">len</span>(message) % <span class="number">4</span> == <span class="number">0</span></span><br><span class="line">    new_message = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(message) // <span class="number">4</span>):</span><br><span class="line">        block = message[i * <span class="number">4</span>: i * <span class="number">4</span> + <span class="number">4</span>]</span><br><span class="line">        block = number.bytes_to_long(block)</span><br><span class="line">        block = convert(block)</span><br><span class="line">        block = number.long_to_bytes(block, <span class="number">4</span>)</span><br><span class="line">        new_message += block</span><br><span class="line">    <span class="keyword">return</span> new_message</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">transformed_flag = transform(flag[<span class="number">5</span>:-<span class="number">1</span>].decode(<span class="string">&#x27;hex&#x27;</span>)).encode(<span class="string">&#x27;hex&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;transformed_flag:&#x27;</span>, transformed_flag)</span><br><span class="line"><span class="comment"># transformed_flag: 641460a9e3953b1aaa21f3a2</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="二、题目解析"><a href="#二、题目解析" class="headerlink" title="二、题目解析"></a>二、题目解析</h2><p>最关键的就是convert这个加密流程了，写了点注释，但怎么感觉像是把明文破坏了</p>
+<h2 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h2><p>最关键的就是convert这个加密流程了，写了点注释，但怎么感觉像是把明文破坏了</p>
 <h3 id="第一四组位运算"><a href="#第一四组位运算" class="headerlink" title="第一四组位运算"></a>第一四组位运算</h3><p>所以，我决定自己试一遍，试了第一组</p>
 <p>一试不得了，我发现了，有被修复的可行性的，算法看下图</p>
 <img alt="[SUCTF2019]MT 我也很异或呢-f4ee9bb3.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-f4ee9bb3.png" width="" height="">
@@ -362,19 +362,19 @@
 <p>第三个位运算的逆过程和这个脚本一样</p>
 <p>然后在实际跑的时候，我发现了一些bug，正如上面提到的，这些位数的不同导致了我这个方法的局限性，像什么，那个位移9位的那个，因为它有32位，结果会出错，还有位移13位的，主要都是位数不对带来的吧。所以这种方法明显低效，且不普适，后面也不会再花时间研究</p>
 <p>但写都写了是吧，自己的思路，爬也要爬完，况且情况已经很局限了</p>
-<h2 id="三、完整脚本"><a href="#三、完整脚本" class="headerlink" title="三、完整脚本"></a>三、完整脚本</h2><p>花了操作系统实验课一半的时间，我终于改对了（不过是事先知道flag长啥样了）</p>
+<h2 id="完整脚本"><a href="#完整脚本" class="headerlink" title="完整脚本"></a>完整脚本</h2><p>花了操作系统实验课一半的时间，我终于改对了（不过是事先知道flag长啥样了）</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">first_cal_re</span>(<span class="params">c, x</span>):</span></span><br><span class="line">    y = <span class="built_in">len</span>(<span class="built_in">bin</span>(c)[<span class="number">2</span>:].zfill(<span class="number">31</span>))-<span class="number">2</span>*x</span><br><span class="line">    <span class="keyword">if</span> y &lt;= <span class="number">0</span>:</span><br><span class="line">        y = <span class="built_in">len</span>(<span class="built_in">bin</span>(c)[<span class="number">2</span>:].zfill(<span class="number">31</span>)) - x</span><br><span class="line">        c = <span class="built_in">bin</span>(c)[<span class="number">2</span>:].zfill(<span class="number">31</span>)</span><br><span class="line">        <span class="comment"># 高x位完全相同</span></span><br><span class="line">        part1 = c[<span class="number">0</span>:x].zfill(x)</span><br><span class="line">        part2 = <span class="built_in">bin</span>(<span class="built_in">int</span>(c[x:], <span class="number">2</span>) ^ <span class="built_in">int</span>(c[:y], <span class="number">2</span>))[<span class="number">2</span>:].zfill(y)</span><br><span class="line">        output = <span class="built_in">int</span>(part1 + part2, <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">return</span> output</span><br><span class="line">    c = <span class="built_in">bin</span>(c)[<span class="number">2</span>:].zfill(<span class="number">31</span>)</span><br><span class="line">    <span class="comment"># 高x位完全相同</span></span><br><span class="line">    high13 = c[<span class="number">0</span>:x].zfill(x)</span><br><span class="line">    <span class="comment"># 中间的几位</span></span><br><span class="line">    mid5 = <span class="built_in">bin</span>(<span class="built_in">int</span>(c[x:x+y], <span class="number">2</span>) ^ <span class="built_in">int</span>(high13[:y], <span class="number">2</span>))[<span class="number">2</span>:].zfill(y)</span><br><span class="line">    low13 = <span class="built_in">bin</span>(<span class="built_in">int</span>(c[x+y:], <span class="number">2</span>) ^ <span class="built_in">int</span>((high13+mid5)[y:], <span class="number">2</span>))[<span class="number">2</span>:].zfill(x)   <span class="comment"># 注意填充</span></span><br><span class="line">    output = <span class="built_in">int</span>(high13+mid5+low13, <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">second_cal_re</span>(<span class="params">c, x, y</span>):</span></span><br><span class="line">    y = <span class="built_in">bin</span>(y)[<span class="number">2</span>:].zfill(<span class="number">32</span>)</span><br><span class="line">    c = <span class="built_in">bin</span>(c)[<span class="number">2</span>:].zfill(<span class="number">32</span>)</span><br><span class="line">    output = [<span class="number">0</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(c))]</span><br><span class="line">    <span class="comment"># 低x位保持不变</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(y)-x, <span class="built_in">len</span>(y)):</span><br><span class="line">        output[i] = <span class="built_in">int</span>(c[i])</span><br><span class="line">    <span class="comment"># 13-21位 = (低x位)&amp;(y[13:21])^c[13:21]</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(y)-<span class="number">2</span>*x, <span class="built_in">len</span>(y)-x):</span><br><span class="line">        output[i] = output[i+x] &amp; <span class="built_in">int</span>(y[i]) ^ <span class="built_in">int</span>(c[i])</span><br><span class="line">    <span class="comment"># 4-12位 = (13-21位)&amp;(y[4:12])^c[4:12]</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(y)-<span class="number">3</span>*x, <span class="built_in">len</span>(y)-<span class="number">2</span>*x):</span><br><span class="line">        output[i] = output[i+x] &amp; <span class="built_in">int</span>(y[i]) ^ <span class="built_in">int</span>(c[i])</span><br><span class="line">    <span class="comment"># 高4位 = (8-12位)&amp;(y[0:3])^c[0:3]</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">5</span>):</span><br><span class="line">        output[i] = output[i+x] &amp; <span class="built_in">int</span>(y[i]) ^ <span class="built_in">int</span>(c[i])</span><br><span class="line">    output = <span class="string">&quot;&quot;</span>.join(<span class="built_in">map</span>(<span class="keyword">lambda</span> _: <span class="built_in">str</span>(_), output))</span><br><span class="line">    output = <span class="built_in">int</span>(output, <span class="number">2</span>)</span><br><span class="line">    <span class="keyword">return</span> output</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert</span>(<span class="params">m</span>):</span></span><br><span class="line">    m = m ^ m &gt;&gt; <span class="number">13</span></span><br><span class="line">    m = m ^ m &lt;&lt; <span class="number">9</span> &amp; <span class="number">2029229568</span></span><br><span class="line">    m = m ^ m &lt;&lt; <span class="number">17</span> &amp; <span class="number">2245263360</span></span><br><span class="line">    m = m ^ m &gt;&gt; <span class="number">19</span></span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">re_convert</span>(<span class="params">m</span>):</span></span><br><span class="line">    m = first_cal_re(m, <span class="number">19</span>)</span><br><span class="line">    m = second_cal_re(m, <span class="number">17</span>, <span class="number">2245263360</span>)</span><br><span class="line">    m = second_cal_re(m, <span class="number">9</span>, <span class="number">2029229568</span>)</span><br><span class="line">    m = first_cal_re(m, <span class="number">13</span>)</span><br><span class="line">    <span class="keyword">return</span> m</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span>():</span></span><br><span class="line">    <span class="comment"># 对应括号外的encode(&#x27;hex&#x27;)</span></span><br><span class="line">    message = <span class="string">b&#x27;641460a9e3953b1aaa21f3a2&#x27;</span>.decode(<span class="string">&#x27;hex&#x27;</span>)</span><br><span class="line"></span><br><span class="line">    new_message = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(message) // <span class="number">4</span>):</span><br><span class="line">        block = message[i * <span class="number">4</span>: i * <span class="number">4</span> + <span class="number">4</span>].ljust(<span class="number">4</span>, <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">        block = bytes_to_long(block)</span><br><span class="line">        block = re_convert(block)</span><br><span class="line">        block = long_to_bytes(block, <span class="number">4</span>)</span><br><span class="line">        new_message += block</span><br><span class="line">    <span class="built_in">print</span> new_message.encode(<span class="string">&#x27;hex&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    test()</span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
 
-<h2 id="四、另一位师傅的思路"><a href="#四、另一位师傅的思路" class="headerlink" title="四、另一位师傅的思路"></a>四、另一位师傅的思路</h2><p>对，又是尚师傅，在我迷茫的时候又给我指点迷津，他一下就看出，这是一个可以循环回来的位运算，所以直接写了循环就跑出来了</p>
+<h2 id="另一位师傅的思路"><a href="#另一位师傅的思路" class="headerlink" title="另一位师傅的思路"></a>另一位师傅的思路</h2><p>对，又是尚师傅，在我迷茫的时候又给我指点迷津，他一下就看出，这是一个可以循环回来的位运算，所以直接写了循环就跑出来了</p>
 <p>一哩窝里GIAO</p>
 <img alt="[SUCTF2019]MT 我也很异或呢-ce3e9430.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-ce3e9430.png" width="" height="">
 
 <img alt="[SUCTF2019]MT 我也很异或呢-30b8ac87.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-30b8ac87.png" width="" height="" >
 
 <p>牛啊，人上人</p>
-<h2 id="五、题目总结"><a href="#五、题目总结" class="headerlink" title="五、题目总结"></a>五、题目总结</h2><p>虽然也不是什么动脑子的题目，重复一遍过程，然后扣细节。但还是很兴奋，第一次自己做出这种题目（主要是师傅们的wp看不懂哇），对于之前一直没有攻克的线性移位寄存器也有一定思路了</p>
+<h2 id="题目总结"><a href="#题目总结" class="headerlink" title="题目总结"></a>题目总结</h2><p>虽然也不是什么动脑子的题目，重复一遍过程，然后扣细节。但还是很兴奋，第一次自己做出这种题目（主要是师傅们的wp看不懂哇），对于之前一直没有攻克的线性移位寄存器也有一定思路了</p>
 <p>还有一句废话，就是，这题难度不大，因为存在上面这种做法，所以如果是比赛，给我五分钟做出来</p>
-<h2 id="六、关于MT"><a href="#六、关于MT" class="headerlink" title="六、关于MT"></a>六、关于MT</h2><p>哈哈哈哈哈，重要的话放在最后说</p>
+<h2 id="关于MT"><a href="#关于MT" class="headerlink" title="关于MT"></a>关于MT</h2><p>哈哈哈哈哈，重要的话放在最后说</p>
 <p>所以像我这样这么愚蠢地去分析这个具体的流程是很低效的，浪费时间，做这种题目的思路应该是找出其中的<strong>规律</strong>，现成的也好，但毕竟头几次接触，这样也无可厚非，人都是会慢慢成长起来的</p>
 <p>去看了之前没有看懂的wp，有些人qs采用的就是尚师傅这个思路</p>
 <img alt="[SUCTF2019]MT 我也很异或呢-40747019.png" src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/[SUCTF2019]MT 我也很异或呢-40747019.png" width="" height="" >
@@ -412,7 +412,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/d563b987/" title="不正宗的MT19937">https://4xwi11.github.io/posts/d563b987/</a>
+      <a href="https://4xwi11.github.io/posts/ca3b3eaf/" title="【SUCTF2019 MT】看MT19937">https://4xwi11.github.io/posts/ca3b3eaf/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -429,13 +429,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/2d82e8aa/" rel="prev" title="20210626 GKCTFCrypto方向部分复现">
-                  <i class="fa fa-chevron-left"></i> 20210626 GKCTFCrypto方向部分复现
+                <a href="/posts/85864d0a/" rel="prev" title="20210929 绿城杯Crypto方向WP">
+                  <i class="fa fa-chevron-left"></i> 20210929 绿城杯Crypto方向WP
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/df43d8e4/" rel="next" title="20210704 TCTFCrypto方向部分WP">
-                  20210704 TCTFCrypto方向部分WP <i class="fa fa-chevron-right"></i>
+                <a href="/posts/377b2f28/" rel="next" title="【2021红明谷 ezCRT】看格">
+                  【2021红明谷 ezCRT】看格 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -486,13 +486,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">748k</span>
+    <span title="站点总字数">1.1m</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">11:20</span>
+    <span title="站点阅读时长">16:13</span>
   </span>
 </div>
 <div class="busuanzi-count">

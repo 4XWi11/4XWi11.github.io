@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/title.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/black/pace-theme-loading-bar.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="艹是真的卡  kw呜呜呜，苦露西">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20210920 CTFSHOW月饼杯Crypto方向WP">
+<meta property="og:url" content="https://4xwi11.github.io/posts/eabdfebd/index.html">
+<meta property="og:site_name" content="4XWi11的博客">
+<meta property="og:description" content="艹是真的卡  kw呜呜呜，苦露西">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210921164717044.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/006D7C42.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210922112229978.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210922161818032.png">
+<meta property="og:image" content="https://pica.zhimg.com/50/v2-4c36be6e98c5aeccecbe8fca58dba6dc_720w.jpg?source=1940ef5c">
+<meta property="article:published_time" content="2021-10-09T02:51:16.000Z">
+<meta property="article:modified_time" content="2021-10-09T03:42:11.180Z">
+<meta property="article:author" content="4XWi11">
+<meta property="article:tag" content="Gröbner基">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210921164717044.png">
+
+
+<link rel="canonical" href="https://4xwi11.github.io/posts/eabdfebd/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/eabdfebd/","path":"posts/eabdfebd/","title":"20210920 CTFSHOW月饼杯Crypto方向WP"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20210920 CTFSHOW月饼杯Crypto方向WP | 4XWi11的博客</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">4XWi11的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9C%88%E9%A5%BC%E6%9D%AF"><span class="nav-number">1.</span> <span class="nav-text">月饼杯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto-%E6%88%91%E7%9A%84%E6%9C%A8%E5%A4%B4%E5%95%8A%EF%BC%81%EF%BC%81%EF%BC%81"><span class="nav-number">1.1.</span> <span class="nav-text">Crypto-我的木头啊！！！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto-%E5%88%87%E8%AE%B0%E5%8A%A1%E5%BF%85%E4%B8%80%E5%AE%9A%E8%A6%81%E7%AE%80%E5%8D%95%EF%BC%88recuring%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">Crypto-切记务必一定要简单（recuring）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto-%E4%B8%80%E5%B0%81%E4%BF%A1"><span class="nav-number">1.3.</span> <span class="nav-text">Crypto-一封信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto-%E6%B2%90%E6%B2%90%E5%AD%90%E5%80%92%E6%8B%94%E5%9E%82%E6%9D%A8%E6%9F%B3"><span class="nav-number">1.4.</span> <span class="nav-text">Crypto-沐沐子倒拔垂杨柳</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ctfshow-login%EF%BC%88recuring%EF%BC%89"><span class="nav-number">1.5.</span> <span class="nav-text">ctfshow_login（recuring）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BC%A0%E5%85%AB%E7%82%ABCTFshow%E4%B8%89%E7%BB%93%E4%B9%89%EF%BC%88recuring%EF%BC%89"><span class="nav-number">1.6.</span> <span class="nav-text">张八炫CTFshow三结义（recuring）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Grobner%E5%9F%BA"><span class="nav-number">1.6.1.</span> <span class="nav-text">Gröbner基</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%90%86%E6%83%B3"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">理想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Grobner%E5%9F%BA-1"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">Gröbner基</span></a></li></ol></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="4XWi11"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">4XWi11</p>
+  <div class="site-description" itemprop="description">CTF菜鸡自进阶</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">28</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://lazzzaro.github.io/categories/" title="https:&#x2F;&#x2F;lazzzaro.github.io&#x2F;categories&#x2F;" rel="noopener" target="_blank">Lazzaro</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/4XWi11" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/eabdfebd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20210920 CTFSHOW月饼杯Crypto方向WP
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-10-09 10:51:16 / 修改时间：11:42:11" itemprop="dateCreated datePublished" datetime="2021-10-09T10:51:16+08:00">2021-10-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>14k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>12 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>艹是真的卡</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210921164717044.png" alt="image-20210921164717044"></p>
+<p>kw呜呜呜，苦露西</p>
+<span id="more"></span>
+
+<h1 id="月饼杯"><a href="#月饼杯" class="headerlink" title="月饼杯"></a>月饼杯</h1><h2 id="Crypto-我的木头啊！！！"><a href="#Crypto-我的木头啊！！！" class="headerlink" title="Crypto-我的木头啊！！！"></a>Crypto-我的木头啊！！！</h2><blockquote>
+<p>我的宝贝木头怎么被别人拿去做了栅栏，该怎么让他把我的宝贝木头换回来</p>
+</blockquote>
+<blockquote>
+<p>c6_I_@t216MG_0q_Uf673JTYYzBXs{31QJmTTg=hw63XZFZiHho5GzE} </p>
+</blockquote>
+<p>W型栅栏 6</p>
+<blockquote>
+<p>ctfshow{626173653136_MJQXGZJTGI_YmFzZTY0_qzTiEHgB_@UX=h}</p>
+</blockquote>
+<blockquote>
+<p>ctfshow{base16_base32_base64_base58_base}</p>
+</blockquote>
+<h2 id="Crypto-切记务必一定要简单（recuring）"><a href="#Crypto-切记务必一定要简单（recuring）" class="headerlink" title="Crypto-切记务必一定要简单（recuring）"></a>Crypto-切记务必一定要简单（recuring）</h2><blockquote>
+<p>在分解模数N的时候，除了yafu、factorDB之类现成的工具，我们还要学习一些<a target="_blank" rel="noopener" href="https://ctf-wiki.org/crypto/asymmetric/rsa/rsa_module_attack">经典算法</a>背后的思想</p>
+</blockquote>
+<p>做个<img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/006D7C42.png" alt="img"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">2537578464060405716805986209629349306801585799475566769629753550869939275098596985321844853409568013133264210149682740766024366488982429837531169509250859483526118776072099712258599263748732430570800661306460224380741403478451009927665855604092871949705081574682507168392533782265954982321389235080917435497979848348321877319477780053855288297818739223795823021264136388271573286209636548206594797813576810688640228747147522219625866870777713858310084857747151891233766790129427051420839675334815589489194938107230004427317376438129284740257550482956744843496127593401991789197386269415091390162278183972481279010769071314265529328954115911712467352483233380953386631332500882467</span></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">c = <span class="number">1595212140002311449986774328911538131302021292459414446518934463751924694901681197719356391632660947700772362140375795419149621042035212501260054901239960931458611414432758551692762707025705203714868544808208482382713403084945106505851948109261999900909705955010772382362799626266428855540493176898287751627555377040483120618564113186968911259319525250268854097054159722810266326281435235140862840574780793343440289233893489065111751815693510473980454574606688640074455096644717769189843656600438932454630073349737743755427817726253307163184245099133341515200474243399626081459226215410055396366269535409932990065250476999485239927630147382130648035686165068584532121265385100009</span></span><br></pre></td></tr></table></figure>
+
+<p>我以后再也不相信签到题了</p>
+<hr>
+<p>好家伙这道题是有源码的啊？？？这一天天魂不守舍得坐这里（不对（小声）我记得一开始是没有源码的）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> random, sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_prime</span>(<span class="params">base, offset</span>):</span></span><br><span class="line">    l = base - (<span class="number">1</span> &lt;&lt; offset)</span><br><span class="line">    r = base + (<span class="number">1</span> &lt;&lt; offset)</span><br><span class="line">    p = random.randrange(l, r) | <span class="number">1</span></span><br><span class="line">    <span class="keyword">while</span> (<span class="keyword">not</span> isPrime(p)):</span><br><span class="line">        p += <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> p</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    p = getPrime(<span class="number">1127</span>)</span><br><span class="line">    q0 = p * <span class="number">13</span> // <span class="number">17</span></span><br><span class="line">    q = get_prime(q0, <span class="number">573</span>) <span class="comment"># Konami</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;flag.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> f:</span><br><span class="line">        flag = bytes_to_long(f.read())</span><br><span class="line">    N = p * q</span><br><span class="line">    <span class="keyword">assert</span> isPrime(p) <span class="keyword">and</span> isPrime(q) <span class="keyword">and</span> flag &lt; N</span><br><span class="line">    e = <span class="number">0x10001</span></span><br><span class="line">    c = <span class="built_in">pow</span>(flag, e, N)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;N = <span class="subst">&#123;N&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;e = <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;c = <span class="subst">&#123;c&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>整体代码比较短，p是1127位的素数，q与p有关，是$[\lfloor13p/17\rfloor-2^{573},\ \lfloor13p/17\rfloor+2^{573}]$中的一个质数，好吧给我源码也不会</p>
+<p>来预习一下大整数分解的算法，之前都是直接跑工具的，参考<a target="_blank" rel="noopener" href="https://ctf-wiki.org/crypto/asymmetric/rsa/rsa_module_attack/">https://ctf-wiki.org/crypto/asymmetric/rsa/rsa_module_attack/</a></p>
+<p>费马分解emmmmm我，其实春哥师傅给的链接里的算法我都要试过，但是没有看到费马分解，原来在</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210922112229978.png" alt="image-20210922112229978"></p>
+<p>不过费马分解也算是大整数分解较为常见的了，学习学习</p>
+<p>首先对于RSA里的模数N，显然可以写成$N=pq=(\frac{p+q}{2})^2-(\frac{p-q}{2})^2$，当然别的素合数也可以这样拆解</p>
+<p>如果p和q很接近，$(\frac{p-q}{2})^2$肯定很小，变换一下上面的等式<br>$$<br>(\frac{p+q}{2})^2-N=(\frac{p-q}{2})^2<br>$$<br>我们枚举$a,\ a=\frac{p+q}{2}$，可以从$\sqrt{N}$开始（我的理解是要看p和q具体差多少，$\sqrt{N}$只是幌子），如果$|N-a^2|$是完全平方数，说明我们找到了，之后就是解个方程的事</p>
+<p>燃鹅，这里略有不同，正如春哥师傅的博客里写到，是<br>$$<br>|13p-17q|<br>$$<br>比较小，emmmmm有个$2^{573}$算小吗</p>
+<p>先照搬照抄费马分解的<br>$$<br>(\frac{13p+17q}{2})^2-13\times 17N=(\frac{13p-17q}{2})^2<br>$$<br>把N乘以一个221，就和费马分级完全一样了，写两个脚本</p>
+<p>这是一般的费马，虽然下面这个例子可以直接开方，但大致意思吧；用sage解方程有点奇怪</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">P = getPrime(<span class="number">512</span>)</span><br><span class="line">Q = next_prime(P)</span><br><span class="line">N = P * Q</span><br><span class="line">a = iroot(N, <span class="number">2</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> iroot(<span class="built_in">abs</span>(a ** <span class="number">2</span> - N), <span class="number">2</span>)[<span class="number">1</span>]:</span><br><span class="line">        x = iroot(<span class="built_in">abs</span>(a ** <span class="number">2</span> - N), <span class="number">2</span>)[<span class="number">0</span>]</span><br><span class="line">        p = symbols(<span class="string">&#x27;p&#x27;</span>)</span><br><span class="line">        q = symbols(<span class="string">&#x27;q&#x27;</span>)</span><br><span class="line">        ans = solve([p * q - N, p - q - <span class="number">2</span> * x], [p, q])[<span class="number">0</span>]</span><br><span class="line">        p = <span class="built_in">abs</span>(ans[<span class="number">0</span>])</span><br><span class="line">        q = <span class="built_in">abs</span>(ans[<span class="number">1</span>])</span><br><span class="line">        <span class="built_in">print</span>(p, q)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    a += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>稍微改一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env sage</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">N = <span class="number">2537578464060405716805986209629349306801585799475566769629753550869939275098596985321844853409568013133264210149682740766024366488982429837531169509250859483526118776072099712258599263748732430570800661306460224380741403478451009927665855604092871949705081574682507168392533782265954982321389235080917435497979848348321877319477780053855288297818739223795823021264136388271573286209636548206594797813576810688640228747147522219625866870777713858310084857747151891233766790129427051420839675334815589489194938107230004427317376438129284740257550482956744843496127593401991789197386269415091390162278183972481279010769071314265529328954115911712467352483233380953386631332500882467</span></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">c = <span class="number">1595212140002311449986774328911538131302021292459414446518934463751924694901681197719356391632660947700772362140375795419149621042035212501260054901239960931458611414432758551692762707025705203714868544808208482382713403084945106505851948109261999900909705955010772382362799626266428855540493176898287751627555377040483120618564113186968911259319525250268854097054159722810266326281435235140862840574780793343440289233893489065111751815693510473980454574606688640074455096644717769189843656600438932454630073349737743755427817726253307163184245099133341515200474243399626081459226215410055396366269535409932990065250476999485239927630147382130648035686165068584532121265385100009</span></span><br><span class="line"></span><br><span class="line">N = <span class="number">221</span> * N</span><br><span class="line">a = iroot(N, <span class="number">2</span>)[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> iroot(<span class="built_in">abs</span>(a ** <span class="number">2</span> - N), <span class="number">2</span>)[<span class="number">1</span>]:</span><br><span class="line">        x = iroot(<span class="built_in">abs</span>(a ** <span class="number">2</span> - N), <span class="number">2</span>)[<span class="number">0</span>]</span><br><span class="line">        p = symbols(<span class="string">&#x27;p&#x27;</span>)</span><br><span class="line">        q = symbols(<span class="string">&#x27;q&#x27;</span>)</span><br><span class="line">        ans = solve([<span class="number">221</span> * p * q - N, <span class="number">13</span> * p - <span class="number">17</span> * q - <span class="number">2</span> * x], [p, q])[<span class="number">0</span>]</span><br><span class="line">        p = <span class="built_in">int</span>(<span class="built_in">abs</span>(ans[<span class="number">0</span>]))</span><br><span class="line">        q = <span class="built_in">int</span>(<span class="built_in">abs</span>(ans[<span class="number">1</span>]))</span><br><span class="line">        <span class="keyword">assert</span> p * q == N // <span class="number">221</span></span><br><span class="line">        <span class="built_in">print</span>(long_to_bytes(<span class="built_in">pow</span>(c, <span class="built_in">int</span>(invert(e, (p-<span class="number">1</span>)*(q-<span class="number">1</span>))), N // <span class="number">221</span>)))</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    a += <span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>好家伙是动态flag</p>
+<h2 id="Crypto-一封信"><a href="#Crypto-一封信" class="headerlink" title="Crypto-一封信"></a>Crypto-一封信</h2><p>有点意思，之前在某次套娃中用到</p>
+<blockquote>
+<p>有一天，小明收到了一封名为mooncake的信，你可以帮他破解吗？</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">馃檭馃挼馃尶馃帳馃毆馃審馃悗馃馃毇馃槅鉁咅煈夝煍勷煄ゐ煈屸尐馃憫馃巺馃槏馃崕馃毇鈽傪煒€馃榾馃悩馃悕馃檭馃ぃ鈽€馃崕馃敩鈽傪煡嬸煄堭煃庰煒傪煃岎煇庰煂婐煍勷煄咅煔煂忦煈岎煄凁煍煒○煈ｐ煔煃答煔梆煢擆煏桂煒嗮煈夆劰鈴┾湁馃洨馃寜馃搨馃尶馃攧馃榾馃崒馃尶馃槑鈴煠ｐ煒傪煃庰煆庰煍勨尐馃尶鉁夆尐馃檭鈽凁煃庘槂馃毇馃崓馃槀馃槀鈱煑掟煑�</span><br></pre></td></tr></table></figure>
+
+<p>首先有生僻字有平假名有欧元，直接搜索无果，而且会出来一堆需要web手去检查的东西；然后想到昨天的长城杯，虽然没意思，但有时候思路很重要，我觉得应该不会有个加密的结果是这样的，这可能是乱码，所以utf-8编码试了试，得到</p>
+<p>🙃💵🌿🎤🚪🌏🐎🥋🚫😆✅👉🔄🎤👌⌨👑🎅😍🍎🚫☂😀😀🐘🐍🙃🤣☀🍎🔬☂🥋🎈🍎😂🍌🐎🌊🔄🎅🚫🌏👌🎃🔬😡👣🚪🍴🚰🦓🕹😆👉ℹ⏩✉🛩🌉📂🌿🔄😀🍌🌿😎⏩🤣😂🍎🏎🔄⌨🌿✉⌨🙃☃🍎☃🚫🍍😂😂⌨🗒🗒</p>
+<p>emoji编码，也就是base100编码是不对滴，找到师傅的博客<a target="_blank" rel="noopener" href="https://miaotony.xyz/2021/02/11/CTF_2021NewsCTF/#toc-heading-10">https://miaotony.xyz/2021/02/11/CTF_2021NewsCTF/#toc-heading-10</a>，说是aes emoji，需要key，结合hint中有mooncake，出</p>
+<p>看到春哥师傅博客中还提到</p>
+<p><img src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210922161818032.png" alt="image-20210922161818032"></p>
+<p>先记下</p>
+<h2 id="Crypto-沐沐子倒拔垂杨柳"><a href="#Crypto-沐沐子倒拔垂杨柳" class="headerlink" title="Crypto-沐沐子倒拔垂杨柳"></a>Crypto-沐沐子倒拔垂杨柳</h2><blockquote>
+<p>沐沐子相了一相，走到树前，把直掇脱了，用右手向下，把身倒缴着；却把左手拔住上截，把腰只一趁，将那株绿杨树带根拔起。</p>
+</blockquote>
+<blockquote>
+<p>众菜鸡见了，一齐拜倒在地，只叫：”沐沐子非是凡人，正是真汉子！身体无千万斤气力，如何拔得起！”</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cipher = AES.new(self.willow, AES.MODE_CBC, iv=self.willow)</span><br></pre></td></tr></table></figure>
+
+<p>emmmmm</p>
+<p>一时间找不到表达狂笑的表情包</p>
+<p>具体请参考题目<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_49109277/article/details/120199397?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522163211958816780269885785%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=163211958816780269885785&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v2~rank_v29-6-120199397.pc_v2_rank_blog_default&utm_term=cbc&spm=1018.2226.3001.4450">Yusa的密码学课堂—CBC第三课</a>，再次感谢尚师傅带我</p>
+<hr>
+<p>flag总共有三段，<code>change</code>是选择哪一段密文，<code>Shake</code>是加密，<code>Kick</code>是解密，密文明文由我们send，加密解密的key和iv都来自flag，主要的流程是</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">handle</span>(<span class="params">self</span>):</span></span><br><span class="line"></span><br><span class="line">    self.send(banner)</span><br><span class="line">    self.willow = self.select_level()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        self.send(<span class="string">&quot;1: Shake the willow&quot;</span>)</span><br><span class="line">        self.send(<span class="string">&quot;2: Kick the willow&quot;</span>)</span><br><span class="line">        self.send(<span class="string">&quot;3: Change a willow&quot;</span>)</span><br><span class="line">        self.send(<span class="string">&quot;4: Give up&quot;</span>)</span><br><span class="line">        choice = self.receive().decode()</span><br><span class="line">        <span class="keyword">if</span> choice == <span class="string">&quot;1&quot;</span>:</span><br><span class="line">            self.shake_willow()</span><br><span class="line">        <span class="keyword">elif</span> choice == <span class="string">&quot;2&quot;</span>:</span><br><span class="line">            self.kick_willow()</span><br><span class="line">        <span class="keyword">elif</span> choice == <span class="string">&quot;3&quot;</span>:</span><br><span class="line">            self.willow = self.select_level()</span><br><span class="line">        <span class="keyword">elif</span> choice == <span class="string">&quot;4&quot;</span>:</span><br><span class="line">            self.send(<span class="string">&quot;886!&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br></pre></td></tr></table></figure>
+
+<p>想到上次吉林师傅给的题目，key和iv是相同的，只要一次解密和一次加密就可以得到一段flag</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">BLOCK_SIZE = <span class="number">16</span></span><br><span class="line">port = <span class="number">28083</span></span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">sh = remote(<span class="string">&#x27;pwn.challenge.ctf.show&#x27;</span>, port)</span><br><span class="line"></span><br><span class="line">plaintext = <span class="string">b&#x27;\x00&#x27;</span> * <span class="number">32</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">attack</span>(<span class="params">tip</span>):</span></span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.sendline(tip)</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.sendline(<span class="string">b&#x27;1&#x27;</span>)</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.sendline(plaintext.<span class="built_in">hex</span>())</span><br><span class="line">    sh.recvline()</span><br><span class="line">    cipher = <span class="built_in">bytes</span>.fromhex(sh.recvline()[:-<span class="number">1</span>].decode())</span><br><span class="line">    c3, c4 = cipher[:<span class="number">16</span>], cipher[<span class="number">16</span>:<span class="number">32</span>]</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.sendline(<span class="string">b&#x27;2&#x27;</span>)</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.sendline(c4.<span class="built_in">hex</span>())</span><br><span class="line">    sh.recvline()</span><br><span class="line">    res = <span class="built_in">bytes</span>.fromhex(sh.recvline()[:-<span class="number">1</span>].decode())</span><br><span class="line">    key = xor(res, c3)</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;&gt;&#x27;</span>)</span><br><span class="line">    sh.sendline(<span class="string">b&#x27;3&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> key</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">3</span>):</span><br><span class="line">    flag += attack(<span class="built_in">str</span>(i).encode()).decode()</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
+
+<p>注意与上次那道题不同，这个pad是用库函数的，很奇怪，明明给了32位的，会给你填成48位的，但问题不大</p>
+<p>flag就不贴了</p>
+<h2 id="ctfshow-login（recuring）"><a href="#ctfshow-login（recuring）" class="headerlink" title="ctfshow_login（recuring）"></a>ctfshow_login（recuring）</h2><p>最关键的代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">verify_token</span>(<span class="params">username, r, s, y</span>):</span></span><br><span class="line">    u = bytes_to_long(username) &amp; MASK</span><br><span class="line">    <span class="comment"># No cheating</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">any</span>([x &lt;= <span class="number">0</span> <span class="keyword">or</span> x &gt;= p - <span class="number">1</span> <span class="keyword">for</span> x <span class="keyword">in</span> (u, r, s)]):</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">pow</span>(g, u, p) == (<span class="built_in">pow</span>(y, r, p) * <span class="built_in">pow</span>(r, s, p)) % p</span><br></pre></td></tr></table></figure>
+
+<p>也就是要满足<br>$$<br>g^u\equiv_py^r\cdot r^s<br>$$<br>其中已知，</p>
+<p>$p$<br>$g=7$<br>$y=g^x\ (mod\ p)$</p>
+<p>u由我们指定，至少包含一个题目中提供的花名，r和s产生自以下函数，也就是题目提示丢失的私钥</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_token</span>(<span class="params">username, x</span>):</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        u = bytes_to_long(username) &amp; MASK</span><br><span class="line">        k = randint(<span class="number">2</span>, p - <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">if</span> GCD(k, p - <span class="number">1</span>) != <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        r = <span class="built_in">pow</span>(g, k, p)</span><br><span class="line">        s = (u - x * r) * inverse(k, p - <span class="number">1</span>) % (p - <span class="number">1</span>)</span><br><span class="line">        <span class="keyword">if</span> s == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        <span class="keyword">return</span> (r, s)</span><br></pre></td></tr></table></figure>
+
+<p>$r=g^k\ (mod\ p)\<br>s=(u-x\cdot r)\cdot k^{-1}\ mod\ (p-1)$</p>
+<p>确实，代入验证的式子就可知，如果知道正确的x生成的(r, s)，是可以使等式两边成立的；该加密系统也是基于DLP</p>
+<p>fw不费，看着春哥的知乎开始复现</p>
+<hr>
+<p>想不到啊，没这方面的经验，要让$g^u\equiv_py^r\cdot r^s$成立，r和s都是由我们指定的，春哥师傅让$r=g^iy^j$，这样代入上式，得<br>$$<br>g^u\equiv_py^{g^iy^j}g^{si}y^{sj}<br>$$<br>显然根据欧拉定理，或者加上费马小定理，如果<br>$$<br>u\equiv_{p-1}si\<br>$$<br>那么只要满足<br>$$<br>1\equiv_{p}y^ry^{sj}<br>$$<br>就好了，但是师傅的推导我没有看明白，他说如果满足<br>$$<br>y\equiv_{p-1}sj<br>$$<br>上式就成立了，没转过弯来，太fw了；之后就可以通过计算随机数i和j，算出r和s还有u，就可以拿去伪造了</p>
+<p>还有一个忘说了，u必须包含一个花名</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">check_login</span>(<span class="params">username</span>):</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">any</span>([mem <span class="keyword">in</span> username <span class="keyword">for</span> mem <span class="keyword">in</span> CTFSHOW_MEMBERS])</span><br></pre></td></tr></table></figure>
+
+<p>就选<code>ZM.J@CTFshow</code>吧，放在前面，后1024就是我们真正的u吧</p>
+<p>还好还有第二种思路，好强啊，二次剩余，欧拉准则，直接把你搞成1</p>
+<p>前景知识可以参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_49109277/article/details/120082896?spm=1001.2014.3001.5501">rabin攻击</a></p>
+<p>回到$g^u\equiv_py^rg^s$，我一开始也想，也是比较自然的想法，每个变量之间有这样或那样的联系，看不透，既然要同余式两边相同，那直接干脆暴力全部都变1好了；比赛中也就是这么想想，并没有实现的思路</p>
+<p>但春哥想到了二次剩余，也就是</p>
+<ul>
+<li>如果a是p的二次剩余，那么$(\frac{a}{p})=1$</li>
+<li>如果a不是p的二次剩余，那么$(\frac{a}{p})=-1$</li>
+</ul>
+<p>当然在此之前的想法一般是让u的低1024位和r还有s等于p-1，由费马小定理易解，哒咔</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="built_in">any</span>([x &lt;= <span class="number">0</span> <span class="keyword">or</span> x &gt;= p - <span class="number">1</span> <span class="keyword">for</span> x <span class="keyword">in</span> (u, r, s)]):</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">False</span></span><br></pre></td></tr></table></figure>
+
+<p>有范围限制，最大也就是p-2；所以进而想到的二次剩余</p>
+<p>根据欧拉准则<br>$$<br>a^\frac{p-1}{2}\equiv_p(\frac{a}{p})<br>$$<br>$a^{p-1}\ mod\ p$太大了不行，那么我们求个二次剩余，显然也就是让$u=r=s=\frac{p-1}{2}$，结果就只能是1或则-1，emmmmm然后还是要碰下运气，非预期？</p>
+<p>最后注意下输入输出吧，没注意，r和s一直send十六进制编码，我说怎么出不了，还有注意u已经是字节了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">username = <span class="built_in">input</span>(<span class="string">&#x27;username (in hex): &#x27;</span>)</span><br><span class="line">username = <span class="built_in">bytes</span>.fromhex(username)</span><br><span class="line">r = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;r (in hex): &#x27;</span>), <span class="number">16</span>)</span><br><span class="line">s = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&#x27;s (in hex): &#x27;</span>), <span class="number">16</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> re <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># context.log_level = &#x27;debug&#x27;</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    u = bytes_to_long(<span class="string">b&#x27;ZM.J@CTFshow&#x27;</span>) &lt;&lt; <span class="number">1024</span></span><br><span class="line">    sh = remote(<span class="string">&#x27;pwn.challenge.ctf.show&#x27;</span>, <span class="number">28066</span>)</span><br><span class="line">    content = sh.recvuntil(<span class="string">b&#x27;username (in hex):&#x27;</span>).decode()</span><br><span class="line">    p, y = findall(<span class="string">r&quot;\d+&quot;</span>, content)</span><br><span class="line">    p, y = <span class="built_in">int</span>(p), <span class="built_in">int</span>(y)</span><br><span class="line">    u, r, s = long_to_bytes(u + (p - <span class="number">1</span>) // <span class="number">2</span>), (p - <span class="number">1</span>) // <span class="number">2</span>, (p - <span class="number">1</span>) // <span class="number">2</span></span><br><span class="line">    sh.sendline(u.<span class="built_in">hex</span>())</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;r (in hex):&#x27;</span>)</span><br><span class="line">    sh.sendline(<span class="built_in">hex</span>(r))</span><br><span class="line">    sh.recvuntil(<span class="string">b&#x27;s (in hex):&#x27;</span>)</span><br><span class="line">    sh.sendline(<span class="built_in">hex</span>(s))</span><br><span class="line">    flag = sh.recvline()</span><br><span class="line">    <span class="keyword">if</span> <span class="string">b&#x27;ctfshow&#x27;</span> <span class="keyword">in</span> flag:</span><br><span class="line">        <span class="built_in">print</span>(flag)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="张八炫CTFshow三结义（recuring）"><a href="#张八炫CTFshow三结义（recuring）" class="headerlink" title="张八炫CTFshow三结义（recuring）"></a>张八炫CTFshow三结义（recuring）</h2><p>emmmmm代码这么短，比赛时没来得及看，不要问为什么，烦</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> zang, ba88, xuan, p, q, e</span><br><span class="line"></span><br><span class="line"><span class="comment"># F91 is my wife forever</span></span><br><span class="line"><span class="keyword">assert</span> isPrime(e) <span class="keyword">and</span> (e &lt; <span class="number">91</span>)</span><br><span class="line"></span><br><span class="line">N = p*q</span><br><span class="line">ps = <span class="built_in">list</span>(<span class="built_in">map</span>(bytes_to_long, (zang, ba88, xuan)))</span><br><span class="line">cs = [<span class="built_in">pow</span>(i,e,N) <span class="keyword">for</span> i <span class="keyword">in</span> ps]</span><br><span class="line">s = <span class="built_in">sum</span>(ps) <span class="comment"># UNITE</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;N = <span class="subst">&#123;N&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;cs = <span class="subst">&#123;cs&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;s = <span class="subst">&#123;s&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>知道所有的明文之和，知道所有的密文，但不知道哪个是flag；素指数e比较小，但N和c相同位数小指数攻击估计也够呛；N不知道是由什么样的p和q生成的，估计也不好分解</p>
+<p>看下hint</p>
+<blockquote>
+<p>此题可能需要一定的算力以及耐心。</p>
+</blockquote>
+<blockquote>
+<p>如果你觉得当前容器所给出的问题太难解出，不妨重开一个容器。</p>
+</blockquote>
+<p>那我觉得太难可以换道题吗（doge），如果我开了100个容器还是不会怎么办（bushi）</p>
+<p>没看wp前我的思路是，就手头上有的，很容易可以想到<br>$$<br>(m_1+m_2+m_3)^e\ mod\ n<br>$$<br>关于多项式的展开如下<br>$$<br>(a_1+a_2+\cdots+a_m)^n=\sum\frac{n!}{x_1!x_2!\cdots x_m!}a_1^{x_1}a_1^{x_2}\cdots a_m^{x_m}<br>$$<br>其中$x_1+x_2+\cdots+x_m=n$，也就是所有可能加起来等于n的组合</p>
+<p>哦对不起，这是求和的</p>
+<p>满足条件的e有18个</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">e = [<span class="number">17</span>,<span class="number">19</span>,<span class="number">23</span>,<span class="number">29</span>,<span class="number">31</span>,<span class="number">37</span>,<span class="number">41</span>,<span class="number">43</span>,<span class="number">47</span>,<span class="number">53</span>,<span class="number">59</span>,<span class="number">61</span>,<span class="number">67</span>,<span class="number">71</span>,<span class="number">73</span>,<span class="number">79</span>,<span class="number">83</span>,<span class="number">89</span>]</span><br></pre></td></tr></table></figure>
+
+<p>不会了，直接看wp</p>
+<p>emmmmm Gröbner基</p>
+<p>la佬~</p>
+<p>我又来逛la佬博客了</p>
+<p>格罗布纳基，又是哪位天才的神作</p>
+<hr>
+<h3 id="Grobner基"><a href="#Grobner基" class="headerlink" title="Gröbner基"></a>Gröbner基</h3><h4 id="理想"><a href="#理想" class="headerlink" title="理想"></a>理想</h4><p><del>首先我们来谈谈理想，我的理想是要成为秧歌star</del></p>
+<p>对于一个多项式集合$F=f_1,\cdots,f_k$，其生成的<strong>理想</strong>为集合元素的线性组合，la佬的latex在我这里显示有点问题，应该是这样<br>$$<br>\langle f_1,\cdots,f_k \rangle=\bigg({ \sum\limits_{i=1}^k g_if_i \vert g_1,\cdots,g_k \in K[x_1,\cdots,x_n] \bigg)}<br>$$<br>其中$R=K[x_1,\cdots,x_n]$是在域$K$上的多项式环，g是多项式环中的一个多项式，x是多项式g的系数，是属于有限域$K$上的，也就是说f的系数是多项式，而由f组成的线性组合就是理想</p>
+<p>什么是多项式环，我先理解成系数在$[0,\ R]$上的多项式集合吧，那域$K$就是$Z_K^*$（反正也不懂，xjb理解一下，有清楚的师傅评论区教教我，阻止我进一步误导别人）</p>
+<ul>
+<li>$x_i$是数</li>
+<li>$g_i$是系数为$x_i$的多项式</li>
+<li>$f_i$是系数为多项式$g_i$的多项式？</li>
+</ul>
+<h4 id="Grobner基-1"><a href="#Grobner基-1" class="headerlink" title="Gröbner基"></a>Gröbner基</h4><p>Gröbner基就是单项式序下的多项式环$K[x_1,\cdots,x_n]$，其理想$I$满足一定条件的有限生成集$G=g_1,g_2,_\cdots,g_t$吧</p>
+<img src="https://pica.zhimg.com/50/v2-4c36be6e98c5aeccecbe8fca58dba6dc_720w.jpg?source=1940ef5c" alt="程序员有哪些专用的聊天表情包啊……？ - 知乎"/>
+
+<hr>
+<p>算了看不懂，又浪费30分钟，直接用吧</p>
+<p>已知理想求Gröbner基</p>
+<p>定义三元多项式</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">P.&lt;x, y, z&gt; = PolynomialRing(Zmod(N))</span><br></pre></td></tr></table></figure>
+
+<p>构造理想</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">G = [x+y+z-s, x^e-cs[<span class="number">0</span>], y^e-cs[<span class="number">1</span>], z^e-cs[<span class="number">2</span>]]</span><br></pre></td></tr></table></figure>
+
+<p>然后用sage现成的函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">B = Ideal(G).groebner_basis()</span><br></pre></td></tr></table></figure>
+
+<p>今天才知道tqdm只是个进度条而已，好看点吧。。。确实好看，好用，用法和for一样</p>
+<p>问题是这个理想是怎么构造的，问了下老师，我自己的理解吧；<strong>首先有三个要求的密文，于是就设置在有限域$\mathbb{Z}^*_n$的三元变量，由已知条件，显然可以构造4个多项式值为0的多项式，他们组成了理想，用这个理想可以求出一个Gröbner基，Gröbner基就是这个理想属于的最短的那个基，如果不是满足这个基的理想是求不出来的</strong></p>
+<p>求出来的Gröbner基是一元的，也就是$x+x_0,\ y+y_0,\ z+z_0$，他们都等于N</p>
+<hr>
+<p>唔，苦露西，代码再短也不会</p>
+<p>直接跑脚本了，确实慢，到了一半我就掐掉重开，终于成功，得到</p>
+<blockquote>
+<p>[x +<br>26662827782051464615976567684752925677467881725332575738209359733512862160799560732998203503511148730687717124305275025073641447585135831097416975699029611753775395118044337114687461451203396381780284280332279054412946883024040851932234340654069479840307590336431065451668520879110676315718029797292361072793366910857300705975725867933068706498317130739553540485217415514125547447045647449411275827867898811663393269578679727735421639780469843184306978152618597198612892115614024042436618084049774644761224850091459122581613735095060947960942929699069451075614514322230810345965639861985343385928596524291866515457506,<br>y +<br>26662827782051464615976567684752925677467881725332575738209359733512862160799560732998203503511148730687717124305275025073641447585135831097416975699029611753775395118044337114687461451203396381780284280332279054412946883024040851932234340654069479840307590336431065451668520879110676315718029797292361072793366910857300705975725867933068706498317130739553540485217415514125547447045647449411275827867898811663393269578679727735421639780469843184306978152618597198612892115614024042436618084049774644761224850091459122581613735095060947960942929699069451075614514322230810345965639868618012628867112994837267731290388,<br>z +<br> 26662827782051464615976567684752925677467881725332575738209359733512862160799560732998203503511148730687717124305275025073641447585135831097416975699029611753775395118044337114687461451203396381780284280332279054412946883024040851932234340654069479840307590336431065451668520879110676315718029797292361072793366910857300705975725867933068706498317130739553540485217415514125547447045647449411275827867898811663393269578679727735421639780469843184306978152618597198612892115614024042436618084049774644761224850091459122581613735095060947960942929699069451075614514322230810345965509879226494955760912958428560544399675]</p>
+</blockquote>
+<p>然后N减去后面这个数字，转字节懂的</p>
+<p>所以感觉Gröbner基可解多元方程，但又不完全是</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>本文作者： </strong>4XWi11
+  </li>
+  <li class="post-copyright-link">
+      <strong>本文链接：</strong>
+      <a href="https://4xwi11.github.io/posts/eabdfebd/" title="20210920 CTFSHOW月饼杯Crypto方向WP">https://4xwi11.github.io/posts/eabdfebd/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Grobner%E5%9F%BA/" rel="tag"># Gröbner基</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/d98f7fed/" rel="prev" title="20210919 长城杯Crypto方向WP">
+                  <i class="fa fa-chevron-left"></i> 20210919 长城杯Crypto方向WP
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/90da693a/" rel="next" title="20210923 天翼杯TeamGipsyWP">
+                  20210923 天翼杯TeamGipsyWP <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fas fa-user-secret"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4XWi11</span>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("10/6/2021 14:38:00");//此处修改你的建站时间或者网站上线时间 
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
+          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+      } 
+  setInterval("createtime()",250);
+  </script>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">1.1m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">16:13</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"4XWi11/comments","issue_term":"pathname","theme":"github-light","cdn":"https://utteranc.es/client.js"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"react":{"opacity":0.7}});</script></body>
+</html>
