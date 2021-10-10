@@ -22,16 +22,22 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="作为精通各种软件安装卸载的师傅，linux下的软件怎么玩，学一下 Install Software 采用源代码的方式编译安装 Apache 使用 C 语言的 Socket编写服务器和客户端  源码安装Apache用源码安装，虽然阳哥的博客上写的都是什么yum和rpm，但我的是ubuntu的，用的是apt和deb 首先去Apache官网">
+<meta name="description" content="作为精通各种软件安装卸载的师傅，linux下的软件怎么玩，学一下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Install Software">
 <meta property="og:url" content="https://4xwi11.github.io/posts/1727f95e/index.html">
 <meta property="og:site_name" content="4XWi11的博客">
-<meta property="og:description" content="作为精通各种软件安装卸载的师傅，linux下的软件怎么玩，学一下 Install Software 采用源代码的方式编译安装 Apache 使用 C 语言的 Socket编写服务器和客户端  源码安装Apache用源码安装，虽然阳哥的博客上写的都是什么yum和rpm，但我的是ubuntu的，用的是apt和deb 首先去Apache官网">
+<meta property="og:description" content="作为精通各种软件安装卸载的师傅，linux下的软件怎么玩，学一下">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009202237520.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211010000740392.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211010001845561.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211010001924623.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/v2-f705786f6db6d3b02b805ac059ea225c_720w.jpg">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211010004137854.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211010004909028.png">
 <meta property="article:published_time" content="2021-10-09T11:34:42.000Z">
-<meta property="article:modified_time" content="2021-10-09T13:57:49.374Z">
+<meta property="article:modified_time" content="2021-10-10T06:25:49.361Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009202237520.png">
@@ -150,7 +156,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Software"><span class="nav-number">1.</span> <span class="nav-text">Install Software</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Apache"><span class="nav-number">1.1.</span> <span class="nav-text">源码安装Apache</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-Software"><span class="nav-number">1.</span> <span class="nav-text">Install Software</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BA%90%E7%A0%81%E5%AE%89%E8%A3%85Apache"><span class="nav-number">1.1.</span> <span class="nav-text">源码安装Apache</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Socket%E7%BC%96%E7%A8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">Socket编程</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -269,10 +275,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-10-09 19:34:42 / 修改时间：21:57:49" itemprop="dateCreated datePublished" datetime="2021-10-09T19:34:42+08:00">2021-10-09</time>
+      <time title="创建时间：2021-10-09 19:34:42" itemprop="dateCreated datePublished" datetime="2021-10-09T19:34:42+08:00">2021-10-09</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-10-10 14:25:49" itemprop="dateModified" datetime="2021-10-10T14:25:49+08:00">2021-10-10</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -284,12 +296,12 @@
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span id="/posts/1727f95e/" class="post-meta-item leancloud_visitors" data-flag-title="Install Software" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
       <span class="post-meta-item-text">阅读次数：</span>
-      <span id="busuanzi_value_page_pv"></span>
+      <span class="leancloud-visitors-count"></span>
     </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="本文字数">
@@ -297,7 +309,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>157</span>
+      <span>650</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -316,14 +328,49 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>作为精通各种软件安装卸载的师傅，linux下的软件怎么玩，学一下</p>
+<span id="more"></span>
+
 <h1 id="Install-Software"><a href="#Install-Software" class="headerlink" title="Install Software"></a>Install Software</h1><ol>
 <li>采用源代码的方式编译安装 Apache</li>
-<li>使用 C 语言的 Socket编写服务器和客户端</li>
+<li>使用 C 语言的 Socket 编写服务器和客户端</li>
 </ol>
 <h2 id="源码安装Apache"><a href="#源码安装Apache" class="headerlink" title="源码安装Apache"></a>源码安装Apache</h2><p>用源码安装，虽然阳哥的博客上写的都是什么<code>yum</code>和<code>rpm</code>，但我的是ubuntu的，用的是<code>apt</code>和<code>deb</code></p>
-<p>首先去<a target="_blank" rel="noopener" href="http://httpd.apache.org/download.cgi">Apache官网</a></p>
+<p>首先去<a target="_blank" rel="noopener" href="http://httpd.apache.org/download.cgi">Apache官网</a>下载压缩包</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211009202237520.png" alt="image-20211009202237520"></p>
+<p>先解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> tar -xzvf httpd-2.4.51.tar.gz</span></span><br></pre></td></tr></table></figure>
 
+<p><code>.bz2</code>参数换成<code>-xjvf</code></p>
+<p>cd到解压后的目录，只要看到有<code>configure</code>文件，就可以运行解决依赖关系</p>
+<p>就是看你系统有没有它需要的一些依赖，没有就去装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./configure</span></span><br></pre></td></tr></table></figure>
+
+<p>直接报错，说<code>configure: error: APR not found.  Please read the documentation.</code></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211010000740392.png" alt="image-20211010000740392"></p>
+<p>跟着<a target="_blank" rel="noopener" href="http://httpd.apache.org/docs/2.4/install.html">官方文档</a>走一波，找到APR，emmmmm好像还是得有用源码安装。装完继续</p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211010001845561.png" alt="image-20211010001845561"></p>
+<p>我日，这少了多少东西</p>
+<p>回到文档</p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211010001924623.png" alt="image-20211010001924623"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/v2-f705786f6db6d3b02b805ac059ea225c_720w.jpg" alt="v2-f705786f6db6d3b02b805ac059ea225c_720w"></p>
+<p>安装APR-Util需要指定ARP的路径，默认在<code>/usr/local/apr</code>，执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> ./configure --with-apr=/usr/<span class="built_in">local</span>/apr</span></span><br></pre></td></tr></table></figure>
+
+<p>然后编译安装，<code>make</code>是编译，<code>make install</code>是安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> make</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo make install</span></span><br></pre></td></tr></table></figure>
+
+<p>好像其他的就不用装了，已经有了</p>
+<p>最后回到Apache的目录，编译安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> make</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo make install</span></span><br></pre></td></tr></table></figure>
+
+<p>删除，我笑死</p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211010004137854.png" alt="image-20211010004137854"></p>
+<p>不删了，检验下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo /usr/<span class="built_in">local</span>/apache2/bin/apachectl start</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211010004909028.png" alt="image-20211010004909028"></p>
+<p>不懂，关了</p>
+<h2 id="Socket编程"><a href="#Socket编程" class="headerlink" title="Socket编程"></a>Socket编程</h2>
     </div>
 
     
@@ -416,24 +463,8 @@
     <span title="站点阅读时长">16:15</span>
   </span>
 </div>
-<div class="busuanzi-count">
-    <span class="post-meta-item" id="busuanzi_container_site_uv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="总访客量">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="总访问量">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
-</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
 
     </div>
   </footer>
@@ -454,10 +485,10 @@
   <script src="/js/third-party/pace.js"></script>
 
   
-  
-  <script async src="busuanzi.pure.mini.js"></script>
 
 
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":"ture","app_id":"aynXxwHu3rhHKquIQgp31pQz-gzGzoHsz","app_key":"yTVM3ij7lO8vs4BGpfAz5itA","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
 
 
   
