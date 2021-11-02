@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211102194547113.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211102152856729.png">
 <meta property="article:published_time" content="2021-11-02T13:15:05.000Z">
-<meta property="article:modified_time" content="2021-11-02T13:24:41.025Z">
+<meta property="article:modified_time" content="2021-11-02T13:41:20.763Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="格密码">
 <meta property="article:tag" content="NTRU">
@@ -285,7 +285,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-11-02 21:15:05 / 修改时间：21:24:41" itemprop="dateCreated datePublished" datetime="2021-11-02T21:15:05+08:00">2021-11-02</time>
+      <time title="创建时间：2021-11-02 21:15:05 / 修改时间：21:41:20" itemprop="dateCreated datePublished" datetime="2021-11-02T21:15:05+08:00">2021-11-02</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -343,7 +343,7 @@
 <h2 id="NTRU密码系统"><a href="#NTRU密码系统" class="headerlink" title="NTRU密码系统"></a>NTRU密码系统</h2><p><em>from la佬</em></p>
 <p>准备$N,p,q$，和四个次数为$N-1$的整系数多项式$L_f,L_g,L_f,L_m$</p>
 <p>$N$为素数，$(p,\ q)=1$，但$p,\ q$不必是素数，且$q$远大于$p$</p>
-<p>NTRU工作于多项式整数环$\mathbb{R}=\mathbb{Z}[x]/(x^N-1)$，当$F\in \mathbb{R}$，可以把$F$表示为多项式或向量形式<br>$$<br>F=\sum^{N-1}<em>{i=0}F_ix^i=[F_0,F_1,\cdots,F</em>{N-1}]<br>$$<br>选取三个确定的整数$d_f,d_g,d_{\varphi}$，多项式集合$L_f=L(d_f,d_{f-1})$，$L_g=L(d_g,d_g)$，$L_{\varphi}=L(d_{\varphi},d_\varphi)$</p>
+<p>NTRU工作于多项式整数环$\mathbb{R}=\mathbb{Z}[x]/(x^N-1)$，当$F\in \mathbb{R}$，可以把$F$表示为多项式或向量形式<br>$$<br>F=\sum^{N-1}_{i=0}F_ix^i=[F_0,F_1,\cdots,F_{N-1}]<br>$$<br>选取三个确定的整数$d_f,d_g,d_{\varphi}$，多项式集合$L_f=L(d_f,d_{f-1})$，$L_g=L(d_g,d_g)$，$L_{\varphi}=L(d_{\varphi},d_\varphi)$</p>
 <p>这里记</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211102160447632.png" alt="image-20211102160447632"></p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211102160509278.png" alt="image-20211102160509278"></p>
@@ -382,9 +382,9 @@
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211102191752417.png" alt="image-20211102191752417"></p>
 <p>那么二维的格就是离散的二维空间</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211102191904415.png" alt="image-20211102191904415"></p>
-<p>其中<br>$$<br>\begin{bmatrix}<br>i’ \<br>j’<br>\end{bmatrix}=\begin{bmatrix}<br>1 &amp; 1 \<br>-2 &amp; -1<br>\end{bmatrix}=\begin{bmatrix}<br>1 &amp; 1 \<br>-2 &amp; -1<br>\end{bmatrix}\begin{bmatrix}<br>1 &amp; 0 \<br>0 &amp; 1<br>\end{bmatrix}=T\begin{bmatrix}<br>i \<br>j<br>\end{bmatrix}<br>$$<br>（emmmmm，某大树说离散数学就是计算机科学的天花板，好像很有道理</p>
+<p>其中<br>$$<br>\begin{bmatrix}<br>i’ \\<br>j’<br>\end{bmatrix}=\begin{bmatrix}<br>1 &amp; 1 \\<br>-2 &amp; -1<br>\end{bmatrix}=\begin{bmatrix}<br>1 &amp; 1 \\<br>-2 &amp; -1<br>\end{bmatrix}\begin{bmatrix}<br>1 &amp; 0 \\<br>0 &amp; 1<br>\end{bmatrix}=T\begin{bmatrix}<br>i \\<br>j<br>\end{bmatrix}<br>$$<br>（emmmmm，某大树说离散数学就是计算机科学的天花板，好像很有道理</p>
 <p>那么给一个格密码一个完整的定义</p>
-<h4 id="格密码"><a href="#格密码" class="headerlink" title="格密码"></a>格密码</h4><p>线性独立空间上有集合 $v_1,v_2,\cdots,v_n\in \mathbb{R^n}$，格，这些向量的线性组合，用公式表示为：<br>$$<br>L={a_1v_1+a_2v_2+\cdots +a_nv_n\ |\ a_1,a_2,\cdots,a_n\in \mathbb{Z}}<br>$$<br>格$L$的<strong>维数</strong>等于格中向量的个数</p>
+<h4 id="格密码"><a href="#格密码" class="headerlink" title="格密码"></a>格密码</h4><p>线性独立空间上有集合 $v_1,v_2,\cdots,v_n\in \mathbb{R^n}$，格，这些向量的线性组合，用公式表示为：<br>$$<br>L=\{a_1v_1+a_2v_2+\cdots +a_nv_n\ |\ a_1,a_2,\cdots,a_n\in \mathbb{Z}\}<br>$$<br>格$L$的<strong>维数</strong>等于格中向量的个数</p>
 <p>假定 $v_1,v_2,\cdots,v_n$ 是格$L$的基，$w_1,\ w_2,\cdots w_n\in L$，则必然存在整系数$a_{ij}$使得</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211102200017660.png" alt="image-20211102200017660"></p>
 <p>成立，这样格的问题就是矩阵计算了</p>
@@ -396,11 +396,11 @@
 <p>和RSA的基于大整数分解一样，也是难题吧，所以可以作为密码系统的基石</p>
 <p>但就和RSA某些特殊情况相似，该题是2维的且有参数的故意设置，所以是可以求的，用到的就是<code>LLL</code>算法，当然还有别的一些</p>
 <hr>
-<p>我们知道$h=f^{-1}\times g\ mod\ p$，变换一下就是<br>$$<br>h\cdot f\equiv g\ (mod\ p)<br>$$<br>改写成等式<br>$$<br>h\cdot f=k\cdot p+g<br>$$<br>将$k\cdot p$移到左边，得<br>$$<br>h\cdot f-k\cdot p=g<br>$$<br>引入矩阵<br>$$<br>(f,-k)M=(f,-k)\begin{bmatrix}<br>1 &amp; h \<br>0 &amp; p<br>\end{bmatrix}=(f,\ f\cdot h-k\cdot p)=(f,g)<br>$$<br>这说明什么呢，说明$(f,g)$就是一个以$M$为基底的格上的向量？</p>
+<p>我们知道$h=f^{-1}\times g\ mod\ p$，变换一下就是<br>$$<br>h\cdot f\equiv g\ (mod\ p)<br>$$<br>改写成等式<br>$$<br>h\cdot f=k\cdot p+g<br>$$<br>将$k\cdot p$移到左边，得<br>$$<br>h\cdot f-k\cdot p=g<br>$$<br>引入矩阵<br>$$<br>(f,-k)M=(f,-k)\begin{bmatrix}<br>1 &amp; h \\<br>0 &amp; p<br>\end{bmatrix}=(f,\ f\cdot h-k\cdot p)=(f,g)<br>$$<br>这说明什么呢，说明$(f,g)$就是一个以$M$为基底的格上的向量？</p>
 <p>然后通过比较大小</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211102194547113.png" alt="image-20211102194547113"></p>
 <p>所以，解决这个格以$M$为基底的格的最短向量问题，这道题也就被解出</p>
-<p>直接用sage的话，构造一个这样的矩阵<br>$$<br>\begin{bmatrix}<br>1 &amp; h \<br>0 &amp; p<br>\end{bmatrix}<br>$$<br>然后用LLL算法求出来的就是$f$和$g$，那就直接出了</p>
+<p>直接用sage的话，构造一个这样的矩阵<br>$$<br>\begin{bmatrix}<br>1 &amp; h \\<br>0 &amp; p<br>\end{bmatrix}<br>$$<br>然后用LLL算法求出来的就是$f$和$g$，那就直接出了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">h = <span class="number">7257231567493321493497732423756001924698993879741072696808433246581786362611889417289029671240997843541696187487722285762633068287623369923457879458577466240950224087015909821079480431797917376609839097610864517760515986973340148901898582075413756737310797402537478388864632901178463429574227279668004092519322204990617969134092793157225082977967228366838748193084097651575835471869030934527383379794480007872562067799484905159381690179011192017159985260435844246766711550315143517066359521598424992244464723490166447105679062078049379153154659732304112563255058750656946353654402824529058734270363154894216317570784</span></span><br><span class="line">p = <span class="number">23969137365202547728693945383611572667294904799854243194734466236017441545927679469239814785947383727854265554138290421827510545078908517696536495567625593439996528098119344504866817224169113920532528233185011693829122447604993468817512696036673804626830507903206709121383065701222707251053362179946170981868061834734684494881504724254812067180384269711822738708203454131838741703416329765575995359232573740932069147491776326045743679105041246906081872936901848272288949389026129761726749334006319072981386763830897454245553866145620689939497868469730297795063648030738668273210516497399954626983672357236110363894081</span></span><br><span class="line">c = <span class="number">6388077150013017095358415295704360631706672647932184267739118115740221804173068089559645506533240372483689997499821300861865955720630884024099415936433339512125910973936154713306915269365877588850574948033131161679256849814325373882706559635563285860782658950169507940368219930971600522754831612134153314448445006958300840618894359885321144158064446236744722180819829183828290798747455324761671198097712539900569386477647697973195787663298318786718012522378981137877863153067057280649127202971806609339007027052518049995341356359016898069863799529357397514218249272201695539181908803360181347114492616706419618151757</span></span><br><span class="line"></span><br><span class="line">M = Matrix([[<span class="number">1</span>, h], [<span class="number">0</span>, p]])</span><br><span class="line"></span><br><span class="line">fg = M.LLL()[<span class="number">0</span>]</span><br><span class="line">f, g = fg[<span class="number">0</span>], fg[<span class="number">1</span>]</span><br><span class="line">m = (c * f % p) * invert(f, g) % g</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br></pre></td></tr></table></figure>
 
 <p>除了<code>LLL</code>算法外还有高斯发现的在2维格中的求解算法<code>GaussLatticeReduction</code>，有点像欧几里德算法，可以参考师傅博客</p>
