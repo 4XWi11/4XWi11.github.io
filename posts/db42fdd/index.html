@@ -22,16 +22,16 @@
   <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="GCC编译过程如果在编译的时候添加  -save temps：将编译过程中生成的中间文件保存下来  --verbose：查看GCC编译的详细工作流程   会看到这个编译流程（当然没有下面这么具象）  用到了三个工具：cc1，as，collect2  cc1是编译器，对应预处理阶段和编译阶段 as是汇编器，对应汇编阶段 链接器collect2是对ld命令的封装，用于将C语言运行时库（CRT）中的目标">
+<meta name="description" content="GCC编译过程如果在编译的时候添加  -save temps：将编译过程中生成的中间文件保存下来  --verbose：查看GCC编译的详细工作流程   会看到这个编译流程（当然没有下面这么具象）  用到了三个工具：cc1，as，collect2  cc1是编译器，对应预处理阶段和编译阶段 as是汇编器，对应汇编阶段 链接器collect2是对ld命令的封装，用于将C语言运行时库（CRT）中的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GCC编译过程">
 <meta property="og:url" content="https://4xwi11.github.io/posts/db42fdd/index.html">
 <meta property="og:site_name" content="4XWi11的博客">
-<meta property="og:description" content="GCC编译过程如果在编译的时候添加  -save temps：将编译过程中生成的中间文件保存下来  --verbose：查看GCC编译的详细工作流程   会看到这个编译流程（当然没有下面这么具象）  用到了三个工具：cc1，as，collect2  cc1是编译器，对应预处理阶段和编译阶段 as是汇编器，对应汇编阶段 链接器collect2是对ld命令的封装，用于将C语言运行时库（CRT）中的目标">
+<meta property="og:description" content="GCC编译过程如果在编译的时候添加  -save temps：将编译过程中生成的中间文件保存下来  --verbose：查看GCC编译的详细工作流程   会看到这个编译流程（当然没有下面这么具象）  用到了三个工具：cc1，as，collect2  cc1是编译器，对应预处理阶段和编译阶段 as是汇编器，对应汇编阶段 链接器collect2是对ld命令的封装，用于将C语言运行时库（CRT）中的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210811213108868.png">
 <meta property="article:published_time" content="2021-11-09T07:20:38.000Z">
-<meta property="article:modified_time" content="2021-11-09T07:30:55.115Z">
+<meta property="article:modified_time" content="2021-11-09T09:31:10.536Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="GCC">
 <meta name="twitter:card" content="summary">
@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -177,7 +177,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -201,13 +201,10 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://mooc.hznu.edu.cn/#/mooc/CLang" title="https:&#x2F;&#x2F;mooc.hznu.edu.cn&#x2F;#&#x2F;mooc&#x2F;CLang" rel="noopener" target="_blank">慢清尘（web服务端老师）</a>
+          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅 大纲学习法教授者）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅）</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/yunqian2017/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yunqian2017&#x2F;" rel="noopener" target="_blank">Openg（彭总Misc之神）</a>
+          <a href="https://www.cnblogs.com/yunqian2017/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yunqian2017&#x2F;" rel="noopener" target="_blank">Openg（彭总 Misc之神）</a>
         </li>
     </ul>
   </div>
@@ -272,7 +269,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-11-09 15:20:38 / 修改时间：15:30:55" itemprop="dateCreated datePublished" datetime="2021-11-09T15:20:38+08:00">2021-11-09</time>
+      <time title="创建时间：2021-11-09 15:20:38 / 修改时间：17:31:10" itemprop="dateCreated datePublished" datetime="2021-11-09T15:20:38+08:00">2021-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -320,7 +317,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="GCC编译过程"><a href="#GCC编译过程" class="headerlink" title="GCC编译过程"></a>GCC编译过程</h1><p>如果在编译的时候添加</p>
+        <span id="more"></span>
+
+<h1 id="GCC编译过程"><a href="#GCC编译过程" class="headerlink" title="GCC编译过程"></a>GCC编译过程</h1><p>如果在编译的时候添加</p>
 <ul>
 <li><p><code>-save temps</code>：将编译过程中生成的中间文件保存下来</p>
 </li>
@@ -400,6 +399,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/5b87d64b/" rel="next" title="linux调试C的基本操作">
+                  linux调试C的基本操作 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -455,7 +457,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">17:46</span>
+    <span title="站点阅读时长">17:50</span>
   </span>
 </div>
 <div class="busuanzi-count">

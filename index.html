@@ -160,7 +160,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -171,7 +171,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">38</span>
+        <span class="site-state-item-count">39</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -195,13 +195,10 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://mooc.hznu.edu.cn/#/mooc/CLang" title="https:&#x2F;&#x2F;mooc.hznu.edu.cn&#x2F;#&#x2F;mooc&#x2F;CLang" rel="noopener" target="_blank">慢清尘（web服务端老师）</a>
+          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅 大纲学习法教授者）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅）</a>
-        </li>
-        <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/yunqian2017/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yunqian2017&#x2F;" rel="noopener" target="_blank">Openg（彭总Misc之神）</a>
+          <a href="https://www.cnblogs.com/yunqian2017/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yunqian2017&#x2F;" rel="noopener" target="_blank">Openg（彭总 Misc之神）</a>
         </li>
     </ul>
   </div>
@@ -240,6 +237,371 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/5b87d64b/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF菜鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/5b87d64b/" class="post-title-link" itemprop="url">linux调试C的基本操作</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-11-09 17:32:18 / 修改时间：17:41:12" itemprop="dateCreated datePublished" datetime="2021-11-09T17:32:18+08:00">2021-11-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BRe/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Re</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BRe/Re%E6%8B%93%E6%89%91%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">Re拓扑树</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+<h1 id="linux调试C的基本操作"><a href="#linux调试C的基本操作" class="headerlink" title="linux调试C的基本操作"></a>linux调试C的基本操作</h1><h2 id="gcc编译"><a href="#gcc编译" class="headerlink" title="gcc编译"></a>gcc编译</h2><h3 id="gcc编译常用指令"><a href="#gcc编译常用指令" class="headerlink" title="gcc编译常用指令"></a>gcc编译常用指令</h3><table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="center">运行生成文件</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">gcc mycode.c</td>
+<td align="center">a.out</td>
+<td align="center">编译并生成输出文件</td>
+</tr>
+<tr>
+<td align="center">gcc –o test</td>
+<td align="center">test</td>
+<td align="center">编译并将结果输出到指定文件，不能直接复制命令?</td>
+</tr>
+<tr>
+<td align="center">gcc –c mycode.c</td>
+<td align="center">mycode.o</td>
+<td align="center">编译生成目标文件</td>
+</tr>
+<tr>
+<td align="center">gcc mycode.o –o test</td>
+<td align="center">test</td>
+<td align="center">应该是将编译好的.o文件执行将输出生成test</td>
+</tr>
+<tr>
+<td align="center">gcc –static -o statictest test.c</td>
+<td align="center">statictest</td>
+<td align="center">静态链接（默认是动态链接）</td>
+</tr>
+</tbody></table>
+<h3 id="关于pwn的gcc编译选项"><a href="#关于pwn的gcc编译选项" class="headerlink" title="关于pwn的gcc编译选项"></a>关于pwn的gcc编译选项</h3><table>
+<thead>
+<tr>
+<th align="center">选项</th>
+<th align="center">说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">-m32</td>
+<td align="center">使用32位模式编译</td>
+</tr>
+<tr>
+<td align="center">-g</td>
+<td align="center">带上调试符号</td>
+</tr>
+<tr>
+<td align="center">-O0</td>
+<td align="center">不让编译器采用任何优化</td>
+</tr>
+<tr>
+<td align="center">-fno-stack-protector</td>
+<td align="center">禁用栈保护</td>
+</tr>
+<tr>
+<td align="center">-z execstack</td>
+<td align="center">关闭堆栈不可执行</td>
+</tr>
+<tr>
+<td align="center">-no-pie</td>
+<td align="center">关闭地址随机化</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h2 id="gdb调试"><a href="#gdb调试" class="headerlink" title="gdb调试"></a>gdb调试</h2><p>调试前的准备工作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gcc -g mycode.c -o hello</span><br></pre></td></tr></table></figure>
+
+<p><em>不加-g会报错误：No symbol table is loaded. Use the “file” command.</em></p>
+<p>加上-g是加上源文件的信息，方便调试，但是必须调试的时候有源文件在同一目录下才行；还有就是装了pwndbg插件，很多命令就没有必要了</p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">gdb hello</td>
+<td align="left">开始调试程序</td>
+</tr>
+<tr>
+<td align="left">list mycode.c:main</td>
+<td align="left">显示main函数代码</td>
+</tr>
+<tr>
+<td align="left">focus</td>
+<td align="left">动态显示代码，win子系统下然并软</td>
+</tr>
+<tr>
+<td align="left">break 7( if condition)</td>
+<td align="left">在第七行设置断点（如果condition成立则）</td>
+</tr>
+<tr>
+<td align="left">d 7</td>
+<td align="left">删除在第七行的断点（没有C语言源代码，只能断地址）</td>
+</tr>
+<tr>
+<td align="left">run</td>
+<td align="left">运行程序（如果有断点，会停在断点处）</td>
+</tr>
+<tr>
+<td align="left">next</td>
+<td align="left">单步执行，但不会进入子函数</td>
+</tr>
+<tr>
+<td align="left">step</td>
+<td align="left">单步执行，能够进入子函数</td>
+</tr>
+<tr>
+<td align="left">continue</td>
+<td align="left">执行到下一个断点处</td>
+</tr>
+<tr>
+<td align="left">print v</td>
+<td align="left">打印变量v</td>
+</tr>
+<tr>
+<td align="left">watch v</td>
+<td align="left">监视变量，改变就会打印</td>
+</tr>
+<tr>
+<td align="left">until (7)</td>
+<td align="left">跳出循环（运行到第七行）</td>
+</tr>
+<tr>
+<td align="left">clear</td>
+<td align="left">清楚所有的断点</td>
+</tr>
+<tr>
+<td align="left">info breakpoints</td>
+<td align="left">查看断点信息</td>
+</tr>
+<tr>
+<td align="left">start</td>
+<td align="left">如果有main函数则从main函数开始运行（没有找到main就从程序入口start开始执行）</td>
+</tr>
+<tr>
+<td align="left">backtrace</td>
+<td align="left">查看当前函数调用栈</td>
+</tr>
+</tbody></table>
+<p>遇到的一些问题</p>
+<ol>
+<li>后就是调试的问题啦，有些时候watch监视不会起作用，监视会自动去除，提示<img alt="linux调试C的基本操作-41266983.png" data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/linux调试C的基本操作-41266983.png"></li>
+</ol>
+<blockquote>
+<p>因为局部变量的缘故，只要巧妙地设置断点，让变量在断点范围内就可以监视到了，或者设成全局变量。</p>
+</blockquote>
+<p>更多信息，查阅我从网上扒下来的文档</p>
+<hr>
+<div role="main" class="document">
+
+
+  <div class="section" id="gdb">
+<span id="id1"></span><h1>1. gdb 调试利器<a class="headerlink" href="#gdb" title="永久链接至标题">¶</a></h1>
+<p>GDB是一个由GNU开源组织发布的、UNIX/LINUX操作系统下的、基于命令行的、功能强大的程序调试工具。
+对于一名Linux下工作的c++程序员，gdb是必不可少的工具；</p>
+<div class="section" id="id2">
+<h2>1.1. 启动gdb<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>对C/C++程序的调试，需要在编译前就加上-g选项:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$g++ -g hello.cpp -o hello
+</pre></div>
+</div>
+<p>调试可执行文件:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$gdb &lt;program&gt;
+</pre></div>
+</div>
+<p>program也就是你的执行文件，一般在当前目录下。</p>
+<p>调试core文件(core是程序非法执行后core dump后产生的文件):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$gdb &lt;program&gt; &lt;core dump file&gt;
+$gdb program core.11127
+</pre></div>
+</div>
+<p>调试服务程序:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$gdb &lt;program&gt; &lt;PID&gt;
+$gdb hello 11127
+</pre></div>
+</div>
+<p>如果你的程序是一个服务程序，那么你可以指定这个服务程序运行时的进程ID。gdb会自动attach上去，并调试他。program应该在PATH环境变量中搜索得到。</p>
+</div>
+<div class="section" id="id3">
+<h2>1.2. gdb交互命令<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>启动gdb后，进入到交互模式，通过以下命令完成对程序的调试；注意高频使用的命令一般都会有缩写，熟练使用这些缩写命令能提高调试的效率；</p>
+<div class="section" id="id4">
+<h3>运行<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>run：简记为 r ，其作用是运行程序，当遇到断点后，程序会在断点处停止运行，等待用户输入下一步的命令。</li>
+<li>continue （简写c ）：继续执行，到下一个断点处（或运行结束）</li>
+<li>next：（简写 n），单步跟踪程序，当遇到函数调用时，也不进入此函数体；此命令同 step 的主要区别是，step 遇到用户自定义的函数，将步进到函数中去运行，而 next 则直接调用函数，不会进入到函数体内。</li>
+<li>step （简写s）：单步调试如果有函数调用，则进入函数；与命令n不同，n是不进入调用的函数的</li>
+<li>until：当你厌倦了在一个循环体内单步跟踪时，这个命令可以运行程序直到退出循环体。</li>
+<li>until+行号： 运行至某行，不仅仅用来跳出循环</li>
+<li>finish： 运行程序，直到当前函数完成返回，并打印函数返回时的堆栈地址和返回值及参数值等信息。</li>
+<li>call 函数(参数)：调用程序中可见的函数，并传递“参数”，如：call  gdb_test(55)</li>
+<li>quit：简记为 q ，退出gdb</li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>设置断点<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>break n （简写b n）:在第n行处设置断点</dt>
+<dd>（可以带上代码路径和代码名称： b OAGUPDATE.cpp:578）</dd>
+</dl>
+</li>
+<li>b fn1 if a＞b：条件断点设置</li>
+<li>break func（break缩写为b）：在函数func()的入口处设置断点，如：break cb_button</li>
+<li>delete 断点号n：删除第n个断点</li>
+<li>disable 断点号n：暂停第n个断点</li>
+<li>enable 断点号n：开启第n个断点</li>
+<li>clear 行号n：清除第n行的断点</li>
+<li>info b （info breakpoints） ：显示当前程序的断点设置情况</li>
+<li>delete breakpoints：清除所有断点：</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>查看源代码<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>list ：简记为 l ，其作用就是列出程序的源代码，默认每次显示10行。</li>
+<li>list 行号：将显示当前文件以“行号”为中心的前后10行代码，如：list 12</li>
+<li>list 函数名：将显示“函数名”所在函数的源代码，如：list main</li>
+<li>list ：不带参数，将接着上一次 list 命令的，输出下边的内容。</li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>打印表达式<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>print 表达式：简记为 p ，其中“表达式”可以是任何当前正在被测试程序的有效表达式，比如当前正在调试C语言的程序，那么“表达式”可以是任何C语言的有效表达式，包括数字，变量甚至是函数调用。</li>
+<li>print a：将显示整数 a 的值</li>
+<li>print ++a：将把 a 中的值加1,并显示出来</li>
+<li>print name：将显示字符串 name 的值</li>
+<li>print gdb_test(22)：将以整数22作为参数调用 gdb_test() 函数</li>
+<li>print gdb_test(a)：将以变量 a 作为参数调用 gdb_test() 函数</li>
+<li>display 表达式：在单步运行时将非常有用，使用display命令设置一个表达式后，它将在每次单步进行指令后，紧接着输出被设置的表达式及值。如： display a</li>
+<li>watch 表达式：设置一个监视点，一旦被监视的“表达式”的值改变，gdb将强行终止正在被调试的程序。如： watch a</li>
+<li>whatis ：查询变量或函数</li>
+<li>info function： 查询函数</li>
+<li>扩展info locals： 显示当前堆栈页的所有变量</li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>查询运行信息<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>where/bt ：当前运行的堆栈列表；</li>
+<li>bt backtrace 显示当前调用堆栈</li>
+<li>up/down 改变堆栈显示的深度</li>
+<li>set args 参数:指定运行时的参数</li>
+<li>show args：查看设置好的参数</li>
+<li>info program： 来查看程序的是否在运行，进程号，被暂停的原因。</li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>分割窗口<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h3>
+<ul class="simple">
+<li>layout：用于分割窗口，可以一边查看代码，一边测试：</li>
+<li>layout src：显示源代码窗口</li>
+<li>layout asm：显示反汇编窗口</li>
+<li>layout regs：显示源代码/反汇编和CPU寄存器窗口</li>
+<li>layout split：显示源代码和反汇编窗口</li>
+<li>Ctrl + L：刷新窗口</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">注解</p>
+<p class="last">交互模式下直接回车的作用是重复上一指令，对于单步调试非常方便；</p>
+</div>
+</div>
+</div>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/db42fdd/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -265,7 +627,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-11-09 15:20:38 / 修改时间：15:30:55" itemprop="dateCreated datePublished" datetime="2021-11-09T15:20:38+08:00">2021-11-09</time>
+      <time title="创建时间：2021-11-09 15:20:38 / 修改时间：17:31:10" itemprop="dateCreated datePublished" datetime="2021-11-09T15:20:38+08:00">2021-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -306,7 +668,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="GCC编译过程"><a href="#GCC编译过程" class="headerlink" title="GCC编译过程"></a>GCC编译过程</h1><p>如果在编译的时候添加</p>
+          <span id="more"></span>
+
+<h1 id="GCC编译过程"><a href="#GCC编译过程" class="headerlink" title="GCC编译过程"></a>GCC编译过程</h1><p>如果在编译的时候添加</p>
 <ul>
 <li><p><code>-save temps</code>：将编译过程中生成的中间文件保存下来</p>
 </li>
@@ -399,7 +763,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2021-11-09 15:10:32 / 修改时间：15:12:58" itemprop="dateCreated datePublished" datetime="2021-11-09T15:10:32+08:00">2021-11-09</time>
+      <time title="创建时间：2021-11-09 15:10:32 / 修改时间：17:10:27" itemprop="dateCreated datePublished" datetime="2021-11-09T15:10:32+08:00">2021-11-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -497,10 +861,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-11-09 13:52:33 / 修改时间：15:26:02" itemprop="dateCreated datePublished" datetime="2021-11-09T13:52:33+08:00">2021-11-09</time>
+      <time title="创建时间：2021-11-09 13:52:33" itemprop="dateCreated datePublished" datetime="2021-11-09T13:52:33+08:00">2021-11-09</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-10 12:21:17" itemprop="dateModified" datetime="2021-11-10T12:21:17+08:00">2021-11-10</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -522,7 +892,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
+      <span>2.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -880,113 +1250,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/a2deb6fa/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF菜鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/a2deb6fa/" class="post-title-link" itemprop="url">20211023 第四届浙江省大学生网络与信息安全竞赛（预赛）</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-10-29 13:54:58" itemprop="dateCreated datePublished" datetime="2021-10-29T13:54:58+08:00">2021-10-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-30 08:38:46" itemprop="dateModified" datetime="2021-10-30T08:38:46+08:00">2021-10-30</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>19k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>17 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>呜呜呜，出大问题</p>
-<p>复现写WP的时候，Typora突然崩溃，还好这篇博客9我狗命</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liujun03/article/details/82660303">https://blog.csdn.net/liujun03/article/details/82660303</a></p>
-<p>Typora会save没有保存的md，在偏好设置里；Typora！yyds</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029100343661.png" alt="image-20211029100343661"></p>
-<p>明天就是决赛了，赶在决赛前复现完</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/a2deb6fa/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1034,7 +1297,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">17:46</span>
+    <span title="站点阅读时长">17:50</span>
   </span>
 </div>
 <div class="busuanzi-count">
