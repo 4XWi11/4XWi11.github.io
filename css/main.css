@@ -3003,7 +3003,6 @@ mjx-container[display='true'] + br {
   }
   .post-block {
     padding: 20px;
-    background: rgba(255,255,255,0.75);
   }
   .comments {
     padding: 10px 20px;
@@ -3031,7 +3030,10 @@ body {
   background-size: 100% 100%;
 }
 .main-inner {
-  opacity: 1;
+  border-radius: 5px;
+  padding: 0px 5px 0px 5px;
+  background: rgba(255,255,255,0) none repeat scroll !important;
+  opacity: 0.9;
 }
 .sidebar {
   opacity: 1;
