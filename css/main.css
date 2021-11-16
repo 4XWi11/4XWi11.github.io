@@ -3003,6 +3003,7 @@ mjx-container[display='true'] + br {
   }
   .post-block {
     padding: 20px;
+    background: rgba(255,255,255,0.75);
   }
   .comments {
     padding: 10px 20px;
