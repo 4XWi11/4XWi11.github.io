@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211118201533562.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211119100105528.png">
 <meta property="article:published_time" content="2021-11-19T03:28:04.000Z">
-<meta property="article:modified_time" content="2021-11-19T03:38:41.145Z">
+<meta property="article:modified_time" content="2021-11-21T03:43:02.358Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="维纳攻击">
 <meta property="article:tag" content="连分数">
@@ -173,7 +173,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">58</span>
+          <span class="site-state-item-count">61</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -184,7 +184,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">40</span>
+        <span class="site-state-item-count">41</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -274,23 +274,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2021-11-19 11:28:04 / 修改时间：11:38:41" itemprop="dateCreated datePublished" datetime="2021-11-19T11:28:04+08:00">2021-11-19</time>
+      <time title="创建时间：2021-11-19 11:28:04" itemprop="dateCreated datePublished" datetime="2021-11-19T11:28:04+08:00">2021-11-19</time>
     </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-11-21 11:43:02" itemprop="dateModified" datetime="2021-11-21T11:43:02+08:00">2021-11-21</time>
       </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
-        </span>
-          ，
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CTF-Crypto/Crypto%E6%8B%93%E6%89%91%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">Crypto拓扑树</span></a>
-        </span>
-    </span>
 
   
     <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
@@ -371,7 +364,7 @@
 <p>然并软，很难通过$\frac{d_2k_1}{d_1k_2}$找$d_1,d_2$</p>
 <h3 id="Extending-Wiener’s-Attack"><a href="#Extending-Wiener’s-Attack" class="headerlink" title="Extending Wiener’s Attack"></a>Extending Wiener’s Attack</h3><p>Howgrave-Graham 和 Jean-Pierre Seifert 结合 Wiener 和 Guo的想法，通过多个等式来构造格利用格基规约求解问题</p>
 <p>（下面$\alpha$随指数的个数不同而变化，以2个为例</p>
-<p>首先假设$d_i&lt;N^\alpha$，联立四个方程（第一个凑数的，没打错<br>$$<br>\begin{cases}<br>k_1k_2=k_2k_2\<br>W_1k_2\<br>G_{(1,2)}\<br>W_1W_2<br>\end{cases}<br>$$<br>即<br>$$<br>\begin{cases}<br>k_1k_2=k_1k_2\\<br>e_1d_1gk_2-k_1Nk_2=gk_2+k_1sk_2\\<br>e_2d_2k_1-e_1d_1k_2=k_1-k_2\\<br>d_1d_2g^2e_1e_2-d_1gk_2e_1N-d_2gk_1e_2N+k_1k_2N^2=(g+k_1s)(g+k_2s)<br>\end{cases}<br>$$<br>从而构造一个都是已知数的矩阵$L$</p>
+<p>首先假设$d_i&lt;N^\alpha$，联立四个方程（第一个凑数的，没打错<br>$$<br>\begin{cases}<br>k_1k_2=k_2k_2\\<br>W_1k_2\\<br>G_{(1,2)}\\<br>W_1W_2<br>\end{cases}<br>$$<br>即<br>$$<br>\begin{cases}<br>k_1k_2=k_1k_2\\<br>e_1d_1gk_2-k_1Nk_2=gk_2+k_1sk_2\\<br>e_2d_2k_1-e_1d_1k_2=k_1-k_2\\<br>d_1d_2g^2e_1e_2-d_1gk_2e_1N-d_2gk_1e_2N+k_1k_2N^2=(g+k_1s)(g+k_2s)<br>\end{cases}<br>$$<br>从而构造一个都是已知数的矩阵$L$</p>
 <p>$A=\begin{bmatrix}<br>k_1k_2 &amp; d_1gk_2 &amp; d_2gk_1 &amp; d1d2g^2<br>\end{bmatrix}$</p>
 <p>$L=\begin{bmatrix}<br>1 &amp; -N &amp; 0 &amp; N^2\\<br>0 &amp; e_1 &amp; -e_1 &amp; -e_1N\\<br>0 &amp; 0 &amp; e_2 &amp; -e_2N\\<br>0 &amp; 0 &amp; 0 &amp; e_1e_2<br>\end{bmatrix}$</p>
 <p>$B=\begin{bmatrix}<br>k_1k_2 &amp; k_2(g+k_1s) &amp; g(k_1-k_2) &amp; (g+k_1s)(g+k_2s)<br>\end{bmatrix}$<br>$$<br>A\times L=B<br>$$<br>LLL算法用来求维度较低的格的最短向量，如果$B$是$L$的最短向量，就可以把这个$B$给求出来</p>
@@ -395,7 +388,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">P = getPrime(<span class="number">1024</span>)</span><br><span class="line">Q = getPrime(<span class="number">1024</span>)</span><br><span class="line">N = P * Q</span><br><span class="line">E = <span class="number">65537</span></span><br><span class="line">lcm = gmpy2.lcm(P-<span class="number">1</span>, Q-<span class="number">1</span>)</span><br><span class="line">e1 = gmpy2.invert(getPrime(<span class="number">730</span>), lcm)</span><br><span class="line">e2 = gmpy2.invert(getPrime(<span class="number">730</span>), lcm)</span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">c = <span class="built_in">pow</span>(m, E, N)</span><br><span class="line"><span class="comment"># N = 14922959775784066499316528935316325825140011208871830627653191549546959775167708525042423039865322548420928571524120743831693550123563493981797950912895893476200447083386549353336086899064921878582074346791320104106139965010480614879592357793053342577850761108944086318475849882440272688246818022209356852924215237481460229377544297224983887026669222885987323082324044645883070916243439521809702674295469253723616677245762242494478587807402688474176102093482019417118703747411862420536240611089529331148684440513934609412884941091651594861530606086982174862461739604705354416587503836130151492937714365614194583664241</span></span><br><span class="line"><span class="comment"># e2 = 27188825731727584656624712988703151030126350536157477591935558508817722580343689565924329442151239649607993377452763119541243174650065563589438911911135278704499670302489754540301886312489410648471922645773506837251600244109619850141762795901696503387880058658061490595034281884089265487336373011424883404499124002441860870291233875045675212355287622948427109362925199018383535259913549859747158348931847041907910313465531703810313472674435425886505383646969400166213185676876969805238803587967334447878968225219769481841748776108219650785975942208190380614555719233460250841332020054797811415069533137170950762289</span></span><br><span class="line"><span class="comment"># c = 6472367338832635906896423990323542537663849304314171581554107495210830026660211696089062916158894195561723047864604633460433867838687338370676287160274165915800235253640690510046066541445140501917731026596427080558567366267665887665459901724487706983166070740324307268574128474775026837827907818762764766069631267853742422247229582756256253175941899099898884656334598790711379305490419932664114615010382094572854799421891622789614614720442708271653376485660139560819668239118588069312179293488684403404385715780406937817124588773689921642802703005341324008483201528345805611493251791950304129082313093168732415486813</span></span><br></pre></td></tr></table></figure>
 
 <p>同样e1和e2也没有直接用于加密，而是用来分解n的</p>
-<p>告诉我们的是lcm，即<br>$$<br>\begin{cases}<br>e_1d_1-k_1\frac{\varphi(N)}{g}=1\<br>e_2d_2-k_2\frac{\varphi(N)}{g}=1<br>\end{cases}<br>$$<br>有关系吗？现在我们的方程组变成</p>
+<p>告诉我们的是lcm，即<br>$$<br>\begin{cases}<br>e_1d_1-k_1\frac{\varphi(N)}{g}=1\\<br>e_2d_2-k_2\frac{\varphi(N)}{g}=1<br>\end{cases}<br>$$<br>有关系吗？现在我们的方程组变成</p>
 <p>$edg^2-kN=g^2+ks\tag{W}$<br>$$<br>\begin{cases}<br>k_1k_2=k_1k_2\\<br>e_1d_1g^2k_2-k_1Nk_2=g^2k_2+k_1sk_2\\<br>e_2d_2k_1-e_1d_1k_2=k_1-k_2\\<br>d_1d_2g^4e_1e_2-d_1g^2k_2e_1N-d_2g^2k_1e_2N+k_1k_2N^2=(g^2+k_1s)(g^2+k_2s)<br>\end{cases}<br>$$<br>对应三个矩阵</p>
 <p>$A=\begin{bmatrix}<br>k_1k_2 &amp; d_1g^2k_2 &amp; d_2g^2k_1 &amp; d1d2g^4<br>\end{bmatrix}$</p>
 <p>$L=\begin{bmatrix}<br>1 &amp; -N &amp; 0 &amp; N^2\\<br>0 &amp; e_1 &amp; -e_1 &amp; -e_1N\\<br>0 &amp; 0 &amp; e_2 &amp; -e_2N\\<br>0 &amp; 0 &amp; 0 &amp; e_1e_2<br>\end{bmatrix}$</p>
@@ -448,6 +441,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/posts/90e286aa/" rel="next" title="20211113 L3HCTF">
+                  20211113 L3HCTF <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -497,13 +493,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">872k</span>
+    <span title="站点总字数">927k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">13:12</span>
+    <span title="站点阅读时长">14:03</span>
   </span>
 </div>
 <div class="busuanzi-count">
