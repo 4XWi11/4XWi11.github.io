@@ -26,18 +26,16 @@
 <meta property="og:site_name" content="4XWi11的博客">
 <meta property="og:description" content="&amp;nbsp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913095633149.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913214156007.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914000241836.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914000656526.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914101621134.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914101715144.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914102947812.png">
 <meta property="article:published_time" content="2021-10-07T06:12:51.000Z">
-<meta property="article:modified_time" content="2021-11-17T14:41:50.534Z">
+<meta property="article:modified_time" content="2021-12-01T13:05:41.981Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913095633149.png">
+<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913214156007.png">
 
 
 <link rel="canonical" href="https://4xwi11.github.io/posts/921543e1/">
@@ -153,7 +151,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CTF%E5%AF%86%E7%A0%81%E9%A2%98%E6%98%AF%E6%80%8E%E4%B9%88%E7%82%BC%E6%88%90%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">CTF密码题是怎么炼成的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E9%A2%98%E7%9B%AE%E6%8C%82%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%8A%E7%9A%84%E4%B8%80%E8%88%AC%E5%A7%BF%E5%8A%BF"><span class="nav-number">1.2.</span> <span class="nav-text">将题目挂到服务器上的一般姿势</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8Docker%E6%89%93%E5%8C%85%E7%9A%84%E5%A7%BF%E5%8A%BF"><span class="nav-number">1.3.</span> <span class="nav-text">用Docker打包的姿势</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CTF%E5%AF%86%E7%A0%81%E9%A2%98%E6%98%AF%E6%80%8E%E4%B9%88%E7%82%BC%E6%88%90%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">CTF密码题是怎么炼成的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socat%E7%9B%B4%E6%8E%A5%E6%8C%82%E8%BD%BD"><span class="nav-number">1.2.</span> <span class="nav-text">socat直接挂载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E6%89%93%E5%8C%85%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">Docker打包的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.1.</span> <span class="nav-text">Docker命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8Dockerfile%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text">常用Dockerfile语法</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -168,18 +166,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -286,7 +284,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-17 22:41:50" itemprop="dateModified" datetime="2021-11-17T22:41:50+08:00">2021-11-17</time>
+        <time title="修改时间：2021-12-01 21:05:41" itemprop="dateModified" datetime="2021-12-01T21:05:41+08:00">2021-12-01</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -316,14 +314,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.7k</span>
+      <span>2.2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span>2 分钟</span>
     </span>
 </div>
 
@@ -334,88 +332,87 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>&nbsp;</p>
-<span id="more"></span>
-
+        <p>&nbsp;<span id="more"></span></p>
 <h1 id="CTF密码题是怎么炼成的"><a href="#CTF密码题是怎么炼成的" class="headerlink" title="CTF密码题是怎么炼成的"></a>CTF密码题是怎么炼成的</h1><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>web和pwn的出题会用到docker的相关操作，出pwn题，有个大佬写了个<a target="_blank" rel="noopener" href="https://github.com/giantbranch/pwn_deploy_chroot">脚本</a>一键搭</p>
-<p>而Crypto出题就不用那么麻烦（指环境搭建），可以只写下python脚本就好，主要还是对服务器进行配置吧，想起了某段时间，我一直在配置pwn环境的虚拟机，<em>先虚拟机，再vim，再换源，再zsh，on-my-zsh，再vim主题哈哈哈哈哈</em>，pwn用到的环境以及一些工具主要参考的是<a target="_blank" rel="noopener" href="https://blog.csdn.net/Y_peak/article/details/112850307">这位师傅的博客</a>，写得太好了，这里需要用到pwntools工具写脚本</p>
-<p>Crypto用到的一些东西之前装过很多次，主要的问题罗列了一下，我的服务器系统镜像是ubuntu18的，一些之后课上的使用技巧和遇到问题的解决，预期发一篇博客，咕咕咕？</p>
-<ul>
-<li><p>python2安装gmpy2，<a target="_blank" rel="noopener" href="https://leefige.github.io/2021/03/11/%E5%AE%89%E8%A3%85gmpy2/">查看这位师傅的博客</a>，python3的安装看<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28573835/article/details/86164877">这位师傅的</a>就好了</p>
-<p>前者中途如果报了个什么</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">src/gmpy2.c:445:10: fatal error: Python.h: No such file or directory</span><br><span class="line"><span class="meta"> #</span><span class="bash">include <span class="string">&quot;Python.h&quot;</span></span></span><br><span class="line">          ^~~~~~~~~~</span><br><span class="line">compilation terminated.</span><br><span class="line">error: command &#x27;x86_64-linux-gnu-gcc&#x27; failed with exit status 1</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913095633149.png" alt="image-20210913095633149"></p>
-<p>执行下这个命令<code>sudo apt-get install python-dev</code>安装下就好了</p>
-</li>
-<li><p>Crypto库的安装，win下安装就是要改个名，linux下更简单，后者可以看<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_45000214/article/details/106222660">这位师傅的博客</a></p>
-</li>
-<li><p>如果要安装sage，参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/ckm1607011/article/details/106724624">这位师傅的博客</a>，怎么获取最新版的忘了，之前好不容易把子系统的sage搞成9的</p>
-</li>
-<li><p>最后是我还看得顺眼的vim主题<a href="https://link.csdn.net/?target=https://github.com/sickill/vim-monokai">monokai</a>，以及如何下载<a target="_blank" rel="noopener" href="https://www.cnblogs.com/woniu201/p/10304197.html">Vundle</a>（两款管理vim插件的插件），还有我一般的vim配置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">set nocompatible &quot; be iMproved, required</span><br><span class="line">filetype off &quot; required</span><br><span class="line">&quot; set the runtime path to include Vundle and initialize</span><br><span class="line">set rtp+=~/.vim/bundle/Vundle.vim</span><br><span class="line">call vundle#begin()</span><br><span class="line">&quot; alternatively, pass a path where Vundle should install plugins</span><br><span class="line">&quot;call vundle#begin(&#x27;~/some/path/here&#x27;)</span><br><span class="line">&quot; let Vundle manage Vundle, required</span><br><span class="line">Plugin &#x27;VundleVim/Vundle.vim&#x27;</span><br><span class="line">Plugin &#x27;itchyny/lightline.vim&#x27;</span><br><span class="line">Plugin &#x27;preservim/nerdtree&#x27;</span><br><span class="line">Plugin &#x27;kien/ctrlp.vim&#x27;</span><br><span class="line">Plugin &#x27;vim-airline/vim-airline&#x27;</span><br><span class="line">Plugin &#x27;jiangmiao/auto-pairs&#x27;</span><br><span class="line">Plugin &#x27;powerline/powerline&#x27;</span><br><span class="line">Plugin &#x27;preservim/nerdcommenter&#x27;</span><br><span class="line">Plugin &#x27;vim-scripts/a.vim&#x27;</span><br><span class="line">call vundle#end() &quot; required</span><br><span class="line">filetype plugin indent on &quot; required</span><br><span class="line"></span><br><span class="line">set nocompatible</span><br><span class="line">set backspace=indent,eol,start</span><br><span class="line"></span><br><span class="line">&quot;激活鼠标</span><br><span class="line">set mouse=a</span><br><span class="line"></span><br><span class="line">&quot;显示行号</span><br><span class="line">set nu</span><br><span class="line"></span><br><span class="line">&quot;设置制表符宽度为4</span><br><span class="line">set tabstop=4</span><br><span class="line"></span><br><span class="line">&quot;设置软制表符宽度为4</span><br><span class="line">set softtabstop=4</span><br><span class="line"></span><br><span class="line">&quot;设置缩进的空格数为4</span><br><span class="line">set shiftwidth=4</span><br><span class="line"></span><br><span class="line">&quot;设置自动缩进</span><br><span class="line">set autoindent</span><br><span class="line"></span><br><span class="line">&quot;设置使用c/c++语言的自动缩进方式</span><br><span class="line">set cindent</span><br><span class="line"></span><br><span class="line">&quot;tab键宽度</span><br><span class="line">set tabstop=4</span><br><span class="line"></span><br><span class="line">&quot;语法高亮</span><br><span class="line">syntax enable</span><br><span class="line"></span><br><span class="line">&quot;主题颜色</span><br><span class="line">colorscheme monokai</span><br><span class="line"></span><br><span class="line">&quot;NERDTree快捷键</span><br><span class="line">map &lt;C-n&gt; :NERDTreeToggle&lt;CR&gt;</span><br><span class="line"></span><br><span class="line">&quot;NERDTree剩下一个窗口时自动关闭</span><br><span class="line">autocmd bufenter * if (winnr(&quot;$&quot;) == 1 &amp;&amp; exists(&quot;b:NERDTree&quot;) &amp;&amp; b:NERDTree.isTabTree()) | q | endif</span><br><span class="line"></span><br><span class="line">&quot;ctrlp配置&quot;</span><br><span class="line">set runtimepath^=~/.vim/plugged/ctrlp.vim</span><br><span class="line"></span><br><span class="line">map &lt;leader&gt;r :NERDTreeFind&lt;cr&gt;</span><br><span class="line"></span><br><span class="line">&quot;控制vim窗口分界线位置</span><br><span class="line">map &lt;F2&gt; &lt;ESC&gt;&lt;C-W&gt;-</span><br><span class="line">map &lt;F3&gt; &lt;ESC&gt;&lt;C-W&gt;+</span><br><span class="line">map &lt;F4&gt; &lt;ESC&gt;&lt;C-W&gt;&lt;</span><br><span class="line">map &lt;F5&gt; &lt;ESC&gt;&lt;C-W&gt;&gt;</span><br></pre></td></tr></table></figure></li>
-</ul>
+<p>而Crypto出题就不用那么麻烦（指环境搭建），可以只写下python脚本就好，主要还是对服务器进行配置吧，想起了某段时间，我一直在配置pwn环境的虚拟机，<em>先虚拟机，再vim，再换源，再zsh，on-my-zsh，p10k，再vim主题</em>，pwn用到的环境以及一些工具主要参考的是（Crypto交互会用到其中的pwntools</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Y_peak/article/details/112850307">https://blog.csdn.net/Y_peak/article/details/112850307</a></p>
+<p>这里到时候整一篇Crypto工具配置</p>
+<p><a href=""></a></p>
 <p>接下来正式开始</p>
-<p>主要参考<a target="_blank" rel="noopener" href="https://blog.soreatu.com/posts/how-to-setup-for-interactive-crypto-problems/">这位师傅的</a>，好吧我是缝合怪</p>
-<h2 id="将题目挂到服务器上的一般姿势"><a href="#将题目挂到服务器上的一般姿势" class="headerlink" title="将题目挂到服务器上的一般姿势"></a>将题目挂到服务器上的一般姿势</h2><p><em>一开始我还以为是用nc来挂，然后就在小破站上学了netcat，然后发现好像是用socat，难怪程序员这么喜欢猫</em></p>
-<p>一道Crypto题目的搭建主要有两部分，与题目有关的代码文件server.py，以及将程序跑在服务器端口上的代码文件run.py组成</p>
+<p>主要参考</p>
+<p><a target="_blank" rel="noopener" href="https://blog.soreatu.com/posts/how-to-setup-for-interactive-crypto-problems/">https://blog.soreatu.com/posts/how-to-setup-for-interactive-crypto-problems/</a></p>
+<h2 id="socat直接挂载"><a href="#socat直接挂载" class="headerlink" title="socat直接挂载"></a>socat直接挂载</h2><p>比较简便，适合校内比赛自己玩</p>
+<p>主要是题目文件server.py，以及run.py</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913214156007.png" alt="image-20210913214156007"></p>
-<p>我暂时接触到的出题模板，题目的python是直接用print的和input的，没有用到socket库；其他的就是题目本身的信息了</p>
-<p>然后是启动程序，可以遵循以下模式，可以一直在这个端口运行（端口在运行的时候自己选择，阿里云的服务器是要在工作台开起来先）；还有开启防火墙端口的操作，可以直接看上面这位大师傅的，我一般复现只开一个端口，做一次后面就一劳永逸了好像</p>
+<p>然后是启动程序，可以遵循以下模式，可以一直在这个端口运行（端口在运行的时候自己选择，阿里云的服务器是要在工作台开起来先）；还有开启防火墙端口的操作，可以直接看上面这位大师傅的，我一般复现只开一个端口</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) != <span class="number">2</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Usage: %s [port]&quot;</span> % sys.argv[<span class="number">0</span>])</span><br><span class="line">    sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">port = sys.argv[<span class="number">1</span>]</span><br><span class="line">command = <span class="string">&#x27;socat -d -d tcp-l:&#x27;</span> + port + <span class="string">&#x27;,reuseaddr,fork EXEC:&quot;python -u server.py&quot; &#x27;</span></span><br><span class="line">os.system(command)</span><br></pre></td></tr></table></figure>
 
-<p>虽然<code>ctrl+c</code>退出就结束了，不是很清楚他们比赛的时候是怎么操作的，每个端口开一个题目难道都要一直挂着？不过目前够我用就行</p>
-<hr>
-<p>填坑，将命令换成（前面加个nohup</p>
+<p>将命令换成（前面加个nohup</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nohup socat -d -d tcp-l:[port],reuseaddr,fork EXEC:<span class="string">&quot;python -u server.py&quot;</span></span></span><br></pre></td></tr></table></figure>
 
 <p>就可以在服务器上一直跑了（除非服务器关了</p>
-<h2 id="用Docker打包的姿势"><a href="#用Docker打包的姿势" class="headerlink" title="用Docker打包的姿势"></a>用Docker打包的姿势</h2><p>在没接触过docker之前，觉得写dockerfile好难，这里师傅有模板，我们按照他的做一遍</p>
-<p>原理其实差不多，只不过上面是在服务器上配置好了整个程序运行需要的东西，用docker则相当于在服务器上开了个虚拟机，并且通过dockerfile对其进行坏境的配置，将题目放在这个环境中跑</p>
-<p>文件夹的结构就是这样的了</p>
+<h2 id="Docker打包的方式"><a href="#Docker打包的方式" class="headerlink" title="Docker打包的方式"></a>Docker打包的方式</h2><p>这里师傅有模板，我们按照他的做一遍，文件夹的结构如下</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914000241836.png" alt="image-20210914000241836"></p>
-<p>让我们研究下这个dockerfile</p>
+<p>Dockerfile如下</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定制的镜像是基于FROM的镜像，这里是运行python脚本，需要安装一个python，apline是linux操作系统？</span></span><br><span class="line"><span class="comment"># LABEL以键值对的形式添加元数据，似乎是关于作者版本之类的</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.8</span>-alpine</span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> Description=<span class="string">&quot;Game&quot;</span> VERSION=<span class="string">&#x27;1.0&#x27;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># RUN后面紧跟shell命令，和命令行一样方便；还有另一种执行文件跟参数的命令，用到时查</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk update &amp;&amp; apk add gcc g++ make openssl-dev python3-dev libffi-dev autoconf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># WORKDIR指定工作目录，mkdir [-p] 确保目录名称存在，不存在的就建一个</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /opt/game</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> mkdir -p /opt/game</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制指令，从上下文目录中复制文件或者目录到容器里指定路径，.应该是表示当前目录</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> task.py .</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> secret.py .</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install pycryptodome</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># EXPOSE声明端口</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">10001</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># CMD在docker run时运行；RUN是在docker build</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;task.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
 
-<ul>
-<li><p><strong>本地搭建测试</strong></p>
+<p>本地搭建测试</p>
 <ol>
-<li><p>build镜像<code>docker build . -t wmctf-game</code></p>
+<li>创建镜像</li>
+</ol>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914000656526.png" alt="image-20210914000656526"></p>
-<p>真的好慢，毕竟是在搭环境了，赛方只要搭建一次，以后开新的容器就好</p>
-<p>今天晚上没有跑完，明天起来继续</p>
-<p>就可慢，连了实验室的网，也要断开几次，重新执行，最后才好</p>
-</li>
-<li><p><code>docker images</code>查看一下</p>
+<ol start="2">
+<li>查看镜像</li>
+</ol>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914101621134.png" alt="image-20210914101621134"></p>
+<ol start="3">
+<li><p>创建容器</p>
 </li>
-<li><p>创建一个containter容器<code>docker run --name game -d -p 10001:10001 wmctf-game</code>，-d是run了之后不进入container内部，这样就可以一个窗口开多道题目了吧；-p是将container内部的端口映射到本地的10001端口</p>
-<p>不知道返回的那一串东西是什么，想要停止的话可以先<code>docker stop [container id]</code>，然后再删除<code>docker rm [container id]</code></p>
-</li>
-<li><p><code>docker container ls</code>查看这个容器是否已经运行</p>
+<li><p>查看容器</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914101715144.png" alt="image-20210914101715144"></p>
 </li>
-<li><p>最后用exp打，纳尼，exp呢，算了，能连上就成功一半（bushi）</p>
+<li><p>最后用exp打检查</p>
 </li>
 </ol>
-</li>
+<p>所以用docker来搭建的题目，服务脚本要用socket套接字编写</p>
+<hr>
+<p>结果只知道上述，还是出不来题（校赛出题被赵总吐槽了），因为照抄别人的没有灵魂，根本不会，所以这篇回炉重造</p>
+<p>目前的一些问题</p>
+<ul>
+<li>镜像搭建太慢（换阿里源之后还行，但更多的是安装方式（比如gmp2包是用wheel还是安装依赖</li>
+<li>容器创建完程序就退出了</li>
+<li>题目有问题……</li>
 </ul>
-<p>没连上第一次，不知道是不是这里的问题</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914102947812.png" alt="image-20210914102947812"></p>
-<p>连不上自己服务器的端口，然后直接用第一种方法复现CSAW了</p>
-<p>不过整个出题过程没有问题，如果把这些拿给赛方，差不多就是这样，我这里还没研究透，等WEB服务上到再来填坑吧</p>
-<hr>
-<p>来填坑</p>
-<p>其实直接</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HOST=<span class="string">&#x27;0.0.0.0&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h3><p>创建镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker build . -t [images_name]</span></span><br></pre></td></tr></table></figure>
 
-<p>是在本地启动的，所以要复现的话，直接连</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nc 127.0.0.1 [PORT]</span></span><br></pre></td></tr></table></figure>
+<p>查看镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker images ps -a</span></span><br></pre></td></tr></table></figure>
 
-<p>那么如果是布置到服务器上，让别人也连到，应该怎么操作呢（也就是比赛的时候如何操作呢</p>
-<p>用到再说</p>
-<hr>
-<p>害其实话说回来，密码题自己复现完全可以写两个python脚本然后手动交互，没必要这么麻烦，毕竟复现的大多时候flag是自己瞎编的；但是整点仪式感吧，嘿嘿</p>
+<p>创建容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run --name [container_name] -d [-idt] -p [port_inner]:[port_outer] [images_name]</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>-d</code>表示不进入容器内部</li>
+<li><code>-p</code>表示将容器内部的port_inner端口映射到port_outer端口</li>
+<li><code>-idt</code>表示创建守护进程（没有这个容器创建完程序就退出了，不太清楚</li>
+</ul>
+<p>停止容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker stop [container_id]</span></span><br></pre></td></tr></table></figure>
+
+<p>删除容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker rm [container_id]</span></span><br></pre></td></tr></table></figure>
+
+<p>删除镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker rmi [image_id]</span></span><br></pre></td></tr></table></figure>
+
+<p>进入容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker attach [container_id]</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> docker <span class="built_in">exec</span> -it [container_id] bash</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="常用Dockerfile语法"><a href="#常用Dockerfile语法" class="headerlink" title="常用Dockerfile语法"></a>常用Dockerfile语法</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
 
     </div>
 
@@ -500,13 +497,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">928k</span>
+    <span title="站点总字数">949k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:04</span>
+    <span title="站点阅读时长">14:23</span>
   </span>
 </div>
 <div class="busuanzi-count">

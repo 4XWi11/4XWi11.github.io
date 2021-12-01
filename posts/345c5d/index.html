@@ -27,7 +27,7 @@
 <meta property="og:description" content="the curtain call is for a better unveiling 参考 https:&#x2F;&#x2F;lazzzaro.github.io&#x2F;2020&#x2F;05&#x2F;06&#x2F;crypto-RSA&#x2F; http:&#x2F;&#x2F;coinc1dens.me&#x2F;2019&#x2F;11&#x2F;01&#x2F;RSA-1.html https:&#x2F;&#x2F;jayxv.github.io&#x2F;2020&#x2F;05&#x2F;20&#x2F;sage常用命令&#x2F;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-17T14:15:18.000Z">
-<meta property="article:modified_time" content="2021-11-21T05:38:23.574Z">
+<meta property="article:modified_time" content="2021-11-29T03:49:41.135Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="RSA">
 <meta name="twitter:card" content="summary">
@@ -146,7 +146,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RSA"><span class="nav-number">1.</span> <span class="nav-text">RSA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-%E5%B7%A5%E5%85%B7"><span class="nav-number">1.1.</span> <span class="nav-text">0x00 工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x1-python%E5%92%8Cmodule"><span class="nav-number">1.1.1.</span> <span class="nav-text">0x1 python和module</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x2-%E5%88%86%E8%A7%A3%E5%A4%A7%E6%95%B0"><span class="nav-number">1.1.2.</span> <span class="nav-text">0x2 分解大数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x3-sagemath"><span class="nav-number">1.1.3.</span> <span class="nav-text">0x3 sagemath</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x4-%E5%8D%8A%E8%87%AA%E5%8A%A8%E5%8C%96%E5%88%86%E6%9E%90%E5%8A%A0%E5%AF%86%E6%89%8B%E6%AE%B5"><span class="nav-number">1.1.4.</span> <span class="nav-text">0x4 半自动化分析加密手段</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0xF-%E8%A1%A5%E5%85%85"><span class="nav-number">1.1.5.</span> <span class="nav-text">0xF 补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-PEM"><span class="nav-number">1.2.</span> <span class="nav-text">0x01 PEM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-CTF-RSA%E5%B8%B8%E8%80%83%E6%94%BB%E5%87%BB"><span class="nav-number">1.3.</span> <span class="nav-text">0x02 CTF-RSA常考攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x10001-Rabin-Attack"><span class="nav-number">1.3.1.</span> <span class="nav-text">0x10001 Rabin Attack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x10002-dp-leak-Attack"><span class="nav-number">1.3.2.</span> <span class="nav-text">0x10002 dp leak Attack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x10003-large-exponent-Attack"><span class="nav-number">1.3.3.</span> <span class="nav-text">0x10003 large exponent Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lattice-of-extending-Wiener%E2%80%99s-Attack"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">Lattice of extending Wiener’s Attack</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x10004-e-varphi-ne-1"><span class="nav-number">1.3.4.</span> <span class="nav-text">0x10004 $(e,\varphi)\ne 1$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-%E4%B8%8ERSA%E6%9C%89%E5%85%B3%E7%9A%84%E5%AF%86%E7%A0%81%E6%89%8B%E6%AE%B5"><span class="nav-number">1.4.</span> <span class="nav-text">0x03 与RSA有关的密码手段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x11-%E5%A4%9A%E9%A1%B9%E5%BC%8FRSA"><span class="nav-number">1.4.1.</span> <span class="nav-text">0x11 多项式RSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x12-%E6%A0%BC"><span class="nav-number">1.4.2.</span> <span class="nav-text">0x12 格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x13-CopperSmith"><span class="nav-number">1.4.3.</span> <span class="nav-text">0x13 CopperSmith</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0xFF-CTFSHOW"><span class="nav-number">1.5.</span> <span class="nav-text">0xFF CTFSHOW</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#RSA"><span class="nav-number">1.</span> <span class="nav-text">RSA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-%E5%B7%A5%E5%85%B7"><span class="nav-number">1.1.</span> <span class="nav-text">0x00 工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x1-%E5%88%86%E8%A7%A3%E5%A4%A7%E6%95%B0"><span class="nav-number">1.1.1.</span> <span class="nav-text">0x1 分解大数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0xF-%E8%A1%A5%E5%85%85"><span class="nav-number">1.1.2.</span> <span class="nav-text">0xF 补充</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-PEM"><span class="nav-number">1.2.</span> <span class="nav-text">0x01 PEM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-CTF-RSA%E5%B8%B8%E8%80%83%E6%94%BB%E5%87%BB"><span class="nav-number">1.3.</span> <span class="nav-text">0x02 CTF-RSA常考攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x10001-Rabin-Attack"><span class="nav-number">1.3.1.</span> <span class="nav-text">0x10001 Rabin Attack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x10002-dp-leak-Attack"><span class="nav-number">1.3.2.</span> <span class="nav-text">0x10002 dp leak Attack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x10003-large-exponent-Attack"><span class="nav-number">1.3.3.</span> <span class="nav-text">0x10003 large exponent Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Lattice-of-extending-Wiener%E2%80%99s-Attack"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">Lattice of extending Wiener’s Attack</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x10004-e-varphi-ne-1"><span class="nav-number">1.3.4.</span> <span class="nav-text">0x10004 $(e,\varphi)\ne 1$</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-%E4%B8%8ERSA%E6%9C%89%E5%85%B3%E7%9A%84%E5%AF%86%E7%A0%81%E6%89%8B%E6%AE%B5"><span class="nav-number">1.4.</span> <span class="nav-text">0x03 与RSA有关的密码手段</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x11-%E5%A4%9A%E9%A1%B9%E5%BC%8FRSA"><span class="nav-number">1.4.1.</span> <span class="nav-text">0x11 多项式RSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x12-%E6%A0%BC"><span class="nav-number">1.4.2.</span> <span class="nav-text">0x12 格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x13-CopperSmith"><span class="nav-number">1.4.3.</span> <span class="nav-text">0x13 CopperSmith</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0xFF-CTFSHOW"><span class="nav-number">1.5.</span> <span class="nav-text">0xFF CTFSHOW</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -161,18 +161,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-count">64</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">42</span>
+        <span class="site-state-item-count">43</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,7 +279,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-21 13:38:23" itemprop="dateModified" datetime="2021-11-21T13:38:23+08:00">2021-11-21</time>
+        <time title="修改时间：2021-11-29 11:49:41" itemprop="dateModified" datetime="2021-11-29T11:49:41+08:00">2021-11-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -309,7 +309,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>7.8k</span>
+      <span>7.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -334,46 +334,21 @@
 <p><a target="_blank" rel="noopener" href="https://jayxv.github.io/2020/05/20/sage%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">https://jayxv.github.io/2020/05/20/sage常用命令/</a></p>
 <span id="more"></span>
 
-<h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1><h2 id="0x00-工具"><a href="#0x00-工具" class="headerlink" title="0x00 工具"></a>0x00 工具</h2><p>学密码用到的工具不多</p>
-<h3 id="0x1-python和module"><a href="#0x1-python和module" class="headerlink" title="0x1 python和module"></a>0x1 python和module</h3><ul>
-<li><p>python3</p>
+<h1 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h1><h2 id="0x00-工具"><a href="#0x00-工具" class="headerlink" title="0x00 工具"></a>0x00 工具</h2><p>关于RSA就是大整数分解了</p>
+<h3 id="0x1-分解大数"><a href="#0x1-分解大数" class="headerlink" title="0x1 分解大数"></a>0x1 分解大数</h3><ul>
+<li><p><strong>factordb：</strong> 在线网站，记录被分解过的数，Fr.<a target="_blank" rel="noopener" href="http://www.factordb.com/">http://www.factordb.com/</a></p>
 </li>
-<li><p>python2</p>
-</li>
-<li><p>Crypto库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip install pycryptodome</span></span><br></pre></td></tr></table></figure></li>
-<li><p>gmpy2库</p>
-<p>python2，Fr.<a target="_blank" rel="noopener" href="https://leefige.github.io/2021/03/11/%E5%AE%89%E8%A3%85gmpy2/">https://leefige.github.io/2021/03/11/%E5%AE%89%E8%A3%85gmpy2/</a></p>
-<p>python3，Fr.<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_28573835/article/details/86164877">https://blog.csdn.net/qq_28573835/article/details/86164877</a></p>
-</li>
-<li><p>pwntools库</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> pip install pwntools</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="0x2-分解大数"><a href="#0x2-分解大数" class="headerlink" title="0x2 分解大数"></a>0x2 分解大数</h3><ul>
-<li><p><strong>factordb：</strong>在线网站，记录被分解过的数，Fr.<a target="_blank" rel="noopener" href="http://www.factordb.com/">http://www.factordb.com/</a></p>
-</li>
-<li><p><strong>yafu：</strong>可执行文件，内涵费马分解等算法，适用当$p$和$q$相差很小或很大，（相差很大我没理解</p>
+<li><p><strong>yafu：</strong> 可执行文件，内涵费马分解等算法，适用当$p$和$q$相差很小或很大，（相差很大我没理解</p>
 <p>Fr.<a target="_blank" rel="noopener" href="https://sourceforge.net/projects/yafu/">https://sourceforge.net/projects/yafu/</a></p>
 </li>
-<li><p><strong>primefac：</strong>python工具，分解光滑数：加一或减一可以被很好分解的数</p>
+<li><p><strong>primefac：</strong> python工具，分解光滑数：加一或减一可以被很好分解的数</p>
 <p>偶尔也会遇到，比如题目给的一些来历不明的数据（<a href="https://4xwi11.github.io/posts/a2deb6fa/#%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%971%EF%BC%88recuring%EF%BC%89">2021浙江省赛可信计算1</a>，<a href="null">2020羊城杯Power</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python -m primefac -vs -m=p-1 [n]</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> python -m primefac -vs -m=p+1 [n]</span></span><br></pre></td></tr></table></figure></li>
-<li><p><strong>alpertron：</strong>在线网站，采用ECM和SIQS分解算法（不会了try一try懂？</p>
+<li><p><strong>alpertron：</strong> 在线网站，采用ECM和SIQS分解算法（不会了try一try懂？</p>
 <p>Fr.<a target="_blank" rel="noopener" href="https://www.alpertron.com.ar/ECM.HTM">https://www.alpertron.com.ar/ECM.HTM</a></p>
 </li>
-</ul>
-<h3 id="0x3-sagemath"><a href="#0x3-sagemath" class="headerlink" title="0x3 sagemath"></a>0x3 sagemath</h3><p>sagemath很强大，很多实现好了的算法可以拿来当工具用，但最好知晓过原理</p>
-<p>在线的环境，Fr.<a target="_blank" rel="noopener" href="https://sagecell.sagemath.org/">https://sagecell.sagemath.org/</a></p>
-<p>Linux本地配置，Windows或最新版本Fr.<a target="_blank" rel="noopener" href="https://www.sagemath.org/">官网</a></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sudo su</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> apt update</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> apt-get update</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> apt install sagemath</span></span><br></pre></td></tr></table></figure>
-
-<p>关于sage的使用暂时请看<a target="_blank" rel="noopener" href="https://jayxv.github.io/2020/05/20/sage%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">大名鼎鼎的V</a></p>
-<h3 id="0x4-半自动化分析加密手段"><a href="#0x4-半自动化分析加密手段" class="headerlink" title="0x4 半自动化分析加密手段"></a>0x4 半自动化分析加密手段</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://gchq.github.io/CyberChef/#recipe=Magic(3,false,false,'')">CyberChef’s Magic</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.dcode.fr/cipher-identifier">dcode.fr’s cipher identifier</a></li>
-<li>用CrypTool分析</li>
 </ul>
 <p><a href="null">yehuhuoquhuibuchong</a></p>
 <hr>
@@ -528,13 +503,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">928k</span>
+    <span title="站点总字数">949k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:04</span>
+    <span title="站点阅读时长">14:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
