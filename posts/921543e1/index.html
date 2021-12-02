@@ -27,12 +27,10 @@
 <meta property="og:description" content="&amp;nbsp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913214156007.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914000241836.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914000656526.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914101621134.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914101715144.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201224939539.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201233335956.png">
 <meta property="article:published_time" content="2021-10-07T06:12:51.000Z">
-<meta property="article:modified_time" content="2021-12-01T13:05:41.981Z">
+<meta property="article:modified_time" content="2021-12-01T15:35:03.906Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913214156007.png">
@@ -151,7 +149,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CTF%E5%AF%86%E7%A0%81%E9%A2%98%E6%98%AF%E6%80%8E%E4%B9%88%E7%82%BC%E6%88%90%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">CTF密码题是怎么炼成的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socat%E7%9B%B4%E6%8E%A5%E6%8C%82%E8%BD%BD"><span class="nav-number">1.2.</span> <span class="nav-text">socat直接挂载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E6%89%93%E5%8C%85%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">Docker打包的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker%E5%91%BD%E4%BB%A4"><span class="nav-number">1.3.1.</span> <span class="nav-text">Docker命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8Dockerfile%E8%AF%AD%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text">常用Dockerfile语法</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CTF%E5%AF%86%E7%A0%81%E9%A2%98%E6%98%AF%E6%80%8E%E4%B9%88%E7%82%BC%E6%88%90%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">CTF密码题是怎么炼成的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socat%E7%9B%B4%E6%8E%A5%E6%8C%82%E8%BD%BD"><span class="nav-number">1.2.</span> <span class="nav-text">socat直接挂载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E6%89%93%E5%8C%85%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">Docker打包的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step1-%E5%88%9B%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">step1 创建镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step2-%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">1.3.2.</span> <span class="nav-text">step2 启动容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step3-%E5%B0%9D%E8%AF%95exp%E6%89%93%E6%9C%AC%E5%9C%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">step3 尝试exp打本地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step4-%E6%8C%82%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.3.4.</span> <span class="nav-text">step4 挂载服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text">Docker命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8Dockerfile%E8%AF%AD%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">常用Dockerfile语法</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -284,7 +282,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-01 21:05:41" itemprop="dateModified" datetime="2021-12-01T21:05:41+08:00">2021-12-01</time>
+        <time title="修改时间：2021-12-01 23:35:03" itemprop="dateModified" datetime="2021-12-01T23:35:03+08:00">2021-12-01</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -314,14 +312,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
+      <span>4.4k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span>4 分钟</span>
     </span>
 </div>
 
@@ -337,7 +335,7 @@
 <p>而Crypto出题就不用那么麻烦（指环境搭建），可以只写下python脚本就好，主要还是对服务器进行配置吧，想起了某段时间，我一直在配置pwn环境的虚拟机，<em>先虚拟机，再vim，再换源，再zsh，on-my-zsh，p10k，再vim主题</em>，pwn用到的环境以及一些工具主要参考的是（Crypto交互会用到其中的pwntools</p>
 <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Y_peak/article/details/112850307">https://blog.csdn.net/Y_peak/article/details/112850307</a></p>
 <p>这里到时候整一篇Crypto工具配置</p>
-<p><a href=""></a></p>
+<p><a href="https://4xwi11.github.io/posts/1cc01193/">https://4xwi11.github.io/posts/1cc01193/</a></p>
 <p>接下来正式开始</p>
 <p>主要参考</p>
 <p><a target="_blank" rel="noopener" href="https://blog.soreatu.com/posts/how-to-setup-for-interactive-crypto-problems/">https://blog.soreatu.com/posts/how-to-setup-for-interactive-crypto-problems/</a></p>
@@ -351,52 +349,50 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nohup socat -d -d tcp-l:[port],reuseaddr,fork EXEC:<span class="string">&quot;python -u server.py&quot;</span></span></span><br></pre></td></tr></table></figure>
 
 <p>就可以在服务器上一直跑了（除非服务器关了</p>
-<h2 id="Docker打包的方式"><a href="#Docker打包的方式" class="headerlink" title="Docker打包的方式"></a>Docker打包的方式</h2><p>这里师傅有模板，我们按照他的做一遍，文件夹的结构如下</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914000241836.png" alt="image-20210914000241836"></p>
-<p>Dockerfile如下</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定制的镜像是基于FROM的镜像，这里是运行python脚本，需要安装一个python，apline是linux操作系统？</span></span><br><span class="line"><span class="comment"># LABEL以键值对的形式添加元数据，似乎是关于作者版本之类的</span></span><br><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.8</span>-alpine</span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> Description=<span class="string">&quot;Game&quot;</span> VERSION=<span class="string">&#x27;1.0&#x27;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># RUN后面紧跟shell命令，和命令行一样方便；还有另一种执行文件跟参数的命令，用到时查</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> apk update &amp;&amp; apk add gcc g++ make openssl-dev python3-dev libffi-dev autoconf</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># WORKDIR指定工作目录，mkdir [-p] 确保目录名称存在，不存在的就建一个</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="bash"> /opt/game</span></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> mkdir -p /opt/game</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 复制指令，从上下文目录中复制文件或者目录到容器里指定路径，.应该是表示当前目录</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> task.py .</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> secret.py .</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> pip install pycryptodome</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># EXPOSE声明端口</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">10001</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># CMD在docker run时运行；RUN是在docker build</span></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;-u&quot;</span>, <span class="string">&quot;task.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
-
-<p>本地搭建测试</p>
-<ol>
-<li>创建镜像</li>
-</ol>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914000656526.png" alt="image-20210914000656526"></p>
-<ol start="2">
-<li>查看镜像</li>
-</ol>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914101621134.png" alt="image-20210914101621134"></p>
-<ol start="3">
-<li><p>创建容器</p>
-</li>
-<li><p>查看容器</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210914101715144.png" alt="image-20210914101715144"></p>
-</li>
-<li><p>最后用exp打检查</p>
-</li>
-</ol>
-<p>所以用docker来搭建的题目，服务脚本要用socket套接字编写</p>
+<h2 id="Docker打包的方式"><a href="#Docker打包的方式" class="headerlink" title="Docker打包的方式"></a>Docker打包的方式</h2><p>之前的删了，太不实用，还是出不来题（校赛出题被赵总吐槽没有docker），因为照抄别人的没有灵魂，根本不会，所以这篇回炉重造</p>
 <hr>
-<p>结果只知道上述，还是出不来题（校赛出题被赵总吐槽了），因为照抄别人的没有灵魂，根本不会，所以这篇回炉重造</p>
-<p>目前的一些问题</p>
+<p>之前的一些问题</p>
 <ul>
 <li>镜像搭建太慢（换阿里源之后还行，但更多的是安装方式（比如gmp2包是用wheel还是安装依赖</li>
 <li>容器创建完程序就退出了</li>
 <li>题目有问题……</li>
 </ul>
-<h3 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h3><p>创建镜像</p>
+<p>这里以一道极其简单的题目为例（之前直接拿比赛的文件，结果各种环境和问题，其实不便我们学习</p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201224939539.png" alt="image-20211201224939539"></p>
+<p>server.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> sha256</span><br><span class="line"><span class="keyword">import</span> socketserver</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> signal</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span>(<span class="params">socketserver.BaseRequestHandler</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_recvall</span>(<span class="params">self</span>):</span></span><br><span class="line">        BUFF_SIZE = <span class="number">2048</span></span><br><span class="line">        data = <span class="string">b&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            part = self.request.recv(BUFF_SIZE)</span><br><span class="line">            data += part</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(part) &lt; BUFF_SIZE:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> data.strip()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send</span>(<span class="params">self, msg, newline=<span class="literal">True</span></span>):</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> newline:</span><br><span class="line">                msg += <span class="string">b&#x27;\n&#x27;</span></span><br><span class="line">            self.request.sendall(msg)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recv</span>(<span class="params">self, prompt=<span class="string">b&#x27;[-] &#x27;</span></span>):</span></span><br><span class="line">        self.send(prompt, newline=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">return</span> self._recvall()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">proof_of_work</span>(<span class="params">self</span>):</span></span><br><span class="line">        random.seed(os.urandom(<span class="number">8</span>))</span><br><span class="line">        proof = <span class="string">&#x27;&#x27;</span>.join(</span><br><span class="line">            [random.choice(string.ascii_letters+string.digits) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)])</span><br><span class="line">        _hexdigest = sha256(proof.encode()).hexdigest()</span><br><span class="line">        self.send(<span class="string">f&quot;[+] sha256(XXXX+<span class="subst">&#123;proof[<span class="number">4</span>:]&#125;</span>) == <span class="subst">&#123;_hexdigest&#125;</span>&quot;</span>.encode())</span><br><span class="line">        x = self.recv(prompt=<span class="string">b&#x27;[+] Plz tell me XXXX: &#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(x) != <span class="number">4</span> <span class="keyword">or</span> sha256(x+proof[<span class="number">4</span>:].encode()).hexdigest() != _hexdigest:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handle</span>(<span class="params">self</span>):</span></span><br><span class="line">        signal.alarm(<span class="number">60</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.proof_of_work():</span><br><span class="line">            self.send(<span class="string">b&#x27;[!] Wrong!&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        self.send(<span class="string">b&#x27;here is your flag&#x27;</span>)</span><br><span class="line">        self.send(flag)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadedServer</span>(<span class="params">socketserver.ThreadingMixIn, socketserver.TCPServer</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ForkedServer</span>(<span class="params">socketserver.ForkingMixIn, socketserver.TCPServer</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    HOST, PORT = <span class="string">&#x27;0.0.0.0&#x27;</span>, <span class="number">10001</span></span><br><span class="line">    server = ForkedServer((HOST, PORT), Task)</span><br><span class="line">    server.allow_reuse_address = <span class="literal">True</span></span><br><span class="line">    <span class="built_in">print</span>(HOST, PORT)</span><br><span class="line">    server.serve_forever()</span><br></pre></td></tr></table></figure>
+
+<p>DockerFile</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.8</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> Description=<span class="string">&quot;baby_try&quot;</span> VERSION=<span class="string">&#x27;1.0&#x27;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> server.py .</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> secret.py .</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> chmod +x server.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">12345</span>	<span class="comment"># 仅仅是申明，没有实际用，容器都是随机映射的，这里方便编写者查看</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;server.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>exp</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_letters, digits</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line">table = ascii_letters + digits</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solve</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.sh = remote(<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="number">12345</span>)</span><br><span class="line">        <span class="comment"># self.sh = remote(&#x27;121.36.197.254&#x27;, 9999)</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">proof_of_work</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># [+] sha256(XXXX+JaakUDSfxkW0xjzV) == 4dbfdc61cb88f5bd08d87493ac62e5ab174780f5f019051f91df8b3c36564ed0</span></span><br><span class="line">        <span class="comment"># [+] Plz tell me X<span class="doctag">XXX:</span></span></span><br><span class="line">        proof = self.sh.recvuntil(<span class="string">b&#x27;[+] Plz tell me XXXX:&#x27;</span>)</span><br><span class="line">        tail = proof[<span class="number">16</span>:<span class="number">32</span>].decode()</span><br><span class="line">        _<span class="built_in">hash</span> = proof[<span class="number">37</span>:<span class="number">101</span>].decode()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> product(table, repeat=<span class="number">4</span>):</span><br><span class="line">            head = <span class="string">&#x27;&#x27;</span>.join(i)</span><br><span class="line">            t = hashlib.sha256((head + tail).encode()).hexdigest()</span><br><span class="line">            <span class="keyword">if</span> t == _<span class="built_in">hash</span>:</span><br><span class="line">                self.sh.sendline(head.encode())</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solve</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.proof_of_work()</span><br><span class="line">        self.sh.recvline()</span><br><span class="line">        flag = self.sh.recvline()[:-<span class="number">1</span>].decode()</span><br><span class="line">        <span class="built_in">print</span>(flag)</span><br><span class="line">        self.sh.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solution = Solve()</span><br><span class="line">    solution.solve()</span><br></pre></td></tr></table></figure>
+
+<h3 id="step1-创建镜像"><a href="#step1-创建镜像" class="headerlink" title="step1 创建镜像"></a>step1 创建镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker build . -t baby_try</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="step2-启动容器"><a href="#step2-启动容器" class="headerlink" title="step2 启动容器"></a>step2 启动容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run --name trytry -d -idt -p 12345:10001 baby_try</span></span><br></pre></td></tr></table></figure>
+
+<p>将端口映射到本地12345端口</p>
+<h3 id="step3-尝试exp打本地"><a href="#step3-尝试exp打本地" class="headerlink" title="step3 尝试exp打本地"></a>step3 尝试exp打本地</h3><p>没什么问题</p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201233335956.png" alt="image-20211201233335956"></p>
+<h3 id="step4-挂载服务器"><a href="#step4-挂载服务器" class="headerlink" title="step4 挂载服务器"></a>step4 挂载服务器</h3><p>本地没问题后，就要部署到服务器上，操作和socat类似就不做了，以后碰到问题再说</p>
+<h2 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h2><p>创建镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker build . -t [images_name]</span></span><br></pre></td></tr></table></figure>
 
-<p>查看镜像</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker images ps -a</span></span><br></pre></td></tr></table></figure>
+<p>查看创建的镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker images</span></span><br></pre></td></tr></table></figure>
 
 <p>创建容器</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run --name [container_name] -d [-idt] -p [port_inner]:[port_outer] [images_name]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run --name [container_name] -d [-idt] -p [port_outer]:[port_inner] [images_name]</span></span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><code>-d</code>表示不进入容器内部</li>
 <li><code>-p</code>表示将容器内部的port_inner端口映射到port_outer端口</li>
 <li><code>-idt</code>表示创建守护进程（没有这个容器创建完程序就退出了，不太清楚</li>
 </ul>
+<p>查看正在运行的容器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker ps -a</span></span><br></pre></td></tr></table></figure>
+
 <p>停止容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker stop [container_id]</span></span><br></pre></td></tr></table></figure>
 
@@ -409,9 +405,7 @@
 <p>进入容器</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker attach [container_id]</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> docker <span class="built_in">exec</span> -it [container_id] bash</span></span><br></pre></td></tr></table></figure>
 
-
-
-<h3 id="常用Dockerfile语法"><a href="#常用Dockerfile语法" class="headerlink" title="常用Dockerfile语法"></a>常用Dockerfile语法</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="常用Dockerfile语法"><a href="#常用Dockerfile语法" class="headerlink" title="常用Dockerfile语法"></a>常用Dockerfile语法</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 看菜鸟教程</span></span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -497,13 +491,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">949k</span>
+    <span title="站点总字数">951k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:23</span>
+    <span title="站点阅读时长">14:25</span>
   </span>
 </div>
 <div class="busuanzi-count">
