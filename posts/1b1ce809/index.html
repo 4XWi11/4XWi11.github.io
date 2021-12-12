@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211118201533562.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211119100105528.png">
 <meta property="article:published_time" content="2021-11-19T03:28:04.000Z">
-<meta property="article:modified_time" content="2021-11-21T03:43:02.358Z">
+<meta property="article:modified_time" content="2021-12-09T09:55:58.291Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="拓展维纳攻击">
 <meta property="article:tag" content="勒让德定理">
@@ -158,7 +158,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Wiener%E2%80%99s-Attack"><span class="nav-number">1.</span> <span class="nav-text">Wiener’s Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9A%84%E7%BB%B4%E7%BA%B3%E6%94%BB%E5%87%BB"><span class="nav-number">1.1.</span> <span class="nav-text">基础的维纳攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Continued-Fractions"><span class="nav-number">1.1.1.</span> <span class="nav-text">Continued Fractions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convergent"><span class="nav-number">1.1.2.</span> <span class="nav-text">Convergent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Legendre%E2%80%99s-theorem"><span class="nav-number">1.1.3.</span> <span class="nav-text">Legendre’s theorem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wiener%E2%80%99s-Attack-in-RSA"><span class="nav-number">1.1.4.</span> <span class="nav-text">Wiener’s Attack in RSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.5.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%B4%E7%BA%B3%E6%94%BB%E5%87%BB%E6%8B%93%E5%B1%95%E4%B9%8B%E5%8B%92%E8%AE%A9%E5%BE%B7%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">维纳攻击拓展之勒让德定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Task1-2020%E7%BE%8A%E5%9F%8E%E6%9D%AF-RRRRRRRSA"><span class="nav-number">1.2.1.</span> <span class="nav-text">Task1 [2020羊城杯] RRRRRRRSA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%93%E5%B1%95%E7%BB%B4%E7%BA%B3%E6%94%BB%E5%87%BB"><span class="nav-number">1.3.</span> <span class="nav-text">拓展维纳攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wiener%E2%80%99s-Approach"><span class="nav-number">1.3.1.</span> <span class="nav-text">Wiener’s Approach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guo%E2%80%99s-Arroach-With-Two-Exponets"><span class="nav-number">1.3.2.</span> <span class="nav-text">Guo’s Arroach With Two Exponets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extending-Wiener%E2%80%99s-Attack"><span class="nav-number">1.3.3.</span> <span class="nav-text">Extending Wiener’s Attack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Task2-2020%E7%BE%8A%E5%9F%8E%E6%9D%AF-Simple"><span class="nav-number">1.3.4.</span> <span class="nav-text">Task2 [2020羊城杯] Simple</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Wiener%E2%80%99s-Attack"><span class="nav-number">1.</span> <span class="nav-text">Wiener’s Attack</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%9A%84%E7%BB%B4%E7%BA%B3%E6%94%BB%E5%87%BB"><span class="nav-number">1.1.</span> <span class="nav-text">基础的维纳攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Continued-Fractions"><span class="nav-number">1.1.1.</span> <span class="nav-text">Continued Fractions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convergent"><span class="nav-number">1.1.2.</span> <span class="nav-text">Convergent</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Legendre%E2%80%99s-theorem"><span class="nav-number">1.1.3.</span> <span class="nav-text">Legendre’s theorem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Wiener%E2%80%99s-Attack-in-RSA"><span class="nav-number">1.1.4.</span> <span class="nav-text">Wiener’s Attack in RSA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.1.5.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%B4%E7%BA%B3%E6%94%BB%E5%87%BB%E6%8B%93%E5%B1%95%E4%B9%8B%E5%8B%92%E8%AE%A9%E5%BE%B7%E5%AE%9A%E7%90%86"><span class="nav-number">1.2.</span> <span class="nav-text">维纳攻击拓展之勒让德定理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Task1-2020%E7%BE%8A%E5%9F%8E%E6%9D%AF-RRRRRRRSA"><span class="nav-number">1.2.1.</span> <span class="nav-text">Task1 [2020羊城杯] RRRRRRRSA</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8B%93%E5%B1%95%E7%BB%B4%E7%BA%B3%E6%94%BB%E5%87%BB"><span class="nav-number">1.3.</span> <span class="nav-text">拓展维纳攻击</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Wiener%E2%80%99s-Approach"><span class="nav-number">1.3.1.</span> <span class="nav-text">Wiener’s Approach</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Guo%E2%80%99s-Arroach-With-Two-Exponets"><span class="nav-number">1.3.2.</span> <span class="nav-text">Guo’s Arroach With Two Exponets</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Extending-Wiener%E2%80%99s-Attack"><span class="nav-number">1.3.3.</span> <span class="nav-text">Extending Wiener’s Attack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Task2-2020%E7%BE%8A%E5%9F%8E%E6%9D%AF-Simple"><span class="nav-number">1.3.4.</span> <span class="nav-text">Task2 [2020羊城杯] Simple</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Task3-%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91-WienerStudyTwice"><span class="nav-number">1.3.5.</span> <span class="nav-text">Task3 [西湖论剑] WienerStudyTwice</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,13 +173,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -208,10 +208,10 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/JinYiTong" title="https:&#x2F;&#x2F;github.com&#x2F;JinYiTong" rel="noopener" target="_blank">j1ang（姜少 Web大师傅）</a>
+          <a href="https://www.yuque.com/jinjinshigekeaigui" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;jinjinshigekeaigui" rel="noopener" target="_blank">j1ang（姜少 Web大师傅）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅）</a>
+          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅在做病毒分析）</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://www.cnblogs.com/yunqian2017/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yunqian2017&#x2F;" rel="noopener" target="_blank">Openg（彭总 Misc之神）</a>
@@ -291,7 +291,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-21 11:43:02" itemprop="dateModified" datetime="2021-11-21T11:43:02+08:00">2021-11-21</time>
+        <time title="修改时间：2021-12-09 17:55:58" itemprop="dateModified" datetime="2021-12-09T17:55:58+08:00">2021-12-09</time>
       </span>
 
   
@@ -406,6 +406,8 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">e1 = <span class="number">114552459553730357961013268333698879659007919035942930313432809776799669181481660306531243618160127922304264986001501784564575128319884991774542682853466808329973362019677284072646678280051091964555611220961719302320547405880386113519147076299481594997799884384012548506240748042365643212774215730304047871679706035596550898944580314923260982768858133395187777029914150064371998328788068888440803565964567662563652062845388379897799506439389461619422933318625765603423604615137217375612091221578339493263160670355032898186792479034771118678394464854413824347305505135625135428816394053078365603937337271798774138959</span></span><br><span class="line">N = <span class="number">14922959775784066499316528935316325825140011208871830627653191549546959775167708525042423039865322548420928571524120743831693550123563493981797950912895893476200447083386549353336086899064921878582074346791320104106139965010480614879592357793053342577850761108944086318475849882440272688246818022209356852924215237481460229377544297224983887026669222885987323082324044645883070916243439521809702674295469253723616677245762242494478587807402688474176102093482019417118703747411862420536240611089529331148684440513934609412884941091651594861530606086982174862461739604705354416587503836130151492937714365614194583664241</span></span><br><span class="line">e2 = <span class="number">27188825731727584656624712988703151030126350536157477591935558508817722580343689565924329442151239649607993377452763119541243174650065563589438911911135278704499670302489754540301886312489410648471922645773506837251600244109619850141762795901696503387880058658061490595034281884089265487336373011424883404499124002441860870291233875045675212355287622948427109362925199018383535259913549859747158348931847041907910313465531703810313472674435425886505383646969400166213185676876969805238803587967334447878968225219769481841748776108219650785975942208190380614555719233460250841332020054797811415069533137170950762289</span></span><br><span class="line">c = <span class="number">6472367338832635906896423990323542537663849304314171581554107495210830026660211696089062916158894195561723047864604633460433867838687338370676287160274165915800235253640690510046066541445140501917731026596427080558567366267665887665459901724487706983166070740324307268574128474775026837827907818762764766069631267853742422247229582756256253175941899099898884656334598790711379305490419932664114615010382094572854799421891622789614614720442708271653376485660139560819668239118588069312179293488684403404385715780406937817124588773689921642802703005341324008483201528345805611493251791950304129082313093168732415486813</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">5</span> / <span class="number">14</span></span><br><span class="line">M1 = <span class="built_in">int</span>(<span class="built_in">pow</span>(N, <span class="number">0.5</span>))</span><br><span class="line">M2 = <span class="built_in">int</span>(<span class="built_in">pow</span>(N, <span class="number">1</span> + a))</span><br><span class="line">L2 = matrix(ZZ, [[N, -M1 * N, <span class="number">0</span>, N ** <span class="number">2</span>],</span><br><span class="line">                 [<span class="number">0</span>, M1 * e1, -M2 * e1, -e1 * N],</span><br><span class="line">                 [<span class="number">0</span>, <span class="number">0</span>, M2 * e2, -e2 * N],</span><br><span class="line">                 [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, e1 * e2]])</span><br><span class="line">B = L2.LLL()[<span class="number">0</span>]</span><br><span class="line">A = B * L2 ^ (-<span class="number">1</span>)</span><br><span class="line">phi = <span class="built_in">int</span>(e1 * A[<span class="number">1</span>] // A[<span class="number">0</span>])</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(<span class="built_in">pow</span>(c, invert(<span class="number">0x10001</span>, phi), N)))</span><br></pre></td></tr></table></figure>
 
 <p>当然$g$的影响可能还体现在$\alpha$上，毕竟矩阵$B$变了（但是没动$\alpha$怎么出来的，等我二刷线代再来</p>
+<h3 id="Task3-西湖论剑-WienerStudyTwice"><a href="#Task3-西湖论剑-WienerStudyTwice" class="headerlink" title="Task3 [西湖论剑] WienerStudyTwice"></a>Task3 [西湖论剑] WienerStudyTwice</h3><p>我觉得最为经典的一道题了</p>
+<p><a href=""></a></p>
 <hr>
 <p>最后感觉师傅说的很对</p>
 <p>理论知识往往能解决一类问题，而脚本或者工具往往只能解决一个问题</p>
@@ -502,13 +504,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">962k</span>
+    <span title="站点总字数">970k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:34</span>
+    <span title="站点阅读时长">14:42</span>
   </span>
 </div>
 <div class="busuanzi-count">

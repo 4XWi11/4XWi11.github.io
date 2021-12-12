@@ -19,16 +19,16 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="![](img alt&#x3D;”easy_RSA-37a4a203.png” src&#x3D;”http:&#x2F;&#x2F;mypictruebed.oss-cn-hangzhou.aliyuncs.com&#x2F;img&#x2F;easy_RSA-37a4a203.png&quot; width&#x3D;”” height&#x3D;”” ) 看了下日期，又不能快乐地刷题了 那天竟然被宁波的比赛耽误，SSGYZTL，错过了美团，赛后复现一下">
+<meta name="description" content="看了下日期，又不能快乐地刷题了 那天竟然被宁波的比赛耽误，错过了美团，赛后复现一下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20210527 MTCTF2021Crypto方向部分复现">
 <meta property="og:url" content="https://4xwi11.github.io/posts/43deb916/index.html">
 <meta property="og:site_name" content="4XWi11的博客">
-<meta property="og:description" content="![](img alt&#x3D;”easy_RSA-37a4a203.png” src&#x3D;”http:&#x2F;&#x2F;mypictruebed.oss-cn-hangzhou.aliyuncs.com&#x2F;img&#x2F;easy_RSA-37a4a203.png&quot; width&#x3D;”” height&#x3D;”” ) 看了下日期，又不能快乐地刷题了 那天竟然被宁波的比赛耽误，SSGYZTL，错过了美团，赛后复现一下">
+<meta property="og:description" content="看了下日期，又不能快乐地刷题了 那天竟然被宁波的比赛耽误，错过了美团，赛后复现一下">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/easy_RSA-a8cb1b59.png">
 <meta property="article:published_time" content="2021-10-07T07:27:11.000Z">
-<meta property="article:modified_time" content="2021-11-16T10:15:39.235Z">
+<meta property="article:modified_time" content="2021-12-12T09:29:26.139Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="OTP一次一密">
 <meta name="twitter:card" content="summary">
@@ -163,13 +163,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">66</span>
+          <span class="site-state-item-count">67</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -198,10 +198,10 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://github.com/JinYiTong" title="https:&#x2F;&#x2F;github.com&#x2F;JinYiTong" rel="noopener" target="_blank">j1ang（姜少 Web大师傅）</a>
+          <a href="https://www.yuque.com/jinjinshigekeaigui" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;jinjinshigekeaigui" rel="noopener" target="_blank">j1ang（姜少 Web大师傅）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅）</a>
+          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅在做病毒分析）</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://www.cnblogs.com/yunqian2017/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yunqian2017&#x2F;" rel="noopener" target="_blank">Openg（彭总 Misc之神）</a>
@@ -281,7 +281,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-16 18:15:39" itemprop="dateModified" datetime="2021-11-16T18:15:39+08:00">2021-11-16</time>
+        <time title="修改时间：2021-12-12 17:29:26" itemprop="dateModified" datetime="2021-12-12T17:29:26+08:00">2021-12-12</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -307,7 +307,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>3.2k</span>
+      <span>3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -325,9 +325,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>![](img alt=”easy_RSA-37a4a203.png” src=”<a target="_blank" rel="noopener" href="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/easy_RSA-37a4a203.png&quot;">http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/easy_RSA-37a4a203.png&quot;</a> width=”” height=”” )</p>
-<p>看了下日期，又不能快乐地刷题了</p>
-<p>那天竟然被宁波的比赛耽误，SSGYZTL，错过了美团，赛后复现一下</p>
+        <p>看了下日期，又不能快乐地刷题了</p>
+<p>那天竟然被宁波的比赛耽误，错过了美团，赛后复现一下</p>
 <span id="more"></span>
 
 <h1 id="20210527-MTCTF2021Crypto方向部分复现"><a href="#20210527-MTCTF2021Crypto方向部分复现" class="headerlink" title="20210527 MTCTF2021Crypto方向部分复现"></a>20210527 MTCTF2021Crypto方向部分复现</h1><h2 id="easy-RSA"><a href="#easy-RSA" class="headerlink" title="easy_RSA"></a>easy_RSA</h2><p>第一层套了一个padding，比较常规不再赘述</p>
@@ -443,13 +442,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">962k</span>
+    <span title="站点总字数">970k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:34</span>
+    <span title="站点阅读时长">14:42</span>
   </span>
 </div>
 <div class="busuanzi-count">
