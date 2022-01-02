@@ -19,17 +19,17 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="rsa的rabin攻击是个基本的考点，其背后还是涉及到一些原理 师从这位师傅的博客https:&#x2F;&#x2F;blog.csdn.net&#x2F;jcbx_&#x2F;article&#x2F;details&#x2F;101066670以及大牛Rabin的Square roots modulo a prime论文，从头到尾推导一遍">
+<meta name="description" content="参考文档 https:&#x2F;&#x2F;blog.csdn.net&#x2F;jcbx_&#x2F;article&#x2F;details&#x2F;101066670 Square roots modulo a prime">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Rabin攻击">
 <meta property="og:url" content="https://4xwi11.github.io/posts/ba78595a/index.html">
 <meta property="og:site_name" content="4XWi11的博客">
-<meta property="og:description" content="rsa的rabin攻击是个基本的考点，其背后还是涉及到一些原理 师从这位师傅的博客https:&#x2F;&#x2F;blog.csdn.net&#x2F;jcbx_&#x2F;article&#x2F;details&#x2F;101066670以及大牛Rabin的Square roots modulo a prime论文，从头到尾推导一遍">
+<meta property="og:description" content="参考文档 https:&#x2F;&#x2F;blog.csdn.net&#x2F;jcbx_&#x2F;article&#x2F;details&#x2F;101066670 Square roots modulo a prime">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901103319470.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210901113636410.png">
 <meta property="article:published_time" content="2021-10-09T04:19:31.000Z">
-<meta property="article:modified_time" content="2021-12-11T12:12:23.060Z">
+<meta property="article:modified_time" content="2021-12-27T16:14:49.256Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="Rabin攻击">
 <meta name="twitter:card" content="summary">
@@ -282,7 +282,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-11 20:12:23" itemprop="dateModified" datetime="2021-12-11T20:12:23+08:00">2021-12-11</time>
+        <time title="修改时间：2021-12-28 00:14:49" itemprop="dateModified" datetime="2021-12-28T00:14:49+08:00">2021-12-28</time>
       </span>
 
   
@@ -299,7 +299,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.9k</span>
+      <span>2.8k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -317,8 +317,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>rsa的rabin攻击是个基本的考点，其背后还是涉及到一些原理</p>
-<p>师从这位师傅的博客<a target="_blank" rel="noopener" href="https://blog.csdn.net/jcbx_/article/details/101066670">https://blog.csdn.net/jcbx_/article/details/101066670</a>以及大牛Rabin的Square roots modulo a prime论文，从头到尾推导一遍</p>
+        <p>参考文档</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/jcbx_/article/details/101066670">https://blog.csdn.net/jcbx_/article/details/101066670</a></p>
+<p><em><strong>Square roots modulo a prime</strong></em></p>
 <span id="more"></span>
 
 <h1 id="Rabin攻击和Square-roots-modulo-a-prime原理"><a href="#Rabin攻击和Square-roots-modulo-a-prime原理" class="headerlink" title="Rabin攻击和Square roots modulo a prime原理"></a>Rabin攻击和Square roots modulo a prime原理</h1><p>需要知道二次剩余，雅可比符号还有欧拉准则</p>
@@ -356,12 +357,6 @@
 <p>可以看到主要是这个$u_0$在作祟，最后一句没有看懂</p>
 <p>那我们应该怎么办呢？</p>
 <p>论文还是看不懂啊，勉强看到三分之一，还是最简单的部分，梁子先结下了，后续补充</p>
-<hr>
-<p>上完课补充</p>
-<p>模n（半素数）的二次根有4个，模p（素数）的二次根有2两个</p>
-<p>模4余3的素数计算二次根</p>
-<p>若$y\equiv (\pm x)^2\ mod\ p$，且$p=4m+3$</p>
-<p>则$x=\pm y^{\frac{p+1}{4}}\ mod\ p$</p>
 
     </div>
 
@@ -424,7 +419,7 @@
 
 <div class="copyright">
   &copy; 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fas fa-user-secret"></i>
   </span>
