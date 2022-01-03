@@ -27,7 +27,7 @@
 <meta property="og:description" content="20210203 终于看懂了大佬的博客，结合自己的思考过程，写下这篇博客，做好记录，以便再次遇到">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-09T04:26:36.000Z">
-<meta property="article:modified_time" content="2021-11-17T14:40:45.306Z">
+<meta property="article:modified_time" content="2022-01-03T04:16:38.461Z">
 <meta property="article:author" content="4XWi11">
 <meta property="article:tag" content="dp泄漏攻击">
 <meta name="twitter:card" content="summary">
@@ -161,7 +161,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -172,7 +172,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">45</span>
+        <span class="site-state-item-count">46</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -279,7 +279,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-17 22:40:45" itemprop="dateModified" datetime="2021-11-17T22:40:45+08:00">2021-11-17</time>
+        <time title="修改时间：2022-01-03 12:16:38" itemprop="dateModified" datetime="2022-01-03T12:16:38+08:00">2022-01-03</time>
       </span>
 
   
@@ -296,7 +296,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>4.6k</span>
+      <span>4.5k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -329,12 +329,7 @@
 <p>结合已知的求逆元式子$e\times d\equiv1\ mod\ \phi(n)$ 换成的$e\times d=k2\times \phi(n)+1\quad②$</p>
 <p>那我们把$①\times e$，得到和②左边一样的，右边等起来就是$k1\times e\times (p-1)+dp\times e=k2\times \phi(n)+1$ 显然这里 $\phi n=(p-1)\times (q-1)$ 就不用说了</p>
 <p>将这个式子整理得到$dp\times e=(k2\times (q-1)-k1\times e)(p-1)+1 ③$<br>（因为e和dp是已知的我们就放在一边，另外两项都有公因式（p-1）可以合并）</p>
-<p>右边的+1暂且不看，因为无伤大雅</p>
-<p>为什么说由题易知，$dp&gt;p-1$ </p>
-<p>因为最开始我们就知道$dp\equiv d\ mod(p-1)$ 即$d=dp\ mod(p-1)$ </p>
-<p>如果$dp&lt;p-1$(这里我还是没有搞得特别清除，等我弄懂了以后再来吧) </p>
-<p>那么d的值就是dp，我们可以去检验一下，发现出来的是乱码，所以显然$dp&gt;p-1$ </p>
-<p>所以我们设$X=[k1\times e+k2\times (q-1)],\quad X&lt;e$ </p>
+<p>右边的+1暂且不看，因为无伤大雅，显然$dp&lt;p-1$，则我们设$X=[k1\times e+k2\times (q-1)],\quad X&lt;e$ </p>
 <p>剩下的我们只需要编写脚本，爆破 $[1,e]$ 所有的情况，求出q，符合RSA基本要素之间的关系的就是我们要求的q</p>
 <p>之后便是最基本的操作</p>
 <h2 id="解题脚本"><a href="#解题脚本" class="headerlink" title="解题脚本"></a>解题脚本</h2><p>最后贴上自己的脚本，可能算不上很精炼，因为菜是一种原罪</p>
@@ -431,13 +426,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">979k</span>
+    <span title="站点总字数">1m</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">14:50</span>
+    <span title="站点阅读时长">15:10</span>
   </span>
 </div>
 <div class="busuanzi-count">
