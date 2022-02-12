@@ -37,7 +37,7 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220109213448835.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220109214420827.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220109214947265.png">
-<meta property="og:image" content="g:/4XWi11/source_posts/20220108-CAZY.assets/image-20220114164508629.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220117224159631.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220114164744508.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220114215006592.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220114220751186.png">
@@ -45,7 +45,7 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220114231304488.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220114230521520.png">
 <meta property="article:published_time" content="2022-01-13T06:32:38.000Z">
-<meta property="article:modified_time" content="2022-01-14T15:20:02.702Z">
+<meta property="article:modified_time" content="2022-01-29T12:54:16.468Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220112191716429.png">
@@ -179,13 +179,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">71</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">10</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -214,7 +214,7 @@
     </div>
     <ul class="links-of-blogroll-list">
         <li class="links-of-blogroll-item">
-          <a href="https://www.yuque.com/jinjinshigekeaigui" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;jinjinshigekeaigui" rel="noopener" target="_blank">j1ang（姜少 Web大师傅得了心病）</a>
+          <a href="https://www.yuque.com/jinjinshigekeaigui" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;jinjinshigekeaigui" rel="noopener" target="_blank">j1ang（姜少 Web大师傅单身是大帅逼）</a>
         </li>
         <li class="links-of-blogroll-item">
           <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt（V&N Misc师傅在做病毒分析）</a>
@@ -306,7 +306,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-01-14 23:20:02" itemprop="dateModified" datetime="2022-01-14T23:20:02+08:00">2022-01-14</time>
+        <time title="修改时间：2022-01-29 20:54:16" itemprop="dateModified" datetime="2022-01-29T20:54:16+08:00">2022-01-29</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -426,7 +426,7 @@
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220109214947265.png" alt="image-20220109214947265"></p>
 <h2 id="pwn3"><a href="#pwn3" class="headerlink" title="pwn3"></a>pwn3</h2><h3 id="0x1-题目描述"><a href="#0x1-题目描述" class="headerlink" title="0x1 题目描述"></a>0x1 题目描述</h3><p>给了一个ELF以及<code>libc-2.23.so</code></p>
 <p>例行检查保护，全开</p>
-<p><img data-src="G:\4XWi11\source_posts\20220108-CAZY.assets\image-20220114164508629.png" alt="image-20220114164508629"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220117224159631.png" alt="image-20220117224159631"></p>
 <p>运行一下类似一个升级打怪的游戏</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220114164744508.png" alt="image-20220114164744508"></p>
 <h3 id="0x2-分析思路"><a href="#0x2-分析思路" class="headerlink" title="0x2 分析思路"></a>0x2 分析思路</h3><p>IDA分析，没有后门函数。如下图所示，main函数中有一段代码输出了<code>puts</code>的地址，提供了任意地址写，关键它是以<code>exit</code>退出程序的，这就足以实现exit_hook攻击。首先知道下什么是hook技术，Fr.<a href=""></a>，其次再来详细了解下exit_hook，Fr.<a href=""></a></p>
@@ -476,9 +476,6 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/d3890482/" rel="next" title="Security-Protocol-Notes">
-                  Security-Protocol-Notes <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -534,7 +531,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:25</span>
+    <span title="站点阅读时长">15:14</span>
   </span>
 </div>
 <div class="busuanzi-count">
