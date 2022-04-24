@@ -157,7 +157,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">72</span>
+          <span class="site-state-item-count">73</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -168,7 +168,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">51</span>
+        <span class="site-state-item-count">52</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -252,6 +252,137 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/9171e9d7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="CTF弱鸡自进阶">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11的博客">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/posts/9171e9d7/" class="post-title-link" itemprop="url">20220423-DAS-FATE-CryptoSec</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2022-04-24 22:19:08 / 修改时间：22:24:29" itemprop="dateCreated datePublished" datetime="2022-04-24T22:19:08+08:00">2022-04-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>6 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <span id="more"></span>
+
+<h1 id="2022DASCTF-Apr-X-FATE-防疫挑战赛"><a href="#2022DASCTF-Apr-X-FATE-防疫挑战赛" class="headerlink" title="2022DASCTF Apr X FATE 防疫挑战赛"></a>2022DASCTF Apr X FATE 防疫挑战赛</h1><h2 id="special-rsa"><a href="#special-rsa" class="headerlink" title="special_rsa"></a>special_rsa</h2><p>考点</p>
+<ul>
+<li>有限域开方</li>
+<li>回溯</li>
+</ul>
+<p>题目</p>
+<p>代码。。不知道哪里来的数据，第15行的c1应该写c</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getPrime1</span>(<span class="params">bitLength, e</span>):</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        i = getPrime(bitLength)</span><br><span class="line">        <span class="keyword">if</span> (i - <span class="number">1</span>) % e ** <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span> i</span><br><span class="line">flag=<span class="string">b&#x27;DASCTF&#123;????????????????????&#125;&#x27;</span></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">lenth = ((<span class="built_in">len</span>(<span class="built_in">bin</span>(m)) - <span class="number">2</span>) // <span class="number">2</span>) + <span class="number">9</span></span><br><span class="line">e=<span class="number">113</span></span><br><span class="line">p = getPrime1(lenth, e)</span><br><span class="line">q = getPrime1(lenth, e)</span><br><span class="line">n=p*q</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;n = <span class="subst">&#123;n&#125;</span>&quot;</span>)</span><br><span class="line">c1 = <span class="built_in">pow</span>(m, e, n)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">26</span>):</span><br><span class="line">    lenth = ((<span class="built_in">len</span>(<span class="built_in">bin</span>(c)) - <span class="number">2</span>) // <span class="number">2</span>) + <span class="number">9</span></span><br><span class="line">    p = getPrime1(lenth, e)</span><br><span class="line">    q = getPrime1(lenth, e)</span><br><span class="line">    n=p*q</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;n = <span class="subst">&#123;n&#125;</span>&quot;</span>)</span><br><span class="line">    c=<span class="built_in">pow</span>(c,e,n)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;e = <span class="subst">&#123;e&#125;</span>&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;c = <span class="subst">&#123;c&#125;</span>&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>由<code>getPrime1</code>，可知$(e,\ \varphi(n))=e$，要用有限域开方求根。然后经实践，所有的$n$都能用factordb分解（看下<a target="_blank" rel="noopener" href="https://lazzzaro.github.io/2020/05/06/crypto-RSA/#e-p-1-e-q-1">la佬整理的$e|p-1,\ e|q-1$</a></p>
+<p>这道题的关键在于筛选，113次的方程，有113个根，则每次就有<code>113*113=12769</code>种情况</p>
+<p>尚师傅提醒每次正确的解是要小于上一个$n$的，即中国剩余定理求出来的解大小一般是$p_i\times q_i$，而正确的解大小是$p_{i-1}\times q_{i-1}$，也就是小于上一个$n$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mi = crt(<span class="built_in">int</span>(x[<span class="number">0</span>]), <span class="built_in">int</span>(y[<span class="number">0</span>]), pi, qi)</span><br></pre></td></tr></table></figure>
+
+<p>当然在做的时候发现经过上面的筛选，还存在一些漏网之鱼。第一步筛选已经去除掉了绝大部分（但是搞不懂为什么还会有两三组解的情况），再用下类似回溯的思想，就能找到正确那条路获得flag</p>
+<p>当然情况较少，手动筛选也不是不行</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">e = <span class="number">113</span></span><br><span class="line">c = <span class="number">1028324919038104683475485759234995158466543298184637219012354053883391759172761125802189697762778242175407876548832454351014064525118465877297277847501477586955680645311999174005606833294172830817159</span></span><br><span class="line">ps = [<span class="number">953730950786751671162019537171974567</span>, <span class="number">232079231415308325450092906880606082069</span>, <span class="number">88067722275537586769787599991567203589751</span>, <span class="number">24335212484189159197840692460327461505035059</span>, <span class="number">7832299017937880395583715032476962329929226581</span>, <span class="number">1656848589754467667368312855929759764100120657831</span>, <span class="number">385788223643735590500185001710758495904528462058461</span>, <span class="number">135813272566456906193934636644217527100917542578856697</span>, <span class="number">37185691759470013533730603170661686570987787098353146897</span>, <span class="number">6623023178993627032758350846838617937710601663528839184727</span>, <span class="number">954412804126450754097808991490470782833291028309980575506163</span>, <span class="number">350121371461894793578110243222665782247737840410076591434903787</span>, <span class="number">66882708962198932251728043152245270662769508317424500666902658099</span>, <span class="number">43449898447639409732732812916430042263570178747794530133229640125923</span>, <span class="number">11136261905010083405430254612464029672882837025885682392810368001188527</span>, <span class="number">2623629589005115152329094552749299711026240699896424120660145647226563547</span>, <span class="number">262775599542220820608778738911414710660835549772895468394761119434220071003</span>, <span class="number">102366458668689911004027849640392002821642295855327735994412634235696717329671</span>, <span class="number">15874438801602936764330936047390981280096007684699625987478211613419079727910193</span>, <span class="number">4479430800690915874719403516331677127806963529247809966024777708496270901092401687</span>, <span class="number">1328165608715012145707239303399129070657427496129541416861187541092152796676371237057</span>, <span class="number">368461902207817023013078031477042541053987571003677386333567043030477451518424731838173</span>, <span class="number">206721456778089912780641186795393376537372828449722520397829606593267585681448641482345737</span>, <span class="number">43870497594014737833600078975099212558645315030912084285417550950854483979406797450479252891</span>, <span class="number">14702310219802004876082313481498680940324963613770096574742182597840558294030859405666549879531</span>, <span class="number">5952590790902091635268726673538951527433355660839816621733964706901441977862333411532558667717227</span>, <span class="number">978009050697262759337388871320370165458800566798280419667959552859180906066907114053826258140106617</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_roots</span>(<span class="params">ii, ci</span>):</span></span><br><span class="line">    pi, qi = ps[ii], qs[ii]</span><br><span class="line">    R.&lt;x&gt; = Zmod(pi)[]</span><br><span class="line">    f = x ^ e - ci</span><br><span class="line">    f = f.monic()</span><br><span class="line">    res1 = f.roots()</span><br><span class="line"></span><br><span class="line">    R.&lt;x&gt; = Zmod(qi)[]</span><br><span class="line">    f = x ^ e - ci</span><br><span class="line">    f = f.monic()</span><br><span class="line">    res2 = f.roots()</span><br><span class="line"></span><br><span class="line">    sol = []</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> res1:</span><br><span class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> res2:</span><br><span class="line">            mi = crt([<span class="built_in">int</span>(x[<span class="number">0</span>]), <span class="built_in">int</span>(y[<span class="number">0</span>])], [pi, qi])</span><br><span class="line">            <span class="keyword">if</span> ii != <span class="number">0</span> <span class="keyword">and</span> mi &lt; ns[ii - <span class="number">1</span>]:</span><br><span class="line">                    sol.append(mi)</span><br><span class="line">                    <span class="built_in">print</span>(<span class="string">f&#x27;No.<span class="subst">&#123;ii&#125;</span> x = <span class="subst">&#123;x&#125;</span>, y = <span class="subst">&#123;y&#125;</span>&#x27;</span>)</span><br><span class="line">            <span class="keyword">elif</span> long_to_bytes(mi).startswith(<span class="string">b&#x27;DASCTF&#x27;</span>):</span><br><span class="line">                    <span class="built_in">print</span>(long_to_bytes(mi))</span><br><span class="line">                    <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> sol:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="keyword">for</span> jj <span class="keyword">in</span> sol:</span><br><span class="line">        get_roots(ii - <span class="number">1</span>, jj)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ns = []</span><br><span class="line">qs = []</span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;output.txt&#x27;</span>, <span class="string">&#x27;r&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    regex = <span class="string">r&#x27;[n] = (\d+)&#x27;</span></span><br><span class="line">    output = fp.readlines()</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(output)):</span><br><span class="line">        <span class="keyword">if</span> re.findall(regex, output[i]):</span><br><span class="line">            ns.append(<span class="built_in">int</span>(re.findall(regex, output[i])[<span class="number">0</span>]))</span><br><span class="line">            qs.append(ns[i] // ps[i])</span><br><span class="line"><span class="keyword">assert</span> <span class="literal">False</span> <span class="keyword">not</span> <span class="keyword">in</span> [ps[i] * qs[i] == ns[i] <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(ns))]</span><br><span class="line"></span><br><span class="line">get_roots(<span class="built_in">len</span>(ns) - <span class="number">1</span>, c)</span><br></pre></td></tr></table></figure>
+
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220424164955140.png" alt="image-20220424164955140"></p>
+<p>最后提一个细节，关于python的for循环</p>
+<p>对于下面这段代码的运行结果，注意一下，和c不同，在for循环内容更改出现在for语句这一行的变量，其对循环均没有影响</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tot = <span class="number">0</span></span><br><span class="line">t = <span class="number">100</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(t):</span><br><span class="line">    i -= <span class="number">1</span></span><br><span class="line">    tot += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;times = <span class="subst">&#123;tot&#125;</span>&#x27;</span>)</span><br><span class="line">tot = <span class="number">0</span></span><br><span class="line">t = <span class="number">100</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(t):</span><br><span class="line">    t += <span class="number">1</span></span><br><span class="line">    tot += <span class="number">1</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;times = <span class="subst">&#123;tot&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="comment"># times = 100</span></span><br><span class="line"><span class="comment"># times = 100</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="CVE-OF-RSA"><a href="#CVE-OF-RSA" class="headerlink" title="CVE OF RSA"></a>CVE OF RSA</h2><p>题目关键代码如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">special_rsa</span>(<span class="params">self</span>):</span></span><br><span class="line">    kbits = <span class="number">37</span></span><br><span class="line">    abit = <span class="number">62</span></span><br><span class="line">    M = <span class="number">962947420735983927056946215901134429196419130606213075415963491270</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        k = getRandomNBitInteger(kbits)</span><br><span class="line">        a = getRandomNBitInteger(abit)</span><br><span class="line">        p = k * M + <span class="built_in">pow</span>(<span class="number">0x10001</span>, a, M)</span><br><span class="line">        <span class="keyword">if</span> isPrime(p):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">   	<span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        l = getRandomNBitInteger(kbits)</span><br><span class="line">        b = getRandomNBitInteger(abit)</span><br><span class="line">        q = l * M + <span class="built_in">pow</span>(<span class="number">0x10001</span>, b, M)</span><br><span class="line">        <span class="keyword">if</span> isPrime(q):</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    n = p * q</span><br><span class="line">    self.send(<span class="string">b&#x27;n = &#x27;</span> + <span class="built_in">str</span>(n).encode())</span><br><span class="line">    flag = <span class="built_in">open</span>(<span class="string">&#x27;flag&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>).read()</span><br><span class="line">    m = bytes_to_long(flag)</span><br><span class="line">    c = <span class="built_in">pow</span>(m, <span class="number">0x10001</span>, n)</span><br><span class="line">    self.send(<span class="string">b&#x27;c = &#x27;</span> + <span class="built_in">str</span>(c).encode())</span><br><span class="line">    self.request.close()</span><br></pre></td></tr></table></figure>
+
+<p>p和q由如下方式产生，M可以被完全分解<br>$$<br>p=k\times M+65537^a\ mod\ M\notag<br>$$<br>17年的ROCA（Return of Coppersmith’s attack）漏洞 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ROCA_vulnerability" title="CVE-2017-15361">1</a>。简单转述一下就是，一些硬件采用以上方法快速产生RSA的私钥，这样产生的公钥$n$会带有一个指纹，但由于$M$是光滑数，这个指纹可以很快被攻击者确定，从而分解$n$</p>
+<p>有个仓库总结了很多密码的攻击，其中就有ROCA，Fr.<a target="_blank" rel="noopener" href="https://github.com/jvdsn/crypto-attacks.git">https://github.com/jvdsn/crypto-attacks.git</a></p>
+<p>其中在roca.py文件最后添加下面这段代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Some logging so we can see what&#x27;s happening.</span></span><br><span class="line">logging.basicConfig(level=logging.DEBUG)</span><br><span class="line"></span><br><span class="line">M = <span class="number">962947420735983927056946215901134429196419130606213075415963491270</span></span><br><span class="line">N = <span class="number">14481363580917358871472996410471767154481047067466167591298208947805462002275531552979475988627964256677709787930755013972295770123571982960720640872341517</span></span><br><span class="line">p_, q_ = factorize(N, M, <span class="number">5</span>, <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;Found p = <span class="subst">&#123;p_&#125;</span> and q = <span class="subst">&#123;q_&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<p>参数根据论文<em>The Return of Coppersmith’s Attack: Practical Factorization of Widely Used RSA Moduli</em> <a target="_blank" rel="noopener" href="https://acmccs.github.io/papers/p1631-nemecA.pdf" title="The Return of Coppersmith’s Attack: Practical Factorization of Widely Used RSA Moduli">2</a>，n是512位的，则m和t分别取5和6</p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220424135657852.png" alt="image-20220424135657852"></p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220424135416087.png" alt="image-20220424135416087"></p>
+<p>然后用sage运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sage -python attacks/factorization/roca.py</span></span><br></pre></td></tr></table></figure>
+
+<p>同时跑了五六个n，有一些出的挺快的，但大部分都跑不出来（要跑很久）</p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220424134747147.png" alt="image-20220424134747147"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span>  *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> invert</span><br><span class="line"></span><br><span class="line">n = <span class="number">14481363580917358871472996410471767154481047067466167591298208947805462002275531552979475988627964256677709787930755013972295770123571982960720640872341517</span></span><br><span class="line">c = <span class="number">3679892564888936950542940140902963743841717939818025696558626052971555790204073416047068709668040686939721666022034628127241497612925260505783618939964139</span></span><br><span class="line"></span><br><span class="line">p = <span class="number">111425929610175462966231922510304239063491575573222700849341403103622849511679</span></span><br><span class="line">q = <span class="number">129964036482177256444505240482938730532498372430648951070700710194345995195123</span></span><br><span class="line">d = invert(<span class="number">0x10001</span>, n - p - q + <span class="number">1</span>)</span><br><span class="line">m = <span class="built_in">pow</span>(c, d, n)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(m))</span><br><span class="line"><span class="comment"># flag&#123;e28e6991-080d-4587-900d-db3c47139453&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/a6b76827/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -277,7 +408,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2022-04-18 20:01:14 / 修改时间：20:12:28" itemprop="dateCreated datePublished" datetime="2022-04-18T20:01:14+08:00">2022-04-18</time>
+      <time title="创建时间：2022-04-18 20:01:14 / 修改时间：20:25:45" itemprop="dateCreated datePublished" datetime="2022-04-18T20:01:14+08:00">2022-04-18</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -318,7 +449,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="USBKey-Learning"><a href="#USBKey-Learning" class="headerlink" title="USBKey Learning"></a>USBKey Learning</h1><h2 id="证书"><a href="#证书" class="headerlink" title="证书"></a>证书</h2><p>一些证书类型：</p>
+          <span id="more"></span>
+<h1 id="USBKey-Learning"><a href="#USBKey-Learning" class="headerlink" title="USBKey Learning"></a>USBKey Learning</h1><h2 id="证书"><a href="#证书" class="headerlink" title="证书"></a>证书</h2><p>一些证书类型：</p>
 <ul>
 <li><p>PEM：既可以保存证书，也可以保存密钥（为了区别证书和密钥，将后者后缀改成key</p>
 </li>
@@ -1028,108 +1160,6 @@
 
 
 
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/7744a72a/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.png">
-      <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="CTF弱鸡自进阶">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="4XWi11的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/posts/7744a72a/" class="post-title-link" itemprop="url">20211205 湖湘杯Pwn部分WP</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2021-12-07 18:34:47" itemprop="dateCreated datePublished" datetime="2021-12-07T18:34:47+08:00">2021-12-07</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-14 19:38:16" itemprop="dateModified" datetime="2021-12-14T19:38:16+08:00">2021-12-14</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BPwn/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Pwn</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.8k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>fw这次又被师傅们带飞了，全程为大佬端茶送水，搬运茶歇  </p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/posts/7744a72a/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
   <nav class="pagination">
     <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
@@ -1177,7 +1207,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:47</span>
+    <span title="站点阅读时长">15:52</span>
   </span>
 </div>
 <div class="busuanzi-count">
