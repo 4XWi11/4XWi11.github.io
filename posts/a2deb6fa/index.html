@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,21 +17,17 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="呜呜呜，出大问题 复现写WP的时候，Typora突然崩溃，还好这篇博客9我狗命 https:&#x2F;&#x2F;blog.csdn.net&#x2F;liujun03&#x2F;article&#x2F;details&#x2F;82660303 Typora会save没有保存的md，在偏好设置里；Typora！yyds  明天就是决赛了，赶在决赛前复现完">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="&amp;nbsp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20211023 第四届浙江省大学生网络与信息安全竞赛（预赛）">
+<meta property="og:title" content="20211023-第四届浙江省大学生网络与信息安全竞赛（预赛）-CryptoSecWriteUp">
 <meta property="og:url" content="https://4xwi11.github.io/posts/a2deb6fa/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
-<meta property="og:description" content="呜呜呜，出大问题 复现写WP的时候，Typora突然崩溃，还好这篇博客9我狗命 https:&#x2F;&#x2F;blog.csdn.net&#x2F;liujun03&#x2F;article&#x2F;details&#x2F;82660303 Typora会save没有保存的md，在偏好设置里；Typora！yyds  明天就是决赛了，赶在决赛前复现完">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029100343661.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211022172338715.png">
+<meta property="og:description" content="&amp;nbsp;">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211023132429655.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211027175039980.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/12232528-c5c4946255a849379be143aaca8d1ecf.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20180903220102338">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029135700673.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029135938979.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029135947278.png">
@@ -41,20 +37,20 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029143854710.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029143943526.png">
 <meta property="article:published_time" content="2021-10-29T05:54:58.000Z">
-<meta property="article:modified_time" content="2021-10-30T00:38:46.219Z">
+<meta property="article:modified_time" content="2022-08-31T16:08:41.521Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029100343661.png">
+<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211023132429655.png">
 
 
 <link rel="canonical" href="https://4xwi11.github.io/posts/a2deb6fa/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/a2deb6fa/","path":"posts/a2deb6fa/","title":"20211023 第四届浙江省大学生网络与信息安全竞赛（预赛）"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/a2deb6fa/","path":"posts/a2deb6fa/","title":"20211023-第四届浙江省大学生网络与信息安全竞赛（预赛）-CryptoSecWriteUp"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>20211023 第四届浙江省大学生网络与信息安全竞赛（预赛） | 4XWi11's Blog</title>
+<title>20211023-第四届浙江省大学生网络与信息安全竞赛（预赛）-CryptoSecWriteUp | 4XWi11's Blog</title>
   
 
 
@@ -72,7 +68,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -99,13 +95,12 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -120,7 +115,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
@@ -150,17 +145,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto"><span class="nav-number">1.</span> <span class="nav-text">Crypto</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Easy-Railfence"><span class="nav-number">2.</span> <span class="nav-text">Easy Railfence</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#EasyCrypto%EF%BC%88recuring%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">EasyCrypto（recuring）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%971%EF%BC%88recuring%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">可信计算1（recuring）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E7%89%88%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86"><span class="nav-number">4.1.</span> <span class="nav-text">改进版欧拉定理</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Easy-Railfence"><span class="nav-number">1.</span> <span class="nav-text">Easy Railfence</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EasyCrypto"><span class="nav-number">2.</span> <span class="nav-text">EasyCrypto</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%971"><span class="nav-number">3.</span> <span class="nav-text">可信计算1</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%94%B9%E8%BF%9B%E7%89%88%E6%AC%A7%E6%8B%89%E5%AE%9A%E7%90%86"><span class="nav-number">3.1.</span> <span class="nav-text">改进版欧拉定理</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -169,25 +164,20 @@
     <img class="site-author-image" itemprop="image" alt="4XWi11"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">4XWi11</p>
-  <div class="site-description" itemprop="description">feiwu自进阶</div>
+  <div class="site-description" itemprop="description">They said don't play with idiots.🙃</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -196,7 +186,7 @@
         <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+        <a href="/MTI0OTg0NzE2NQo" title="MTI0OTg0NzE2NQo → MTI0OTg0NzE2NQo"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
@@ -235,7 +225,7 @@
 
         </div>
       </div>
-        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
@@ -267,13 +257,13 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/a2deb6fa/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="feiwu自进阶">
+      <meta itemprop="description" content="They said don't play with idiots.🙃">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -281,7 +271,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20211023 第四届浙江省大学生网络与信息安全竞赛（预赛）
+          20211023-第四届浙江省大学生网络与信息安全竞赛（预赛）-CryptoSecWriteUp
         </h1>
 
         <div class="post-meta-container">
@@ -290,49 +280,53 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-10-29 13:54:58" itemprop="dateCreated datePublished" datetime="2021-10-29T13:54:58+08:00">2021-10-29</time>
+      <time title="Created: 2021-10-29 13:54:58" itemprop="dateCreated datePublished" datetime="2021-10-29T13:54:58+08:00">2021-10-29</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-10-30 08:38:46" itemprop="dateModified" datetime="2021-10-30T08:38:46+08:00">2021-10-30</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-09-01 00:08:41" itemprop="dateModified" datetime="2022-09-01T00:08:41+08:00">2022-09-01</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+          <a href="/categories/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF-Crypto/WriteUp/" itemprop="url" rel="index"><span itemprop="name">WriteUp</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">Views: </span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="Symbols count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>19k</span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>18k</span>
     </span>
-    <span class="post-meta-item" title="阅读时长">
+    <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>17 分钟</span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>16 mins.</span>
     </span>
 </div>
 
@@ -343,18 +337,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>呜呜呜，出大问题</p>
-<p>复现写WP的时候，Typora突然崩溃，还好这篇博客9我狗命</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/liujun03/article/details/82660303">https://blog.csdn.net/liujun03/article/details/82660303</a></p>
-<p>Typora会save没有保存的md，在偏好设置里；Typora！yyds</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029100343661.png" alt="image-20211029100343661"></p>
-<p>明天就是决赛了，赶在决赛前复现完</p>
-<span id="more"></span>
-
-<p>首先看下机房别的地方ipv4的配置，然后拿来换一个子网的地址</p>
-<p>md，配置又搞了半天，实验室请别人分配的，有机会一定学下网络</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211022172338715.png" alt="image-20211022172338715"></p>
-<h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h2 id="Easy-Railfence"><a href="#Easy-Railfence" class="headerlink" title="Easy Railfence"></a>Easy Railfence</h2><p>尝试分析逻辑失败，或者说要花的时间不值得</p>
+        <p>&nbsp;<span id="more"></span></p>
+<h1 id="Easy-Railfence"><a href="#Easy-Railfence" class="headerlink" title="Easy Railfence"></a>Easy Railfence</h1><p>尝试分析逻辑失败，或者说这么做你就慢了</p>
 <p>题目提示Rail，key和offset未知，那么直接手撕</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211023132429655.png" alt="image-20211023132429655"></p>
 <blockquote>
@@ -366,88 +350,60 @@
 <p>a88dd8d7894a7a65dda2d4c6d44357b9</p>
 </blockquote>
 <p>二血</p>
-<h2 id="EasyCrypto（recuring）"><a href="#EasyCrypto（recuring）" class="headerlink" title="EasyCrypto（recuring）"></a>EasyCrypto（recuring）</h2><blockquote>
+<h1 id="EasyCrypto"><a href="#EasyCrypto" class="headerlink" title="EasyCrypto"></a>EasyCrypto</h1><blockquote>
 <p>ip: 152.136.122.197<br>port: 52503<br>protocol: tcp</p>
 </blockquote>
-<p>nc链接，好隐晦不知道干嘛，不会又和上次WM一样吧</p>
-<p>没看到公告的附件，太卡了，拿到附件让逆向队友upx脱下壳</p>
-<p>煞笔，出尼玛逆向题</p>
+<p>先脱下壳</p>
 <p>要达到的攻击效果就是，要在login的时候，把<code>adminadmin</code>生成的<code>token</code>给发过去，但是在register阶段，不能加密任何包含<code>admin</code>字段的字符串</p>
-<hr>
-<p>从头开始，先脱壳，吾爱破解吧上随便找了个工具</p>
-<p>加壳的不能远调？</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211027175039980.png" alt="image-20211027175039980"></p>
-<p>whatever脱了就行</p>
-<p>然后尽力了，逆向做的不多，刚开始学，而且还是用C++写的，虽然比之前的伪代码好懂多（不知道是不是出题人有意为之）， 但是做到最后看不出来是哪一模式的AES</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> __cdecl __noreturn <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> **argv, <span class="keyword">const</span> <span class="keyword">char</span> **envp)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  v55 = __readfsqword(<span class="number">0x28</span>u);                   <span class="comment">// 开canary，跳过不影响理解</span></span><br><span class="line">  key_unknown = <span class="built_in">GenIV</span>();</span><br><span class="line">  iv_known = <span class="built_in">GenIV</span>();</span><br><span class="line">  std::<span class="keyword">operator</span>&lt;&lt;&lt;std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(&amp;std::cout, <span class="string">&quot;Here is IV: &quot;</span>);</span><br><span class="line">  <span class="comment">// 输出IV，每8位bin（8*16）转2位hex，填充为0，共32位</span></span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">15</span>; ++i )</span><br><span class="line">  &#123;</span><br><span class="line">    v3 = std::ostream::<span class="keyword">operator</span>&lt;&lt;(&amp;std::cout, std::hex);</span><br><span class="line">    v4 = std::setfill&lt;<span class="keyword">char</span>&gt;(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    v5 = std::<span class="keyword">operator</span>&lt;&lt;&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(v3, v4);</span><br><span class="line">    v6 = std::<span class="built_in">setw</span>(<span class="number">2</span>);</span><br><span class="line">    output_format = std::<span class="keyword">operator</span>&lt;&lt;&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(v5, v6);</span><br><span class="line">    v8 = std::bitset&lt;<span class="number">8ul</span>&gt;::<span class="built_in">to_ulong</span>(&amp;iv_known[i]);<span class="comment">// 转为十进制</span></span><br><span class="line">    std::ostream::<span class="keyword">operator</span>&lt;&lt;(output_format, v8);</span><br><span class="line">  &#125;</span><br><span class="line">  std::ostream::<span class="keyword">operator</span>&lt;&lt;(&amp;std::cout, &amp;std::endl&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;);</span><br><span class="line">  <span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="keyword">while</span> ( <span class="number">1</span> )</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="built_in">display</span>();</span><br><span class="line">        std::istream::<span class="keyword">operator</span>&gt;&gt;(&amp;std::cin, &amp;choice);</span><br><span class="line">        <span class="keyword">if</span> ( choice != <span class="number">1</span> )</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">basic_string</span>(name);</span><br><span class="line">        v9 = std::<span class="keyword">operator</span>&lt;&lt;&lt;std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(&amp;std::cout, <span class="string">&quot;Plz input your name: &quot;</span>);</span><br><span class="line">        std::ostream::<span class="keyword">operator</span>&lt;&lt;(v9, &amp;std::endl&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;);</span><br><span class="line">        std::<span class="keyword">operator</span>&gt;&gt;&lt;<span class="keyword">char</span>&gt;(&amp;std::cin, name);</span><br><span class="line">        <span class="comment">// 输入的name不包含&quot;admin&quot;，而且长度为16的倍数</span></span><br><span class="line">        <span class="keyword">if</span> ( std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">find</span>(name, <span class="string">&quot;admin&quot;</span>, <span class="number">0LL</span>) != <span class="number">-1</span></span><br><span class="line">          || (std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">length</span>(name) &amp; <span class="number">15</span>) != <span class="number">0</span> )</span><br><span class="line">        &#123;</span><br><span class="line">          v11 = std::<span class="keyword">operator</span>&lt;&lt;&lt;std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(&amp;std::cout, <span class="string">&quot;no no no&quot;</span>);</span><br><span class="line">          std::ostream::<span class="keyword">operator</span>&lt;&lt;(v11, &amp;std::endl&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;);</span><br><span class="line">          <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        v12 = std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">length</span>(name);</span><br><span class="line">        <span class="keyword">if</span> ( v12 &gt; <span class="number">1152921504606846975LL</span> )</span><br><span class="line">          __cxa_throw_bad_array_new_length();</span><br><span class="line">        v13 = <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="number">8</span> * v12);</span><br><span class="line">        v14 = v12 - <span class="number">1</span>;</span><br><span class="line">        v15 = v13;</span><br><span class="line">        <span class="keyword">while</span> ( v14 &gt;= <span class="number">0</span> )</span><br><span class="line">        &#123;</span><br><span class="line">          std::bitset&lt;8ul&gt;::<span class="built_in">bitset</span>(v15);</span><br><span class="line">          v15 += <span class="number">8LL</span>;</span><br><span class="line">          --v14;</span><br><span class="line">        &#125;</span><br><span class="line">        bin_name = v13;</span><br><span class="line">        <span class="comment">// 将name的每个字符取出来，并转成8位bin</span></span><br><span class="line">        <span class="keyword">for</span> ( j = <span class="number">0</span>; ; ++j )</span><br><span class="line">        &#123;</span><br><span class="line">          v16 = j;</span><br><span class="line">          <span class="keyword">if</span> ( v16 &gt;= std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">length</span>(name) )</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">          v17 = std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">at</span>(name, j);</span><br><span class="line">          std::bitset&lt;8ul&gt;::<span class="built_in">bitset</span>(&amp;v47, *v17);</span><br><span class="line">          *(bin_name + <span class="number">8LL</span> * j) = v47;</span><br><span class="line">        &#125;</span><br><span class="line">        len_name = std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">length</span>(name);</span><br><span class="line">        <span class="built_in">encode</span>(key_unknown, iv_known, bin_name, len_name);</span><br><span class="line">        std::<span class="keyword">operator</span>&lt;&lt;&lt;std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(&amp;std::cout, <span class="string">&quot;Here is your token: &quot;</span>);</span><br><span class="line">        <span class="comment">// 输出token</span></span><br><span class="line">        <span class="keyword">for</span> ( k = <span class="number">0</span>; ; ++k )</span><br><span class="line">        &#123;</span><br><span class="line">          v19 = k;</span><br><span class="line">          <span class="keyword">if</span> ( v19 &gt;= std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">length</span>(name) )</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">          v20 = std::ostream::<span class="keyword">operator</span>&lt;&lt;(&amp;std::cout, std::hex);</span><br><span class="line">          v21 = std::setfill&lt;<span class="keyword">char</span>&gt;(<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">          v22 = std::<span class="keyword">operator</span>&lt;&lt;&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(v20, v21);</span><br><span class="line">          v23 = std::<span class="built_in">setw</span>(<span class="number">2</span>);</span><br><span class="line">          v24 = std::<span class="keyword">operator</span>&lt;&lt;&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(v22, v23);</span><br><span class="line">          v25 = std::bitset&lt;<span class="number">8ul</span>&gt;::<span class="built_in">to_ulong</span>(<span class="number">8LL</span> * k + bin_name);</span><br><span class="line">          std::ostream::<span class="keyword">operator</span>&lt;&lt;(v24, v25);</span><br><span class="line">        &#125;</span><br><span class="line">        std::ostream::<span class="keyword">operator</span>&lt;&lt;(&amp;std::cout, &amp;std::endl&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;);</span><br><span class="line">        std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::~<span class="built_in">basic_string</span>(name);</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">if</span> ( choice != <span class="number">2</span> )</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">      std::<span class="keyword">operator</span>&lt;&lt;&lt;std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(&amp;std::cout, <span class="string">&quot;Plz input your token: &quot;</span>);</span><br><span class="line">      std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">basic_string</span>(input_token);</span><br><span class="line">      std::<span class="keyword">operator</span>&gt;&gt;&lt;<span class="keyword">char</span>&gt;(&amp;std::cin, input_token);</span><br><span class="line">      <span class="comment">// 长度必须是32的倍数</span></span><br><span class="line">      <span class="keyword">if</span> ( (std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">length</span>(input_token) &amp; <span class="number">31</span>) != <span class="number">0</span> )</span><br><span class="line">      &#123;</span><br><span class="line">        v26 = std::<span class="keyword">operator</span>&lt;&lt;&lt;std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(&amp;std::cout, <span class="string">&quot;no no no&quot;</span>);</span><br><span class="line">        std::ostream::<span class="keyword">operator</span>&lt;&lt;(v26, &amp;std::endl&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;);</span><br><span class="line">        <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      v27 = std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">length</span>(input_token) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> ( v27 &gt; <span class="number">0xFFFFFFFFFFFFFFF</span>LL )</span><br><span class="line">        __cxa_throw_bad_array_new_length();</span><br><span class="line">      init = <span class="keyword">operator</span> <span class="keyword">new</span>[](<span class="number">8</span> * v27);</span><br><span class="line">      v29 = v27 - <span class="number">1</span>;</span><br><span class="line">      v30 = init;</span><br><span class="line">      <span class="comment">// 把token的每两个字符取出，并转成bin</span></span><br><span class="line">      <span class="keyword">while</span> ( v29 &gt;= <span class="number">0</span> )</span><br><span class="line">      &#123;</span><br><span class="line">        std::bitset&lt;8ul&gt;::<span class="built_in">bitset</span>(v30);</span><br><span class="line">        v30 += <span class="number">8LL</span>;</span><br><span class="line">        --v29;</span><br><span class="line">      &#125;</span><br><span class="line">      bit_token = init;</span><br><span class="line">      <span class="keyword">for</span> ( m = <span class="number">0</span>; ; ++m )</span><br><span class="line">      &#123;</span><br><span class="line">        v31 = m;</span><br><span class="line">        <span class="keyword">if</span> ( v31 &gt;= std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">length</span>(input_token) &gt;&gt; <span class="number">1</span> )</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">substr</span>(</span><br><span class="line">          name,</span><br><span class="line">          input_token,</span><br><span class="line">          <span class="number">2</span> * m,</span><br><span class="line">          <span class="number">2LL</span>);</span><br><span class="line">        v32 = std::__cxx11::<span class="built_in">stoi</span>(name, <span class="number">0LL</span>, <span class="number">16LL</span>);</span><br><span class="line">        std::bitset&lt;8ul&gt;::<span class="built_in">bitset</span>(&amp;v47, v32);</span><br><span class="line">        *(bit_token + <span class="number">8LL</span> * m) = v47;</span><br><span class="line">        std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::~<span class="built_in">basic_string</span>(name);</span><br><span class="line">      &#125;</span><br><span class="line">      len_token = std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">length</span>(input_token);</span><br><span class="line">      <span class="built_in">decode</span>(key_unknown, iv_known, bit_token, (len_token &gt;&gt; <span class="number">1</span>));</span><br><span class="line">      std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">basic_string</span>(output_name);</span><br><span class="line">      <span class="comment">// 输出解密后的token</span></span><br><span class="line">      <span class="keyword">for</span> ( n = <span class="number">0</span>; ; ++n )</span><br><span class="line">      &#123;</span><br><span class="line">        v34 = n;</span><br><span class="line">        <span class="keyword">if</span> ( v34 &gt;= std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">length</span>(input_token) &gt;&gt; <span class="number">1</span> )</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        v35 = std::bitset&lt;<span class="number">8ul</span>&gt;::<span class="built_in">to_ulong</span>(<span class="number">8LL</span> * n + bit_token);</span><br><span class="line">        std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="keyword">operator</span>+=(output_name, v35);</span><br><span class="line">      &#125;</span><br><span class="line">      v36 = std::<span class="keyword">operator</span>&lt;&lt;&lt;std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(&amp;std::cout, <span class="string">&quot;Hello, &quot;</span>);</span><br><span class="line">      v37 = std::<span class="keyword">operator</span>&lt;&lt;&lt;<span class="keyword">char</span>&gt;(v36, output_name);</span><br><span class="line">      std::ostream::<span class="keyword">operator</span>&lt;&lt;(v37, &amp;std::endl&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;);</span><br><span class="line">      <span class="comment">// 从output_name中取前10个作为name</span></span><br><span class="line">      std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">substr</span>(name, output_name, <span class="number">0LL</span>, <span class="number">10LL</span>);</span><br><span class="line">      tip = std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::<span class="built_in">compare</span>(name, <span class="string">&quot;adminadmin&quot;</span>) == <span class="number">0</span>;</span><br><span class="line">      std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::~<span class="built_in">basic_string</span>(name);</span><br><span class="line">      <span class="keyword">if</span> ( tip )</span><br><span class="line">      &#123;</span><br><span class="line">        get_flag = std::<span class="keyword">operator</span>&lt;&lt;&lt;<span class="keyword">char</span>&gt;(&amp;std::cout, &amp;flag[abi:cxx11]);</span><br><span class="line">        std::ostream::<span class="keyword">operator</span>&lt;&lt;(get_flag, &amp;std::endl&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;);</span><br><span class="line">      &#125;</span><br><span class="line">      std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::~<span class="built_in">basic_string</span>(output_name);</span><br><span class="line">      std::__cxx11::basic_string&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;,std::allocator&lt;<span class="keyword">char</span>&gt;&gt;::~<span class="built_in">basic_string</span>(input_token);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( choice == <span class="number">3</span> )</span><br><span class="line">      <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">    v40 = std::<span class="keyword">operator</span>&lt;&lt;&lt;std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;(&amp;std::cout, <span class="string">&quot;Wrong choice&quot;</span>);</span><br><span class="line">    std::ostream::<span class="keyword">operator</span>&lt;&lt;(v40, &amp;std::endl&lt;<span class="keyword">char</span>,std::char_traits&lt;<span class="keyword">char</span>&gt;&gt;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>然后加密函数</p>
+<p>加密函数</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> __int64 __fastcall <span class="title">encode</span><span class="params">(__int64 KEY, __int64 known_iv, __int64 plaintext, <span class="keyword">int</span> length)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v4; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">int</span> i; <span class="comment">// [rsp+20h] [rbp-200h]</span></span><br><span class="line">  <span class="keyword">int</span> v9; <span class="comment">// [rsp+24h] [rbp-1FCh]</span></span><br><span class="line">  <span class="keyword">int</span> j; <span class="comment">// [rsp+28h] [rbp-1F8h]</span></span><br><span class="line">  <span class="keyword">int</span> k; <span class="comment">// [rsp+2Ch] [rbp-1F4h]</span></span><br><span class="line">  __int64 iv[<span class="number">16</span>]; <span class="comment">// [rsp+30h] [rbp-1F0h] BYREF</span></span><br><span class="line">  <span class="keyword">char</span> key[<span class="number">360</span>]; <span class="comment">// [rsp+B0h] [rbp-170h] BYREF</span></span><br><span class="line">  <span class="keyword">unsigned</span> __int64 v14; <span class="comment">// [rsp+218h] [rbp-8h]</span></span><br><span class="line"></span><br><span class="line">  v14 = __readfsqword(<span class="number">0x28</span>u);</span><br><span class="line">  <span class="built_in">memset</span>(key, <span class="number">0</span>, <span class="number">352uLL</span>);</span><br><span class="line">  <span class="built_in">KeyExpansion</span>(KEY, key);</span><br><span class="line">  <span class="built_in">memset</span>(iv, <span class="number">0</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(iv));</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">15</span>; ++i )</span><br><span class="line">    iv[i] = *(known_iv + <span class="number">8LL</span> * i);</span><br><span class="line">  v9 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> ( j = <span class="number">0</span>; j &lt; length; ++j )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">encrypt</span>(iv, key);</span><br><span class="line">    std::bitset&lt;8ul&gt;::<span class="keyword">operator</span>^=(plaintext + <span class="number">8LL</span> * v9, iv);</span><br><span class="line">    <span class="keyword">for</span> ( k = <span class="number">0</span>; k &lt;= <span class="number">14</span>; ++k )</span><br><span class="line">      iv[k] = iv[k + <span class="number">1</span>];</span><br><span class="line">    v4 = v9++;</span><br><span class="line">    iv[<span class="number">15</span>] = *(<span class="number">8LL</span> * v4 + plaintext);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> __readfsqword(<span class="number">0x28</span>u) ^ v14;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>解密函数</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> __int64 __fastcall <span class="title">decode</span><span class="params">(__int64 a1, __int64 a2, __int64 a3, <span class="keyword">int</span> a4)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">int</span> v4; <span class="comment">// eax</span></span><br><span class="line">  <span class="keyword">int</span> i; <span class="comment">// [rsp+24h] [rbp-20Ch]</span></span><br><span class="line">  <span class="keyword">int</span> v9; <span class="comment">// [rsp+28h] [rbp-208h]</span></span><br><span class="line">  <span class="keyword">int</span> j; <span class="comment">// [rsp+2Ch] [rbp-204h]</span></span><br><span class="line">  <span class="keyword">int</span> k; <span class="comment">// [rsp+30h] [rbp-200h]</span></span><br><span class="line">  <span class="keyword">int</span> v12; <span class="comment">// [rsp+34h] [rbp-1FCh]</span></span><br><span class="line">  __int64 v13; <span class="comment">// [rsp+38h] [rbp-1F8h] BYREF</span></span><br><span class="line">  __int64 v14[<span class="number">16</span>]; <span class="comment">// [rsp+40h] [rbp-1F0h] BYREF</span></span><br><span class="line">  <span class="keyword">char</span> v15[<span class="number">360</span>]; <span class="comment">// [rsp+C0h] [rbp-170h] BYREF</span></span><br><span class="line">  <span class="keyword">unsigned</span> __int64 v16; <span class="comment">// [rsp+228h] [rbp-8h]</span></span><br><span class="line"></span><br><span class="line">  v16 = __readfsqword(<span class="number">0x28</span>u);</span><br><span class="line">  <span class="built_in">memset</span>(v15, <span class="number">0</span>, <span class="number">0x160</span>uLL);</span><br><span class="line">  <span class="built_in">KeyExpansion</span>(a1, v15);</span><br><span class="line">  <span class="built_in">memset</span>(v14, <span class="number">0</span>, <span class="built_in"><span class="keyword">sizeof</span></span>(v14));</span><br><span class="line">  <span class="keyword">for</span> ( i = <span class="number">0</span>; i &lt;= <span class="number">15</span>; ++i )</span><br><span class="line">    v14[i] = *(a2 + <span class="number">8LL</span> * i);</span><br><span class="line">  v9 = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">for</span> ( j = <span class="number">0</span>; j &lt; a4; ++j )</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="built_in">encrypt</span>(v14, v15);</span><br><span class="line">    v12 = std::bitset&lt;<span class="number">8ul</span>&gt;::<span class="built_in">to_ulong</span>(<span class="number">8LL</span> * v9 + a3);</span><br><span class="line">    v4 = v9++;</span><br><span class="line">    std::bitset&lt;8ul&gt;::<span class="keyword">operator</span>^=(a3 + <span class="number">8LL</span> * v4, v14);</span><br><span class="line">    <span class="keyword">for</span> ( k = <span class="number">0</span>; k &lt;= <span class="number">14</span>; ++k )</span><br><span class="line">      v14[k] = v14[k + <span class="number">1</span>];</span><br><span class="line">    std::bitset&lt;8ul&gt;::<span class="built_in">bitset</span>(&amp;v13, v12);</span><br><span class="line">    v14[<span class="number">15</span>] = v13;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> __readfsqword(<span class="number">0x28</span>u) ^ v16;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>可以看出是AES，感觉是CFB？</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/12232528-c5c4946255a849379be143aaca8d1ecf.png" alt="img"></p>
-<p>借一下上次的图</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/20180903220102338"></p>
-<p>我觉得已知IV，根据重排攻击，搞出<code>E_KEY(IV)</code>，应该不难，然后另起炉灶，用IV和KEY加密以<code>adminadmin</code>开头的明文，再send过去就好了</p>
-<p>吧</p>
-<p>之前字节CTF就做到类似的，看V神的博客知道怎么攻击，可惜没实现</p>
-<p>然后网上搜到翻车鱼师傅的博客</p>
-<p><a target="_blank" rel="noopener" href="https://blog.shi1011.cn/ctf/1700">https://blog.shi1011.cn/ctf/1700</a></p>
-<p>寄</p>
-<p>虽然比赛的想到绕过<code>if</code>，让逆向队友帮<code>nop</code>了一下，但是机智的我想改了本地有毛用，服务器没变啊</p>
-<p>。。。忘了可以在动调的时候直接改内存，把本地的IV改成服务器跑的IV，然后加密<code>adminadmin</code>填充成16长度的字符</p>
-<p>emmmmmm逆向的基本素质不够，归结于这方面做的不多</p>
-<p>看着师傅的博客一边复现一边学</p>
-<hr>
-<p>绕过加密的<code>if</code>，将<code>admin</code>字符串改成别的</p>
+<p>这一些列操作可以看出是AES</p>
+<p>但可惜这是披着密码学外皮的逆向题，参考<a target="_blank" rel="noopener" href="https://blog.shi1011.cn/ctf/1700">Mas0n-第四届浙江省大学生网络与信息安全竞赛(预赛)-EasyCrypto</a></p>
+<p>虽然比赛时想到nop if，但是机智的我想改了本地有毛用，服务器没变啊</p>
+<p>其实可以在IDA调试的时候直接改内存，把本地的IV改成服务器跑的IV，然后加密<code>adminadmin</code>填充成16长度的字符</p>
+<p>步骤如下</p>
+<p>先绕过加密的<code>if</code>，将<code>admin</code>字符串改成别的</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029135700673.png" alt="image-20211029135700673"></p>
 <p>再在<code>GenIV</code>的时候下个断点，远程调试，步入<code>GenIV</code></p>
-<p>这里还有一点二进制方向的点，就是IV和KEY其实是同一个，动调也可以看出在加密的时候两个寄存器的值其实是一样的</p>
+<p>这里IV和KEY其实是同一个，调试时也可以看出在加密的时候两个寄存器的值其实是一样的</p>
 <p>原因主要是和这个有关系吧</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029135938979.png" alt="image-20211029135938979"></p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029135947278.png" alt="image-20211029135947278"></p>
 <p>返回的这个是一个全局变量；所以我们一定要步入，在<code>return</code>之前把<code>0x561885e08300</code>处的值给改成服务器的IV</p>
-<p>可以像师傅那样写个脚本放进ida，也可以。。。emmmmm按理说也可以手动patch掉啊，没成功，以后再说</p>
 <p>偷下脚本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">addr = <span class="number">0x55DF1EE08300</span>  <span class="comment"># patch address</span></span><br><span class="line">test = <span class="string">&quot;2beb18d821cc340659a730a1ac571bb3&quot;</span>  <span class="comment"># patch hex data</span></span><br><span class="line">ps = [i <span class="keyword">for</span> i <span class="keyword">in</span> <span class="string">b&#x27;&#x27;</span>.fromhex(test)]</span><br><span class="line"><span class="keyword">for</span> i, v <span class="keyword">in</span> <span class="built_in">enumerate</span>(ps):</span><br><span class="line">    ida_bytes.patch_qword(addr+i * <span class="number">8</span>, v)</span><br></pre></td></tr></table></figure>
 
 <p>反正就是把这些数据给换成连上服务器的IV</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029143511328.png" alt="image-20211029143511328"></p>
-<p>IV和KEY都要改</p>
-<p>可以看到</p>
+<p>IV和KEY都要改，可以看到两个IV是一样的了</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029143704073.png" alt="image-20211029143704073"></p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029143734257.png" alt="image-20211029143734257"></p>
-<p>两个IV是一样的了，现在是要加密<code>adminadmin</code>后面随便填充满16个字符</p>
+<p>现在是要加密<code>adminadmin</code>后面随便填充满16个字符</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029143854710.png" alt="image-20211029143854710"></p>
 <p>把加密的结果给服务器，就获得flag啦</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211029143943526.png" alt="image-20211029143943526"></p>
-<p>当然这是本地的</p>
-<p><em>挺好的，懂一点二进制的知识，也不是很难，200分还凑合吧，因为没有涉及到密码攻击</em></p>
-<h2 id="可信计算1（recuring）"><a href="#可信计算1（recuring）" class="headerlink" title="可信计算1（recuring）"></a>可信计算1（recuring）</h2><blockquote>
+<h1 id="可信计算1"><a href="#可信计算1" class="headerlink" title="可信计算1"></a>可信计算1</h1><blockquote>
 <p>密码体制是可信计算的基础，我国可信计算密码体制借鉴国际先进的可信计算技术框架与技术理念并自主创新,是构建我国可信计算技术规范体系的基础。非对称密码算法采用的椭圆曲线密码算法. 包括三个子算法: 椭圆曲线数字签名算法(SM2-1)、椭圆曲线密钥交换协议(SM2-2)、椭圆曲线公钥加密算法(SM2-3). 对称密码算法采用SM-4算法。差分故障分析攻击是一种强大的密码分析技术，可通过利用加密（解密）过程中的计算错误来检索密钥。我国科研人员提出了使用单一故障（single fault）对SMS4（即SM4）进行新的攻击。黑客利用此攻击获得了密钥并且再经过了一系列RSA加密。你能重新解密它吗？</p>
 </blockquote>
-<p>给了篇论文，让我们填代码，xs</p>
 <p>要完整一个attack脚本得到<code>solution()</code>的值，然后解RSA，得到的明文和<code>solution()</code>的值异或就是flag</p>
 <p>离比赛结束还有一个四五十分钟左右上了提示，相当于告诉了我们<code>solution()</code>的值，所以只要解RSA就好了</p>
-<p>（所以本来300分的题目，现在顶多200吧</p>
-<p>第二个n很奇怪，中间有很多<code>0</code>，显然是有意构造的，尝试，然后用<strong>Williams’s p+1 光滑数</strong>分解出来了</p>
+<p>第二个n很奇怪，中间有很多<code>0</code>，显然是有意构造的，然后用Williams’s p+1 光滑数分解出来了</p>
 <p>最后要求d</p>
 <hr>
-<p>我们现在相当于知道$n\times D\equiv 1\ (mod\ lcm(p-1, q-1))$，要求$n\times d\equiv 1\ (mod\ \varphi(n))$，其中$n=p^2q$</p>
-<p>我的思路是和dp泄露攻击那样，将上式写成<br>$$<br>n\times D=1+k\times \frac{(p-1)(q-1)}{gcd(p-1, q-1)}<br>$$<br>但是$k$的位数是朝$n$看齐的，$n$太大了</p>
-<p>赛后给老韩看了这题，然后就出了</p>
-<p>前导知识</p>
-<h3 id="改进版欧拉定理"><a href="#改进版欧拉定理" class="headerlink" title="改进版欧拉定理"></a>改进版欧拉定理</h3><p>$n=pq$</p>
+<h2 id="改进版欧拉定理"><a href="#改进版欧拉定理" class="headerlink" title="改进版欧拉定理"></a>改进版欧拉定理</h2><p>$n=pq$</p>
 <p>欧拉定理：如果$ed\equiv 1\ (mod\ \varphi(n))$，则$m^{ed}\equiv m\ (mod\ n)$</p>
-<p>改进版欧拉定理：如果$ed\equiv 1(mod\ lcm(p-1,\ q-1))$，则$m^{ed}\equiv m\ (mod\ n)$</p>
-<p>证明…</p>
+<p>改进版欧拉定理：如果$ed\equiv 1\ (mod\ lcm(p-1,\ q-1))$，则$m^{ed}\equiv m\ (mod\ n)$</p>
+<p>证明略</p>
 <p>按理说只要把$e\times d=1+k\frac{\varphi(n)}{(p-1,\ q-1)}$中的$\frac{k}{(p-1,\ q-1)}$当成一体就好了，但$(p-1,\ q-1)|k$成立吗</p>
-<p>emmmmm验证了下$(p-1,\ q-1)|k$确实不一定成立，但可能$e\times d=1+k\frac{\varphi(n)}{(p-1,\ q-1)}$这个等式还是成立的吧，虽然涉及到了实数域</p>
+<p>验证了下$(p-1,\ q-1)|k$确实不一定成立，但可能$e\times d=1+k\frac{\varphi(n)}{(p-1,\ q-1)}$这个等式还是成立的吧，虽然涉及到了实数域</p>
 <hr>
-<p>所以由$n\times D\equiv 1\ (mod\ lcm(p-1, q-1))$以及改进版的欧拉定理可知，随便取一个底数$a=2$<br>$$<br>a^{n\times D}\equiv a\ (mod\ pq)<br>$$<br>即<br>$$<br>a^{n\times D}-a=kpq<br>$$<br>所以$(a^{nD},\ n)=pq$，成功分解$n$</p>
+<p>所以由$n\times D\equiv 1\ (mod\ lcm(p-1, q-1))$以及改进版的欧拉定理可知，随便取一个底数$a=2$<br>$$<br>a^{n\times D}\equiv a\ (mod\ pq)\notag<br>$$<br>即<br>$$<br>a^{n\times D}-a=kpq\notag<br>$$<br>所以$(a^{nD},\ n)=pq$，成功分解$n$</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">solution = <span class="number">294165584142200864568246241265541097157</span></span><br><span class="line"></span><br><span class="line">n1 = <span class="number">4405077945973437035419287286810342680467164824994445863017287425857718058064367794640412586853078343089682257199040398279405943520831910368411272144036263290429027279134620341369472867932142748943900939370411886210476130066241817638604325934138989972586283462534982142208555273727206617309988865793455361561026132931733994626398919219203496779449010438682739786866247084252598908907212620561764983861943789642115256382514700516697279459245070020692018083897351520741894187752652555621713799960889861847955471596042981878988930182754796995540025157400222655523547124372140444854366346125175141685537518528913398362475082963023550518705007434135499146966555320343509832799572533328142914873980714083464226641803937211470059111827905761731285053449287872425538901604516967439734828113276097444621288760780510574237036765614111782882785171493934512613063976597374878482039022229525679671485667155329416043448757872980255141203521</span></span><br><span class="line">c1 = <span class="number">2040470907728559562144837701471699958842886502924143170940951920300330705469920644505358508388311496777477054764995077035235698658575174832523551852726014373980149374239009390776201109902621711966732796749320068316711336025560029911784168004125304818031813523186592291392842343696718617379290904175534035887756216695721678801280463979349357202298738101109440012007130354993844420187364636715038757505869998163074221607302922729567651885580362184785959736170342652272664233424398501795600338328896721625926411402939719604380362340818655911893820365244157271443958395915293530188623023020308158679057671088211570631031550074345806554689087361996299749696847678943351283609450756224172170448677652692971780286821516767097534780167858067007235131095286410071429519192415627585362097426875776726171657935230143030934637299115037016218434359722137587559402819756667711939086772125532873443844710837902048558986519222802598324087583</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">3361086170602976142504997268236060982692605108576474794795911687547279286733833098612106940194747346221692033159371528530653580115390416679967729710739174614379783218150098775149592689781035438321880866528914504243891928775112620156291222559241186219350045576860324184984735637154578516733940554948973282721369434595704714389150209345475950609404181675208130514911232000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000097508979015194291132949514722911166191363461601383827147483675839887898302732717796964400033872583058988279308060265340699924854046743595567336710903145223470556072888621727183623668024948924590490882481168049365076186311734867473877377902845426106748782634088122150575479955070755466863095062214590909653863</span></span><br><span class="line">c = <span class="number">598528858874810608065902501620874503014983670463266646290832635056421227205733327736057508619507831133535572690260972254673128968946338072045290665489556437771583204624715681429388530078963430052969789886108472984729092440081160180316457652683648340266414640837170058066574014124614892099724102821458274691436449398719884109828222614007036994527592436185050484088075330462117248110919293447235934889162344407129203590386811121673967605695147649017737632402213023246402884535810392728946424610066090206055089489564077161138777977263714359210319267561616696663416315333732256499607636067924154333627546883589391082646997265511574165830249101937578220829206006989141322034410996411299176651062407272902632250281656652195986385298937692081569486464058189515727080309131120211009473690551213672202034941099429474075795457621831397212467951367964925257121811464825340910886150457508279599024005394220037658075742792005357721304591247193598733190937420575987082139043012560262600423787438345332029289463428943040573800279205970491450959972460765085149920791397381555581880453992</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 34469504291284154037699166143795871571814385224074410328064000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001 97508979015194291132949514722911166191363461601383827147483675839887898302732717796964400033872583058988279308060265340699924854046743595567336710903145223470556072888621727183623668024948924590490882481168049365076186311734867473877377902845426106748782634088122150575479955070755466863095062214590909653863</span></span><br><span class="line">p = <span class="number">97508979015194291132949514722911166191363461601383827147483675839887898302732717796964400033872583058988279308060265340699924854046743595567336710903145223470556072888621727183623668024948924590490882481168049365076186311734867473877377902845426106748782634088122150575479955070755466863095062214590909653863</span></span><br><span class="line">q = <span class="number">34469504291284154037699166143795871571814385224074410328064000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001</span></span><br><span class="line">phi = (p-<span class="number">1</span>)*(q-<span class="number">1</span>)</span><br><span class="line"><span class="keyword">assert</span> n == p * q</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">D = gmpy2.invert(e, phi)</span><br><span class="line">d = <span class="built_in">pow</span>(c, D, n)</span><br><span class="line">pq = gmpy2.gcd(n1, (<span class="built_in">pow</span>(<span class="number">2</span>, n1*d, n1)-<span class="number">2</span>) % n1)</span><br><span class="line">P = n1 // pq</span><br><span class="line">Q = n1 // (P ** <span class="number">2</span>)</span><br><span class="line"><span class="keyword">assert</span> P ** <span class="number">2</span> * Q == n1</span><br><span class="line">fake_phin1 = (P-<span class="number">1</span>)*(Q-<span class="number">1</span>)</span><br><span class="line">d = gmpy2.invert(n1, P-<span class="number">1</span>)</span><br><span class="line">flag = long_to_bytes(<span class="built_in">pow</span>(c1, d, P) ^ solution)</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -466,14 +422,14 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>4XWi11
+      <strong>Post author:  </strong>4XWi11
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/a2deb6fa/" title="20211023 第四届浙江省大学生网络与信息安全竞赛（预赛）">https://4xwi11.github.io/posts/a2deb6fa/</a>
+      <strong>Post link: </strong>
+      <a href="https://4xwi11.github.io/posts/a2deb6fa/" title="20211023-第四届浙江省大学生网络与信息安全竞赛（预赛）-CryptoSecWriteUp">https://4xwi11.github.io/posts/a2deb6fa/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -483,13 +439,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/c8e83216/" rel="prev" title="ECC">
-                  <i class="fa fa-chevron-left"></i> ECC
+                <a href="/posts/4251790a/" rel="prev" title="20211011-莲城杯-CryptoSecWriteUp">
+                  <i class="fa fa-chevron-left"></i> 20211011-莲城杯-CryptoSecWriteUp
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/a2b6ecd3/" rel="next" title="NTRU">
-                  NTRU <i class="fa fa-chevron-right"></i>
+                <a href="/posts/2e516684/" rel="next" title="20211030-第四届浙江省大学生网络与信息安全竞赛（决赛）-CryptoSecWriteUp">
+                  20211030-第四届浙江省大学生网络与信息安全竞赛（决赛）-CryptoSecWriteUp <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -529,8 +485,8 @@
           mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
           seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
           snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
-          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
       } 
   setInterval("createtime()",250);
   </script>
@@ -540,13 +496,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1m</span>
+    <span title="Symbols count total">873k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:51</span>
+    <span title="Reading time total">13:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -554,7 +510,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -562,20 +518,26 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+// 在最后添加<script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
@@ -583,6 +545,7 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   

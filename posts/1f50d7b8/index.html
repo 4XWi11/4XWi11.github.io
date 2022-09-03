@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,19 +17,19 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="又是零解的一天，凭借强悍的队友，全程只靠web晋级 但还是太菜了，密码全程做下来很麻，series和ticket_login零解，easyRSA十一解；比赛中看的两道都感觉做过，series和斐波那契数列那题很像，已知少了点；easyRSA就完全是原题了，就是海洋大学校赛的那道题差不多类似，只是二进制改成十进制了，这次吃了只抄脚本的亏了。好在尚师傅比赛结束就用第五空间的脚本改出来了，能让我对这种类">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="series 0 solve  ticket_login 0 solve  easyRSA 11 solves  4xwi11 0 solve">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20210925 长安杯Crypto方向部分复现">
+<meta property="og:title" content="20210925-长安杯-CryptoSecPartWriteUp">
 <meta property="og:url" content="https://4xwi11.github.io/posts/1f50d7b8/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
-<meta property="og:description" content="又是零解的一天，凭借强悍的队友，全程只靠web晋级 但还是太菜了，密码全程做下来很麻，series和ticket_login零解，easyRSA十一解；比赛中看的两道都感觉做过，series和斐波那契数列那题很像，已知少了点；easyRSA就完全是原题了，就是海洋大学校赛的那道题差不多类似，只是二进制改成十进制了，这次吃了只抄脚本的亏了。好在尚师傅比赛结束就用第五空间的脚本改出来了，能让我对这种类">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:description" content="series 0 solve  ticket_login 0 solve  easyRSA 11 solves  4xwi11 0 solve">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-10-09T03:03:44.000Z">
-<meta property="article:modified_time" content="2021-10-09T03:30:51.280Z">
+<meta property="article:modified_time" content="2022-09-02T15:16:13.078Z">
 <meta property="article:author" content="4XWi11">
-<meta property="article:tag" content="RSA p^q">
 <meta name="twitter:card" content="summary">
 
 
@@ -37,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/1f50d7b8/","path":"posts/1f50d7b8/","title":"20210925 长安杯Crypto方向部分复现"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/1f50d7b8/","path":"posts/1f50d7b8/","title":"20210925-长安杯-CryptoSecPartWriteUp"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>20210925 长安杯Crypto方向部分复现 | 4XWi11's Blog</title>
+<title>20210925-长安杯-CryptoSecPartWriteUp | 4XWi11's Blog</title>
   
 
 
@@ -58,7 +58,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -85,13 +85,12 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -106,7 +105,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
@@ -136,17 +135,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%95%BF%E5%AE%89%E6%9D%AF"><span class="nav-number">1.</span> <span class="nav-text">长安杯</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#easyRSA"><span class="nav-number">2.</span> <span class="nav-text">easyRSA</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#easyRSA"><span class="nav-number">1.</span> <span class="nav-text">easyRSA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -155,25 +154,20 @@
     <img class="site-author-image" itemprop="image" alt="4XWi11"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">4XWi11</p>
-  <div class="site-description" itemprop="description">feiwu自进阶</div>
+  <div class="site-description" itemprop="description">They said don't play with idiots.🙃</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -182,7 +176,7 @@
         <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+        <a href="/MTI0OTg0NzE2NQo" title="MTI0OTg0NzE2NQo → MTI0OTg0NzE2NQo"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
@@ -221,7 +215,7 @@
 
         </div>
       </div>
-        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
@@ -253,13 +247,13 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/1f50d7b8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="feiwu自进阶">
+      <meta itemprop="description" content="They said don't play with idiots.🙃">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -267,7 +261,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20210925 长安杯Crypto方向部分复现
+          20210925-长安杯-CryptoSecPartWriteUp
         </h1>
 
         <div class="post-meta-container">
@@ -276,43 +270,53 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-10-09 11:03:44 / 修改时间：11:30:51" itemprop="dateCreated datePublished" datetime="2021-10-09T11:03:44+08:00">2021-10-09</time>
+      <time title="Created: 2021-10-09 11:03:44" itemprop="dateCreated datePublished" datetime="2021-10-09T11:03:44+08:00">2021-10-09</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-09-02 23:16:13" itemprop="dateModified" datetime="2022-09-02T23:16:13+08:00">2022-09-02</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+          <a href="/categories/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF-Crypto/WriteUp/" itemprop="url" rel="index"><span itemprop="name">WriteUp</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">Views: </span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="Symbols count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>2.2k</span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.5k</span>
     </span>
-    <span class="post-meta-item" title="阅读时长">
+    <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>2 分钟</span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -323,26 +327,39 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>又是零解的一天，凭借强悍的队友，全程只靠web晋级</p>
-<p>但还是太菜了，密码全程做下来很麻，series和ticket_login零解，easyRSA十一解；比赛中看的两道都感觉做过，series和<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_49109277/article/details/117441546?spm=1001.2014.3001.5501">斐波那契数列</a>那题很像，已知少了点；easyRSA就完全是原题了，就是<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_49109277/article/details/120402275?spm=1001.2014.3001.5501">海洋大学校赛</a>的那道题差不多类似，只是二进制改成十进制了，这次吃了只抄脚本的亏了。好在尚师傅比赛结束就用第五空间的脚本改出来了，能让我对这种类型的题目加以理解</p>
+        <ul>
+<li><p>series 0 solve</p>
+</li>
+<li><p>ticket_login 0 solve</p>
+</li>
+<li><p>easyRSA 11 solves</p>
+</li>
+<li><p>4xwi11 0 solve</p>
+</li>
+</ul>
 <span id="more"></span>
 
-<h2 id="长安杯"><a href="#长安杯" class="headerlink" title="长安杯"></a>长安杯</h2><h2 id="easyRSA"><a href="#easyRSA" class="headerlink" title="easyRSA"></a>easyRSA</h2><p>第三次遇到了，但网上对这种类型题目的介绍少之甚少，也可能是我没搜到；但对于大师傅而言这都是很基础很基础的了，懒得写脚本的那种</p>
-<p>（这不就有了吗，<a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/2087588/integer-factorization-with-additional-knowledge-of-p-oplus-q">来自官方WP</a>，四年前的）</p>
-<hr>
-<p>对于读懂代码环节，下面两句话是关键，也是尚师傅看出来的</p>
+<h1 id="easyRSA"><a href="#easyRSA" class="headerlink" title="easyRSA"></a>easyRSA</h1><p>与<a href="https://4xwi11.github.io/posts/ea88a88e/?highlight=blue+whale#classical">BlueWhale2021-classical</a>类似，只是二进制改成十进制了</p>
+<p>题目</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># from secret import flag</span></span><br><span class="line">flag = <span class="string">b&#x27;flag&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">a,b</span>):</span></span><br><span class="line">    <span class="keyword">if</span>(a&lt;b):</span><br><span class="line">        a0 = <span class="built_in">str</span>(b).encode()</span><br><span class="line">        b0 = <span class="built_in">str</span>(a).encode()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        a0 = <span class="built_in">str</span>(a).encode()</span><br><span class="line">        b0 = <span class="built_in">str</span>(b).encode()</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(a0)-<span class="built_in">len</span>(b0)):</span><br><span class="line">        ans = ans*<span class="number">10</span>+a0[i]-<span class="number">48</span></span><br><span class="line">    <span class="comment"># print(ans)</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(b0)):</span><br><span class="line">        ans = ans*<span class="number">10</span>+(a0[i+<span class="built_in">len</span>(a0)-<span class="built_in">len</span>(b0)]+b0[i]+<span class="number">4</span>)%<span class="number">10</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">mul</span>(<span class="params">a,b</span>):</span></span><br><span class="line">    <span class="keyword">if</span>(a&lt;b):</span><br><span class="line">        a0 = <span class="built_in">str</span>(b).encode()</span><br><span class="line">        b0 = <span class="built_in">str</span>(a).encode()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        a0 = <span class="built_in">str</span>(a).encode()</span><br><span class="line">        b0 = <span class="built_in">str</span>(b).encode()</span><br><span class="line">    ans = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(b0)):</span><br><span class="line">        ans = ans*<span class="number">10</span>+((a0[i+<span class="built_in">len</span>(a0)-<span class="built_in">len</span>(b0)]+<span class="number">2</span>)*(b0[i]+<span class="number">2</span>))%<span class="number">10</span></span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line">m = bytes_to_long(flag)</span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">p = getPrime(<span class="number">512</span>)</span><br><span class="line">q = getPrime(<span class="number">512</span>)</span><br><span class="line">n = p*q</span><br><span class="line"><span class="comment"># c = pow(m,e,n)</span></span><br><span class="line"><span class="built_in">print</span>(add(p,q))</span><br><span class="line"><span class="built_in">print</span>(p &amp; q)</span><br><span class="line"><span class="built_in">print</span>(mul(p,q))</span><br><span class="line"><span class="comment"># print(n)</span></span><br><span class="line"><span class="comment"># print(c)</span></span><br><span class="line"><span class="comment"># 10399034381787849923326924881454040531711492204619924608227265350044149907274051734345037676383421545973249148286183660679683016947030357640361405556516408</span></span><br><span class="line"><span class="comment"># 6004903250672248020273453078045186428048881010508070095760634049430058892705564009054400328070528434060550830050010084328522605000400260581038846465000861</span></span><br><span class="line"><span class="comment"># 100457237809578238448997689590363740025639066957321554834356116114019566855447194466985968666777662995007348443263561295712530012665535942780881309520544097928921920784417859632308854225762469971326925931642031846400402355926637518199130760304347996335637140724757568332604740023000379088112644537238901495181</span></span><br><span class="line"><span class="comment"># 49042009464540753864186870038605696433949255281829439530955555557471951265762643642510403828448619593655860548966001304965902133517879714352191832895783859451396658166132732818620715968231113019681486494621363269268257297512939412717227009564539512793374347236183475339558666141579267673676878540943373877937</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>关键是看懂下面两句话</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans = ans*<span class="number">10</span>+(a0[i+<span class="built_in">len</span>(a0)-<span class="built_in">len</span>(b0)]+b0[i]+<span class="number">4</span>)%<span class="number">10</span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ans = ans*<span class="number">10</span>+((a0[i+<span class="built_in">len</span>(a0)-<span class="built_in">len</span>(b0)]+<span class="number">2</span>)*(b0[i]+<span class="number">2</span>))%<span class="number">10</span></span><br></pre></td></tr></table></figure>
 
-<p>里面的数字不是随便添加的，而是由于前面转了字节，所以这里a0和b0是ascii码；上面实现的是没有进位也就是类似有限域是10的十进制加法和乘法</p>
+<p>即没有进位的十进制加法和乘法</p>
 <p>知道加和乘之后的结果，让我们求p和q</p>
-<p>虽然每一步都知道怎么推，但是堆叠多了，脑子转不过来；针对这道题有一种写法，感觉非常的巧妙</p>
+<p>可以这么写</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pq0 = [(<span class="number">0</span>, <span class="number">0</span>)]</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">    pq, pq0 = pq0, [(<span class="number">0</span>, <span class="number">0</span>)]</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
 <p>每次给pq0清空去装符合条件的新值，并用pq去存上一次的值，通过遍历pq选择符合条件的装入pq0</p>
-<p>确实讲不得清楚，自己也还没完全搞懂，先贴个脚本，再遇到用这个结构试试</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">n = <span class="number">100457237809578238448997689590363740025639066957321554834356116114019566855447194466985968666777662995007348443263561295712530012665535942780881309520544097928921920784417859632308854225762469971326925931642031846400402355926637518199130760304347996335637140724757568332604740023000379088112644537238901495181</span></span><br><span class="line">c = <span class="number">49042009464540753864186870038605696433949255281829439530955555557471951265762643642510403828448619593655860548966001304965902133517879714352191832895783859451396658166132732818620715968231113019681486494621363269268257297512939412717227009564539512793374347236183475339558666141579267673676878540943373877937</span></span><br><span class="line">ad = <span class="string">b&#x27;0399034381787849923326924881454040531711492204619924608227265350044149907274051734345037676383421545973249148286183660679683016947030357640361405556516408&#x27;</span></span><br><span class="line">mu = <span class="string">b&#x27;6004903250672248020273453078045186428048881010508070095760634049430058892705564009054400328070528434060550830050010084328522605000400260581038846465000861&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span>(<span class="params">xx, yy</span>):</span></span><br><span class="line">    res = []</span><br><span class="line">    <span class="keyword">for</span> xi <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>):</span><br><span class="line">        <span class="keyword">for</span> yi <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">10</span>):</span><br><span class="line">            <span class="keyword">if</span> (xi + yi) % <span class="number">10</span> == xx <span class="keyword">and</span> (xi * yi) % <span class="number">10</span> == yy:</span><br><span class="line">                res.append((xi, yi))</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">t, p0, q0</span>):</span></span><br><span class="line">    <span class="keyword">if</span> p0 * q0 % <span class="number">10</span> ** (t + <span class="number">1</span>) == n % (<span class="number">10</span> ** (t + <span class="number">1</span>)):</span><br><span class="line">        pq0.append((p0, q0))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">pq0 = [(<span class="number">0</span>, <span class="number">0</span>)]</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(mu)):</span><br><span class="line">    pq, pq0 = pq0, [(<span class="number">0</span>, <span class="number">0</span>)]</span><br><span class="line">    x = ad[-k - <span class="number">1</span>] - <span class="number">48</span></span><br><span class="line">    y = mu[-k - <span class="number">1</span>] - <span class="number">48</span></span><br><span class="line">    <span class="keyword">for</span> ans <span class="keyword">in</span> solve(x, y):</span><br><span class="line">        <span class="keyword">for</span> (i, j) <span class="keyword">in</span> pq:</span><br><span class="line">            i = (i + ans[<span class="number">0</span>] * <span class="number">10</span> ** k)</span><br><span class="line">            j = (j + ans[<span class="number">1</span>] * <span class="number">10</span> ** k)</span><br><span class="line">            add(k, i, j)</span><br><span class="line">p = pq0[-<span class="number">1</span>][<span class="number">0</span>]</span><br><span class="line"><span class="keyword">assert</span> n % p == <span class="number">0</span></span><br><span class="line">q = n // p</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(<span class="built_in">pow</span>(c, inverse(e, (p-<span class="number">1</span>)*(q-<span class="number">1</span>)), n)))</span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://math.stackexchange.com/questions/2087588/integer-factorization-with-additional-knowledge-of-p-oplus-q">官方WP</a></li>
+</ol>
+
     </div>
 
     
@@ -355,33 +372,30 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>4XWi11
+      <strong>Post author:  </strong>4XWi11
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/1f50d7b8/" title="20210925 长安杯Crypto方向部分复现">https://4xwi11.github.io/posts/1f50d7b8/</a>
+      <strong>Post link: </strong>
+      <a href="https://4xwi11.github.io/posts/1f50d7b8/" title="20210925-长安杯-CryptoSecPartWriteUp">https://4xwi11.github.io/posts/1f50d7b8/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
   </li>
 </ul>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/RSA-p-q/" rel="tag"># RSA p^q</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/90da693a/" rel="prev" title="20210923 天翼杯TeamGipsyWP">
-                  <i class="fa fa-chevron-left"></i> 20210923 天翼杯TeamGipsyWP
+                <a href="/posts/eabdfebd/" rel="prev" title="20210920-CTFSHOW月饼杯-CryptoSecWriteUp">
+                  <i class="fa fa-chevron-left"></i> 20210920-CTFSHOW月饼杯-CryptoSecWriteUp
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/85864d0a/" rel="next" title="20210929 绿城杯Crypto方向WP">
-                  20210929 绿城杯Crypto方向WP <i class="fa fa-chevron-right"></i>
+                <a href="/posts/85864d0a/" rel="next" title="20210929-绿城杯-CryptoSecWriteUp">
+                  20210929-绿城杯-CryptoSecWriteUp <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -421,8 +435,8 @@
           mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
           seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
           snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
-          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
       } 
   setInterval("createtime()",250);
   </script>
@@ -432,13 +446,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1m</span>
+    <span title="Symbols count total">873k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:51</span>
+    <span title="Reading time total">13:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -446,7 +460,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -454,20 +468,26 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+// 在最后添加<script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
@@ -475,6 +495,7 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   

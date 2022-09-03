@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,26 +17,26 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="今天东北的师傅给了他们那边比赛的三密码道题，期间看了第一道，求出n之后就没思路了；还有两道赛后复现的，都是AES.CBC，第二道从尚师傅那里获得提示，跳开了CBC模式本身，攻击点在pad；第三道pad可以利用的点被抹除了，并给了一个看似需要攻击的地方，但攻击点却在CBC模式本身 好了，我宣布尚师傅yyds">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="&amp;nbsp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20210908 某次比赛Crypto方向部分WP">
+<meta property="og:title" content="20210908-Untitled-CryptoSecWriteUp">
 <meta property="og:url" content="https://4xwi11.github.io/posts/e245e3dc/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
-<meta property="og:description" content="今天东北的师傅给了他们那边比赛的三密码道题，期间看了第一道，求出n之后就没思路了；还有两道赛后复现的，都是AES.CBC，第二道从尚师傅那里获得提示，跳开了CBC模式本身，攻击点在pad；第三道pad可以利用的点被抹除了，并给了一个看似需要攻击的地方，但攻击点却在CBC模式本身 好了，我宣布尚师傅yyds">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:description" content="&amp;nbsp;">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210908123225549.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211005133747776.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/AES_CBC.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210908210437443.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210908210552799.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210909082357017.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/cbc.jpg">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210909131814443.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210909132014232.png">
 <meta property="article:published_time" content="2021-10-08T05:49:22.000Z">
-<meta property="article:modified_time" content="2022-05-17T08:19:26.422Z">
+<meta property="article:modified_time" content="2022-09-02T14:19:31.820Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210908123225549.png">
@@ -46,10 +46,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/e245e3dc/","path":"posts/e245e3dc/","title":"20210908 某次比赛Crypto方向部分WP"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/e245e3dc/","path":"posts/e245e3dc/","title":"20210908-Untitled-CryptoSecWriteUp"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>20210908 某次比赛Crypto方向部分WP | 4XWi11's Blog</title>
+<title>20210908-Untitled-CryptoSecWriteUp | 4XWi11's Blog</title>
   
 
 
@@ -67,7 +67,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -94,13 +94,12 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -115,7 +114,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
@@ -145,17 +144,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Yusa%E7%9A%84%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB%E2%80%94%E7%BE%8E%E5%9B%BD%E5%A4%A7%E9%80%89%EF%BC%88recuring%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">Yusa的日常生活—美国大选（recuring）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yusa%E7%9A%84%E5%AF%86%E7%A0%81%E5%AD%A6%E8%AF%BE%E5%A0%82%E2%80%94CBC%E7%AC%AC%E4%BA%8C%E8%AF%BE%EF%BC%88recuring%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">Yusa的密码学课堂—CBC第二课（recuring）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Yusa%E7%9A%84%E5%AF%86%E7%A0%81%E5%AD%A6%E8%AF%BE%E5%A0%82%E2%80%94CBC%E7%AC%AC%E4%B8%89%E8%AF%BE%EF%BC%88recuring%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">Yusa的密码学课堂—CBC第三课（recuring）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number"></span> <span class="nav-text">总结</span></a></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Yusa%E7%9A%84%E6%97%A5%E5%B8%B8%E7%94%9F%E6%B4%BB%E2%80%94%E7%BE%8E%E5%9B%BD%E5%A4%A7%E9%80%89"><span class="nav-number">1.</span> <span class="nav-text">Yusa的日常生活—美国大选</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yusa%E7%9A%84%E5%AF%86%E7%A0%81%E5%AD%A6%E8%AF%BE%E5%A0%82%E2%80%94CBC%E7%AC%AC%E4%BA%8C%E8%AF%BE"><span class="nav-number">2.</span> <span class="nav-text">Yusa的密码学课堂—CBC第二课</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Yusa%E7%9A%84%E5%AF%86%E7%A0%81%E5%AD%A6%E8%AF%BE%E5%A0%82%E2%80%94CBC%E7%AC%AC%E4%B8%89%E8%AF%BE"><span class="nav-number">3.</span> <span class="nav-text">Yusa的密码学课堂—CBC第三课</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -164,25 +163,20 @@
     <img class="site-author-image" itemprop="image" alt="4XWi11"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">4XWi11</p>
-  <div class="site-description" itemprop="description">feiwu自进阶</div>
+  <div class="site-description" itemprop="description">They said don't play with idiots.🙃</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -191,7 +185,7 @@
         <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+        <a href="/MTI0OTg0NzE2NQo" title="MTI0OTg0NzE2NQo → MTI0OTg0NzE2NQo"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
@@ -230,7 +224,7 @@
 
         </div>
       </div>
-        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
@@ -262,13 +256,13 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/e245e3dc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="feiwu自进阶">
+      <meta itemprop="description" content="They said don't play with idiots.🙃">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -276,7 +270,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20210908 某次比赛Crypto方向部分WP
+          20210908-Untitled-CryptoSecWriteUp
         </h1>
 
         <div class="post-meta-container">
@@ -285,49 +279,53 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-10-08 13:49:22" itemprop="dateCreated datePublished" datetime="2021-10-08T13:49:22+08:00">2021-10-08</time>
+      <time title="Created: 2021-10-08 13:49:22" itemprop="dateCreated datePublished" datetime="2021-10-08T13:49:22+08:00">2021-10-08</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-05-17 16:19:26" itemprop="dateModified" datetime="2022-05-17T16:19:26+08:00">2022-05-17</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-09-02 22:19:31" itemprop="dateModified" datetime="2022-09-02T22:19:31+08:00">2022-09-02</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+          <a href="/categories/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF-Crypto/WriteUp/" itemprop="url" rel="index"><span itemprop="name">WriteUp</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">Views: </span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="Symbols count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>13k</span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>11k</span>
     </span>
-    <span class="post-meta-item" title="阅读时长">
+    <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>12 分钟</span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>10 mins.</span>
     </span>
 </div>
 
@@ -338,11 +336,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>今天东北的师傅给了他们那边比赛的三密码道题，期间看了第一道，求出n之后就没思路了；还有两道赛后复现的，都是AES.CBC，第二道从尚师傅那里获得提示，跳开了CBC模式本身，攻击点在pad；第三道pad可以利用的点被抹除了，并给了一个看似需要攻击的地方，但攻击点却在CBC模式本身</p>
-<p>好了，我宣布尚师傅yyds</p>
-<span id="more"></span>
-
-<h2 id="Yusa的日常生活—美国大选（recuring）"><a href="#Yusa的日常生活—美国大选（recuring）" class="headerlink" title="Yusa的日常生活—美国大选（recuring）"></a>Yusa的日常生活—美国大选（recuring）</h2><p>一开始只给了个nc，在Your vote后面输入一个十进制的数字，尝试复制上面的send过去，得到如下</p>
+        <p>&nbsp;<span id="more"></span></p>
+<h1 id="Yusa的日常生活—美国大选"><a href="#Yusa的日常生活—美国大选" class="headerlink" title="Yusa的日常生活—美国大选"></a>Yusa的日常生活—美国大选</h1><p>一开始只给了个nc，在Your vote后面输入一个十进制的数字，尝试复制上面的send过去，得到如下</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210908123225549.png" alt="image-20210908123225549"></p>
 <p>可以通过尝试看出e=3（依次send<code>1</code>,<code>2</code>,<code>3</code>这样一些比较小的数，得到的是各自立方转字节后的结果），猜测底层和RSA有关</p>
 <p>后来才上了源码，关键的逻辑如下</p>
@@ -351,50 +346,41 @@
 <p>RSA签名以及选择明文攻击，像下面这样可以搞出n来</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">m = <span class="number">11441834613624826172418663634046279113882505385891956376343615067285261133850481718598387372799863015467637880949144273419549065969128475439028853349338539694499051803136413392677937180372746004434886408226683060356000756320682607488203211095719491230534679239863637181733978031967798145219807433667347849650017657700970435971961705992349692203870546936934197834532861409558927204969349851725967348387731892180785297131580108320422093208933302332371110292195085685318752738251192012489360801049345566481979567998761296129083101798420484839100061738554182863915465349499485814533228278687226339268848069597015443528832</span></span><br><span class="line">c2 = <span class="built_in">int</span>(iroot(m, <span class="number">3</span>)[<span class="number">0</span>]) + <span class="number">0x10001</span></span><br><span class="line">c4 = c2 ** <span class="number">2</span></span><br><span class="line">c8 = c2 ** <span class="number">3</span></span><br><span class="line">m2 = <span class="string">b&#x27;:&#x27;</span>.join([<span class="string">b&#x27;Z\xa3\x04\x9a\xf5Co\x84xu?\xf4\xda\xd9%;\x81\xa6\x85=\x80Fp&lt;\xf5\x01M2\x16\x15\xe0\xc5\xc3\xa4\x04\xc1\xe1\xc8)\xe6\xa0\xdeDX&amp;\x90\xad\x00\x89a%C\xdek\xed\xde\xc8&#123;\xf0\x7fW&#x27;</span>, <span class="string">b&quot;\xc8t\x81\xaaQ\xd5/D\xa0r]\x16\x8b\xbf=b\x19\x11\xf2V\xf0\xd7&gt;\x8b\xa1=T0\x92\x15?\xbdR&#123;\x0b\x91\xfbF\xf5H\xd7 [\xf9\xd1E\x12B3\xcf\x04VE\x9a\xa6K&lt;\xc2-\x1b&gt;V\xa8\x19\xfa\xf9\x8a\xc5_o\xf0)u\xb4\x92l\x1al=\xe9\n\x00C\x7f\x06\xd4\xf9\xfc\xeaX\x901\xceZ\xde\xcc 7\xb2j\x86-i\xbc|\x81\xf0\x08\r\x03\x16\x0c\x8aN\x18\xc90\xfc\xd8\x87\x07&#125;A&#x27;D[\xa9\xb9\xb1\x11$N&#123;\x10\x05\xab\x0e\x86~\xff\rT\xe3\xd7%\xb4\x8d6\x95\x9a\x96;\xc4h~\xe3\xbab\xecC\x9b\xf11&#x27;c\xfc&amp;\xe3\x11\x850\xe5\xaf\t\xf1\x83\x83\x15M\x84=\x92\x8c\xda\xb9\xd7\xb2\x1e\x05\x9c\x1b\xb7\x06\xe8&quot;</span>])</span><br><span class="line">m4 = <span class="string">b&#x27;:&#x27;</span>.join([<span class="string">b&quot;eW\xd5\xbd\x08w\x0c\xc9I\xac\x17\xecE\xcb\xda\xfd^;\xa4\xf7\xa6\xf3\x04PE/A\xe5qK\xe9JOm\xee\xd1h\xf7o\xa8\x1c\xa0\x068\xb3\xf1\xe7\x7f-\x9f\x19\xb4j\xa3\x90\x07\x1c\xb7\x12z\xad9A\xb9\xa7\xee\x8eBI\xd0]0\t\x9a\x08]\xbb\x1a\xca\x137&#125;G\xc1\xfa\x14\xd1\t\xad\x1d\x1e\xa1\xb4\x88\x1a\x8d\xd3\x8a\xbcU\x86\x00Im\x05\xaaVJ(\xa9\x04rS\x00\x19\x02\x18\x8a\xa0g4\xcdg!9\xf5\x98z\xcc\x9b\x84\xd5&gt;x\x13\xe2\xcd&#x27;1\x8b3a\xe6\x93\xd3\xa4\x06\xe0\xe9\x1aO\xa9\xb5\xe7@\xe8\x9atv\x8d\xf8_rK\xf2u\xf1\x04\x7f\xb45\xdf\x0f\x87\x97V\x15\xcc\xda\xd3\x8c\x8b\xd2V\x1e\x1d\xbd\xd1&#x27;\xca\xaa\xec\x1c\xee\xed\xe0\r6\xd7\xd3\x93;\x1e@Z\xaf6\xc4\xae\xe0\xe3\xbf\x85\xfd\x8f\x0b\xd9\xce^`\xbc\xc8\x7f\xfbQ\xd7\xae\xc8\x9bL\x02^\xcf\xbd\xcc\xa4D\xb7\x9f\xf9\x0c\xd5\xe9\xda\xa1\x03\x9d\xed0\x9aY\x85d$(&#125;&quot;</span>])</span><br><span class="line">m8 = <span class="string">b&#x27;:&#x27;</span>.join([<span class="string">b&#x27;\x0fB\xc18\x04\x9c)\xbe\xf7J\xcc\xe2\x88\xd4\x12\xa7FwL\xa6\xc9\xf3\xaeRVV\xb6\xaeo\xd8\xc2h\xedo\xc7\xae\xd3\xf9\xab\xd6\xc43\x932\xf9\xff\xc9\xf6S\xd5\x9c\xba]f\xb6M\xde\x07\x9dx\xaaX6\xb5\x0fz\xf7\xc2\x0fY8\x81l\x14\x87\x91\x1c&amp;\x1a\xce\xc30\xc4\xdd\xe2&quot;V&amp;(J\x9eD3S*O\t\x07A\xabZ\xdd&gt;\xc0`\xc0d\xa3\xa7\xb4\xaa\xb5Tf\xae\x88\x8ex(\xf0\xaco0j\xdd\xc5\x13\xda\x86[\xee#\x18s\xe5\xfd\xb8 \xffP4\xd1\xc3\xd9\xe6\x18%\x1a\x13\x0ey+VQVb&#125;&#123;\xa5\xe1A\xa2y!Tu\xe2O\xf649\xa5u?\xbb\x02\xe4\x95z\xfef\x9c\x92E\x15\xadM\t\x98\x8dj\xd9\xd9wU\x93#;\xb6\xa2\x08\xe73\xcf\xf7;\xc7/\xc9\x0e\xa3\xf6\x18\xd2\xe8\xd7\xac\&#x27;\x07\xe6c\xc5\xedEhvf\xcdO\x11\xaf\xac^Y(&#123;\x19!\x81_h\x9c\x15\xfb\xbd\x0f\x89\xe8\xc6U0MM\xe0\x89&#125;&#x27;</span>])</span><br><span class="line">m1, m2, m3 = bytes_to_long(m2), bytes_to_long(m4), bytes_to_long(m8)</span><br><span class="line">n = gcd(m1 ** <span class="number">2</span> - m2, m1 ** <span class="number">3</span> - m3)</span><br><span class="line"><span class="comment"># n = 12998510197135204376024977476677066247754836878539929011686148268745119316209020562579171398886840449113325708748228673135311752569187260449619807807903218621065777199171595498055285073001556241300819299111213719824569275786074961700296240844459968460491714678805615009589712788617029938309306389913328704049259197596077475679388746327337019377724684383107233046619031888347065776485290701116620689771500575467431146354734895248116917853679826521686058032549240850391628465710220654255931003952332899029099575800979554751748212159051355321567757716972030886957773638513566062484273620681928826749865617412173047445893</span></span><br></pre></td></tr></table></figure>
 
-<p>比赛结束环境就关了，所以在本地复现下，<em>9月以后所有的附件可以在github上找到</em></p>
-<p>想要交互还是挺麻烦的，这里就当于已经得到n了</p>
+<p>复现的时候重新搞了组数据</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">c = <span class="number">15160582676846215658796665511167073968034171296661551317484064414530852799771618235942954787122243854880075538411956180191332121712749102940834469106520160911820689656980924928940857041289182520881995375555391429116695091017132599877027688472814801911156488488572658968858514549082874942198209100374290699361245526127362315158765216477920262317888955067180876826737792124089711465313919322691350383089478781115531028327464978498168550501234908278822070734957259085100730831106569924227163225782388696667537281068625312828784413432273812618076026392105724267064367773254829708738371876092746215522784893719413972288863</span></span><br><span class="line">n = <span class="number">15746945526432122479214630433270149949898055696087559742180830690847507891453515116075588796192340169435734319815395381666689989899222866782097160453565424738446970488798269177137604678808633207375125945542218010260891606865601540037996424336907526029576270546861238099120672228457910383070027371579273232850527367464802499941689387144111902397279853997069146494099457026354542952331566285341348508821513652475468126522170376081188733013126170230888215340038166274999418672245444957134175669183047604867371997408007732297783287752312442659031828940988055885376811763957465614461850705292428963651655262273479037747317</span></span><br><span class="line">e = <span class="number">3</span></span><br></pre></td></tr></table></figure>
 
 <p>已知enc，要用d签名一个以b’:Biden!’结尾的字节流并send过去，用e验证</p>
-<p>也就是要使<br>$$<br>m=c^e\ mod\ n<br>$$<br>m在转字节流之后结尾是<code>:Biden!</code>，显然这是RSA验证的过程，我们只要用d生成某个以<code>:Biden!</code>结尾的字节流的密文<br>$$<br>c=m^{d}\ mod\ n<br>$$<br>但是n无法分解，也就是说求不出d，那唯一的攻击点只有已知末尾是<code>:Biden!</code></p>
-<p>但从稍微结合实际一点的角度出发，这个加密系统是为了投票而设立的，想知道最后一部分是什么，就是想知道票投给了谁了，加上用d来签名，是为了验证这是谁投的票，莫名其妙就遇到了老师上《安全协议与标准》的投票情景。所以，这么看的话，这个加密系统是没有漏洞的，除非n是特殊的，但是目前ctf的常用手段并没有更加明朗的指向，只能按下不表了，希望到时候有WP</p>
+<p>也就是要使<br>$$<br>m=c^e\ mod\ n\notag<br>$$<br>m在转字节流之后结尾是<code>:Biden!</code>，显然这是RSA验证的过程，我们只要用d生成某个以<code>:Biden!</code>结尾的字节流的密文<br>$$<br>c=m^{d}\ mod\ n\notag<br>$$<br>但是n无法分解，也就是说求不出d，那唯一的攻击点只有已知末尾是<code>:Biden!</code></p>
 <hr>
-<p><em>好家伙，有地方省赛出到这道题了，我。。<del>（原来没有出的题目是可以重复利用的）</del></em></p>
-<p><em>期间很多人私聊我这道题，唔，可是我太菜了，始终不会，对不起各位师傅</em></p>
-<p><em>但是在众师傅的协力下，有师傅在评论区留下他的解法，更新一下</em></p>
-<p>其实不知道n也是完全可以的，我这样搞出n反而把自己带偏</p>
-<p>关键是构造一个在模2的倍数（且和3互素）的几次幂下的RSA签名，因为n是足够大的，完全可以构造使得三次方验证的时候，计算结果是小于模数的，也就是不用考虑n；但问题是模这样一个数为什么可以保留最低位</p>
-<p>想了几天没想明白，有机会再问问别的师傅，先收了</p>
+<p>而实际上，不知道n也是完全可以做的，我这样搞出n反而把自己带偏</p>
+<p>关键是构造一个在模2的倍数（且和3互素）的几次幂下的RSA签名，因为n是足够大的，完全可以构造使得三次方验证的时候，计算结果是小于模数的，也就是不用考虑n；但问题是模这样一个数为什么可以保留最低位？</p>
+<p>我的理解是</p>
 <p>初步理解是$c^3$低位就是f，因为在模$2^x$下，会保留低x位，这个比较容易懂；所以在$c^3$又是在RSA中的验证环节，得到的m，由于f是先d次方得到的c，在这个RSA签名验证的环节，低x位是成立的，所以m的低x位就是f。这应该是模$2^x$次方的性质（但好像模$14^x$也可以，不懂了）</p>
-<p>完整的exp，贴贴</p>
+<p>完整的exp</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> re <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># context.log_level = &#x27;debug&#x27;</span></span><br><span class="line"></span><br><span class="line">e = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># :20</span></span><br><span class="line">sh = remote(<span class="string">&#x27;47.96.253.167&#x27;</span>, <span class="number">10001</span>)</span><br><span class="line"><span class="comment"># sh = process([&quot;python&quot;, &quot;server.py&quot;])</span></span><br><span class="line">payload1 = sh.recvuntil(<span class="string">b&#x27;Your vote:&#x27;</span>).decode()</span><br><span class="line">payload1 = findall(<span class="string">r&quot;\d+&quot;</span>, payload1)[<span class="number">0</span>]</span><br><span class="line">sh.sendline(payload1)</span><br><span class="line">sh.recvuntil(<span class="string">b&#x27;]\n&#x27;</span>)</span><br><span class="line">flag1 = sh.recvline()[:-<span class="number">1</span>]</span><br><span class="line">sh.close()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 20:</span></span><br><span class="line">sh = remote(<span class="string">&#x27;47.96.253.167&#x27;</span>, <span class="number">10001</span>)</span><br><span class="line">f = bytes_to_long(<span class="string">b&#x27;:Biden!&#x27;</span>)</span><br><span class="line">N = <span class="number">2</span> ** <span class="number">47</span></span><br><span class="line">phiN = <span class="number">2</span> ** <span class="number">46</span></span><br><span class="line">d = invert(e, phiN)</span><br><span class="line">c = <span class="built_in">pow</span>(f, d, N)</span><br><span class="line">payload2 = <span class="built_in">str</span>(c)</span><br><span class="line">sh.sendline(payload2)</span><br><span class="line">sh.recvuntil(<span class="string">b&#x27;]\n&#x27;</span>)</span><br><span class="line">flag2 = sh.recvline()[:-<span class="number">1</span>]</span><br><span class="line">sh.close()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(flag1 + flag2)</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211005133747776.png" alt="image-20211005133747776"></p>
-<p>当然flag是假的</p>
-<h2 id="Yusa的密码学课堂—CBC第二课（recuring）"><a href="#Yusa的密码学课堂—CBC第二课（recuring）" class="headerlink" title="Yusa的密码学课堂—CBC第二课（recuring）"></a>Yusa的密码学课堂—CBC第二课（recuring）</h2><p>这道题感觉似曾相识，但是一直执着于三个CBC分块，一下午脑子都绕晕，尚师傅二十分钟就出了；做题太少，感觉不够，不敢跳出去</p>
-<p>来看主要代码逻辑</p>
+<h1 id="Yusa的密码学课堂—CBC第二课"><a href="#Yusa的密码学课堂—CBC第二课" class="headerlink" title="Yusa的密码学课堂—CBC第二课"></a>Yusa的密码学课堂—CBC第二课</h1><p>来看主要代码逻辑</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">task</span>():</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        key = os.urandom(<span class="number">16</span>)</span><br><span class="line">        iv = os.urandom(<span class="number">16</span>)</span><br><span class="line">        cipher = _enc(flag, key, iv).<span class="built_in">hex</span>()</span><br><span class="line">        <span class="built_in">print</span>(cipher)</span><br><span class="line">        paintext = <span class="built_in">bytes</span>.fromhex(<span class="built_in">input</span>(<span class="string">&quot;Amazing function: &quot;</span>))</span><br><span class="line">        <span class="built_in">print</span>(enc(paintext, key).<span class="built_in">hex</span>())</span><br><span class="line"></span><br><span class="line">        backdoor = <span class="built_in">input</span>(<span class="string">&quot;Another amazing function: &quot;</span>)</span><br><span class="line">        <span class="keyword">assert</span> backdoor != cipher</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> dec(<span class="built_in">bytes</span>.fromhex(backdoor), key, iv) == flag:</span><br><span class="line">            <span class="built_in">print</span>(flag)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="built_in">print</span>(<span class="string">&quot;Wow, amazing results.&quot;</span>)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">str</span>(e))</span><br><span class="line">        exit()</span><br></pre></td></tr></table></figure>
 
 <p>先加密flag，然后给我们一个自己定IV和Plaintext的机会，进行加密，最后我们输入密文，提供一个解密的机会，如果这个解密的结果等于flag，但是我们输入的密文不能是flag加密后的密文，那么就输出flag</p>
-<p>乍一听，不可能啊，一个不是flag加密得到的密文，进行解密也可以得到flag？？？</p>
-<p>所以这道题就有其特殊性，这里有一个pad和unpad函数</p>
+<p>乍一听不可能啊，一个不是flag加密得到的密文，进行解密也可以得到flag？</p>
+<p>这道题特殊就特殊在pad和unpad函数</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pad</span>(<span class="params">data</span>):</span></span><br><span class="line">    pad_len = BLOCKSIZE - (<span class="built_in">len</span>(data) % BLOCKSIZE) <span class="keyword">if</span> <span class="built_in">len</span>(data) % BLOCKSIZE != <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> pad_len == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    <span class="keyword">return</span> data + <span class="built_in">chr</span>(pad_len) * pad_len</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unpad</span>(<span class="params">data</span>):</span></span><br><span class="line">    num = <span class="built_in">ord</span>(data[-<span class="number">1</span>])</span><br><span class="line">    <span class="keyword">return</span> data[:-num]</span><br></pre></td></tr></table></figure>
 
-<p>这里unpad是关键，会根据最后一位将加上的pad给去掉；一般来说是没有问题的，但是如果有不怀好意的人（尚师傅）刻意构造假的pad，那么情况就不一样了（所以很好奇Crypto库里的unpad函数是怎么实现的呢）</p>
-<p>关于CBC基本流程可以看<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_49109277/article/details/119841141?spm=1001.2014.3001.5501">Macaw_Revenge</a>，而这道题尚师傅说可以从<a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_49109277/article/details/119841141?spm=1001.2014.3001.5501">Xoro</a>获得提示</p>
-<p>借一下上次的图</p>
+<p>这里unpad是关键，会根据最后一位将加上的pad给去掉；一般来说是没有问题的，但是如果有不怀好意的人刻意构造假的pad，那么情况就不一样了</p>
+<p>下面是CBC加密的流程示意图</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/AES_CBC.png" alt="AES_CBC"></p>
-<p>直接说做法了，可以看出，无论我们在这三块中如何闹腾，都不可能整出一个解密是flag却又不是flag对应的密文</p>
+<p>可以看出，无论我们在这三块中如何闹腾，都不可能整出一个解密是flag却又不是flag对应的密文</p>
 <p>所以我们不妨手动加上一块，密文块2作为IV，而明文块3我们让最后其最后一位是<code>16+flag的填充位数</code>转字节；这样就可以在加密的过程中，完全可以把这一块和前面三块并在一起，相当于加密<code>flag+我们自己的填充</code>，而解密出来在unpad的时候，由于unpad的机制，就把所有的pad，包括flag本身的，以及我们添加的pad全部去掉了，得到的就是flag，但是密文不同</p>
-<p>本地复现的，报一些奇怪的错，最后想要的已经求出来send过去了，但是在unpad的时候有问题；虽然原脚本是py2的，但是运行这个老是因为各种换行的IO错误，最后还是改了下unpad这个函数，加了第一句转字符串的</p>
+<p>本地复现的，报一些奇怪的错，稍微改了下源码，应该无伤大雅</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210908210437443.png" alt="image-20210908210437443"></p>
 <p>这样下面这个脚本在本地就可以打通了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># context.log_level = &#x27;debug&#x27;</span></span><br><span class="line">sh = process([<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;./server_py3.py&quot;</span>])</span><br><span class="line">cipher = <span class="built_in">bytes</span>.fromhex(sh.recvline()[:-<span class="number">1</span>].decode())</span><br><span class="line">c0, c1, c2 = cipher[:<span class="number">16</span>], cipher[<span class="number">16</span>:<span class="number">32</span>], cipher[<span class="number">32</span>:]</span><br><span class="line"><span class="comment"># len(cipher) == 48</span></span><br><span class="line"><span class="comment"># our plaintext</span></span><br><span class="line">sh.recvuntil(<span class="string">b&#x27;Amazing function:&#x27;</span>)</span><br><span class="line">pad = <span class="built_in">chr</span>(<span class="number">8</span>+<span class="number">16</span>).encode() * <span class="number">16</span></span><br><span class="line">sh.sendline(pad.<span class="built_in">hex</span>())</span><br><span class="line"><span class="comment"># our iv</span></span><br><span class="line">sh.recvuntil(<span class="string">b&#x27;Your iv: &#x27;</span>)</span><br><span class="line">sh.sendline(c2.<span class="built_in">hex</span>())</span><br><span class="line">cx = <span class="built_in">bytes</span>.fromhex(sh.recvline()[:-<span class="number">1</span>].decode())</span><br><span class="line"><span class="comment"># our backdoor</span></span><br><span class="line">sh.recvuntil(<span class="string">b&#x27;Another amazing function: &#x27;</span>)</span><br><span class="line">backdoor = cipher + cx</span><br><span class="line">sh.sendline(backdoor.<span class="built_in">hex</span>())</span><br><span class="line">flag = sh.recvline().decode()</span><br><span class="line"><span class="built_in">print</span>(flag)</span><br></pre></td></tr></table></figure>
 
-<p>flag是我自己uuid的</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210908210552799.png" alt="image-20210908210552799"></p>
-<p>因为看原附件中<code>DASCTF&#123;*********&#125;</code>总长度是40，所以上面才这么果断设置了pad为<code>chr(8+16).encode()*16</code>；如果不是的话，可以从一开始的密文知道，48长，也就是分三段，flag至少33长，稍微爆破下也可以出来的</p>
-<h2 id="Yusa的密码学课堂—CBC第三课（recuring）"><a href="#Yusa的密码学课堂—CBC第三课（recuring）" class="headerlink" title="Yusa的密码学课堂—CBC第三课（recuring）"></a>Yusa的密码学课堂—CBC第三课（recuring）</h2><p>这道题就把pad给改掉了</p>
+<p>因为看原附件中<code>DASCTF&#123;*********&#125;</code>总长度是40，所以上面才这么果断设置了pad为<code>chr(8+16).encode()*16</code>；如果不是的话，可以从一开始的密文知道，长48，也就是分三段，flag至少长33，稍微爆破下也可以出来的</p>
+<h1 id="Yusa的密码学课堂—CBC第三课"><a href="#Yusa的密码学课堂—CBC第三课" class="headerlink" title="Yusa的密码学课堂—CBC第三课"></a>Yusa的密码学课堂—CBC第三课</h1><p>这道题就把pad给改掉了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pad</span>(<span class="params">data</span>):</span></span><br><span class="line">	pad_len = BLOCKSIZE - (<span class="built_in">len</span>(data) % BLOCKSIZE) <span class="keyword">if</span>  <span class="built_in">len</span>(data) % BLOCKSIZE != <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">	<span class="keyword">return</span> data + <span class="string">&quot;=&quot;</span> * pad_len</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unpad</span>(<span class="params">data</span>):</span></span><br><span class="line">	<span class="keyword">return</span> data.replace(<span class="string">&quot;=&quot;</span>,<span class="string">&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>来看主逻辑</p>
@@ -403,26 +389,16 @@
 <p>先对flag进行加密，IV和KEY是相同的</p>
 <p>然后是一个加密，可以由我们自己指定的明文的，而且IV和KEY也是之前的IV和KEY</p>
 <p>最后是一个解密，同样也是IV和KEY</p>
-<hr>
-<p>为什么会有人KEY=IV？为什么我还不知道漏洞？</p>
-<p>最后一步，没有直接给flag，如果通过了for循环，那么可以得到你自己输入的密文的明文，但是如果没有通过，说明你指定的密文得到的明文有flag的一部分，emmmmm那还是没通过的好。不过不通过的话，又得不到解密的结果，还是白给。但是如果通过了，说明我们是已经知道flag的内容，并且加以一定的方式将其绕过，也就没有再输出明文的必要。。。事情开始向不好的方向发展</p>
-<p>结合我们已经有flag的密文，可以搞点事情</p>
-<p><strong>所以总结一下，到此为止，联系上一道题，这里就是给你flag的密文，但是又提供你解密的机会，但是要求解密出来的东西里面十六块一部分的十六块一部分的不和flag中的不完全相同（绕过判定机制），但是你知道怎么从这个解密结果里面看出flag；至于如何构造？大概率就是利用中间的那个已知明文，相同key的加密</strong></p>
-<p>显然</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210909082357017.png" alt="image-20210909082357017"></p>
-<p>如果是第二题，我们利用这种方法也可以得到，可以得到与flag对应的密文不同的密文；但这道题不行，因为它是判断明文之间的比较。有什么办法将一些pad插入到明文0~2中吗</p>
-<p><em>最烦的就是，KEY和IV一样真的没有利用点吗</em></p>
-<p><em>最后辣个男人花了半节python课的时间整明白了</em></p>
-<hr>
-<p>下面开始整活，确实，攻击点不在我上面一直在纠结的博弈上。由于KEY和IV一样，这就可以提供我们很大的便利，这也算是这个系统的漏洞吧。最后一层解密不应该看做得到flag的直接途径，而是看成一次解密的机会更好</p>
+<p>由于KEY和IV一样，这就可以提供我们很大的便利，最后一层解密不应该看做得到flag的直接途径，而是看成一次解密的机会更好</p>
+<p>攻击流程如下图所示</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/cbc.jpg" alt="cbc"></p>
-<p>图上说的很清楚，左边是flag的加密过程，右边是我们借助已有的条件进行攻击的过程。主要的思路就是，因为KEY=IV，又分别有一次加密和解密，那为什么不直接把IV和KEY搞出来呢</p>
-<p>在我们自由控制明文的那里，我们输入两块全是<code>\x00</code>的字节流，为的是消除明文对加密过程产生不可干预的影响，这样整个加密流程，除了KEY一切就变得透明起来</p>
-<p>做完一次加密，我们得到了两密文，再加上我们还剩下一次解密的机会，如果你和尚师傅一样聪明，就可以想到把刚才的加密的流程给拆开，其中一半用解密函数来完全道破，另一半也就不攻自破</p>
+<p>左边是flag的加密过程，右边是我们借助已有的条件进行攻击的过程。主要的思路就是，因为KEY=IV，又分别有一次加密和解密，那为什么不直接把IV和KEY搞出来呢。</p>
+<p>在我们自由控制明文的那里，我们输入两块全是<code>\x00</code>的字节流，为的是消除明文对加密过程产生不可干预的影响，这样整个加密流程，除了KEY一切就变得透明起来。</p>
+<p>做完一次加密，我们得到了两密文，再加上我们还剩下一次解密的机会，就可以想到把刚才的加密的流程给拆开，其中一半用解密函数来完全道破，另一半也就不攻自破</p>
 <p>正如图上所画将<code>c4</code>送过去解密，得到<code>回显</code>；显然<code>回显^key</code>就是<code>c4</code>通过加密之前的<code>c3</code></p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210909131814443.png" alt="image-20210909131814443"></p>
 <p>即<code>回显 ^ key = c3</code>，那么<code>c3</code>已知，<code>key = c3 ^ 回显</code>，就此我们得到key，后面再现aes解密就好了</p>
-<p>完整的本地exp如下</p>
+<p>完整的exp如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unpad</span>(<span class="params">s</span>):</span></span><br><span class="line">    <span class="keyword">return</span> s.replace(<span class="string">b&quot;=&quot;</span>, <span class="string">b&quot;&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">sh = process([<span class="string">&quot;python3&quot;</span>, <span class="string">&quot;./server_py3.py&quot;</span>])</span><br><span class="line"></span><br><span class="line">key = <span class="built_in">bytes</span>.fromhex(sh.recvline()[:-<span class="number">1</span>].decode())</span><br><span class="line"></span><br><span class="line">cipher = <span class="built_in">bytes</span>.fromhex(sh.recvline()[:-<span class="number">1</span>].decode())</span><br><span class="line">c1, c2, c3 = cipher[:<span class="number">16</span>], cipher[<span class="number">16</span>:<span class="number">32</span>], cipher[<span class="number">32</span>:<span class="number">48</span>]</span><br><span class="line"></span><br><span class="line">sh.recvuntil(<span class="string">b&#x27;Amazing function(in hex): &#x27;</span>)</span><br><span class="line">plaintext = <span class="string">b&#x27;\x00&#x27;</span> * <span class="number">32</span></span><br><span class="line">sh.sendline(plaintext.<span class="built_in">hex</span>())</span><br><span class="line"></span><br><span class="line">cx = <span class="built_in">bytes</span>.fromhex(sh.recvline()[:-<span class="number">1</span>].decode())</span><br><span class="line"></span><br><span class="line">sh.recvuntil(<span class="string">b&#x27;Another amazing function(in hex): &#x27;</span>)</span><br><span class="line">yusa = cx[<span class="number">16</span>:<span class="number">32</span>]</span><br><span class="line">sh.sendline(yusa.<span class="built_in">hex</span>())</span><br><span class="line"></span><br><span class="line">asuy = <span class="built_in">bytes</span>.fromhex(sh.recvline()[:-<span class="number">1</span>].decode())</span><br><span class="line">keyx = xor(asuy[:<span class="number">32</span>], cx[:<span class="number">16</span>])</span><br><span class="line"><span class="keyword">assert</span> key == keyx</span><br><span class="line">aes = AES.new(keyx, AES.MODE_CBC, keyx)</span><br><span class="line"><span class="built_in">print</span>(unpad(aes.decrypt(cipher)).decode())</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210909132014232.png" alt="image-20210909132014232"></p>
@@ -430,8 +406,7 @@
 <p>当然和第二题一样，pad和unpad函数也做过一丢丢的修改，不知道这个修改伤不伤大雅</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">pad</span>(<span class="params">data</span>):</span></span><br><span class="line">    pad_len = BLOCKSIZE - (<span class="built_in">len</span>(data) % BLOCKSIZE) <span class="keyword">if</span> <span class="built_in">len</span>(data) % BLOCKSIZE != <span class="number">0</span> <span class="keyword">else</span> <span class="number">0</span></span><br><span class="line">    <span class="keyword">if</span> pad_len == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">return</span> data</span><br><span class="line">    <span class="keyword">return</span> data + <span class="string">&quot;=&quot;</span> * pad_len</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">unpad</span>(<span class="params">data</span>):</span></span><br><span class="line">    <span class="keyword">return</span> data.replace(<span class="string">b&quot;=&quot;</span>, <span class="string">b&quot;&quot;</span>)</span><br></pre></td></tr></table></figure>
 
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>如果天赋不够，那就用勤奋来弥补吧</p>
-<p>总结一下可以发现，今天的题目并算太不难，脑洞吧，想不到就是想不到，想到了就是走一遍流程的问题，有很多小细节和平时的积累有关；然后在今天的做这些题目的过程中，我也尝试经历了出题，测试的环节，感觉确实很多讲究，现在还是本地了，如果放到服务器上，打在端口上，对出题人的要求更大，挺不容易的</p>
+<p>总而言之今天的题偏脑洞</p>
 
     </div>
 
@@ -445,14 +420,14 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>4XWi11
+      <strong>Post author:  </strong>4XWi11
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/e245e3dc/" title="20210908 某次比赛Crypto方向部分WP">https://4xwi11.github.io/posts/e245e3dc/</a>
+      <strong>Post link: </strong>
+      <a href="https://4xwi11.github.io/posts/e245e3dc/" title="20210908-Untitled-CryptoSecWriteUp">https://4xwi11.github.io/posts/e245e3dc/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -462,13 +437,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/84da04f2/" rel="prev" title="20210904 ALLESCTFCrypto方向部分WP">
-                  <i class="fa fa-chevron-left"></i> 20210904 ALLESCTFCrypto方向部分WP
+                <a href="/posts/ea88a88e/" rel="prev" title="20210903-Blue Whale Freshers & 第六届中国海洋大学信息安全竞赛-CryptoSecPartWriteUp">
+                  <i class="fa fa-chevron-left"></i> 20210903-Blue Whale Freshers & 第六届中国海洋大学信息安全竞赛-CryptoSecPartWriteUp
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/e4da15f1/" rel="next" title="20210911 CSAWCTFCrypto方向部分WP">
-                  20210911 CSAWCTFCrypto方向部分WP <i class="fa fa-chevron-right"></i>
+                <a href="/posts/e4da15f1/" rel="next" title="20210911-CSAWCTF-CryptoSecPartWriteUp">
+                  20210911-CSAWCTF-CryptoSecPartWriteUp <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -508,8 +483,8 @@
           mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
           seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
           snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
-          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
       } 
   setInterval("createtime()",250);
   </script>
@@ -519,13 +494,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1m</span>
+    <span title="Symbols count total">873k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:51</span>
+    <span title="Reading time total">13:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -533,7 +508,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -541,20 +516,26 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+// 在最后添加<script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
@@ -562,6 +543,7 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,18 +17,19 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="kw就这？没做过瘾啊，一道密码就离谱，这就去学pwn">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="&amp;nbsp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20210919 长城杯Crypto方向WP">
+<meta property="og:title" content="20210919-长城杯-CryptoSecWriteUp">
 <meta property="og:url" content="https://4xwi11.github.io/posts/d98f7fed/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
-<meta property="og:description" content="kw就这？没做过瘾啊，一道密码就离谱，这就去学pwn">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:description" content="&amp;nbsp;">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210919140215766.png">
 <meta property="article:published_time" content="2021-10-09T02:47:05.000Z">
-<meta property="article:modified_time" content="2021-10-09T03:30:13.534Z">
+<meta property="article:modified_time" content="2022-09-02T13:35:53.961Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210919140215766.png">
@@ -38,10 +39,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/d98f7fed/","path":"posts/d98f7fed/","title":"20210919 长城杯Crypto方向WP"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/d98f7fed/","path":"posts/d98f7fed/","title":"20210919-长城杯-CryptoSecWriteUp"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>20210919 长城杯Crypto方向WP | 4XWi11's Blog</title>
+<title>20210919-长城杯-CryptoSecWriteUp | 4XWi11's Blog</title>
   
 
 
@@ -59,7 +60,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -86,13 +87,12 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -107,7 +107,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
@@ -137,17 +137,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%95%BF%E5%AE%89%E6%9D%AF"><span class="nav-number">1.</span> <span class="nav-text">长安杯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#baby-rsa"><span class="nav-number">1.1.</span> <span class="nav-text">baby_rsa</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%A0%E8%BF%99flag%E4%BF%9D%E7%86%9F%E5%90%97"><span class="nav-number">1.2.</span> <span class="nav-text">你这flag保熟吗</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#baby-rsa"><span class="nav-number">1.</span> <span class="nav-text">baby_rsa</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%A0%E8%BF%99flag%E4%BF%9D%E7%86%9F%E5%90%97"><span class="nav-number">1.1.</span> <span class="nav-text">你这flag保熟吗</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -156,25 +156,20 @@
     <img class="site-author-image" itemprop="image" alt="4XWi11"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">4XWi11</p>
-  <div class="site-description" itemprop="description">feiwu自进阶</div>
+  <div class="site-description" itemprop="description">They said don't play with idiots.🙃</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -183,7 +178,7 @@
         <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+        <a href="/MTI0OTg0NzE2NQo" title="MTI0OTg0NzE2NQo → MTI0OTg0NzE2NQo"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
@@ -222,7 +217,7 @@
 
         </div>
       </div>
-        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
@@ -254,13 +249,13 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/d98f7fed/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="feiwu自进阶">
+      <meta itemprop="description" content="They said don't play with idiots.🙃">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -268,7 +263,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20210919 长城杯Crypto方向WP
+          20210919-长城杯-CryptoSecWriteUp
         </h1>
 
         <div class="post-meta-container">
@@ -277,43 +272,53 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-10-09 10:47:05 / 修改时间：11:30:13" itemprop="dateCreated datePublished" datetime="2021-10-09T10:47:05+08:00">2021-10-09</time>
+      <time title="Created: 2021-10-09 10:47:05" itemprop="dateCreated datePublished" datetime="2021-10-09T10:47:05+08:00">2021-10-09</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-09-02 21:35:53" itemprop="dateModified" datetime="2022-09-02T21:35:53+08:00">2022-09-02</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+          <a href="/categories/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF-Crypto/WriteUp/" itemprop="url" rel="index"><span itemprop="name">WriteUp</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">Views: </span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="Symbols count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4.3k</span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>4.1k</span>
     </span>
-    <span class="post-meta-item" title="阅读时长">
+    <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -324,20 +329,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>kw就这？没做过瘾啊，一道密码就离谱，这就去学pwn</p>
-<span id="more"></span>
-
-<h1 id="长安杯"><a href="#长安杯" class="headerlink" title="长安杯"></a>长安杯</h1><h2 id="baby-rsa"><a href="#baby-rsa" class="headerlink" title="baby_rsa"></a>baby_rsa</h2><p>第四个解出来，可惜差一点抢血。虽然过程很懵，但是做出来后觉得是好题，emmmmm还好吧，有点小隐晦，凭感觉打</p>
-<p>第一层难搞</p>
+        <p>&nbsp;<span id="more"></span>&nbsp;</p>
+<h1 id="baby-rsa"><a href="#baby-rsa" class="headerlink" title="baby_rsa"></a>baby_rsa</h1><p>第一层比较难搞</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag, v1, v2, m1, m2</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">enc_1</span>(<span class="params">val</span>):</span></span><br><span class="line">    p, q = <span class="built_in">pow</span>(v1, (m1+<span class="number">1</span>))-<span class="built_in">pow</span>((v1+<span class="number">1</span>), m1), <span class="built_in">pow</span>(v2, (m2+<span class="number">1</span>))-<span class="built_in">pow</span>((v2+<span class="number">1</span>), m2)</span><br><span class="line">    <span class="keyword">assert</span> isPrime(p) <span class="keyword">and</span> isPrime(q) <span class="keyword">and</span> (</span><br><span class="line">        p*q).bit_length() == <span class="number">2048</span> <span class="keyword">and</span> q &lt; p &lt; q &lt;&lt; <span class="number">3</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">pow</span>(val, <span class="number">0x10001</span>, p*q)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> flag[:<span class="number">5</span>] == <span class="string">b&#x27;flag&#123;&#x27;</span></span><br><span class="line">plain1 = bytes_to_long(flag[:<span class="number">21</span>])</span><br></pre></td></tr></table></figure>
 
-<p>$$<br>\begin{align}<br>p=v_1^{m_1+1}-(v_1+1)^{m_1}\\<br>q=v_2^{m_2+1}-(v_2+1)^{m_2}<br>\end{align}<br>$$</p>
-<p>他们没有告诉我们模数，搞怪吧；不过如果告诉模数了应该算简单题了，或许可以直接分解模数</p>
-<p>又去网上搜了一波<code>RSA模数未知</code>，但确实应该没有，选择明文攻击条件不符</p>
-<p>既然现有的RSA攻击模式走不通，就凭借感觉吧，我觉得这个<code>v1, v2, m1, m2</code>可爆，然后根据第二层，m很小不需要这么多模数（虽然不知道为什么第二层的x为什么还能分解，但是问题不大），只需要知道p就好了，然后记得v1确定之后框定一下m1的范围就很快可以爆破出来</p>
+<p>$$<br>p=v_1^{m_1+1}-(v_1+1)^{m_1}\\<br>q=v_2^{m_2+1}-(v_2+1)^{m_2}\notag<br>$$</p>
+<p>他们没有告诉我们模数，但也不是选择明文攻击条件不符</p>
+<p>既然现没有符号的RSA攻击，就凭借感觉吧，我觉得这个<code>v1, v2, m1, m2</code>可爆，然后根据第二层，$m$很小不需要这么多模数，只需要知道$p$就好了，然后记得<code>v1</code>确定之后框定一下<code>m1</code>的范围就很快可以爆破出来</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> log</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">c1 = <span class="number">15808773921165746378224649554032774095198531782455904169552223303513940968292896814159288417499220739875833754573943607047855256739976161598599903932981169979509871591999964856806929597805904134099901826858367778386342376768508031554802249075072366710038889306268806744179086648684738023073458982906066972340414398928411147970593935244077925448732772473619783079328351522269170879807064111318871074291073581343039389561175391039766936376267875184581643335916049461784753341115227515163545709454746272514827000601853735356551495685229995637483506735448900656885365353434308639412035003119516693303377081576975540948311</span></span><br><span class="line">c2 = (<span class="number">40625981017250262945230548450738951725566520252163410124565622126754739693681271649127104109038164852787767296403697462475459670540845822150397639923013223102912674748402427501588018866490878394678482061561521253365550029075565507988232729032055298992792712574569704846075514624824654127691743944112075703814043622599530496100713378696761879982542679917631570451072107893348792817321652593471794974227183476732980623835483991067080345184978482191342430627490398516912714451984152960348899589532751919272583098764118161056078536781341750142553197082925070730178092561314400518151019955104989790911460357848366016263083</span>, <span class="number">43001726046955078981344016981790445980199072066019323382068244142888931539602812318023095256474939697257802646150348546779647545152288158607555239302887689137645748628421247685225463346118081238718049701320726295435376733215681415774255258419418661466010403928591242961434178730846537471236142683517399109466429776377360118355173431016107543977241358064093102741819626163467139833352454094472229349598479358367203452452606833796483111892076343745958394932132199442718048720633556310467019222434693785423996656306612262714609076119634814783438111843773649519101169326072793596027594057988365133037041133566146897868269</span>, <span class="number">39796272592331896400626784951713239526857273168732133046667572399622660330587881579319314094557011554851873068389016629085963086136116425352535902598378739</span>)</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># enc_2</span></span><br><span class="line">c2, n2, x = c2[<span class="number">0</span>], c2[<span class="number">1</span>], c2[<span class="number">2</span>]</span><br><span class="line"><span class="keyword">assert</span> n2 % x == <span class="number">0</span></span><br><span class="line">n2 = x</span><br><span class="line">p1 = <span class="number">191</span></span><br><span class="line">p2 = <span class="number">193</span></span><br><span class="line">p3 = <span class="number">627383</span></span><br><span class="line">p4 = <span class="number">1720754738477317127758682285465031939891059835873975157555031327070111123628789833299433549669619325160679719355338187877758311485785197492710491</span></span><br><span class="line">phi2 = (p1 - <span class="number">1</span>) * (p2 - <span class="number">1</span>) * (p3 - <span class="number">1</span>) * (p4 - <span class="number">1</span>)</span><br><span class="line">d2 = invert(e, phi2)</span><br><span class="line">m2 = <span class="built_in">pow</span>(c2, d2, n2)</span><br><span class="line">flag2 = long_to_bytes(m2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># enc_1</span></span><br><span class="line">lbound, ubound = <span class="number">2</span> ** <span class="number">1021</span>, <span class="number">2</span> ** <span class="number">1027</span></span><br><span class="line"><span class="keyword">for</span> v1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">2</span>, <span class="number">1000000</span>):</span><br><span class="line">    <span class="keyword">for</span> m1 <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">int</span>(log(lbound, v1)), <span class="built_in">int</span>(log(ubound, v1))):</span><br><span class="line">        p = <span class="built_in">pow</span>(v1, (m1 + <span class="number">1</span>)) - <span class="built_in">pow</span>((v1 + <span class="number">1</span>), m1)</span><br><span class="line">        <span class="keyword">if</span> isPrime(p) <span class="keyword">and</span> <span class="number">1021</span> &lt; p.bit_length() &lt; <span class="number">1027</span>:</span><br><span class="line">            phi1 = p - <span class="number">1</span></span><br><span class="line">            d1 = invert(e, phi1)</span><br><span class="line">            m = <span class="built_in">pow</span>(c1, d1, p)</span><br><span class="line">            <span class="keyword">if</span> long_to_bytes(m).startswith(<span class="string">b&#x27;flag&#x27;</span>):</span><br><span class="line">                flag1 = long_to_bytes(m)</span><br><span class="line">                flag = flag1 + flag2</span><br><span class="line">                <span class="built_in">print</span>(flag)</span><br><span class="line">                sys.exit(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
 
-<h2 id="你这flag保熟吗"><a href="#你这flag保熟吗" class="headerlink" title="你这flag保熟吗"></a>你这flag保熟吗</h2><p>帮队友看题，看图形我记得在b站上看过一个up用计算机模拟二向箔二维化地球，用的就是希尔伯特曲线，有一部分原题改下脚本<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/381863924">https://zhuanlan.zhihu.com/p/381863924</a></p>
+<p>差一点，第四个解出来</p>
+<h2 id="你这flag保熟吗"><a href="#你这flag保熟吗" class="headerlink" title="你这flag保熟吗"></a>你这flag保熟吗</h2><p>帮队友看题，看图形我记得在b站上看过一个up用计算机模拟二向箔二维化地球，用的就是希尔伯特曲线，有一部分原题改下脚本</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/381863924">第五届强网杯-Threebody</a></p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210919140215766.png" alt="image-20210919140215766"></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> xlrd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> hilbertcurve.hilbertcurve <span class="keyword">import</span> HilbertCurve</span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> b64decode</span><br><span class="line"></span><br><span class="line">filename = <span class="string">r&quot;password.xls&quot;</span></span><br><span class="line"><span class="comment"># xlrd操作xls文件</span></span><br><span class="line">excel = xlrd.open_workbook(filename)  <span class="comment"># 文件名以及路径，如果路径或者文件名有中文给前面加一个 r</span></span><br><span class="line"></span><br><span class="line">excel.sheet_names()  <span class="comment"># 获取excel里的工作表sheet名称数组</span></span><br><span class="line">sheet = excel.sheet_by_index(<span class="number">0</span>)  <span class="comment"># 根据下标获取对应的sheet表</span></span><br><span class="line"></span><br><span class="line">lis = []</span><br><span class="line"><span class="keyword">for</span> index <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">    lis.append(sheet.row_values(index))</span><br><span class="line"></span><br><span class="line">arr = np.array(lis)</span><br><span class="line"></span><br><span class="line">hilbert_curve = HilbertCurve(<span class="number">8</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">s = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(np.size(arr)):</span><br><span class="line">    [x, y] = hilbert_curve.point_from_distance(i)</span><br><span class="line">    s += arr[y, x]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">25</span>):</span><br><span class="line">    s = b64decode(s)</span><br><span class="line"><span class="built_in">print</span>(s)</span><br></pre></td></tr></table></figure>
 
@@ -358,14 +361,14 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>4XWi11
+      <strong>Post author:  </strong>4XWi11
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/d98f7fed/" title="20210919 长城杯Crypto方向WP">https://4xwi11.github.io/posts/d98f7fed/</a>
+      <strong>Post link: </strong>
+      <a href="https://4xwi11.github.io/posts/d98f7fed/" title="20210919-长城杯-CryptoSecWriteUp">https://4xwi11.github.io/posts/d98f7fed/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -375,13 +378,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/69ac5a99/" rel="prev" title="20210917 SharkCTFCrypto方向部分WP">
-                  <i class="fa fa-chevron-left"></i> 20210917 SharkCTFCrypto方向部分WP
+                <a href="/posts/cdf770aa/" rel="prev" title="114新闻部工作手册">
+                  <i class="fa fa-chevron-left"></i> 114新闻部工作手册
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/eabdfebd/" rel="next" title="20210920 CTFSHOW月饼杯Crypto方向WP">
-                  20210920 CTFSHOW月饼杯Crypto方向WP <i class="fa fa-chevron-right"></i>
+                <a href="/posts/eabdfebd/" rel="next" title="20210920-CTFSHOW月饼杯-CryptoSecWriteUp">
+                  20210920-CTFSHOW月饼杯-CryptoSecWriteUp <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -421,8 +424,8 @@
           mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
           seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
           snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
-          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
       } 
   setInterval("createtime()",250);
   </script>
@@ -432,13 +435,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1m</span>
+    <span title="Symbols count total">873k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:51</span>
+    <span title="Reading time total">13:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -446,7 +449,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -454,20 +457,26 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+// 在最后添加<script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
@@ -475,6 +484,7 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   

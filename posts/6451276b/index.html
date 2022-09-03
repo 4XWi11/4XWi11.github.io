@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,15 +17,16 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
-<meta name="description" content="以下只是某些简单赛题的复现。本人并无任何iot学习经历，以下内容有些咨询过物联网的同学、研究生学长还有一些师傅，并结合自己的理解，所以除了能获得flag的步骤外，不保证绝对正确（笑一下就好">
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="Wow, IoT! Just make some ez tasks.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20220311-xhjl-IoTSec">
+<meta property="og:title" content="20220311-西湖论剑-IoTSecPartWriteUp">
 <meta property="og:url" content="https://4xwi11.github.io/posts/6451276b/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
-<meta property="og:description" content="以下只是某些简单赛题的复现。本人并无任何iot学习经历，以下内容有些咨询过物联网的同学、研究生学长还有一些师傅，并结合自己的理解，所以除了能获得flag的步骤外，不保证绝对正确（笑一下就好">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:description" content="Wow, IoT! Just make some ez tasks.">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220318115057039.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220311200713489.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220311200816422.png">
@@ -53,10 +54,8 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220318205355423.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220420204323278.png">
 <meta property="article:published_time" content="2022-04-25T02:10:32.000Z">
-<meta property="article:modified_time" content="2022-04-25T02:15:42.524Z">
+<meta property="article:modified_time" content="2022-08-31T15:39:26.168Z">
 <meta property="article:author" content="4XWi11">
-<meta property="article:tag" content="IoT">
-<meta property="article:tag" content="avr">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220318115057039.png">
 
@@ -65,10 +64,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/6451276b/","path":"posts/6451276b/","title":"20220311-xhjl-IoTSec"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/6451276b/","path":"posts/6451276b/","title":"20220311-西湖论剑-IoTSecPartWriteUp"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>20220311-xhjl-IoTSec | 4XWi11's Blog</title>
+<title>20220311-西湖论剑-IoTSecPartWriteUp | 4XWi11's Blog</title>
   
 
 
@@ -86,7 +85,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -113,13 +112,12 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -134,7 +132,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
@@ -164,17 +162,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A5%BF%E6%B9%96%E8%AE%BA%E5%89%91-iot%E6%96%B9%E5%90%91%E5%A4%8D%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">西湖论剑 iot方向复现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.1.</span> <span class="nav-text">Reference</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#something-else"><span class="nav-number">1.1.1.</span> <span class="nav-text">something else</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Toolkit-provided"><span class="nav-number">1.2.</span> <span class="nav-text">Toolkit provided</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TASK1-Linux-IoT"><span class="nav-number">1.3.</span> <span class="nav-text">TASK1-Linux IoT</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#tqmm"><span class="nav-number">1.3.1.</span> <span class="nav-text">tqmm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TASK2-AVR-MCU-IoT%EF%BC%88Aka-%E6%89%BE%E4%B8%B2%E5%8F%A3"><span class="nav-number">1.4.</span> <span class="nav-text">TASK2-AVR MCU IoT（Aka 找串口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#no-more-time"><span class="nav-number">1.4.1.</span> <span class="nav-text">no more time</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#base64"><span class="nav-number">1.4.2.</span> <span class="nav-text">base64</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">静态分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#strings"><span class="nav-number">1.4.2.1.1.</span> <span class="nav-text">strings</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#radare2"><span class="nav-number">1.4.2.1.2.</span> <span class="nav-text">radare2</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#a%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.2.1.2.1.</span> <span class="nav-text">a命令</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#p%E5%91%BD%E4%BB%A4"><span class="nav-number">1.4.2.1.2.2.</span> <span class="nav-text">p命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90"><span class="nav-number">1.4.2.2.</span> <span class="nav-text">动态分析</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#qemu-system-avr"><span class="nav-number">1.4.2.2.1.</span> <span class="nav-text">qemu-system-avr</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%BB%B4%E6%BB%B4%E7%AD%94"><span class="nav-number">1.4.3.</span> <span class="nav-text">滴滴答</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Toolkits-provided"><span class="nav-number">1.</span> <span class="nav-text">Toolkits provided</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TASK1-Linux-IoT"><span class="nav-number">2.</span> <span class="nav-text">TASK1-Linux IoT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#tqmm"><span class="nav-number">2.1.</span> <span class="nav-text">tqmm</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#TASK2-AVR-MCU-IoT%EF%BC%88Aka-%E6%89%BE%E4%B8%B2%E5%8F%A3"><span class="nav-number">3.</span> <span class="nav-text">TASK2-AVR MCU IoT（Aka 找串口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#no-more-time"><span class="nav-number">3.1.</span> <span class="nav-text">no more time</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#base64"><span class="nav-number">3.2.</span> <span class="nav-text">base64</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90"><span class="nav-number">3.2.1.</span> <span class="nav-text">静态分析</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#strings"><span class="nav-number">3.2.1.1.</span> <span class="nav-text">strings</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#radare2"><span class="nav-number">3.2.1.2.</span> <span class="nav-text">radare2</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#a%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.1.2.1.</span> <span class="nav-text">a命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#p%E5%91%BD%E4%BB%A4"><span class="nav-number">3.2.1.2.2.</span> <span class="nav-text">p命令</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90"><span class="nav-number">3.2.2.</span> <span class="nav-text">动态分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#qemu-system-avr"><span class="nav-number">3.2.3.</span> <span class="nav-text">qemu-system-avr</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BB%B4%E6%BB%B4%E7%AD%94"><span class="nav-number">3.3.</span> <span class="nav-text">滴滴答</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -183,25 +181,20 @@
     <img class="site-author-image" itemprop="image" alt="4XWi11"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">4XWi11</p>
-  <div class="site-description" itemprop="description">feiwu自进阶</div>
+  <div class="site-description" itemprop="description">They said don't play with idiots.🙃</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -210,7 +203,7 @@
         <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+        <a href="/MTI0OTg0NzE2NQo" title="MTI0OTg0NzE2NQo → MTI0OTg0NzE2NQo"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
@@ -249,7 +242,7 @@
 
         </div>
       </div>
-        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
@@ -281,13 +274,13 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/6451276b/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="feiwu自进阶">
+      <meta itemprop="description" content="They said don't play with idiots.🙃">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -295,7 +288,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20220311-xhjl-IoTSec
+          20220311-西湖论剑-IoTSecPartWriteUp
         </h1>
 
         <div class="post-meta-container">
@@ -304,43 +297,49 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
-      
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2022-04-25 10:10:32 / 修改时间：10:15:42" itemprop="dateCreated datePublished" datetime="2022-04-25T10:10:32+08:00">2022-04-25</time>
+      <time title="Created: 2022-04-25 10:10:32" itemprop="dateCreated datePublished" datetime="2022-04-25T10:10:32+08:00">2022-04-25</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-08-31 23:39:26" itemprop="dateModified" datetime="2022-08-31T23:39:26+08:00">2022-08-31</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BIoT/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之IoT</span></a>
+          <a href="/categories/Others/" itemprop="url" rel="index"><span itemprop="name">Others</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">Views: </span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="Symbols count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>4.9k</span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>4.8k</span>
     </span>
-    <span class="post-meta-item" title="阅读时长">
+    <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>4 分钟</span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>4 mins.</span>
     </span>
 </div>
 
@@ -351,31 +350,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <blockquote>
-<p>以下只是某些简单赛题的复现。本人并无任何iot学习经历，以下内容有些咨询过物联网的同学、研究生学长还有一些师傅，并结合自己的理解，所以除了能获得flag的步骤外，不保证绝对正确（笑一下就好</p>
-</blockquote>
+        <p>Wow, IoT! Just make some ez tasks.</p>
 <span id="more"></span>
 
-<h1 id="西湖论剑-iot方向复现"><a href="#西湖论剑-iot方向复现" class="headerlink" title="西湖论剑 iot方向复现"></a>西湖论剑 iot方向复现</h1><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/aOirT1aIfbbN890X39zWBw">海特实验室wp</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.craft.do/s/cjVox4kYJbC583">u神wp</a></li>
-<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/zHh1EaKAkyjoOOJYeob0LQ">ChaMd5团队wp</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.waveshare.net/w/upload/DVD_AVR8_CN/data/product/USB_AVR_ISP_XPII_PG-2-3.htm">https://www.waveshare.net/w/upload/DVD_AVR8_CN/data/product/USB_AVR_ISP_XPII_PG-2-3.htm</a></li>
-</ul>
-<hr>
-<h3 id="something-else"><a href="#something-else" class="headerlink" title="something else"></a>something else</h3><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/DasSecurity-HatLab/IoT-CTF-2020">海特实验室2020西湖论剑-IoT仓库</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/DasSecurity-HatLab/IoT-CTF-2021">海特实验室2021西湖论剑-IoT仓库</a></li>
-<li><a target="_blank" rel="noopener" href="https://xuanxuanblingbling.github.io/iot/2020/11/17/iot/">西湖论剑 2020 IoT闯关赛 赛后整理</a></li>
-</ul>
-<h2 id="Toolkit-provided"><a href="#Toolkit-provided" class="headerlink" title="Toolkit provided"></a>Toolkit provided</h2><p>开发板（海特实验室自研）*4（板子上有两颗CPU，标有AVR的题目是由不同于Linux的处理器执行的），TF卡，TF读卡器，USB-ISP转接器，USB-TTL转接器，FPC及FPC连接器*2，杜邦线*4，排线，micro-USB连接线*若干，还有开发板的与原理图，比赛现场提供电烙铁</p>
+<h1 id="Toolkits-provided"><a href="#Toolkits-provided" class="headerlink" title="Toolkits provided"></a>Toolkits provided</h1><p>开发板（海特实验室自研）*4（板子上有两颗CPU，标有AVR的题目是由不同于Linux的处理器执行的），TF卡，TF读卡器，USB-ISP转接器，USB-TTL转接器，FPC及FPC连接器*2，杜邦线*4，排线，micro-USB连接线*若干，还有开发板的与原理图，比赛现场提供电烙铁</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220318115057039.png" alt="image-20220318115057039"></p>
-<h2 id="TASK1-Linux-IoT"><a href="#TASK1-Linux-IoT" class="headerlink" title="TASK1-Linux IoT"></a>TASK1-Linux IoT</h2><h3 id="tqmm"><a href="#tqmm" class="headerlink" title="tqmm"></a>tqmm</h3><p>题目只给了个ip地址，尝试扫描端口，发现开了下面四个端口。nc 9999，提示MQTT通信，并要求公布一串base64编码</p>
+<h1 id="TASK1-Linux-IoT"><a href="#TASK1-Linux-IoT" class="headerlink" title="TASK1-Linux IoT"></a>TASK1-Linux IoT</h1><h2 id="tqmm"><a href="#tqmm" class="headerlink" title="tqmm"></a>tqmm</h2><p>题目只给了个ip地址，尝试扫描端口，发现开了下面四个端口。nc 9999，提示MQTT通信，并要求公布一串base64编码</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220311200713489.png" alt="image-20220311200713489"></p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220311200816422.png" alt="image-20220311200816422"></p>
 <p>不太懂，网上搜一波，发现最后只要作为服务端发送主题和这串base64编码，就可以在客户端收到flag</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220311201112434-16475707334211.png" alt="image-20220311201112434"></p>
-<h2 id="TASK2-AVR-MCU-IoT（Aka-找串口"><a href="#TASK2-AVR-MCU-IoT（Aka-找串口" class="headerlink" title="TASK2-AVR MCU IoT（Aka 找串口"></a>TASK2-AVR MCU IoT（Aka 找串口</h2><h3 id="no-more-time"><a href="#no-more-time" class="headerlink" title="no more time"></a>no more time</h3><p>提供附件内容如下，F_CPU即AVR单片机CPU的时钟频率，其逻辑是若PD2为0则自减1万赫兹，否则不变</p>
+<h1 id="TASK2-AVR-MCU-IoT（Aka-找串口"><a href="#TASK2-AVR-MCU-IoT（Aka-找串口" class="headerlink" title="TASK2-AVR MCU IoT（Aka 找串口"></a>TASK2-AVR MCU IoT（Aka 找串口</h1><h2 id="no-more-time"><a href="#no-more-time" class="headerlink" title="no more time"></a>no more time</h2><p>提供附件内容如下，F_CPU即AVR单片机CPU的时钟频率，其逻辑是若PD2为0则自减1万赫兹，否则不变</p>
 <p>最直接的想法，连接板子，和程序交互，满足上述逻辑，便能得到某些东西。用串口调试工具连接UART调试串口，但提示no tf card，如下图所示。而这块板子是有两块CPU的，很明显该题目的程序没有运行起来，或者串口找的不对</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">这题直接输出flag。AVR时钟F_CPU存在下面逻辑：</span><br><span class="line">for(;;)&#123;</span><br><span class="line">	if(!PD2)&#123;</span><br><span class="line">		F_CPU-=10000;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		F_CPU=F_CPU;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -401,7 +386,7 @@
 </li>
 </ul>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220318145057919.png" alt="image-20220318145057919"></p>
-<h3 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h3><p>比赛中的hint</p>
+<h2 id="base64"><a href="#base64" class="headerlink" title="base64"></a>base64</h2><p>比赛中的hint</p>
 <ol>
 <li>逆向AVR固件</li>
 <li>radare2、simavr、avr-gdb</li>
@@ -427,13 +412,13 @@
 
 <p>（这个我虚拟机提不出来，换了fuck@Scr1pt的mac才提出来</p>
 <p>提完固件，分析思路就和一般的二进制题差不多了，主要是相应工具的使用。对于iot的题目，用到的是题目最开始所列的那些工具</p>
-<h4 id="静态分析"><a href="#静态分析" class="headerlink" title="静态分析"></a>静态分析</h4><h5 id="strings"><a href="#strings" class="headerlink" title="strings"></a>strings</h5><p>首先使用<code>strings</code>命令参看程序中硬编码的字符串</p>
+<h3 id="静态分析"><a href="#静态分析" class="headerlink" title="静态分析"></a>静态分析</h3><h4 id="strings"><a href="#strings" class="headerlink" title="strings"></a>strings</h4><p>首先使用<code>strings</code>命令参看程序中硬编码的字符串</p>
 <p>其中并没有变化后的base64表，推测其应该是程序运行时按照某顺序生成的</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220425083338925.png" alt="image-20220425083338925"></p>
-<h5 id="radare2"><a href="#radare2" class="headerlink" title="radare2"></a>radare2</h5><p>使用radare2进行分析，radare2是逆向分析工具，和ida类似，但是是开源的</p>
+<h4 id="radare2"><a href="#radare2" class="headerlink" title="radare2"></a>radare2</h4><p>使用radare2进行分析，radare2是逆向分析工具，和ida类似，但是是开源的</p>
 <p>加载程序，<code>-a</code>参数设置程序架构</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220425084042957.png" alt="image-20220425084042957"></p>
-<h6 id="a命令"><a href="#a命令" class="headerlink" title="a命令"></a>a命令</h6><ul>
+<h5 id="a命令"><a href="#a命令" class="headerlink" title="a命令"></a>a命令</h5><ul>
 <li><p><code>aaaaa</code></p>
 <p>分析全部二进制代码，radare2为我们划分程序并命名</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220425084626503.png" alt="image-20220425084626503"></p>
@@ -444,7 +429,7 @@
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220425084745753.png" alt="image-20220425084745753"></p>
 </li>
 </ul>
-<h6 id="p命令"><a href="#p命令" class="headerlink" title="p命令"></a>p命令</h6><ul>
+<h5 id="p命令"><a href="#p命令" class="headerlink" title="p命令"></a>p命令</h5><ul>
 <li><p><code>pdf</code></p>
 <p>打出反汇编后的代码（太长了，不好看，不能f5反编译就折磨</p>
 </li>
@@ -459,7 +444,7 @@
 <p>但纯汇编实在是太不友好。BTW上面这些用ida同样可以完成</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220425091213847.png" alt="image-20220425091213847"></p>
 <p>接着，结合re的一般流程，当然可以想到通过动调的方式来获取base64变表</p>
-<h4 id="动态分析"><a href="#动态分析" class="headerlink" title="动态分析"></a>动态分析</h4><h5 id="qemu-system-avr"><a href="#qemu-system-avr" class="headerlink" title="qemu-system-avr"></a>qemu-system-avr</h5><p>模拟固件</p>
+<h3 id="动态分析"><a href="#动态分析" class="headerlink" title="动态分析"></a>动态分析</h3><h3 id="qemu-system-avr"><a href="#qemu-system-avr" class="headerlink" title="qemu-system-avr"></a>qemu-system-avr</h3><p>模拟固件</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> qemu-system-avr -M uno -bios base64.hex -nographic</span></span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220425090133113.png" alt="image-20220425090133113"></p>
@@ -477,7 +462,7 @@
 <p>最后解密就好了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"></span><br><span class="line">cipher = <span class="string">&quot;UoH+U/D/U92lgdLnWMZIR/nOVo2JU9VKOi==&quot;</span></span><br><span class="line"></span><br><span class="line">space2 = <span class="string">&quot;a0b1c2d3e4f5g6h7i8j9ZYXWVUTSRQPON+klmnopqrABCDEFGHIJKLM/stuvwxyz&quot;</span></span><br><span class="line">space1 = <span class="string">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span> (base64.b64decode(cipher.translate(<span class="built_in">str</span>.maketrans(space2,space1))))</span><br><span class="line"><span class="comment"># flag&#123;we1c0me_e2sy_base64&#125;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="滴滴答"><a href="#滴滴答" class="headerlink" title="滴滴答"></a>滴滴答</h3><p>附件提示如下</p>
+<h2 id="滴滴答"><a href="#滴滴答" class="headerlink" title="滴滴答"></a>滴滴答</h2><p>附件提示如下</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">单片机实现摩斯加密过程，已知在处理高汉明重量时消耗的时间较长，串口输出为计数器Count日志，请输出明文。t = 1000000 * Count / 16000000）</span><br><span class="line"></span><br><span class="line">data &lt; -(k0, k1, k2...k6); r &lt; -(&quot;_&quot;, &quot;.&quot;)</span><br><span class="line">for i &lt; - 0 to 6</span><br><span class="line">	MOSI_enc(r, data[i])</span><br><span class="line">        delay 350ms</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
 
 <p>连接板子后的输出结果如下图所示</p>
@@ -500,6 +485,19 @@
 <p>（不要傻的（是本人）拿右边的进度做文章，然后得到了shit</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">c = [<span class="number">0</span>, <span class="number">3</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">14</span>, <span class="number">18</span>, <span class="number">22</span>, <span class="number">25</span>, <span class="number">29</span>, <span class="number">33</span>, <span class="number">37</span>, <span class="number">40</span>, <span class="number">44</span>, <span class="number">48</span>, <span class="number">51</span>, <span class="number">55</span>, <span class="number">59</span>, <span class="number">62</span>, <span class="number">66</span>, <span class="number">70</span>, <span class="number">74</span>, <span class="number">77</span>, <span class="number">81</span>, <span class="number">85</span>, <span class="number">88</span>, <span class="number">92</span>, <span class="number">96</span>, <span class="number">100</span>]</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(c) - <span class="number">1</span>):</span><br><span class="line">    <span class="built_in">print</span>(c[i + <span class="number">1</span>] - c[i], end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line"><span class="comment"># 3 4 4 3 4 4 3 4 4 4 3 4 4 3 4 4 3 4 4 4 3 4 4 3 4 4 4 </span></span><br></pre></td></tr></table></figure>
 
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/aOirT1aIfbbN890X39zWBw">海特实验室wp</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.craft.do/s/cjVox4kYJbC583">u神wp-no more time</a></li>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/zHh1EaKAkyjoOOJYeob0LQ">ChaMd5团队wp</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.waveshare.net/w/upload/DVD_AVR8_CN/data/product/USB_AVR_ISP_XPII_PG-2-3.htm">https://www.waveshare.net/w/upload/DVD_AVR8_CN/data/product/USB_AVR_ISP_XPII_PG-2-3.htm</a></li>
+</ol>
+<hr>
+<p>something else</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/DasSecurity-HatLab/IoT-CTF-2020">海特实验室2020西湖论剑-IoT仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/DasSecurity-HatLab/IoT-CTF-2021">海特实验室2021西湖论剑-IoT仓库</a></li>
+<li><a target="_blank" rel="noopener" href="https://xuanxuanblingbling.github.io/iot/2020/11/17/iot/">西湖论剑 2020 IoT闯关赛 赛后整理</a></li>
+</ul>
 
     </div>
 
@@ -513,29 +511,25 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>4XWi11
+      <strong>Post author:  </strong>4XWi11
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/6451276b/" title="20220311-xhjl-IoTSec">https://4xwi11.github.io/posts/6451276b/</a>
+      <strong>Post link: </strong>
+      <a href="https://4xwi11.github.io/posts/6451276b/" title="20220311-西湖论剑-IoTSecPartWriteUp">https://4xwi11.github.io/posts/6451276b/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
   </li>
 </ul>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/IoT/" rel="tag"># IoT</a>
-              <a href="/tags/avr/" rel="tag"># avr</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/9171e9d7/" rel="prev" title="20220423-DAS-FATE-CryptoSec">
-                  <i class="fa fa-chevron-left"></i> 20220423-DAS-FATE-CryptoSec
+                <a href="/posts/9171e9d7/" rel="prev" title="20220423-DASxFATE-CryptoSecPartWriteUp">
+                  <i class="fa fa-chevron-left"></i> 20220423-DASxFATE-CryptoSecPartWriteUp
                 </a>
             </div>
             <div class="post-nav-item">
@@ -577,8 +571,8 @@
           mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
           seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
           snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
-          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
       } 
   setInterval("createtime()",250);
   </script>
@@ -588,13 +582,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1m</span>
+    <span title="Symbols count total">873k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:51</span>
+    <span title="Reading time total">13:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -602,7 +596,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -610,20 +604,26 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+// 在最后添加<script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
@@ -631,6 +631,7 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   

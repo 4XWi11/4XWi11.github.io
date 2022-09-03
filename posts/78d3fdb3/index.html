@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
@@ -17,24 +17,22 @@
 
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
 <meta name="description" content="&amp;nbsp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="20210710 CTFSHOW CJBCrypto方向部分WP">
+<meta property="og:title" content="20210710-CTFSHOW CJB-CryptoSecPartWriteUp">
 <meta property="og:url" content="https://4xwi11.github.io/posts/78d3fdb3/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
 <meta property="og:description" content="&amp;nbsp;">
-<meta property="og:locale" content="zh_CN">
+<meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://ctf-wiki.org/crypto/asymmetric/rsa/figure/coppersmith-howgrave-graham.png">
 <meta property="og:image" content="https://ctf-wiki.org/crypto/asymmetric/rsa/figure/coppersmith-f2g.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711134025217.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711144022632.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/56JSZRFN%7BE%60PAZORN_E%7D_PM.gif">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711151337886.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711152717959.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711154007056.png">
-<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/VRD%7D_TUZ28Z%7BHXI95%7DR4SR4.jpg">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210712094503819.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210712093228438.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711101933363.png">
@@ -44,10 +42,8 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711190015963.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711190109271.png">
 <meta property="article:published_time" content="2021-10-08T01:47:38.000Z">
-<meta property="article:modified_time" content="2021-11-21T07:08:56.616Z">
+<meta property="article:modified_time" content="2022-09-03T01:12:41.285Z">
 <meta property="article:author" content="4XWi11">
-<meta property="article:tag" content="曼切斯特">
-<meta property="article:tag" content="CopperSmith">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://ctf-wiki.org/crypto/asymmetric/rsa/figure/coppersmith-howgrave-graham.png">
 
@@ -56,10 +52,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://4xwi11.github.io/posts/78d3fdb3/","path":"posts/78d3fdb3/","title":"20210710 CTFSHOW CJBCrypto方向部分WP"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/78d3fdb3/","path":"posts/78d3fdb3/","title":"20210710-CTFSHOW CJB-CryptoSecPartWriteUp"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>20210710 CTFSHOW CJBCrypto方向部分WP | 4XWi11's Blog</title>
+<title>20210710-CTFSHOW CJB-CryptoSecPartWriteUp | 4XWi11's Blog</title>
   
 
 
@@ -77,7 +73,7 @@
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
         <span class="toggle-line"></span>
@@ -104,13 +100,12 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu">
-        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li>
-        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>关于</a></li>
-        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li>
-        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
-        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
       <li class="menu-item menu-item-search">
-        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
       </li>
   </ul>
@@ -125,7 +120,7 @@
   </span>
   <div class="search-input-container">
     <input autocomplete="off" autocapitalize="off" maxlength="80"
-           placeholder="搜索..." spellcheck="false"
+           placeholder="Searching..." spellcheck="false"
            type="search" class="search-input">
   </div>
   <span class="popup-btn-close" role="button">
@@ -155,17 +150,17 @@
     <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
-          文章目录
+          Table of Contents
         </li>
         <li class="sidebar-nav-overview">
-          站点概览
+          Overview
         </li>
       </ul>
 
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CJB"><span class="nav-number">1.</span> <span class="nav-text">CJB</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cop-Run"><span class="nav-number">1.1.</span> <span class="nav-text">Cop! Run!!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CopperSmith%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86-%C2%B6"><span class="nav-number">1.2.</span> <span class="nav-text">CopperSmith基本原理 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%B7%E9%82%A3%E8%BE%B9%E6%BC%82%E6%9D%A5%E7%9A%84%E6%BC%82%E6%B5%81%E7%93%B6"><span class="nav-number">1.3.</span> <span class="nav-text">海那边漂来的漂流瓶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E4%B8%BB%E8%AF%B4%E8%A6%81%E5%87%BA%E7%AE%80%E5%8D%95%E7%9A%84%E9%A2%98%E7%9B%AE%E5%A4%A7%E5%AE%B6%E6%8A%8A%E8%BF%99%E9%A2%98%E6%83%B3%E7%AE%80%E5%8D%95%E4%B8%80%E7%82%B9"><span class="nav-number">1.4.</span> <span class="nav-text">群主说要出简单的题目大家把这题想简单一点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Dedication-of-Suspect-M"><span class="nav-number">1.5.</span> <span class="nav-text">The Dedication of Suspect M</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36D%E6%9D%AF"><span class="nav-number">2.</span> <span class="nav-text">36D杯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#justShow"><span class="nav-number">2.1.</span> <span class="nav-text">justShow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A3%9E%E9%B8%BD%E4%BC%A0%E4%B9%A6"><span class="nav-number">2.2.</span> <span class="nav-text">飞鸽传书</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BJDCTF"><span class="nav-number">3.</span> <span class="nav-text">BJDCTF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6"><span class="nav-number">3.1.</span> <span class="nav-text">编码与调制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polybius"><span class="nav-number">3.2.</span> <span class="nav-text">Polybius</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6AK%E8%B5%9B"><span class="nav-number">4.</span> <span class="nav-text">密码学AK赛</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">加法</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Cop-Run"><span class="nav-number">1.</span> <span class="nav-text">Cop! Run!!</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#CopperSmith%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">1.1.</span> <span class="nav-text">CopperSmith基本原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%B7%E9%82%A3%E8%BE%B9%E6%BC%82%E6%9D%A5%E7%9A%84%E6%BC%82%E6%B5%81%E7%93%B6"><span class="nav-number">1.2.</span> <span class="nav-text">海那边漂来的漂流瓶</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BE%A4%E4%B8%BB%E8%AF%B4%E8%A6%81%E5%87%BA%E7%AE%80%E5%8D%95%E7%9A%84%E9%A2%98%E7%9B%AE%E5%A4%A7%E5%AE%B6%E6%8A%8A%E8%BF%99%E9%A2%98%E6%83%B3%E7%AE%80%E5%8D%95%E4%B8%80%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">群主说要出简单的题目大家把这题想简单一点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#The-Dedication-of-Suspect-M"><span class="nav-number">1.4.</span> <span class="nav-text">The Dedication of Suspect M</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#36D%E6%9D%AF"><span class="nav-number">2.</span> <span class="nav-text">36D杯</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#justShow"><span class="nav-number">2.1.</span> <span class="nav-text">justShow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A3%9E%E9%B8%BD%E4%BC%A0%E4%B9%A6"><span class="nav-number">2.2.</span> <span class="nav-text">飞鸽传书</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#BJDCTF"><span class="nav-number">3.</span> <span class="nav-text">BJDCTF</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A0%81%E4%B8%8E%E8%B0%83%E5%88%B6"><span class="nav-number">3.1.</span> <span class="nav-text">编码与调制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Polybius"><span class="nav-number">3.2.</span> <span class="nav-text">Polybius</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%86%E7%A0%81%E5%AD%A6AK%E8%B5%9B"><span class="nav-number">4.</span> <span class="nav-text">密码学AK赛</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8A%A0%E6%B3%95"><span class="nav-number">4.1.</span> <span class="nav-text">加法</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -174,25 +169,20 @@
     <img class="site-author-image" itemprop="image" alt="4XWi11"
       src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">4XWi11</p>
-  <div class="site-description" itemprop="description">feiwu自进阶</div>
+  <div class="site-description" itemprop="description">They said don't play with idiots.🙃</div>
 </div>
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">73</span>
-          <span class="site-state-item-name">日志</span>
+          <span class="site-state-item-count">52</span>
+          <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">10</span>
-        <span class="site-state-item-name">分类</span></a>
-      </div>
-      <div class="site-state-item site-state-tags">
-          <a href="/tags/">
-        <span class="site-state-item-count">54</span>
-        <span class="site-state-item-name">标签</span></a>
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
       </div>
   </nav>
 </div>
@@ -201,7 +191,7 @@
         <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://blog.csdn.net/m0_49109277?spm=1000.2115.3001.5343" title="CSDN → https:&#x2F;&#x2F;blog.csdn.net&#x2F;m0_49109277?spm&#x3D;1000.2115.3001.5343" rel="noopener" target="_blank"><i class="fab fa-cuttlefish fa-fw"></i>CSDN</a>
+        <a href="/MTI0OTg0NzE2NQo" title="MTI0OTg0NzE2NQo → MTI0OTg0NzE2NQo"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
       </span>
   </div>
   <div class="cc-license site-overview-item animated" itemprop="license">
@@ -240,7 +230,7 @@
 
         </div>
       </div>
-        <div class="back-to-top animated" role="button" aria-label="返回顶部">
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
           <i class="fa fa-arrow-up"></i>
           <span>0%</span>
         </div>
@@ -272,13 +262,13 @@
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
     <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/78d3fdb3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="4XWi11">
-      <meta itemprop="description" content="feiwu自进阶">
+      <meta itemprop="description" content="They said don't play with idiots.🙃">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -286,7 +276,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          20210710 CTFSHOW CJBCrypto方向部分WP
+          20210710-CTFSHOW CJB-CryptoSecPartWriteUp
         </h1>
 
         <div class="post-meta-container">
@@ -295,49 +285,53 @@
       <span class="post-meta-item-icon">
         <i class="far fa-calendar"></i>
       </span>
-      <span class="post-meta-item-text">发表于</span>
+      <span class="post-meta-item-text">Posted on</span>
 
-      <time title="创建时间：2021-10-08 09:47:38" itemprop="dateCreated datePublished" datetime="2021-10-08T09:47:38+08:00">2021-10-08</time>
+      <time title="Created: 2021-10-08 09:47:38" itemprop="dateCreated datePublished" datetime="2021-10-08T09:47:38+08:00">2021-10-08</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2021-11-21 15:08:56" itemprop="dateModified" datetime="2021-11-21T15:08:56+08:00">2021-11-21</time>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-09-03 09:12:41" itemprop="dateModified" datetime="2022-09-03T09:12:41+08:00">2022-09-03</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
       </span>
-      <span class="post-meta-item-text">分类于</span>
+      <span class="post-meta-item-text">In</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%A0%91%E5%93%A5%E8%AE%A9%E6%88%91%E5%A4%A9%E5%A4%A9%E5%86%99%E4%B9%8BCrypto/" itemprop="url" rel="index"><span itemprop="name">树哥让我天天写之Crypto</span></a>
+          <a href="/categories/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF-Crypto/WriteUp/" itemprop="url" rel="index"><span itemprop="name">WriteUp</span></a>
         </span>
     </span>
 
   
-    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
-      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="post-meta-item-text">Views: </span>
       <span id="busuanzi_value_page_pv"></span>
     </span>
     <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
+    <span class="post-meta-item" title="Symbols count in article">
       <span class="post-meta-item-icon">
         <i class="far fa-file-word"></i>
       </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>20k</span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>18k</span>
     </span>
-    <span class="post-meta-item" title="阅读时长">
+    <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>18 分钟</span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>17 mins.</span>
     </span>
 </div>
 
@@ -348,10 +342,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>&nbsp;</p>
-<span id="more"></span>
-
-<h1 id="CJB"><a href="#CJB" class="headerlink" title="CJB"></a>CJB</h1><h2 id="Cop-Run"><a href="#Cop-Run" class="headerlink" title="Cop! Run!!"></a>Cop! Run!!</h2><p>la佬出的题目，这几天la佬的题可不是白刷的</p>
+        <p>&nbsp;<span id="more"></span></p>
+<h1 id="Cop-Run"><a href="#Cop-Run" class="headerlink" title="Cop! Run!!"></a>Cop! Run!!</h1><p>la佬出的题目</p>
 <blockquote>
 <p>题目描述 </p>
 </blockquote>
@@ -366,9 +358,9 @@
 <p>题目中出现Cop，猜测是CopperSmith；从hint中获悉，一部零五年的电影《Mr Smith &amp; Mrs Smith》，是CopperSmith没跑了</p>
 <p>先看代码，代码很简短，显然只要求出 x 的前两项，所有的问题就迎刃而解，或者说，只要知道 x[1] ，就可以求出 y ，然后依据异或的性质，加密即解密</p>
 <p>而我们已知的是 x 右移73位的数据，显然是要求低位。自然而然可以想到方程的思想，设置几个变量，然后根据等式解方程。因为前面接触过 CopperSmith 在 RSA 中的应用，sage 里的 smal_roots 就是基于 CopperSmith 实现的</p>
-<p>下面简单介绍一下 CopperSmith ，摘自CTF Wiki的介绍</p>
+<p>下面简单介绍一下 CopperSmith ，摘自CTF Wiki</p>
 <hr>
-<h2 id="CopperSmith基本原理-¶"><a href="#CopperSmith基本原理-¶" class="headerlink" title="CopperSmith基本原理 ¶"></a>CopperSmith基本原理 <a target="_blank" rel="noopener" href="https://ctf-wiki.org/crypto/asymmetric/rsa/rsa_coppersmith_attack/#_1">¶</a></h2><p>Coppersmith 相关攻击与 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Don_Coppersmith">Don Coppersmith</a> 紧密相关，他提出了一种针对于模多项式（单变量，二元变量，甚至多元变量）找所有小整数根的多项式时间的方法。</p>
+<h2 id="CopperSmith基本原理"><a href="#CopperSmith基本原理" class="headerlink" title="CopperSmith基本原理"></a>CopperSmith基本原理</h2><p>Coppersmith 相关攻击与 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Don_Coppersmith">Don Coppersmith</a> 紧密相关，他提出了一种针对于模多项式（单变量，二元变量，甚至多元变量）找所有小整数根的多项式时间的方法。</p>
 <p>这里我们以单变量为主进行介绍，假设</p>
 <ul>
 <li>模数为 N ，N 具有一个因子$b≥N^β,0&lt;β≤1$</li>
@@ -398,39 +390,28 @@
 <p>需要注意的是，由于 Coppersmith 根的约束，在 RSA 中的应用时，往往只适用于 e 较小的情况。</p>
 <hr>
 <p>总结，CopperSmith 可以用来一元甚至多元的多项式</p>
-<p>回到题目，初步尝试，在尚师傅的指导下，我写出来了第一个多项式，设 $x_{0}$ 的低73位为 k<br>$$<br>f(x_{0}&lt;&lt;73+k)&gt;&gt;73=x_{1}<br>$$<br>是关于 k 的一元多项式，然后我们尝试能不能解</p>
+<p>回到题目，初步尝试，在尚师傅的指导下，我写出来了第一个多项式，设 $x_{0}$ 的低73位为 k<br>$$<br>f(x_{0}&lt;&lt;73+k)&gt;&gt;73=x_{1}\notag<br>$$<br>是关于 k 的一元多项式，然后我们尝试能不能解</p>
 <p>la佬的博客上有解一元和多元的脚本</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Sage</span></span><br><span class="line"><span class="comment">#单元</span></span><br><span class="line">PR.&lt;x&gt; = PolynomialRing(Zmod(n))</span><br><span class="line">f = (a + x)^e - c</span><br><span class="line">root = f.small_roots(X=<span class="number">2</span>^<span class="number">256</span>, beta=<span class="number">1</span>)[<span class="number">0</span>]  <span class="comment"># find root &lt; 2^256 with factor = n</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#多元</span></span><br><span class="line">load(<span class="string">&#x27;coppersmith.sage&#x27;</span>)</span><br><span class="line">P.&lt;x, y&gt; = PolynomialRing(GF(p))</span><br><span class="line">f = <span class="number">2</span>^<span class="number">170</span> * a^<span class="number">2</span> + <span class="number">2</span>^<span class="number">86</span> * a * x + x^<span class="number">2</span> - <span class="number">2</span>^<span class="number">85</span> * b + c - y</span><br><span class="line">roots = coron(f, X=<span class="number">2</span>^<span class="number">85</span>, Y=<span class="number">2</span>^<span class="number">85</span>, k=<span class="number">1</span>, debug=<span class="literal">True</span>)[<span class="number">0</span>]</span><br><span class="line">x, y = roots</span><br></pre></td></tr></table></figure>
 
 <p>改了一下</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">p = <span class="number">92946459607669937513774102250057295249718593723232674702212854287358873135783</span></span><br><span class="line">Fp = Zmod(p)</span><br><span class="line">pi = <span class="number">43844336985235863734419631630425915388298791521868754583032904718644333115590</span></span><br><span class="line">x_ = [<span class="number">3248642833056635029095920782095626337949113592116495266</span>, <span class="number">4883935221919623989344404485025479346028101682781790392</span>]</span><br><span class="line"></span><br><span class="line">P.&lt;t&gt; = PolynomialRing(Fp)</span><br><span class="line">f = t * t + pi</span><br><span class="line"></span><br><span class="line">PR.&lt;k&gt; = PolynomialRing(Fp)</span><br><span class="line">s = f(x_[<span class="number">0</span>]*<span class="number">2</span>^<span class="number">73</span> + k)//<span class="number">2</span>*<span class="number">73</span>-x_[<span class="number">1</span>]</span><br><span class="line">root = s.small_roots(X=<span class="number">2</span>^<span class="number">73</span>, beta=<span class="number">1</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
 
-<p>emmmmm 有几个问题，首先这样向右位移不知道中不中，然后总是报越界的错</p>
+<p>有几个问题，首先这样向右位移不知道中不中，然后总是报越界的错</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711134025217.png" alt="image-20210711134025217"></p>
 <p>在尝试以及一些等效替代无果后，我想到再添加一个变量；一是因为这样表示更加清晰，省去了向右位移的不确定性，二是la佬的博客里，也有求解多元多项式的脚本</p>
-<p><em>解决不了就加一层，这是我从计网学来的</em></p>
-<p>设 x[0] x[1] 的低73位为 k0 和 k1，写出来的等式是<br>$$<br>f(x_{0}&lt;&lt;73+k_0)=x_{1}&lt;&lt;73+k_1<br>$$<br>完成脚本的篡改，这个 coppersmith.sage 来自<a target="_blank" rel="noopener" href="https://github.com/mimoo/RSA-and-LLL-attacks">https://github.com/mimoo/RSA-and-LLL-attacks</a>，也是从la佬博客里看到的；la佬yyds</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">load(<span class="string">&quot;coppersmith.sage&quot;</span>)</span><br><span class="line"></span><br><span class="line">p = <span class="number">92946459607669937513774102250057295249718593723232674702212854287358873135783</span></span><br><span class="line">Fp = Zmod(p)</span><br><span class="line">pi = <span class="number">43844336985235863734419631630425915388298791521868754583032904718644333115590</span></span><br><span class="line">x_ = [<span class="number">3248642833056635029095920782095626337949113592116495266</span>, <span class="number">4883935221919623989344404485025479346028101682781790392</span>]</span><br><span class="line">c = <span class="number">193207529097125793778662519051231322609402866155819915933598367395102313904490702547833</span></span><br><span class="line"></span><br><span class="line">PR.&lt;t&gt; = PolynomialRing(Fp)</span><br><span class="line">f = t * t + pi</span><br><span class="line"></span><br><span class="line">PR.&lt;k0, k1&gt; = PolynomialRing(Fp)</span><br><span class="line">s = f(x_[<span class="number">0</span>]*<span class="number">2</span>^<span class="number">73</span> + k0)-x_[<span class="number">1</span>]*<span class="number">2</span>^<span class="number">73</span>-k1</span><br><span class="line">roots = coron(f, X=<span class="number">2</span>^<span class="number">85</span>, Y=<span class="number">2</span>^<span class="number">85</span>, k=<span class="number">1</span>, debug=<span class="literal">True</span>)[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
-
-<p>emmmmm conron没有定义，看了下 github 里的源码， 确实没有找到这个函数；然后对这个构造多项式是否可解也不是很确定，就做不下去了</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711144022632.png" alt="image-20210711144022632"></p>
-<p>这份 github 里的有一个这个函数，但是感觉是用在 RSA 类型的题目上的</p>
-<p>早上起来，抱着试一试的心态，又重新研究起这道题目；就是无止境的搜索吧，信息搜集的能力还是要向尚师傅学习</p>
-<p>然后找到了原题</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/56JSZRFN%7BE%60PAZORN_E%7D_PM.gif" alt="img"></p>
-<p>是三个月前 zer0pts CTF 的题目，看来这就是多刷题的意义。当时顺腾摸瓜，找到了 Joseph 师傅的博客，这位师傅是神人啊，之前好多东西都从他这里找到，TQQQQQL</p>
-<p>然后当时就是改了他的脚本做出来的，除了一些推导（开始觉得哦原来如此，但后面发现就是把我的给展开了），当然最主要的，他提供了一个 coppersmith 求小根函数的 github 链接</p>
+<p>设 x[0] x[1] 的低73位为 k0 和 k1，写出来的等式是<br>$$<br>f(x_{0}&lt;&lt;73+k_0)=x_{1}&lt;&lt;73+k_1\notag<br>$$<br>然后找到了原题</p>
+<p>是三个月前 zer0pts CTF 的题目，找到了 Joseph 师傅的博客，参考<a target="_blank" rel="noopener" href="https://jsur.in/posts/2021-03-07-zer0pts-ctf-2021-crypto-writeups">zer0pts CTF 2021 - Crypto-easy pseudo random</a></p>
+<p>然后当时就是改了他的脚本做出来的，除了一些推导，还提供了一个 coppersmith 求小根函数的 github 链接，<a target="_blank" rel="noopener" href="https://github.com/defund/coppersmith/">https://github.com/defund/coppersmith/</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> itertools</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">small_roots</span>(<span class="params">f, bounds, m=<span class="number">1</span>, d=<span class="literal">None</span></span>):</span></span><br><span class="line">	<span class="keyword">if</span> <span class="keyword">not</span> d:</span><br><span class="line">		d = f.degree()</span><br><span class="line"></span><br><span class="line">	R = f.base_ring()</span><br><span class="line">	N = R.cardinality()</span><br><span class="line"></span><br><span class="line">	f /= f.coefficients().pop(<span class="number">0</span>)</span><br><span class="line">	f = f.change_ring(ZZ)</span><br><span class="line"></span><br><span class="line">	G = <span class="type">Sequence</span>([], f.parent())</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(m+<span class="number">1</span>):</span><br><span class="line">		base = N^(m-i) * f^i</span><br><span class="line">		<span class="keyword">for</span> shifts <span class="keyword">in</span> itertools.product(<span class="built_in">range</span>(d), repeat=f.nvariables()):</span><br><span class="line">			g = base * prod(<span class="built_in">map</span>(power, f.variables(), shifts))</span><br><span class="line">			G.append(g)</span><br><span class="line"></span><br><span class="line">	B, monomials = G.coefficient_matrix()</span><br><span class="line">	monomials = vector(monomials)</span><br><span class="line"></span><br><span class="line">	factors = [monomial(*bounds) <span class="keyword">for</span> monomial <span class="keyword">in</span> monomials]</span><br><span class="line">	<span class="keyword">for</span> i, factor <span class="keyword">in</span> <span class="built_in">enumerate</span>(factors):</span><br><span class="line">		B.rescale_col(i, factor)</span><br><span class="line"></span><br><span class="line">	B = B.dense_matrix().LLL()</span><br><span class="line"></span><br><span class="line">	B = B.change_ring(QQ)</span><br><span class="line">	<span class="keyword">for</span> i, factor <span class="keyword">in</span> <span class="built_in">enumerate</span>(factors):</span><br><span class="line">		B.rescale_col(i, <span class="number">1</span>/factor)</span><br><span class="line"></span><br><span class="line">	H = <span class="type">Sequence</span>([], f.parent().change_ring(QQ))</span><br><span class="line">	<span class="keyword">for</span> h <span class="keyword">in</span> <span class="built_in">filter</span>(<span class="literal">None</span>, B*monomials):</span><br><span class="line">		H.append(h)</span><br><span class="line">		I = H.ideal()</span><br><span class="line">		<span class="keyword">if</span> I.dimension() == -<span class="number">1</span>:</span><br><span class="line">			H.pop()</span><br><span class="line">		<span class="keyword">elif</span> I.dimension() == <span class="number">0</span>:</span><br><span class="line">			roots = []</span><br><span class="line">			<span class="keyword">for</span> root <span class="keyword">in</span> I.variety(ring=ZZ):</span><br><span class="line">				root = <span class="built_in">tuple</span>(R(root[var]) <span class="keyword">for</span> var <span class="keyword">in</span> f.variables())</span><br><span class="line">				roots.append(root)</span><br><span class="line">			<span class="keyword">return</span> roots</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> []</span><br></pre></td></tr></table></figure>
 
-<p>稍微改一下脚本就出来了，很快啊</p>
+<p>稍微改一下脚本就出来了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">load(<span class="string">&#x27;coppersmith.sage&#x27;</span>)</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line"></span><br><span class="line">p = <span class="number">92946459607669937513774102250057295249718593723232674702212854287358873135783</span></span><br><span class="line">Fp = Zmod(p)</span><br><span class="line">b = <span class="number">43844336985235863734419631630425915388298791521868754583032904718644333115590</span></span><br><span class="line">c = <span class="number">193207529097125793778662519051231322609402866155819915933598367395102313904490702547833</span></span><br><span class="line">w0 = <span class="number">3248642833056635029095920782095626337949113592116495266</span></span><br><span class="line">w1 = <span class="number">4883935221919623989344404485025479346028101682781790392</span></span><br><span class="line"></span><br><span class="line">b,w0,w1 = <span class="built_in">map</span>(Fp, [b,w0,w1])</span><br><span class="line">PR.&lt;k0, k1&gt; = PolynomialRing(Fp)</span><br><span class="line"></span><br><span class="line">f = <span class="number">2</span>^<span class="number">146</span> * w0^<span class="number">2</span> + <span class="number">2</span>^<span class="number">74</span> * w0 * k0 + k0^<span class="number">2</span> - <span class="number">2</span>^<span class="number">73</span> * w1 + b - k1</span><br><span class="line">roots = small_roots(f, (<span class="number">2</span>^<span class="number">73</span>, <span class="number">2</span>^<span class="number">73</span>), m=<span class="number">3</span>)[<span class="number">0</span>]</span><br><span class="line">k0, k1 = roots</span><br><span class="line"></span><br><span class="line">v0 = <span class="number">2</span>^<span class="number">73</span> * w0 + k0</span><br><span class="line">v1 = <span class="number">2</span>^<span class="number">73</span> * w1 + k1</span><br><span class="line"></span><br><span class="line">PR.&lt;v&gt; = PolynomialRing(Fp)</span><br><span class="line">f = v^<span class="number">2</span> + b</span><br><span class="line">y = f(v1)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>):</span><br><span class="line">    y = f(y)</span><br><span class="line">    c ^^= <span class="built_in">int</span>(y)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(c))</span><br></pre></td></tr></table></figure>
 
-<p>当我整理WP的时候，将这个函数用到我昨天的等式上，发现也出来了，再贴一下完整脚本</p>
+<p>将这个函数用到我昨天的等式上，发现也可以出来</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">load(<span class="string">&quot;coppersmith.sage&quot;</span>)</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line"></span><br><span class="line">p = <span class="number">92946459607669937513774102250057295249718593723232674702212854287358873135783</span></span><br><span class="line">Fp = Zmod(p)</span><br><span class="line">pi = <span class="number">43844336985235863734419631630425915388298791521868754583032904718644333115590</span></span><br><span class="line">x_ = [<span class="number">3248642833056635029095920782095626337949113592116495266</span>, <span class="number">4883935221919623989344404485025479346028101682781790392</span>]</span><br><span class="line">c = <span class="number">193207529097125793778662519051231322609402866155819915933598367395102313904490702547833</span></span><br><span class="line"></span><br><span class="line">PR.&lt;t&gt; = PolynomialRing(Fp)</span><br><span class="line">f = t * t + pi</span><br><span class="line"></span><br><span class="line">PR.&lt;k0, k1&gt; = PolynomialRing(Fp)</span><br><span class="line">s = f(x_[<span class="number">0</span>]*<span class="number">2</span>^<span class="number">73</span> + k0)-x_[<span class="number">1</span>]*<span class="number">2</span>^<span class="number">73</span>-k1</span><br><span class="line">roots = small_roots(s, (<span class="number">2</span>^<span class="number">73</span>, <span class="number">2</span>^<span class="number">73</span>), m=<span class="number">3</span>)[<span class="number">0</span>]</span><br><span class="line">k0, k1 = roots</span><br><span class="line"></span><br><span class="line">v0 = <span class="number">2</span>^<span class="number">73</span> * x_[<span class="number">0</span>] + k0</span><br><span class="line">v1 = <span class="number">2</span>^<span class="number">73</span> * x_[<span class="number">1</span>] + k1</span><br><span class="line"></span><br><span class="line">y = f(v1)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">7</span>):</span><br><span class="line">    y = f(y)</span><br><span class="line">    c ^^= <span class="built_in">int</span>(y)</span><br><span class="line"><span class="built_in">print</span>(long_to_bytes(c))</span><br></pre></td></tr></table></figure>
 
-<p>所以jo师傅博客上面的推导，其实我们已经做了大半，就差一个函数实现了</p>
-<p><em>学到还挺多的。通过这道题，我认识到，以后在Crypto方向上，必须即时跟进新的题型，以及多逛逛github，并且足够幸运能够看懂一些原理，尽量都自己实现一下。现在确实tcl，之前实现的一个playfair，今天想跑的时候结果又错误满天飞</em></p>
-<h2 id="海那边漂来的漂流瓶"><a href="#海那边漂来的漂流瓶" class="headerlink" title="海那边漂来的漂流瓶"></a>海那边漂来的漂流瓶</h2><p>春哥师傅的题目，当时我们组有师傅第二个做出来</p>
+<h2 id="海那边漂来的漂流瓶"><a href="#海那边漂来的漂流瓶" class="headerlink" title="海那边漂来的漂流瓶"></a>海那边漂来的漂流瓶</h2><p>春哥师傅的题目</p>
 <blockquote>
 <p>题目描述</p>
 </blockquote>
@@ -446,31 +427,26 @@
 <blockquote>
 <p> 解题思路</p>
 </blockquote>
-<p>显然是类似一种单表替换的东西，然后随便挑了几个去搜，就在 github 上找到<a target="_blank" rel="noopener" href="https://github.com/chinese-opendesktop/cin-tables/blob/master/bopomofo.cin">https://github.com/chinese-opendesktop/cin-tables/blob/master/bopomofo.cin</a> 至于第一个 hint 我到现在都没有理解其意思，第二个 hint 是台湾方言和台湾网络用语，夸你很牛逼的意思</p>
+<p>显然是类似一种单表替换的东西，然后随便挑了几个去搜，就在 github 上找到<a target="_blank" rel="noopener" href="https://github.com/chinese-opendesktop/cin-tables/blob/master/bopomofo.cin">https://github.com/chinese-opendesktop/cin-tables/blob/master/bopomofo.cin</a> 至于第一个 hint 我到现在都没有理解其意思，第二个 hint 是台湾方言和台湾网络用语</p>
 <p>github 里是正体注音輸入法的对照词库吧，正好对应了 E04! 的由来，也很呼应题目</p>
-<p>然后手撕吧，太菜了，不会用 python 处理数据</p>
-<p>撕到一半</p>
+<p>手撕了</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">福尔摩沙高速公路北起基金公路南至大鹏湾，主线长<span class="number">431</span>公里，自北开始南行，依序经过基隆市、台北县、桃园县、新竹县、苗栗县、台中县、彰化县、南投县、云林县、嘉义县、台南县、高雄县与屏东县。fu lai ge的内容是吃葡萄不吐葡萄皮不吃葡萄不吐葡萄皮的汉语拼音首字母拼接。</span><br></pre></td></tr></table></figure>
 
-<p>另一位师傅说后面还有一些信息，但有师傅说直接输入这句顺口溜的拼音首字母就过了</p>
-<p>过了就过了吧</p>
-<p>然后看官方 WP 春哥师傅说可以用在线的网站搞；切换下输入法就好，强啊</p>
+<p>然后看官方 WP 春哥师傅说可以用在线的网站搞；切换下输入法就好</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711151337886.png" alt="image-20210711151337886"></p>
-<p><em>另外这种题目，比赛的时候不要死扣，能做出来就好，为了完美主义全部整出来绝对是浪费时间。在比赛中这点很重要。你有功夫大可赛后再搞，比如我现在就懒得搞了doge</em></p>
 <hr>
-<h2 id="群主说要出简单的题目大家把这题想简单一点"><a href="#群主说要出简单的题目大家把这题想简单一点" class="headerlink" title="群主说要出简单的题目大家把这题想简单一点"></a>群主说要出简单的题目大家把这题想简单一点</h2><p>xsl</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">24873777989291448485268365702265085243886872900039809831478881276969311714448924581398692832639705916538111455861057354225427758736198452679468399039512440497290615485190994957684665065261280544484301856860844163436499302230085760545686486398949018187416289923500558688885485672960734334858119391323987554701544773420070317895909846297195832399677291338220818181502181317849952785959097285626009703863257450199781708945715701136683994546852422993684382468187651935055302074609980311161155531603473091857526099148935429447319415714778860215376802270686310782735079899235228731429165106477537031235405221734008734614847</span></span><br><span class="line">e = <span class="number">12436888994645724242634182851132542621943436450019904915739440638484655857224462290699346416319852958269055727930528677112713879368099226339734199519756220248645307742595497478842332532630640272242150928430422081718249651115042880272843243199474509093708144961750279344442742836480367167429059695661993777350613653317802356713323129593521588320771616955563426747034967432053960828426250168954828986666929922730060781213890566121107119389060806644531516491192343284701151238691996162679338542186167193568672632227858449997036747029810933106336313085633759799229646747282205612102678724267585967720538082620536177904609</span></span><br><span class="line">c = <span class="number">7539424334663709603622451394173266049480031393220309445902319310504736287365860451132752036622339554159799611768328686792828750952551268647863160547774237934958072391797341405165512721597085695555356929495861914056799039140107261439671707574841789330531198534325422015873621769489969596614802282764401661006564546159674397356683650318142728009273827997179696988926599672213482848150751054351595386402597000601684644207559735499031666361222038615475154046453649719203304187309556004660926226182353445661702352380654352874617084419834338343925880593023307238768452509962</span></span><br></pre></td></tr></table></figure>
+<h2 id="群主说要出简单的题目大家把这题想简单一点"><a href="#群主说要出简单的题目大家把这题想简单一点" class="headerlink" title="群主说要出简单的题目大家把这题想简单一点"></a>群主说要出简单的题目大家把这题想简单一点</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">N = <span class="number">24873777989291448485268365702265085243886872900039809831478881276969311714448924581398692832639705916538111455861057354225427758736198452679468399039512440497290615485190994957684665065261280544484301856860844163436499302230085760545686486398949018187416289923500558688885485672960734334858119391323987554701544773420070317895909846297195832399677291338220818181502181317849952785959097285626009703863257450199781708945715701136683994546852422993684382468187651935055302074609980311161155531603473091857526099148935429447319415714778860215376802270686310782735079899235228731429165106477537031235405221734008734614847</span></span><br><span class="line">e = <span class="number">12436888994645724242634182851132542621943436450019904915739440638484655857224462290699346416319852958269055727930528677112713879368099226339734199519756220248645307742595497478842332532630640272242150928430422081718249651115042880272843243199474509093708144961750279344442742836480367167429059695661993777350613653317802356713323129593521588320771616955563426747034967432053960828426250168954828986666929922730060781213890566121107119389060806644531516491192343284701151238691996162679338542186167193568672632227858449997036747029810933106336313085633759799229646747282205612102678724267585967720538082620536177904609</span></span><br><span class="line">c = <span class="number">7539424334663709603622451394173266049480031393220309445902319310504736287365860451132752036622339554159799611768328686792828750952551268647863160547774237934958072391797341405165512721597085695555356929495861914056799039140107261439671707574841789330531198534325422015873621769489969596614802282764401661006564546159674397356683650318142728009273827997179696988926599672213482848150751054351595386402597000601684644207559735499031666361222038615475154046453649719203304187309556004660926226182353445661702352380654352874617084419834338343925880593023307238768452509962</span></span><br></pre></td></tr></table></figure>
 
 <p>e 很大，尝试过 boneh_durfee，但是出不来；检查条件，这 e 也太大了吧</p>
 <p>然后在诸多hint中看到</p>
-<p>当你凝视密文的时候，密文也在凝视着你。</p>
-<p>妙啊，尼采</p>
-<p>当你凝视密文的时候，明文也在凝视着你。直接 c 转字节，当时手快拿下一血</p>
-<h2 id="The-Dedication-of-Suspect-M"><a href="#The-Dedication-of-Suspect-M" class="headerlink" title="The Dedication of Suspect M"></a>The Dedication of Suspect M</h2><p>麻了，这场比赛最麻的一道题。8神师傅的题目，春哥师傅隔了7分钟就出了并且全场唯一解，直到比赛结束，我都丝毫没有头绪</p>
+<p>当你凝视密文的时候，密文也在凝视着你</p>
+<p>哈哈</p>
+<p>当你凝视密文的时候，明文也在凝视着你</p>
+<h2 id="The-Dedication-of-Suspect-M"><a href="#The-Dedication-of-Suspect-M" class="headerlink" title="The Dedication of Suspect M"></a>The Dedication of Suspect M</h2><p>8神师傅的题目，春哥师傅隔了7分钟就出了并且全场唯一解，直到比赛结束，我都丝毫没有头绪</p>
 <blockquote>
 <p>题目描述</p>
 </blockquote>
-<p>题目信息很多，我直接给图了</p>
+<p>题目信息很多</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711152717959.png" alt="image-20210711152717959"></p>
 <blockquote>
 <p>解题思路</p>
@@ -484,14 +460,10 @@
 <li><p>嫌疑人X的献身改成了嫌疑人M的陷深</p>
 </li>
 </ul>
-<p>？？？有内味了？？？燃起来了？？？</p>
-<p>一开始的时候丝毫没有头绪</p>
 <p>根据现有的线索：动态的每次 flag 都不相同、0-9 a-f，我所能想到的就是</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711154007056.png" alt="image-20210711154007056"></p>
-<p>但我和组内的师傅试过，不管是给文件 md5，还是给压缩包 md5，都不太行；md4也不行；还有是这个分割线不知道怎么切割，我一并按照样例来处理的，也不知道对不对。TNL，要达不溜屁</p>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/VRD%7D_TUZ28Z%7BHXI95%7DR4SR4.jpg" alt="img"></p>
-<p>第三天起床补的，发现春哥师傅发博客了，这就去添</p>
-<p>春哥师傅的思路是将那些不可见的字符给转变成换行符<code>0D 0A</code>，也就是<code>\r \n</code>，<strong>windows用<code>\r\n</code>表示换行</strong></p>
+<p>但我和组内的师傅试过，不管是给文件 md5，还是给压缩包 md5，都不太行</p>
+<p>春哥的思路是将那些不可见的字符给转变成换行符<code>0D 0A</code>，也就是<code>\r \n</code>，<strong>windows用<code>\r\n</code>表示换行</strong></p>
 <p>就是将这些不可见的小点通过在128个ascii字符表中位移带走</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210712094503819.png" alt="image-20210712094503819"></p>
 <p>春哥师傅准确计算出了密钥，我第一次也可以，但怎么改那些小字母数字提交的flag都不对，之后我重新开了几次环境，就直接爆破了</p>
@@ -499,7 +471,7 @@
 
 <p>找到像样的，是figlet艺术字，手敲一遍</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210712093228438.png" alt="image-20210712093228438"></p>
-<p>比赛结束，顺手带走几道水题，卡住了的记录一下</p>
+<p>比赛结束，刷了几道CTFSHOW上的题，记录一下</p>
 <h1 id="36D杯"><a href="#36D杯" class="headerlink" title="36D杯"></a>36D杯</h1><h2 id="justShow"><a href="#justShow" class="headerlink" title="justShow"></a>justShow</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hlcgoyfsjqknyifnpd:bcdefghijklmnopqrstuvwxyza</span><br></pre></td></tr></table></figure>
 
 <p>冒号后面的提示凯撒位移，移回来得到</p>
@@ -523,7 +495,7 @@
 <p>记得hashlib库里好像没有md4，就从github上随便找了一段源码</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_pad</span>(<span class="params">msg</span>):</span></span><br><span class="line">    n = <span class="built_in">len</span>(msg)</span><br><span class="line">    bit_len = n * <span class="number">8</span></span><br><span class="line">    index = n &amp; <span class="number">0x3f</span></span><br><span class="line">    pad_len = <span class="number">120</span> - index</span><br><span class="line">    <span class="keyword">if</span> index &lt; <span class="number">56</span>:</span><br><span class="line">        pad_len = <span class="number">56</span> - index</span><br><span class="line">    padding = <span class="string">b&#x27;\x80&#x27;</span> + <span class="string">b&#x27;\x00&#x27;</span> * <span class="number">63</span></span><br><span class="line">    suffix = bit_len.to_bytes(<span class="number">8</span>, <span class="string">&#x27;little&#x27;</span>, signed=<span class="literal">False</span>)</span><br><span class="line">    padded_msg = msg + padding[:pad_len] + suffix</span><br><span class="line">    <span class="keyword">return</span> padded_msg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_left_rotate</span>(<span class="params">n, b</span>):</span></span><br><span class="line">    <span class="keyword">return</span> ((n &lt;&lt; b) | ((n &amp; <span class="number">0xffffffff</span>) &gt;&gt; (<span class="number">32</span> - b))) &amp; <span class="number">0xffffffff</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_if</span>(<span class="params">x, y, z</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x &amp; y | ~x &amp; z</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_maj</span>(<span class="params">x, y, z</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x &amp; y | x &amp; z | y &amp; z</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_xor3</span>(<span class="params">x, y, z</span>):</span></span><br><span class="line">    <span class="keyword">return</span> x ^ y ^ z</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_f1</span>(<span class="params">a, b, c, d, k, s, X</span>):</span></span><br><span class="line">    <span class="keyword">return</span> _left_rotate(a + _<span class="keyword">if</span>(b, c, d) + X[k], s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_f2</span>(<span class="params">a, b, c, d, k, s, X</span>):</span></span><br><span class="line">    <span class="keyword">return</span> _left_rotate(a + _maj(b, c, d) + X[k] + <span class="number">0x5a827999</span>, s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_f3</span>(<span class="params">a, b, c, d, k, s, X</span>):</span></span><br><span class="line">    <span class="keyword">return</span> _left_rotate(a + _xor3(b, c, d) + X[k] + <span class="number">0x6ed9eba1</span>, s)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MD4</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.A = <span class="number">0x67452301</span></span><br><span class="line">        self.B = <span class="number">0xefcdab89</span></span><br><span class="line">        self.C = <span class="number">0x98badcfe</span></span><br><span class="line">        self.D = <span class="number">0x10325476</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span>(<span class="params">self, message_string</span>):</span></span><br><span class="line">        msg_bytes = _pad(message_string)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="built_in">len</span>(msg_bytes), <span class="number">64</span>):</span><br><span class="line">            self._compress(msg_bytes[i:i + <span class="number">64</span>])</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">_compress</span>(<span class="params">self, block</span>):</span></span><br><span class="line">        a, b, c, d = self.A, self.B, self.C, self.D</span><br><span class="line"></span><br><span class="line">        x = []</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0</span>, <span class="number">64</span>, <span class="number">4</span>):</span><br><span class="line">            x.append(<span class="built_in">int</span>.from_bytes(block[i:i + <span class="number">4</span>], <span class="string">&#x27;little&#x27;</span>, signed=<span class="literal">False</span>))</span><br><span class="line"></span><br><span class="line">        a = _f1(a, b, c, d, <span class="number">0</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f1(d, a, b, c, <span class="number">1</span>, <span class="number">7</span>, x)</span><br><span class="line">        c = _f1(c, d, a, b, <span class="number">2</span>, <span class="number">11</span>, x)</span><br><span class="line">        b = _f1(b, c, d, a, <span class="number">3</span>, <span class="number">19</span>, x)</span><br><span class="line">        a = _f1(a, b, c, d, <span class="number">4</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f1(d, a, b, c, <span class="number">5</span>, <span class="number">7</span>, x)</span><br><span class="line">        c = _f1(c, d, a, b, <span class="number">6</span>, <span class="number">11</span>, x)</span><br><span class="line">        b = _f1(b, c, d, a, <span class="number">7</span>, <span class="number">19</span>, x)</span><br><span class="line">        a = _f1(a, b, c, d, <span class="number">8</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f1(d, a, b, c, <span class="number">9</span>, <span class="number">7</span>, x)</span><br><span class="line">        c = _f1(c, d, a, b, <span class="number">10</span>, <span class="number">11</span>, x)</span><br><span class="line">        b = _f1(b, c, d, a, <span class="number">11</span>, <span class="number">19</span>, x)</span><br><span class="line">        a = _f1(a, b, c, d, <span class="number">12</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f1(d, a, b, c, <span class="number">13</span>, <span class="number">7</span>, x)</span><br><span class="line">        c = _f1(c, d, a, b, <span class="number">14</span>, <span class="number">11</span>, x)</span><br><span class="line">        b = _f1(b, c, d, a, <span class="number">15</span>, <span class="number">19</span>, x)</span><br><span class="line"></span><br><span class="line">        a = _f2(a, b, c, d, <span class="number">0</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f2(d, a, b, c, <span class="number">4</span>, <span class="number">5</span>, x)</span><br><span class="line">        c = _f2(c, d, a, b, <span class="number">8</span>, <span class="number">9</span>, x)</span><br><span class="line">        b = _f2(b, c, d, a, <span class="number">12</span>, <span class="number">13</span>, x)</span><br><span class="line">        a = _f2(a, b, c, d, <span class="number">1</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f2(d, a, b, c, <span class="number">5</span>, <span class="number">5</span>, x)</span><br><span class="line">        c = _f2(c, d, a, b, <span class="number">9</span>, <span class="number">9</span>, x)</span><br><span class="line">        b = _f2(b, c, d, a, <span class="number">13</span>, <span class="number">13</span>, x)</span><br><span class="line">        a = _f2(a, b, c, d, <span class="number">2</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f2(d, a, b, c, <span class="number">6</span>, <span class="number">5</span>, x)</span><br><span class="line">        c = _f2(c, d, a, b, <span class="number">10</span>, <span class="number">9</span>, x)</span><br><span class="line">        b = _f2(b, c, d, a, <span class="number">14</span>, <span class="number">13</span>, x)</span><br><span class="line">        a = _f2(a, b, c, d, <span class="number">3</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f2(d, a, b, c, <span class="number">7</span>, <span class="number">5</span>, x)</span><br><span class="line">        c = _f2(c, d, a, b, <span class="number">11</span>, <span class="number">9</span>, x)</span><br><span class="line">        b = _f2(b, c, d, a, <span class="number">15</span>, <span class="number">13</span>, x)</span><br><span class="line"></span><br><span class="line">        a = _f3(a, b, c, d, <span class="number">0</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f3(d, a, b, c, <span class="number">8</span>, <span class="number">9</span>, x)</span><br><span class="line">        c = _f3(c, d, a, b, <span class="number">4</span>, <span class="number">11</span>, x)</span><br><span class="line">        b = _f3(b, c, d, a, <span class="number">12</span>, <span class="number">15</span>, x)</span><br><span class="line">        a = _f3(a, b, c, d, <span class="number">2</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f3(d, a, b, c, <span class="number">10</span>, <span class="number">9</span>, x)</span><br><span class="line">        c = _f3(c, d, a, b, <span class="number">6</span>, <span class="number">11</span>, x)</span><br><span class="line">        b = _f3(b, c, d, a, <span class="number">14</span>, <span class="number">15</span>, x)</span><br><span class="line">        a = _f3(a, b, c, d, <span class="number">1</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f3(d, a, b, c, <span class="number">9</span>, <span class="number">9</span>, x)</span><br><span class="line">        c = _f3(c, d, a, b, <span class="number">5</span>, <span class="number">11</span>, x)</span><br><span class="line">        b = _f3(b, c, d, a, <span class="number">13</span>, <span class="number">15</span>, x)</span><br><span class="line">        a = _f3(a, b, c, d, <span class="number">3</span>, <span class="number">3</span>, x)</span><br><span class="line">        d = _f3(d, a, b, c, <span class="number">11</span>, <span class="number">9</span>, x)</span><br><span class="line">        c = _f3(c, d, a, b, <span class="number">7</span>, <span class="number">11</span>, x)</span><br><span class="line">        b = _f3(b, c, d, a, <span class="number">15</span>, <span class="number">15</span>, x)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># update state</span></span><br><span class="line">        self.A = (self.A + a) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        self.B = (self.B + b) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        self.C = (self.C + c) &amp; <span class="number">0xffffffff</span></span><br><span class="line">        self.D = (self.D + d) &amp; <span class="number">0xffffffff</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">digest</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="keyword">return</span> binascii.hexlify(</span><br><span class="line">            self.A.to_bytes(<span class="number">4</span>, <span class="string">&#x27;little&#x27;</span>, signed=<span class="literal">False</span>) + \</span><br><span class="line">            self.B.to_bytes(<span class="number">4</span>, <span class="string">&#x27;little&#x27;</span>, signed=<span class="literal">False</span>) + \</span><br><span class="line">            self.C.to_bytes(<span class="number">4</span>, <span class="string">&#x27;little&#x27;</span>, signed=<span class="literal">False</span>) + \</span><br><span class="line">            self.D.to_bytes(<span class="number">4</span>, <span class="string">&#x27;little&#x27;</span>, signed=<span class="literal">False</span>)</span><br><span class="line">        ).decode(<span class="string">&#x27;ascii&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
-<p>EXP</p>
+<p>exp</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sage <span class="keyword">import</span> MD4</span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> printable</span><br><span class="line"></span><br><span class="line">cipher = <span class="string">&#x27;&#x27;&#x27;1b08af276dbc7593271f4ee616289324</span></span><br><span class="line"><span class="string">e2ae3a2350743c516cda412499ba3be9</span></span><br><span class="line"><span class="string">bde52cb31de33e46245e05fbdbd6fb24</span></span><br><span class="line"><span class="string">e23e00be39d36f3462e576a67a7f9199</span></span><br><span class="line"><span class="string">18c79285b514c63fc9035e3f920ae477</span></span><br><span class="line"><span class="string">da44dd192defd1be79f63c350d2920cf</span></span><br><span class="line"><span class="string">4251c4c649c7d2f86327efde23992fa7</span></span><br><span class="line"><span class="string">aae7b2d482382aaad75fde64df8ff86f</span></span><br><span class="line"><span class="string">296f7ffc2e4545dc7792050ceb4a8711</span></span><br><span class="line"><span class="string">6107ac1a55f1e0fecb7ddb60fb3bf109</span></span><br><span class="line"><span class="string">aec2333321d73000161682d3c4ebc009</span></span><br><span class="line"><span class="string">5005b3bf00050bf4f7e43ac33a0454b8&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> printable:</span><br><span class="line">    m = MD4()</span><br><span class="line">    m.update(i.encode(<span class="string">&#x27;ascii&#x27;</span>))</span><br><span class="line">    t = m.digest()</span><br><span class="line">    <span class="keyword">if</span> t <span class="keyword">in</span> cipher:</span><br><span class="line">        cipher = cipher.replace(t, i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> cipher.split():</span><br><span class="line">    <span class="built_in">print</span>(i, end=<span class="string">&#x27;&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
 <p>得到flag</p>
@@ -564,19 +536,17 @@
 <p>先转成数字，这里第一次犯了迷糊，因为不一定是以 aeiou 的顺序，还需要爆破，这就意味有120种可能；找到了现成的 python 库实现</p>
 <p>看一遍就能懂，有一个坑，害我最后直接调试库里的代码才改正，就是这个参数必须给它大写的，不然后面会因为找不到而报错</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711190015963.png" alt="image-20210711190015963"></p>
-<p>EXP</p>
+<p>exp</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> itertools <span class="keyword">import</span> permutations</span><br><span class="line"><span class="keyword">from</span> pycipher <span class="keyword">import</span> PolybiusSquare</span><br><span class="line"><span class="keyword">from</span> string <span class="keyword">import</span> ascii_lowercase</span><br><span class="line"></span><br><span class="line">square = ascii_lowercase.replace(<span class="string">&#x27;j&#x27;</span>, <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">space = <span class="string">&#x27;AEIOU&#x27;</span></span><br><span class="line">cipher = <span class="string">&#x27;ouauuuoooeeaaiaeauieuooeeiea&#x27;</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> permutations(space, <span class="number">5</span>):</span><br><span class="line">    l = <span class="string">&#x27;&#x27;</span>.join(<span class="built_in">list</span>(i))</span><br><span class="line">    p = PolybiusSquare(key=square, size=<span class="number">5</span>, chars=l)</span><br><span class="line">    m = p.decipher(cipher).lower()</span><br><span class="line">    <span class="keyword">if</span> m.startswith(<span class="string">&#x27;flag&#x27;</span>):</span><br><span class="line">        <span class="built_in">print</span>(m)</span><br></pre></td></tr></table></figure>
 
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210711190109271.png" alt="image-20210711190109271"></p>
-<p>好家伙找到了宝藏了</p>
+<p>这个库有点东西</p>
 <h1 id="密码学AK赛"><a href="#密码学AK赛" class="headerlink" title="密码学AK赛"></a>密码学AK赛</h1><h2 id="加法"><a href="#加法" class="headerlink" title="加法"></a>加法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vtu[ypslg;sh&#125;lrunpstf[sddeptf\</span><br></pre></td></tr></table></figure>
 
 <p>冥冥之中很熟悉，但却说不出来是啥加密；本来打算放弃，然后随便抽取一段出来出来搜，发现一篇CSDN的博客，讲的是为了使密码安全，将密码键位向右移动一位，所谓的键位就是在键盘上位置</p>
-<p>直接手撕</p>
+<p>手撕了</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cryptoakflag&#123;keyboardpassword&#125;</span><br></pre></td></tr></table></figure>
 
-<hr>
-<p>不做了，先到这里吧，瞄了一眼姜少的排名，竟然差这么多，害，差距已经那么大了吗</p>
 
     </div>
 
@@ -590,34 +560,30 @@
 <div class="post-copyright">
 <ul>
   <li class="post-copyright-author">
-      <strong>本文作者： </strong>4XWi11
+      <strong>Post author:  </strong>4XWi11
   </li>
   <li class="post-copyright-link">
-      <strong>本文链接：</strong>
-      <a href="https://4xwi11.github.io/posts/78d3fdb3/" title="20210710 CTFSHOW CJBCrypto方向部分WP">https://4xwi11.github.io/posts/78d3fdb3/</a>
+      <strong>Post link: </strong>
+      <a href="https://4xwi11.github.io/posts/78d3fdb3/" title="20210710-CTFSHOW CJB-CryptoSecPartWriteUp">https://4xwi11.github.io/posts/78d3fdb3/</a>
   </li>
   <li class="post-copyright-license">
-    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
   </li>
 </ul>
 </div>
 
-          <div class="post-tags">
-              <a href="/tags/%E6%9B%BC%E5%88%87%E6%96%AF%E7%89%B9/" rel="tag"># 曼切斯特</a>
-              <a href="/tags/CopperSmith/" rel="tag"># CopperSmith</a>
-          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/798f5cbc/" rel="prev" title="20210706【胖哈勃的七月公开赛】">
-                  <i class="fa fa-chevron-left"></i> 20210706【胖哈勃的七月公开赛】
+                <a href="/posts/798f5cbc/" rel="prev" title="20210706-PWNHUB7月公开赛-CryptoSecPartWriteUp">
+                  <i class="fa fa-chevron-left"></i> 20210706-PWNHUB7月公开赛-CryptoSecPartWriteUp
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/e1a0b897/" rel="next" title="20210713 redpwnCrypto方向部分WP">
-                  20210713 redpwnCrypto方向部分WP <i class="fa fa-chevron-right"></i>
+                <a href="/posts/fadeeed/" rel="next" title="20210731-DAS & 极客巅峰 & UIUCTF2021 & Cryptoctf-CryptoSecPartWriteUp">
+                  20210731-DAS & 极客巅峰 & UIUCTF2021 & Cryptoctf-CryptoSecPartWriteUp <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -657,8 +623,8 @@
           mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
           seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
           snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-          document.getElementById("timeDate").innerHTML = "博主已经爬了 "+dnum+" 天 "; 
-          document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
       } 
   setInterval("createtime()",250);
   </script>
@@ -668,13 +634,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">1m</span>
+    <span title="Symbols count total">873k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">15:51</span>
+    <span title="Reading time total">13:13</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -682,7 +648,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-user"></i>
       </span>
-      <span class="site-uv" title="总访客量">
+      <span class="site-uv" title="Total Visitors">
         <span id="busuanzi_value_site_uv"></span>
       </span>
     </span>
@@ -690,20 +656,26 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-eye"></i>
       </span>
-      <span class="site-pv" title="总访问量">
+      <span class="site-pv" title="Total Views">
         <span id="busuanzi_value_site_pv"></span>
       </span>
     </span>
 </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div>
 
     </div>
   </footer>
 
   
   <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+// 在最后添加<script src="/js/code-unfold.js"></script>
 
   
 <script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
@@ -711,6 +683,7 @@
 
 
 
+  <script src="/js/third-party/fancybox.js"></script>
 
 
   
