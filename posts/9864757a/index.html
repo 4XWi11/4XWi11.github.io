@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)">
+<meta name="generator" content="Hexo 5.4.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/title.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#DDD","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="&amp;nbsp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20220709-蓝帽杯-CryptoSecWriteUp">
+<meta property="og:url" content="https://4xwi11.github.io/posts/9864757a/index.html">
+<meta property="og:site_name" content="4XWi11&#39;s Blog">
+<meta property="og:description" content="&amp;nbsp;">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220711185037329.png">
+<meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220714092634925.png">
+<meta property="article:published_time" content="2022-09-03T10:49:23.000Z">
+<meta property="article:modified_time" content="2022-09-04T03:50:22.149Z">
+<meta property="article:author" content="4XWi11">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220711185037329.png">
+
+
+<link rel="canonical" href="https://4xwi11.github.io/posts/9864757a/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://4xwi11.github.io/posts/9864757a/","path":"posts/9864757a/","title":"20220709-蓝帽杯-CryptoSecWriteUp"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>20220709-蓝帽杯-CryptoSecWriteUp | 4XWi11's Blog</title>
+  
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">4XWi11's Blog</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fas fa-pray fa-fw"></i>About</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#corrupted-key"><span class="nav-number">1.</span> <span class="nav-text">corrupted_key</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95%E4%B8%80"><span class="nav-number">1.1.</span> <span class="nav-text">解法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%B3%95%E4%BA%8C"><span class="nav-number">1.2.</span> <span class="nav-text">解法二</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RSA%E5%AF%86%E9%92%A5%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">RSA密钥文件格式</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">2.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="4XWi11"
+      src="/images/avatar.png">
+  <p class="site-author-name" itemprop="name">4XWi11</p>
+  <div class="site-description" itemprop="description">fuck Scr1pt</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">64</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/4XWi11" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;4XWi11" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/oQN2EzN0gTO0ITM" title="MTI0OTg0NzE2NQo → oQN2EzN0gTO0ITM"><i class="fab fa-qq fa-fw"></i>MTI0OTg0NzE2NQo</a>
+      </span>
+  </div>
+  <div class="cc-license site-overview-item animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdn.jsdelivr.net/npm/@creativecommons/vocabulary@2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+  <div class="links-of-blogroll site-overview-item animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      TeamGipsy
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.yuque.com/jinjinshigekeaigui" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;jinjinshigekeaigui" rel="noopener" target="_blank">j1ang-Web</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://scr1pt-kid.github.io/" title="https:&#x2F;&#x2F;scr1pt-kid.github.io&#x2F;" rel="noopener" target="_blank">Scr1pt-Virus Analysis</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.cnblogs.com/yunqian2017/" title="https:&#x2F;&#x2F;www.cnblogs.com&#x2F;yunqian2017&#x2F;" rel="noopener" target="_blank">Openg-Misc</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://blog.csdn.net/qq_53283643?spm=1001.2014.3001.5509" title="https:&#x2F;&#x2F;blog.csdn.net&#x2F;qq_53283643?spm&#x3D;1001.2014.3001.5509" rel="noopener" target="_blank">mxx307-Crypto</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://anza2001.github.io/" title="https:&#x2F;&#x2F;anza2001.github.io&#x2F;" rel="noopener" target="_blank">Anza-Pwn</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://jasonttu.github.io/" title="https:&#x2F;&#x2F;jasonttu.github.io&#x2F;" rel="noopener" target="_blank">Jason Tu-Intranet Penetration</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.yuque.com/qingguajun" title="https:&#x2F;&#x2F;www.yuque.com&#x2F;qingguajun" rel="noopener" target="_blank">Airtail-erciyuan</a>
+        </li>
+    </ul>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/4XWi11" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://4xwi11.github.io/posts/9864757a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.png">
+      <meta itemprop="name" content="4XWi11">
+      <meta itemprop="description" content="fuck Scr1pt">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="4XWi11's Blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          20220709-蓝帽杯-CryptoSecWriteUp
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2022-09-03 18:49:23" itemprop="dateCreated datePublished" datetime="2022-09-03T18:49:23+08:00">2022-09-03</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2022-09-04 11:50:22" itemprop="dateModified" datetime="2022-09-04T11:50:22+08:00">2022-09-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF-Crypto/" itemprop="url" rel="index"><span itemprop="name">CTF-Crypto</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/CTF-Crypto/WriteUp/" itemprop="url" rel="index"><span itemprop="name">WriteUp</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>13k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>12 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>&nbsp;<span id="more"></span></p>
+<h1 id="corrupted-key"><a href="#corrupted-key" class="headerlink" title="corrupted_key"></a>corrupted_key</h1><ul>
+<li><p>考点：RSA 已知cf+dq低位泄漏</p>
+</li>
+<li><p>题目</p>
+<p>脚本</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> PKCS1_OAEP</span><br><span class="line"><span class="keyword">from</span> secret <span class="keyword">import</span> flag</span><br><span class="line"></span><br><span class="line">key = RSA.generate(<span class="number">1024</span>)</span><br><span class="line"><span class="built_in">open</span>(<span class="string">&quot;flag.enc&quot;</span>,<span class="string">&#x27;wb&#x27;</span>).write(PKCS1_OAEP.new(key.publickey()).encrypt(flag))</span><br><span class="line"><span class="built_in">open</span>(<span class="string">&#x27;priv.pem&#x27;</span>,<span class="string">&#x27;wb&#x27;</span>).write(key.exportKey(<span class="string">&#x27;PEM&#x27;</span>))</span><br></pre></td></tr></table></figure>
+
+<p>corrupted key</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">-----BEGIN RSA PRIVATE KEY-----</span><br><span class="line">MIICXgIBAAKBgQDXFSUGqpzsBeUzXWtG9UkUB8MZn9UQkfH2Aw03YrngP0nJ3NwH</span><br><span class="line">UFTgzBSLl0tBhUvZO07haiqHbuYgBegO+Aa3qjtksb+bH6dz41PQzbn/l4Pd1fXm</span><br><span class="line">dJmtEPNh6TjQC4KmpMQqBTXF52cheY6GtFzUuNA7DX51wr6HZqHoQ73GQQIDAQAB</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">yQvOzxy6szWFheigQdGxAkEA4wFss2CcHWQ8FnQ5w7k4uIH0I38khg07HLhaYm1c</span><br><span class="line">zUcmlk4PgnDWxN+ev+vMU45O5eGntzaO3lHsaukX9461mA==</span><br><span class="line">-----END RSA PRIVATE KEY-----</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>通过学习PEM文件格式，<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c93a993f8997">https://www.jianshu.com/p/c93a993f8997</a>，可以获得模数、指数、低120的dq还有cf</p>
+<p>我所能想到的是将下面这个等式模$q-1$，在这个多项式下用CopperSmith<br>$$<br>ed=k\varphi+1<br>$$</p>
+<p>但位数太大了，不行，或者说是模数不太对</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">c = <span class="number">96458723724899437870554342796876171017896652413964521193266438981853945238446913579867464909353925601873532290626111170073532116639383463734148270579305067733147411306325252107181823453497914478588342362177625026365513002442585949837516090367171824895036711246039928723021679235071368954348296729327873680822</span></span><br><span class="line">c1 = <span class="string">&#x27;&#x27;</span>.join(<span class="string">&#x27;&#x27;&#x27;MIICXgIBAAKBgQDXFSUGqpzsBeUzXWtG9UkUB8MZn9UQkfH2Aw03YrngP0nJ3NwH</span></span><br><span class="line"><span class="string">UFTgzBSLl0tBhUvZO07haiqHbuYgBegO+Aa3qjtksb+bH6dz41PQzbn/l4Pd1fXm</span></span><br><span class="line"><span class="string">dJmtEPNh6TjQC4KmpMQqBTXF52cheY6GtFzUuNA7DX51wr6HZqHoQ73GQQIDAQAB&#x27;&#x27;&#x27;</span>.split(<span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">c2 = <span class="string">&#x27;&#x27;</span>.join(<span class="string">&#x27;&#x27;&#x27;yQvOzxy6szWFheigQdGxAkEA4wFss2CcHWQ8FnQ5w7k4uIH0I38khg07HLhaYm1c</span></span><br><span class="line"><span class="string">zUcmlk4PgnDWxN+ev+vMU45O5eGntzaO3lHsaukX9461mA==&#x27;&#x27;&#x27;</span>.split(<span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">n = <span class="string">b&#x27;&#x27;&#x27;\x00\xd7\x15%\x06\xaa\x9c\xec\x05\xe53]kF\xf5I\x14\x07\xc3\x19\x9f\xd5\x10\x91\xf1\xf6\x03\r7b\xb9\xe0?I\xc9\xdc\xdc\x07PT\xe0\xcc\x14\x8b\x97KA\x85K\xd9;N\xe1j*\x87n\xe6 \x05\xe8\x0e\xf8\x06\xb7\xaa;d\xb1\xbf\x9b\x1f\xa7s\xe3S\xd0\xcd\xb9\xff\x97\x83\xdd\xd5\xf5\xe6t\x99\xad\x10\xf3a\xe98\xd0\x0b\x82\xa6\xa4\xc4*\x055\xc5\xe7g!y\x8e\x86\xb4\\\xd4\xb8\xd0;\r~u\xc2\xbe\x87f\xa1\xe8C\xbd\xc6A&#x27;&#x27;&#x27;</span></span><br><span class="line">n = bytes_to_long(n)</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">cf = <span class="string">b&#x27;&#x27;&#x27;\x00\xe3\x01l\xb3`\x9c\x1dd&lt;\x16t9\xc3\xb98\xb8\x81\xf4#\x7f$\x86\r;\x1c\xb8Zbm\\\xcdG&amp;\x96N\x0f\x82p\xd6\xc4\xdf\x9e\xbf\xeb\xccS\x8eN\xe5\xe1\xa7\xb76\x8e\xdeQ\xecj\xe9\x17\xf7\x8e\xb5\x98&#x27;&#x27;&#x27;</span></span><br><span class="line">cf = bytes_to_long(cf)</span><br><span class="line">dp_bar = <span class="string">b&#x27;&#x27;&#x27;\xc9\x0b\xce\xcf\x1c\xba\xb35\x85\x85\xe8\xa0A\xd1\xb1&#x27;&#x27;&#x27;</span></span><br><span class="line">dp_bar = bytes_to_long(dp_bar)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">coppersmith</span>(<span class="params">k</span>):</span></span><br><span class="line">    F.&lt;x&gt; = PolynomialRing(Zmod(n))</span><br><span class="line">    f = e * (x * <span class="number">2</span> ^ <span class="number">120</span> + dp_bar) + k - <span class="number">1</span></span><br><span class="line">    f = f.monic()</span><br><span class="line">    x0 = f.small_roots(X=<span class="number">2</span>^<span class="number">392</span>)</span><br><span class="line">    <span class="keyword">return</span> x0</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(e, -<span class="number">1</span>, -<span class="number">1</span>)):</span><br><span class="line">    x0 = coppersmith(k)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(x0) != <span class="number">0</span>:</span><br><span class="line">        <span class="built_in">print</span>(x0)</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解法一"><a href="#解法一" class="headerlink" title="解法一"></a>解法一</h2><blockquote>
+<p>泄漏$d$低位，再CopperSmith构造等式</p>
+</blockquote>
+<p>别人的做法，首先根据$(1)$两边模$q-1$再化成等式可得<br>$$<br>ed_q=k(q-1)+1<br>$$<br>爆破$k$可以求出低位的$q$</p>
+<p>现在题目变成泄漏$q$的低120位，换做往常还是不能做，泄漏的位数太少了，但这里有$cf$，有一个比较变态的做法<br>$$<br>cf\cdot q^2-q\equiv 0\ (mod\ p)\notag<br>$$<br>看似上面这个模等于啥也没干，但是却可以用CopperSmith把$q$解出来，不知道为啥，但也是个新颖的思路</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> PKCS1_OAEP</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> gmpy2 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"></span><br><span class="line">n = <span class="number">0xd7152506aa9cec05e5335d6b46f5491407c3199fd51091f1f6030d3762b9e03f49c9dcdc075054e0cc148b974b41854bd93b4ee16a2a876ee62005e80ef806b7aa3b64b1bf9b1fa773e353d0cdb9ff9783ddd5f5e67499ad10f361e938d00b82a6a4c42a0535c5e76721798e86b45cd4b8d03b0d7e75c2be8766a1e843bdc641</span></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">cf = <span class="number">0xe3016cb3609c1d643c167439c3b938b881f4237f24860d3b1cb85a626d5ccd4726964e0f8270d6c4df9ebfebcc538e4ee5e1a7b7368ede51ec6ae917f78eb598</span></span><br><span class="line">d_low = <span class="number">0xc90bcecf1cbab3358585e8a041d1b1</span></span><br><span class="line">q_low = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(<span class="number">1</span>, e, <span class="number">2</span>)):</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        q0 = invert(i, <span class="number">2</span> ** <span class="number">120</span>) * (e * d_low + i - <span class="number">1</span>) % <span class="number">2</span> ^ <span class="number">120</span></span><br><span class="line">        q_low.append(q0)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">PR.&lt;x&gt; = Zmod(n)[]</span><br><span class="line">roots = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(<span class="built_in">len</span>(q_low))):</span><br><span class="line">    f = cf * (<span class="number">2</span>^<span class="number">120</span>*x + <span class="built_in">int</span>(q_low[i])) ^ <span class="number">2</span> - (<span class="number">2</span>^<span class="number">120</span>*x + <span class="built_in">int</span>(q_low[i]))</span><br><span class="line">    root = f.monic().small_roots(X = <span class="number">2</span>^(<span class="number">512</span>-<span class="number">120</span>))</span><br><span class="line">    <span class="keyword">if</span> root:</span><br><span class="line">        q = <span class="number">2</span>^<span class="number">120</span>*<span class="built_in">int</span>(root[<span class="number">0</span>]) + <span class="built_in">int</span>(q_low[i])</span><br><span class="line">        p = n // q</span><br><span class="line">        <span class="keyword">assert</span> p * q == n</span><br><span class="line">        d = inverse(e, (p - <span class="number">1</span>) * (q - <span class="number">1</span>))</span><br><span class="line">            rsa = RSA.construct((<span class="built_in">int</span>(n), <span class="built_in">int</span>(e), <span class="built_in">int</span>(d), <span class="built_in">int</span>(p), <span class="built_in">int</span>(q)))</span><br><span class="line">        <span class="comment"># c = bytes_to_long(open(&#x27;flag.enc&#x27;, &#x27;rb&#x27;).read())</span></span><br><span class="line">        c = <span class="number">96458723724899437870554342796876171017896652413964521193266438981853945238446913579867464909353925601873532290626111170073532116639383463734148270579305067733147411306325252107181823453497914478588342362177625026365513002442585949837516090367171824895036711246039928723021679235071368954348296729327873680822</span></span><br><span class="line">        c = long_to_bytes(c)</span><br><span class="line">        <span class="built_in">print</span>(PKCS1_OAEP.new(rsa).decrypt(c))</span><br><span class="line"><span class="comment"># c = 96458723724899437870554342796876171017896652413964521193266438981853945238446913579867464909353925601873532290626111170073532116639383463734148270579305067733147411306325252107181823453497914478588342362177625026365513002442585949837516090367171824895036711246039928723021679235071368954348296729327873680822</span></span><br><span class="line"><span class="comment"># p = 12112790828812363063315417237469719611888243756064158121348026938824270601623590308149025542977097905953795136774300936003505715307199422663647014200158449</span></span><br><span class="line"><span class="comment"># q = 12469144192094336933187534132907623337514842804208163244218540727384104398951558782195384932941310035462094951428865175221316720981428462265191789302379089</span></span><br><span class="line"><span class="comment"># d = inverse(e, (p - 1) * (q - 1))</span></span><br><span class="line"><span class="comment"># rsa = RSA.construct((n, e, d, p, q))</span></span><br><span class="line"><span class="comment"># print(PKCS1_OAEP.new(rsa).decrypt(open(&#x27;flag.enc&#x27;, &#x27;rb&#x27;).read()))</span></span><br><span class="line"><span class="comment"># flag&#123;f1bf5c44-e2b4-424f-baff-b38b73a82e72&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220711185037329.png" alt="image-20220711185037329"></p>
+<h2 id="解法二"><a href="#解法二" class="headerlink" title="解法二"></a>解法二</h2><blockquote>
+<p>官方的正规解法：CopperSmith求出$dq$，再$dp$泄漏攻击</p>
+</blockquote>
+<p>依旧是借助$(1)$，在化成$(2)$后将$kq$单独放到一边，得到<br>$$<br>ed_q+k-1=kq\notag<br>$$<br>已知$d_q$低位，$k$可以爆破，但是$q$不知道，不能构造一元CopperSmith。所以就想能不能把$q$给干掉，将其替换成已知低位的$kq$，于是就有<br>$$<br>cf\cdot q\equiv1\ (mod\ p)\rightarrow cf\cdot q-1\equiv0\ (mod\ p)\rightarrow cf\cdot (kq)^{x+1}-k\cdot (kq)^x\equiv0\ (mod\ n)\notag<br>$$<br>把$kq$代入上式可以，令$x=1$，就能得到一个模$n$等式，并且未知数个数为1，已知其低120位，设其高位为$x$，最终列出<br>$$<br>t = e\cdot (x+dp_l)-k+1\notag<br>$$<br>$$<br>cf\cdot t^2-k\cdot t\equiv 0\ (mod\ n)\notag<br>$$</p>
+<p>用CopperSmith求解</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> exploit.rsa.leakdpFracN <span class="keyword">import</span> divide_pq</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">from</span> Crypto.Cipher <span class="keyword">import</span> PKCS1_OAEP</span><br><span class="line"></span><br><span class="line">c = <span class="number">96458723724899437870554342796876171017896652413964521193266438981853945238446913579867464909353925601873532290626111170073532116639383463734148270579305067733147411306325252107181823453497914478588342362177625026365513002442585949837516090367171824895036711246039928723021679235071368954348296729327873680822</span></span><br><span class="line">c1 = <span class="string">&#x27;&#x27;</span>.join(<span class="string">&#x27;&#x27;&#x27;MIICXgIBAAKBgQDXFSUGqpzsBeUzXWtG9UkUB8MZn9UQkfH2Aw03YrngP0nJ3NwH</span></span><br><span class="line"><span class="string">UFTgzBSLl0tBhUvZO07haiqHbuYgBegO+Aa3qjtksb+bH6dz41PQzbn/l4Pd1fXm</span></span><br><span class="line"><span class="string">dJmtEPNh6TjQC4KmpMQqBTXF52cheY6GtFzUuNA7DX51wr6HZqHoQ73GQQIDAQAB&#x27;&#x27;&#x27;</span>.split(<span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">c2 = <span class="string">&#x27;&#x27;</span>.join(<span class="string">&#x27;&#x27;&#x27;yQvOzxy6szWFheigQdGxAkEA4wFss2CcHWQ8FnQ5w7k4uIH0I38khg07HLhaYm1c</span></span><br><span class="line"><span class="string">zUcmlk4PgnDWxN+ev+vMU45O5eGntzaO3lHsaukX9461mA==&#x27;&#x27;&#x27;</span>.split(<span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line">n = <span class="string">b&#x27;&#x27;&#x27;\x00\xd7\x15%\x06\xaa\x9c\xec\x05\xe53]kF\xf5I\x14\x07\xc3\x19\x9f\xd5\x10\x91\xf1\xf6\x03\r7b\xb9\xe0?I\xc9\xdc\xdc\x07PT\xe0\xcc\x14\x8b\x97KA\x85K\xd9;N\xe1j*\x87n\xe6 \x05\xe8\x0e\xf8\x06\xb7\xaa;d\xb1\xbf\x9b\x1f\xa7s\xe3S\xd0\xcd\xb9\xff\x97\x83\xdd\xd5\xf5\xe6t\x99\xad\x10\xf3a\xe98\xd0\x0b\x82\xa6\xa4\xc4*\x055\xc5\xe7g!y\x8e\x86\xb4\\\xd4\xb8\xd0;\r~u\xc2\xbe\x87f\xa1\xe8C\xbd\xc6A&#x27;&#x27;&#x27;</span></span><br><span class="line">n = bytes_to_long(n)</span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">cf = <span class="string">b&#x27;&#x27;&#x27;\x00\xe3\x01l\xb3`\x9c\x1dd&lt;\x16t9\xc3\xb98\xb8\x81\xf4#\x7f$\x86\r;\x1c\xb8Zbm\\\xcdG&amp;\x96N\x0f\x82p\xd6\xc4\xdf\x9e\xbf\xeb\xccS\x8eN\xe5\xe1\xa7\xb76\x8e\xdeQ\xecj\xe9\x17\xf7\x8e\xb5\x98&#x27;&#x27;&#x27;</span></span><br><span class="line">cf = bytes_to_long(cf)</span><br><span class="line">dq_bar = <span class="string">b&#x27;&#x27;&#x27;\xc9\x0b\xce\xcf\x1c\xba\xb35\x85\x85\xe8\xa0A\xd1\xb1&#x27;&#x27;&#x27;</span></span><br><span class="line">dq_bar = bytes_to_long(dq_bar)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">coppersmith</span>(<span class="params">k</span>):</span></span><br><span class="line">    F.&lt;x&gt; = PolynomialRing(Zmod(n))</span><br><span class="line">    tmp = e * (x * <span class="number">2</span> ^ <span class="number">120</span> + dq_bar) + k - <span class="number">1</span></span><br><span class="line">    f = cf * tmp ^ <span class="number">2</span> - k * tmp</span><br><span class="line">    f = f.monic()</span><br><span class="line">    x0 = f.small_roots(X=<span class="number">2</span>^<span class="number">392</span>)</span><br><span class="line">    <span class="keyword">return</span> x0</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tqdm <span class="keyword">import</span> tqdm</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> tqdm(<span class="built_in">range</span>(e, -<span class="number">1</span>, -<span class="number">1</span>)):</span><br><span class="line">    x0 = coppersmith(k)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(x0) != <span class="number">0</span>:</span><br><span class="line">        dq = <span class="built_in">int</span>(x0[<span class="number">0</span>] &lt;&lt; <span class="number">120</span>) + dq_bar</span><br><span class="line">        p, q = divide_pq(e, dq, n)</span><br><span class="line">        d = inverse(e, n - p - q + <span class="number">1</span>)</span><br><span class="line">        key = RSA.construct((<span class="built_in">int</span>(n), <span class="built_in">int</span>(e), <span class="built_in">int</span>(d)))           <span class="comment"># must add int()</span></span><br><span class="line">        <span class="built_in">print</span>(PKCS1_OAEP.new(key).decrypt(<span class="built_in">open</span>(<span class="string">&#x27;flag.enc&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>).read()))</span><br><span class="line">        <span class="keyword">break</span></span><br></pre></td></tr></table></figure>
+
+<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220714092634925.png" alt="image-20220714092634925"></p>
+<p>另外直接将PKCS1_OAEP写入文件的内容当成$c$是错的</p>
+<h2 id="RSA密钥文件格式"><a href="#RSA密钥文件格式" class="headerlink" title="RSA密钥文件格式"></a>RSA密钥文件格式</h2><p>手撕PEM，小实验一下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">from</span> base64 <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> long_to_bytes</span><br><span class="line"></span><br><span class="line">key = RSA.generate(<span class="number">1024</span>)</span><br><span class="line">cont = key.exportKey(<span class="string">&#x27;PEM&#x27;</span>)</span><br><span class="line"><span class="comment"># print(cont.decode())</span></span><br><span class="line"></span><br><span class="line">c = <span class="string">&#x27;&#x27;</span>.join(<span class="string">&#x27;&#x27;&#x27;&#x27;MIICXAIBAAKBgQDKGq9TTDZq8d8bjHGBvBTLCv+VzlHp6dqSD8j6tOeidSjhBVvw</span></span><br><span class="line"><span class="string">BCIsHOeISc6A2xVlYh8RDtZwdNt5sYG4r2qExEybnKOSHIRdrAtQtlcMq+Igzz80</span></span><br><span class="line"><span class="string">uAZ5rrv4GwP86B6KBcMLCQZw2iA9Ut5VO8bsEbx4+qbRklGSeiuD0V+jHQIDAQAB</span></span><br><span class="line"><span class="string">AoGAEVUD2ic8DM8yAgEjrtY8C5mlh5RfuVQLzDY8VyZygvUnN1JSqx0U99GBbae0</span></span><br><span class="line"><span class="string">D6A6OoKVWszPSRT3HtLr5rRsdFAAH3JtkxOckD+pl6zYdWjxIrRxI3ZwQMapJV3P</span></span><br><span class="line"><span class="string">GEI4mt3foYcQewC9e7PmnQuaC7VLCuz75tCVwa8TV6boXWUCQQDc4laKq/IPfbS6</span></span><br><span class="line"><span class="string">BtcFU0TlI8mBwJGoDLKt+5YB4c3nCYNEjb/8btO1b1i/ldl9qsgrCsXzOsPKg1mk</span></span><br><span class="line"><span class="string">XrTUCM/rAkEA6jwIUC+kfbM0nk5LdF4u7SWSJ+yJHmmXEwFGIhnQkSTzBoLMkuKd</span></span><br><span class="line"><span class="string">WIirD1gMYYUhq0OgxyFNVFQITYgeN9afFwJBALWFhB1eBQVaBwXBzT7hGYM9j8ID</span></span><br><span class="line"><span class="string">4S+7j7OPR82wJagylx/lZdsrsOwv3z1DBoNRsEI/DkI/DtwEacy8z9pYi5UCQFKU</span></span><br><span class="line"><span class="string">QZYLheFvCZD6J23qOn8O7N04bgsTzNg9bb1d/oL9VNSpznfGfxSUckJhl1PWPM2F</span></span><br><span class="line"><span class="string">dSxfGEUvrxGueIDVIJcCQGUz3r6/0csCC06aQFZE/y1LvzfmZNEyrTY4pLq2QFif</span></span><br><span class="line"><span class="string">ZihZ0hFLIF7/8x/s4LH4u9TEJctvc46We31/wL4f1Sk=&#x27;&#x27;&#x27;</span>.split(<span class="string">&#x27;\n&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(b64decode(c))</span><br><span class="line">n = <span class="number">141922422162179017903127585740733292572168561849445377008084607260848440837899202013613994221251833956396740748218860865627125387303232010980772920302901970895962267669411141364137560651832837189240644578805960981842828200127571251887961801814486793715132007244098977233800900588064918877074282156319288828701</span></span><br><span class="line">e = <span class="number">0x10001</span></span><br><span class="line">d = <span class="number">12171007522857319381238253318351994781875551832519536046982694574694017938812266074388236449458713766466807278106098911329167549909820889661040390462523611239298122892357825060171192914736392814191400078975478302074496640294564924161354815518818393075514178864568095461878185396950184140746495040638346091877</span></span><br><span class="line">p = <span class="number">11568640743445096899087582701840791920416346538267286644696280445889201611816852678096203713970033443624441112801937495058400134469307102394543137970769899</span></span><br><span class="line">q = <span class="number">12267856294404649670607892358949867977588327036687686342888422897170960672423334427787576824476551036688316206161248780078052957870595041033189662792261399</span></span><br><span class="line">dp = <span class="number">9507054841699589984147260771102451611300236383386476709493145433185843422940202504492200430703237273703787928243385409903647015308115139856345336601152405</span></span><br><span class="line">dq = <span class="number">4325019754981452166553173824763670897694100983912431038229351527215695657969408760761584487076471484851054304337330867505430727552376496072018053295317143</span></span><br><span class="line">cf = <span class="number">5300411165607780716414732822919524340053628209205783274101215577479096542425160668007906344942502152526592241185925153869158983775649429578743583673931049</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> [n, e, d, p, q, dp, dq, cf]:</span><br><span class="line">    <span class="built_in">print</span>(long_to_bytes(i))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">0\x82\x02\\\x02\x01\x00\x02\x81\x81\x00</span><br><span class="line">	\xca\x1a\xafSL6j\xf1\xdf\x1b\x8cq\x81\xbc\x14\xcb\n\xff\x95\xceQ\xe9\xe9\xda\x92\x0f\xc8\xfa\xb4\xe7\xa2u(\xe1\x05[\xf0\x04&quot;,\x1c\xe7\x88I\xce\x80\xdb\x15eb\x1f\x11\x0e\xd6pt\xdby\xb1\x81\xb8\xafj\x84\xc4L\x9b\x9c\xa3\x92\x1c\x84]\xac\x0bP\xb6W\x0c\xab\xe2 \xcf?4\xb8\x06y\xae\xbb\xf8\x1b\x03\xfc\xe8\x1e\x8a\x05\xc3\x0b\t\x06p\xda =R\xdeU;\xc6\xec\x11\xbcx\xfa\xa6\xd1\x92Q\x92z+\x83\xd1_\xa3\x1d</span><br><span class="line"></span><br><span class="line">\x02\x03</span><br><span class="line">	\x01\x00\x01</span><br><span class="line"></span><br><span class="line">\x02\x81\x80</span><br><span class="line">	\x11U\x03\xda\&#x27;&lt;\x0c\xcf2\x02\x01#\xae\xd6&lt;\x0b\x99\xa5\x87\x94_\xb9T\x0b\xcc6&lt;W&amp;r\x82\xf5\&#x27;7RR\xab\x1d\x14\xf7\xd1\x81m\xa7\xb4\x0f\xa0::\x82\x95Z\xcc\xcfI\x14\xf7\x1e\xd2\xeb\xe6\xb4ltP\x00\x1frm\x93\x13\x9c\x90?\xa9\x97\xac\xd8uh\xf1&quot;\xb4q#vp@\xc6\xa9%]\xcf\x18B8\x9a\xdd\xdf\xa1\x87\x10&#123;\x00\xbd&#123;\xb3\xe6\x9d\x0b\x9a\x0b\xb5K\n\xec\xfb\xe6\xd0\x95\xc1\xaf\x13W\xa6\xe8]e</span><br><span class="line"></span><br><span class="line">\x02A\x00</span><br><span class="line">	\xdc\xe2V\x8a\xab\xf2\x0f&#125;\xb4\xba\x06\xd7\x05SD\xe5#\xc9\x81\xc0\x91\xa8\x0c\xb2\xad\xfb\x96\x01\xe1\xcd\xe7\t\x83D\x8d\xbf\xfcn\xd3\xb5oX\xbf\x95\xd9&#125;\xaa\xc8+\n\xc5\xf3:\xc3\xca\x83Y\xa4^\xb4\xd4\x08\xcf\xeb</span><br><span class="line">	</span><br><span class="line">\x02A\x00</span><br><span class="line">	\xea&lt;\x08P/\xa4&#125;\xb34\x9eNKt^.\xed%\x92\&#x27;\xec\x89\x1ei\x97\x13\x01F&quot;\x19\xd0\x91$\xf3\x06\x82\xcc\x92\xe2\x9dX\x88\xab\x0fX\x0ca\x85!\xabC\xa0\xc7!MTT\x08M\x88\x1e7\xd6\x9f\x17</span><br><span class="line"></span><br><span class="line">\x02A\x00</span><br><span class="line">	\xb5\x85\x84\x1d^\x05\x05Z\x07\x05\xc1\xcd&gt;\xe1\x19\x83=\x8f\xc2\x03\xe1/\xbb\x8f\xb3\x8fG\xcd\xb0%\xa82\x97\x1f\xe5e\xdb+\xb0\xec/\xdf=C\x06\x83Q\xb0B?\x0eB?\x0e\xdc\x04i\xcc\xbc\xcf\xdaX\x8b\x95</span><br><span class="line">	</span><br><span class="line">\x02@</span><br><span class="line">	R\x94A\x96\x0b\x85\xe1o\t\x90\xfa&#x27;m\xea:\x7f\x0e\xec\xdd8n\x0b\x13\xcc\xd8=m\xbd]\xfe\x82\xfdT\xd4\xa9\xcew\xc6\x7f\x14\x94rBa\x97S\xd6&lt;\xcd\x85u,_\x18E/\xaf\x11\xaex\x80\xd5 \x97</span><br><span class="line"></span><br><span class="line">\x02@</span><br><span class="line">	e3\xde\xbe\xbf\xd1\xcb\x02\x0bN\x9a@VD\xff-K\xbf7\xe6d\xd12\xad68\xa4\xba\xb6@X\x9ff(Y\xd2\x11K ^\xff\xf3\x1f\xec\xe0\xb1\xf8\xbb\xd4\xc4%\xcbos\x8e\x96&#123;&#125;\x7f\xc0\xbe\x1f\xd5)</span><br></pre></td></tr></table></figure>
+
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/A9OmgHAmGLJPEL4cQBU8zQ">官方wp</a></li>
+</ol>
+<p>something else</p>
+<p><a target="_blank" rel="noopener" href="https://www.root-me.org/en/Challenges/Cryptanalysis/RSA-Corrupted-key-1">RSA - Corrupted key 1</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.root-me.org/en/Challenges/Cryptanalysis/RSA-Corrupted-key-V2">RSA - Corrupted key 2</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.root-me.org/en/Challenges/Cryptanalysis/RSA-Corrupted-key-3">RSA - Corrupted key 3</a></p>
+<p><a href="">God Like RSA</a></p>
+<p><a href="">Plaid CTF 2014</a></p>
+<p><a href="">0CTF 2016 Quals – Equation</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.voycn.com/article/ctf-writeup-2020dianxinhehulianwangxingyesaigerensaibufencryptotijie">Corrupted Keys</a></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          
+
+<div class="post-copyright">
+<ul>
+  <li class="post-copyright-author">
+      <strong>Post author:  </strong>4XWi11
+  </li>
+  <li class="post-copyright-link">
+      <strong>Post link: </strong>
+      <a href="https://4xwi11.github.io/posts/9864757a/" title="20220709-蓝帽杯-CryptoSecWriteUp">https://4xwi11.github.io/posts/9864757a/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CN" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/6451276b/" rel="prev" title="20220311-西湖论剑-IoTSecPartWriteUp">
+                  <i class="fa fa-chevron-left"></i> 20220311-西湖论剑-IoTSecPartWriteUp
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/posts/bf1c786b/" rel="next" title="20220526-第六届中国海洋大学信息安全竞赛暨Blue Whale CTF-CryptoSecPartWriteUp">
+                  20220526-第六届中国海洋大学信息安全竞赛暨Blue Whale CTF-CryptoSecPartWriteUp <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments utterances-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fas fa-user-secret"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">4XWi11</span>
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+      var now = new Date(); 
+      function createtime() { 
+          var grt= new Date("10/6/2021 14:38:00");//此处修改你的建站时间或者网站上线时间 
+          now.setTime(now.getTime()+250); 
+          days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+          hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+          if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+          mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+          seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+          snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+          document.getElementById("timeDate").innerHTML = " has been running for "+dnum+" Days "; 
+          document.getElementById("times").innerHTML = hnum + " H " + mnum + " Min " + snum + " S "; 
+      } 
+  setInterval("createtime()",250);
+  </script>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">2.5m</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">38:26</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/medium-zoom@1.0.6/dist/medium-zoom.min.js" integrity="sha256-EdPgYcPk/IIrw7FYeuJQexva49pVRZNmt3LculEr7zM=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js" integrity="sha256-mOFREFhqmHeQbXpK2lp4nA3qooVgACfh88fpJftLBbc=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script><script src="/js/code-unfold.js"></script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"all","js":{"url":"https://cdn.jsdelivr.net/npm/mathjax@3.2.0/es5/tex-mml-chtml.js","integrity":"sha256-r+3itOMtGGjap0x+10hu6jW/gZCzxHsoKrOd7gyRSGY="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+<script class="next-config" data-name="utterances" type="application/json">{"enable":true,"repo":"4XWi11/comments","issue_term":"pathname","theme":"github-dark","cdn":"https://utteranc.es/client.js"}</script>
+<script src="/js/third-party/comments/utterances.js"></script>
+
+</body>
+</html>
