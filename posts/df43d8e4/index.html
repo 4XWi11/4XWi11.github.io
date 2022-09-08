@@ -21,10 +21,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"4xwi11.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.8.0","exturl":false,"sidebar":{"position":"right","width":320,"display":"always","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#DDD","save":"auto"},"mediumzoom":true,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":"utterances","storage":true,"lazyload":false,"nav":null,"activeClass":"utterances"},"stickytabs":false,"motion":{"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":false}}</script><script src="/js/config.js"></script>
+<meta name="description" content="&amp;nbsp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="20210704-TCTF-CryptoSecPartWriteUp">
 <meta property="og:url" content="https://4xwi11.github.io/posts/df43d8e4/index.html">
 <meta property="og:site_name" content="4XWi11&#39;s Blog">
+<meta property="og:description" content="&amp;nbsp;">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704145347960.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704145514705.png">
@@ -150,7 +152,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text">checkin</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#checkin"><span class="nav-number">1.</span> <span class="nav-text">checkin</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -332,18 +334,18 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p> <span id="more"></span></p>
-<h1>checkin</h1>
-<p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704145347960.png" alt="image-20210704145347960"></p>
+        <p>&nbsp;<span id="more"></span></p>
+<h1 id="checkin"><a href="#checkin" class="headerlink" title="checkin"></a>checkin</h1><p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704145347960.png" alt="image-20210704145347960"></p>
 <p>看题目提示，只有一个nc链接和提示；没有附件，直接连上试试</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704145514705.png" alt="image-20210704145514705"></p>
 <p>返回一个代数式，要我们在10秒之内send结果</p>
 <p>先搞一组数据下来</p>
 <blockquote>
-<p>2^(2^11611932) mod 10042342927731289936658394995741010342152682534073824765054222876398250110801680355777521786191146694288599302671845390876211753297708706179377223481420568337199329681700808036260275208806645397912634380102847398612053278616443604561505446777411509098232951708762153696144378866698087620743454024477909423603 = ?</p>
+<p> 2^(2^11611932) mod 10042342927731289936658394995741010342152682534073824765054222876398250110801680355777521786191146694288599302671845390876211753297708706179377223481420568337199329681700808036260275208806645397912634380102847398612053278616443604561505446777411509098232951708762153696144378866698087620743454024477909423603 = ?</p>
 </blockquote>
 <p>结合提示，我尝试将指数给变小。对模数进行分析，发现是1023位的，用手头现有的工具都不能将其有效分解，也就是降低指数这条路多半是行不通；而且就算是求出了欧拉函数，这个数也是很大的，放到幂上去也不能将指数变小</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># nc 111.186.59.11 16256</span></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">context.log_level = <span class="string">&#x27;debug&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getroot</span>(<span class="params">s</span>):</span></span><br><span class="line">    m = re.findall(<span class="string">&quot;\d+&quot;</span>, s)</span><br><span class="line">    x, n = <span class="built_in">int</span>(m[<span class="number">2</span>]), <span class="built_in">int</span>(m[<span class="number">3</span>])</span><br><span class="line">    x = <span class="number">2</span>**x</span><br><span class="line">    ans = <span class="built_in">pow</span>(<span class="number">2</span>, x, n)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">str</span>(ans)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span>():</span></span><br><span class="line">    sh = remote(<span class="string">&#x27;111.186.59.11&#x27;</span>, <span class="number">16256</span>)</span><br><span class="line">    sh.recvline()</span><br><span class="line">    s = sh.recvuntil(<span class="string">&#x27;?&#x27;</span>)</span><br><span class="line">    sh.recvuntil(<span class="string">&#x27;Your answer: &#x27;</span>)</span><br><span class="line">    sh.sendline(getroot(s.decode()))</span><br><span class="line">    sh.recv()</span><br><span class="line">    sh.recv()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">main()</span><br></pre></td></tr></table></figure>
+
 <p>之后的我查了一些资料，其中尝试过用自己写的数域筛法分解模数，但想必这种算法，yafu和在线网站应该都包含了，还搭建了分解光滑数的工具也还是不行，但都以失败告终</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20210704160916416.png" alt="image-20210704160916416"></p>
 <p>尚师傅说用sage试试</p>
@@ -439,13 +441,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Symbols count total">2.6m</span>
+    <span title="Symbols count total">2.5m</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">38:45</span>
+    <span title="Reading time total">38:29</span>
   </span>
 </div>
 <div class="busuanzi-count">
