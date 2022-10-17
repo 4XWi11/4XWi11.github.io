@@ -59,7 +59,7 @@
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220418185802766.png">
 <meta property="og:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220418185818600.png">
 <meta property="article:published_time" content="2022-04-18T12:01:14.000Z">
-<meta property="article:modified_time" content="2022-09-10T12:22:35.360Z">
+<meta property="article:modified_time" content="2022-10-16T13:08:18.894Z">
 <meta property="article:author" content="4XWi11">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220413161356161.png">
@@ -311,7 +311,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">Edited on</span>
-        <time title="Modified: 2022-09-10 20:22:35" itemprop="dateModified" datetime="2022-09-10T20:22:35+08:00">2022-09-10</time>
+        <time title="Modified: 2022-10-16 21:08:18" itemprop="dateModified" datetime="2022-10-16T21:08:18+08:00">2022-10-16</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -374,11 +374,7 @@
 <li><p>生成n位RSA密钥</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> openssl genrsa -out 4xwi11_rsa_sk.key [n]</span></span><br></pre></td></tr></table></figure></li>
 <li><p>从RSA密钥中提取公钥</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> openssl rsa -<span class="keyword">in</span> 4xwi11_rsa_sk.key -pubout -out 4xwi11_rsa_pk.key</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p>关于RSA密钥文件的直接提取或使用不妨看看这篇，Fr.<a href="https://4xwi11.github.io/posts/d77a51b9/">https://4xwi11.github.io/posts/d77a51b9/</a></p>
-</li>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> openssl rsa -<span class="keyword">in</span> 4xwi11_rsa_sk.key -pubout -out 4xwi11_rsa_pk.key</span></span><br></pre></td></tr></table></figure></li>
 <li><p>在prime256v1下生成ECC密钥（前面的参数是椭圆曲线的参数用<code>openssl ecparam -list_curves</code>命令查看</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> openssl ecparam -genkey -name prime256v1 -param_enc explicit -outform pem -out 4xwi11_ec_sk.key</span></span><br></pre></td></tr></table></figure></li>
 <li><p>从ECC密钥中提取公钥</p>
@@ -399,7 +395,7 @@
 <p>使用下面命令可以查看私钥</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> openssl pkcs12 -info -<span class="keyword">in</span> 4xwi11.p12 -nodes -nocerts</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h2 id="使用gmssl生成p12格式的SM2证书"><a href="#使用gmssl生成p12格式的SM2证书" class="headerlink" title="使用gmssl生成p12格式的SM2证书"></a>使用gmssl生成p12格式的SM2证书</h2><p>安装gmssl，Fr.<a target="_blank" rel="noopener" href="https://github.com/guanzhi/GmSSL/tree/master">https://github.com/guanzhi/GmSSL/tree/master</a></p>
+<h2 id="使用gmssl生成p12格式的SM2证书"><a href="#使用gmssl生成p12格式的SM2证书" class="headerlink" title="使用gmssl生成p12格式的SM2证书"></a>使用gmssl生成p12格式的SM2证书</h2><p>安装gmssl，参考<a target="_blank" rel="noopener" href="https://github.com/guanzhi/GmSSL/tree/master">https://github.com/guanzhi/GmSSL/tree/master</a></p>
 <p>为了加深理解，在用gmssl生成SM2证书的同时，模拟下证书是如何签发的</p>
 <p>首先要关注下gmssl的配置文件<code>/usr/local/gmssl/openssl.cnf</code>（在安装gmssl的目录，因为要符合配置文件，所以要保持文件名相同或者根据需求进行修改，添加相应的默认文件，即<code>mkdir newcerts private certs crl &amp;&amp; touch index.txt &amp;&amp; vi serial</code>，并在serial中输入初始化序列号，比如02</p>
 <p>其中</p>
@@ -496,7 +492,7 @@
 
 <hr>
 <p>2022-04-18补充：</p>
-<p>上面这个鸡贼的方法，当然会惨遭不测（现象是在数字签名的时候，除了老师导给我的SM2证书，我自己生成的其他证书验签都失败了）由于错得我觉得比较印象深刻，这里单独补充一下</p>
+<p>上面这个鸡贼的方法，当然会惨遭不测（现象是在数字签名的时候，除了老师导给我的SM2证书，我自己生成的其他证书验签都失败了）由于错得印象深刻，这里单独补充一下</p>
 <p>原因是</p>
 <p><img data-src="http://mypictruebed.oss-cn-hangzhou.aliyuncs.com/img/image-20220418155711428.png" alt="image-20220418155711428"></p>
 <p>这个来自《GMT0016-2012智能IC卡及智能密码钥匙密码应用接口规范》</p>
@@ -635,7 +631,7 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">38:29</span>
+    <span title="Reading time total">38:31</span>
   </span>
 </div>
 <div class="busuanzi-count">

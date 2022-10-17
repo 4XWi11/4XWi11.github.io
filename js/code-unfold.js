@@ -53,13 +53,13 @@ $(window).on('scroll', function () {
 
 // 添加隐藏容器
 function addCodeWrap($node) {
-  var $container = $node.wrap('<div class="js_highlight_container highlight-container"><div class="highlight-wrap"></div></div>').closest('.js_highlight_container');
+  var $container = $node.wrap('<div id="axwi11_add_it"><div class="js_highlight_container highlight-container"><div class="highlight-wrap"></div></div></div>').closest('.js_highlight_container');
 
   // 底部 "展开代码" 与 侧边栏 "收起代码"
   var $btn = $(`
     <div class="highlight-footer">
       <a class="js_unfold_code_btn show-btn" href="javascript:;">展开代码<i class="fa fa-angle-down" aria-hidden="true"></i></a>
-    </div>
+      </div>
     <a class="js_retract_code_btn hide-btn" href="javascript:;"><i class="fa fa-angle-up" aria-hidden="true"></i>收起代码</a>
   `);
 

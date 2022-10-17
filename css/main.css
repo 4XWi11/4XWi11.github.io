@@ -2907,7 +2907,7 @@ mjx-container[display='true'] + br {
 }
 .highlight-container .highlight-wrap {
   overflow: hidden;
-  max-height: 200px;
+  max-height: 240px;
 }
 .highlight-container .highlight-footer {
   position: absolute;
@@ -2971,6 +2971,9 @@ mjx-container[display='true'] + br {
 .highlight-container .js_unfold_code_btn:hover,
 .highlight-container .js_retract_code_btn:hover {
   border-bottom-color: none !important;
+}
+#axwi11_add_it {
+  padding-bottom: 1em;
 }
 hr {
   height: 2px;
@@ -3221,7 +3224,7 @@ hr {
   vertical-align: middle;
 }
 .links-of-author a::before {
-  background: #8a77bd;
+  background: #6ce253;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
